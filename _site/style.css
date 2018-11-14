@@ -43,6 +43,7 @@ h6 {
     font-weight: 700;
 }
 
+hr.star-other,
 hr.star-light,
 hr.star-primary {
     margin: 25px auto 30px;
@@ -54,6 +55,7 @@ hr.star-primary {
     overflow: visible;
 }
 
+hr.star-other:after,
 hr.star-light:after,
 hr.star-primary:after {
     content: "\f005";
@@ -81,6 +83,15 @@ hr.star-primary {
 hr.star-primary:after {
     color: #2553a4ff;
     background-color: #fff;
+}
+
+hr.star-other {
+    border-color: #fff;
+}
+
+hr.star-other:after {
+    color: #fff;
+    background-color: #2553a4ff;
 }
 
 .img-centered {
@@ -116,11 +127,22 @@ header .intro-text .skills {
     font-weight: 300;
 }
 
+header .intro-text .other {
+    font-size: 0.7em;
+    font-weight: 300;
+}
+
 @media(min-width:768px) {
     header .container {
         padding-top: 200px;
         padding-bottom: 100px;
     }
+
+    header .lesstop {
+        padding-top: 30px;
+        padding-bottom: 100px;
+    }
+
 
     header .intro-text .name {
         font-size: 4.75em;
@@ -128,6 +150,10 @@ header .intro-text .skills {
 
     header .intro-text .skills {
         font-size: 1.75em;
+    }
+    
+    header .intro-text .other {
+        font-size: 1.3em;
     }
 }
 
