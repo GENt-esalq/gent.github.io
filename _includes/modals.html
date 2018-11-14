@@ -16,24 +16,24 @@
                             <hr class="star-primary">
                             <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
                             {% if post.description %}
-                                <p>{{ post.description }}</p>
+                                <p> {{ post.description }}</p>
                             {% endif %}
                             <ul class="list-inline item-details">
-                                {% if post.client %}
-                                    <li>Client:
-                                        <strong><a href="http://startbootstrap.com">{{ post.client }}</a>
+                                {% if post.local %}
+                                    <li>Local:
+                                        <strong>{{ post.local }}
                                         </strong>
                                     </li>
                                 {% endif %}
                                 {% if post.project-date %}
-                                    <li>Date:
-                                        <strong><a href="http://startbootstrap.com">{{ post.project-date }}</a>
+                                    <li>Data:
+                                        <strong>{{ post.project-date }}
                                         </strong>
                                     </li>
                                 {% endif %}
-                                {% if post.category %}
-                                    <li>Service:
-                                        <strong><a href="http://startbootstrap.com">{{ post.category }}</a>
+                                {% if post.hora %}
+                                    <li>Horário:
+                                        <strong>{{ post.hora }}
                                         </strong>
                                     </li>
                                 {% endif %}
