@@ -7,7 +7,6 @@
           <h2>Participe</h2>
           <hr class="star-other">
           <div class="col-lg-12">
-
 	    {% include slideshow.html %}
             <img class="img-responsive" src="img/participe.png" alt="">
             <div class="intro-text">

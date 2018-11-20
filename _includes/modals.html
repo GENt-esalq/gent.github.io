@@ -12,13 +12,13 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>{{ post.title }}</h2>
+                            <h2><center>{{ post.title }}</center></h2>
                             <hr class="star-primary">
                             <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
                             {% if post.description %}
                                 <p> {{ post.description }}</p>
                             {% endif %}
-                            <ul class="list-inline item-details">
+                            <ul class="list item-details">
                                 {% if post.local %}
                                     <li>Local:
                                         <strong>{{ post.local }}
@@ -38,7 +38,13 @@
                                     </li>
                                 {% endif %}
                             </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+			    {% if post.maisinfo %}
+			    <div class="col-lg-8 col-lg-offset-2 text-center">
+			      <a href="{{ post.maisinfo }}" class="btn btn-lg btn-outline">
+				<i class="btn btn-success btn-lg"> Mais informações</i>
+			      </a>
+			    </div>
+			    {% endif %}
                         </div>
                     </div>
                 </div>
