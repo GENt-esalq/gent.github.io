@@ -36,7 +36,7 @@ color:
 # Footer settings
 footer:
 #  copyright: 
-#  location: Localização
+  location: Referências
   social: Acesse também
   credits: Apoio	
 
@@ -46,9 +46,11 @@ social:
     url: https://github.com/GENt-esalq
 
 # Postal address (add as many lines as necessary)
-address:
+#address:
 #  - line: 3481 Melrose Place
 #  - line: Beverly Hills, CA 90210
+
+location: 
 
 # Credits content
 credits: 'Colocar aqui logo de agências e empresas'
