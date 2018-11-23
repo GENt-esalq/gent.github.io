@@ -10,6 +10,8 @@ meta_author: LastName FirstName
 # Google webmaster tools
 google_verify:
 
+google_analytics: UA-129441865-1
+
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
@@ -34,7 +36,7 @@ color:
 # Footer settings
 footer:
 #  copyright: 
-#  location: Localização
+  location: Referências
   social: Acesse também
   credits: Apoio	
 
@@ -44,9 +46,11 @@ social:
     url: https://github.com/GENt-esalq
 
 # Postal address (add as many lines as necessary)
-address:
+#address:
 #  - line: 3481 Melrose Place
 #  - line: Beverly Hills, CA 90210
+
+location: 
 
 # Credits content
 credits: 'Colocar aqui logo de agências e empresas'
