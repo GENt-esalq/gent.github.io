@@ -16,7 +16,7 @@
                             <hr class="star-primary">
                             <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
                             {% if post.description %}
-                                <p> {{ post.description }}</p>
+                                {{ post.description }}
                             {% endif %}
                             <ul class="list item-details">
                                 {% if post.local %}
