@@ -1,7 +1,6 @@
 ---
 layout: default
 modal-id: 1
-date: 2014-07-18
 img: niver.png
 alt: image-alt
 project-date: 05/12/2018
@@ -13,7 +12,7 @@ description: "<p style = 'text-align: justify;'> As atividades de estudo de gen�
 
 <p style = 'text-align: justify;' >Venha participar, comer uma pipoca com guaraná e comemorar o aniversário do Departamento de Genética com a GENt! Traga sua caneca! </p> "
 
-hora: 16 às 18h
+hora: 17 às 18h
 local: Anfiteatro do Departamento de Genética, ESALQ/USP
 maisinfo: niver.html
 ---
