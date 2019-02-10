@@ -1,0 +1,56 @@
+<center>
+<figure>
+  <img src="img/mulher.png" width="400" height="350" class="center">
+</figure>
+</center>
+
+<div style="text-align: justify"> 
+Em 22 de dezembro de 2015, um momento histórico aconteceu na 70ª sessão da Assembléia Geral das Nações Unidas: proclamou-se 11 de fevereiro como o **Dia Internacional das Mulheres e Meninas na Ciência**. A ação foi resultado de uma ideia compartilhada por representantes da UNESCO (Organização das Nações Unidas para a Educação, a Ciência e a Cultura), ONU Mulheres, Organização Mundial da Saúde, UNRWA (Agência das Nações Unidas de Assistência aos Refugiados da Palestina), UNICEF (Fundo das Nações Unidas para a Infância), UNFPA (Fundo de Populações das Nações Unidas) e do movimento mundial “Toda mulher toda criança” ("Every Woman Every Child") no evento mundial da Saúde e Desenvolvimento da Mulher.
+
+Entre as muitas colocações de autoridades sobre a data, está a do atual Secretário Geral das Nações Unidas, Antonio Guterres:
+
+“Por muito tempo, estereótipos discriminatórios têm impedido mulheres e crianças de ter acesso igualitário à educação em ciência, tecnologia, engenharia e matemática (CTEM). Como um engenheiro treinado e professor formado, eu sei que estes estereótipos estão plenamente errados. Eles negam à mulheres e meninas a oportunidade de realizar seu potencial - e privam o mundo da genialidade e inovação provinda de metade da população. Neste dia Internacional, eu proclamo compromisso com o fim desse viés, maiores investimentos em educação CTEM para todas as mulheres e meninas, assim como oportunidades para suas carreiras e avanços profissionais para que todos possam ser beneficiados pelas inovadoras contribuições futuras.”
+
+O [logo](https://womeninscienceday.org/WISID_WP/logo/) elaborado para este dia mostra grandes mulheres na ciência, as quais iniciaram a construção de um caminho para aquelas que vêm depois, tornando-se modelos, e servindo de inspiração e motivação para as próximas gerações. A cor do logo mostra igualdade, equidade e paridade, mostrando que a ciência pertence a todos os cidadãos e cidadãs.
+
+Pelas reconhecidas organizações e personalidades envolvidas, já é possível perceber a importância da data proclamada. A desigualdade de gênero na ciência pode parecer uma realidade distante para muitos de nós, afinal, vemos mulheres por todos os lados aqui, não é mesmo? Mas vamos verificar alguns dados já coletados a respeito, porque nós cientistas gostamos de analisá-los e porque eles foram o motivo para que as organizações criassem a data de conscientização.
+
+De acordo com um estudo feito pela ONU, apenas 30% dos cientistas do mundo são mulheres. Outro estudo feito pela UNESCO (2014-2016) aponta que, das mulheres cientistas, apenas 30% seguem as áreas CTEM na formação superior. A organização aponta como uma causa dessa desigualdade os estereótipos de gênero existentes. Na revista Science, foi publicado um artigo mostrando que o efeito dos estereótipos impostos culturalmente passam a afetar as crianças a partir de 6 ou 7 anos, resultando na desassociação de personalidades brilhante de sucesso à uma pessoas do sexo feminino.
+
+A maior preocupação é que, estima-se que 65% das crianças que estão na escola hoje, terão empregos no futuro, ainda não existentes na atualidade. Grande parte desses novos empregos surgirão das áreas CTEM, e as meninas serão significativamente prejudicadas por não adentrarem nessas áreas.
+
+Além disso, atualmente, mulheres têm menos de dois terços das oportunidades econômicas que os homens. E com o desenvolvimento da CTEM, essa diferença tende a aumentar.
+
+Outros dados:
+
+- 97% dos prêmios Nobel foram entregues a homens;
+
+- De acordo com um estudo em 14 países, a probabilidade de mulheres obterem o grau de licenciatura, mestrado e doutoramento em campos relacionados com a ciência é de 18%, 8% e 2%, respectivamente; enquanto que as porcentagens masculinas são de 37%, 18% e 6%;
+
+- Apenas 20% dos revisores de revistas científicas são mulheres;
+Se analisadas as bolsas de pesquisa do CNPq nacionais, as mulheres só aparecem com maior frequência em bolsas institucionais que são escolhidas internamente por cada grupo de estudo. Para cargos de maior destaque, a escolha da vaga é concebida ao Comitê Nacional Centralizado no Órgão, majoritariamente composto por homens.
+
+E sabem o que podemos fazer para quebrarmos esses estereótipos impostos? Valorizar e destacar as mulheres que hoje estão na ciência. Assim, damos o exemplo para as próximas. Mostramos que, além de não precisar ser homem para ser cientista admirável, também não precisa ser aquela cientista tímida de óculos fundo de garrafa (mas pode ser também!). Existe um grande número de mulheres cientistas notáveis que precisam ser reconhecidas e exaltadas para que possam atingir alguma mulher ou menina que esteja só esperando por uma imagem para se identificar, inspirar e  motivar.
+Por isso, nesta data, o grupo GENt destaca algumas mulheres cientistas admiráveis. Confira os cartazes nos corredores do departamento e vamos juntos(as) trabalhar para que existam menos barreiras para termos maior diversidade de personalidades e ideias no meio científico. Todos saímos ganhando!
+
+
+# Saiba mais sobre as cientistas incríveis e admiráveis que temos hoje no nosso departamento
+
+# Saiba mais sobre algumas outras cientistas admiráveis que passaram pela história dos estudos em genética
+
+<font color="darkgreen">Você conhece essas pesquisadoras ou mais alguma que tenha passado pela história? Conte para nós! Nos ajude a registrar!</font>
+
+
+**Referências**
+
+https://peerj.com/articles/4000/
+
+http://science.sciencemag.org/content/355/6323/389
+
+http://www.unwomen.org/en/news/in-focus/international-day-of-women-and-girls-in-science
+
+https://womeninscienceday.org/WISID_WP/logo/
+
+https://www.obaricentrodamente.com/2018/02/dia-internacional-das-mulheres-e-meninas-na-ciencia.html
+
+</div>
