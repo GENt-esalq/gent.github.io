@@ -1,0 +1,13 @@
+---
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+# Cientistas trabalhando...
+
+![](img/wait.png)
+
+
+Logo teremos novidades aqui!

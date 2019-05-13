@@ -1,0 +1,24 @@
+---
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+# Uma manhã de domingo em frente ao prédio central da ESALQ (Piracicaba - SP)
+
+No domingo, dia 12 de maio de 2019, a GENt se juntou à pesquisadores do Departamento de Engenharia Florestal e do Departamento de Entolomogia para divulgar mais um pouco de ciência. Dessa vez, na frente do prédio central da nossa própria Universidade. A ESALQ possui belos jardins e é escolha de muitas pessoas para um passeio no final de semana. Essas pessoas foram nosso público nesse domingo.
+
+Nosso mascote já estava louco por um novo passeio! (Se você ainda não o conhece, saiba mais [aqui](../05.05.2019/fotos_05.05.2019.html))
+
+![](1.jpg)
+
+Dessa vez ele ganhou até um nome: Amarelinho!
+Todas as crianças quiseram passear com ele.
+
+![](2.jpg)
+
+![](3.jpg)
+
+Pretendemos levar essa mesma atividade para outras regiões da cidade. Se você é cientista, **junte-se à nós**! É muito importante a população em geral ter em contato com a pesquisa que é feita nas Universidades. E é um grande aprendizado para nós também.
+
