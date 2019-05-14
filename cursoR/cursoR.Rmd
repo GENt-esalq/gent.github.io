@@ -1,6 +1,6 @@
 ---
 date: "`r Sys.Date()`"
-author: "[GENt](https://gent-esalq.github.io/) <br/>  Luiz de Queiroz College of Agriculture <br/> University of São Paulo"
+author: "[GENt](https://gent-esalq.github.io/) <br/>  Escola Superior de Agricultura Luiz de Queiroz <br/> Universidade de São Paulo"
 output:
     rmdformats::readthedown:
       css: readthedowngvenk.css
@@ -8,10 +8,12 @@ output:
 
 # Treinamento em Programação no Ambiente R
 
-Esse material foi elaborado para o *Treinamento em Programação no Ambiente R
+Esse material foi elaborado para o **Treinamento em Programação no Ambiente R**
 organizado pelo GENt, grupo de Divulgação Científica do Programa de Pós-Graduação em Genética e Melhoramento de Plantas da ESALQ- USP. 
 
 Você pode acessar mais informações sobre o grupo neste [link](https://gent-esalq.github.io/). No site você pode encontrar as atividades que temos desenvolvido. 
+
+Este treinamento também recebe apoio do grupo [GVENCK](https://gvenck.github.io/1home.html) e do [Departamento de Genética da ESALQ](http://www.genetica.esalq.usp.br/).
 
 Sugerimos que, antes de iniciar a prática aqui descrita, siga [este tutorial](https://GENt-esalq.github.io/cursoR/Tutorial_instalacao.html) para instalação do R e do RStudio.
 
@@ -42,7 +44,7 @@ cat("Hello world")
 
 Agora selecione a linha e aperte o botão `Run` ou utilize `Ctrl + enter`.
 
-Ao fazer isso o seu código será processado na janela `Console`, onde aparecerá em azul (se você estiver com as cores padrão do R) o código escrito e logo em seguida o resultado desejado. A linha somente não será processada no console se houver o símbolo `#` na frente. Agora, experimente colocar `#` na frente do código escrito. E, novamente, selecione a linha e aperte `Run`. 
+Ao fazer isso o seu código será processado na janela `Console`, onde aparecerá em azul (se você estiver com as cores padrão do R) o código escrito e, logo em seguida, o resultado desejado. A linha somente não será processada no console se houver o símbolo `#` na frente. Agora, experimente colocar `#` na frente do código escrito. E, novamente, selecione a linha e aperte `Run`. 
 
 ```{r}
 # cat("Hello world")
@@ -57,8 +59,7 @@ cat("Hello world")
 
 **Importante**: sempre que quiser realizar alguma alteração, edite o seu script e não diretamente no console, pois tudo o que neste é escrito, não terá como ser salvo!
 
-Para salvar seu script, você pode utilizar a aba `Files` localizada (no padrão) no canto direito inferior para procurar uma localização de sua preferência, criar uma nova pasta com o nome `CursoR`. Depois, basta clicar no disquete localizado no cabeçalho do RStudio ou com `Ctrl + s` e selecionar o diretório `CursoR` criado. Scripts em R são salvos com a extensão `.R`. 
-
+Para salvar seu script, você pode utilizar a aba `Files` localizada (como padrão) no canto direito inferior para procurar uma localização de sua preferência, criar uma nova pasta com o nome `CursoR`. Depois, basta clicar no disquete localizado no cabeçalho do RStudio ou com `Ctrl + s` e selecionar o diretório `CursoR` criado. Scripts em R são salvos com a extensão `.R`. 
 
 ## Estabelecendo diretório de trabalho
 
