@@ -1505,8 +1505,44 @@ dataCorpus <- tm_map(dataCorpus, removeWords, stopwords('pt'))
 Agora podemos construir nossa nuvem de palavras:
 
 ```{r}
-wordcloud(dataCorpus,max.words=100,colors=c("blue","green"))
+wordcloud(dataCorpus,max.words=100,colors=c("#2553A4","#11A858"))
 ```
+
+## Mapa
+
+Agora utilizaremos as informações de suas cidades para mostrá-las em um mapa. Vamos ter que instalar alguns pacotes, mas o resultado vale a pena:
+
+
+```{r message=FALSE, warning=FALSE}
+# Carregar os pacotes
+library("dplyr")
+library("osmdata")
+library("ggmap")
+library("sf")
+library("rnaturalearth")
+library("rnaturalearthdata")
+library("rgeos")
+
+# Encontrar latitude e longitude das cidades
+cidades <- data.frame(Long=NA, Lat=NA)
+for(idx in 1:nrow(dados)){
+  latLong <- getbb(paste0(dados$Cidade[idx]," ", "Brazil"))
+  cidades[idx, ] <- rowMeans(latLong)
+  
+}
+
+# Obter as fronteiras no mapa mundial
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+#Fazer o mapa 
+ggplot(data = world) +
+    geom_sf() +
+  geom_point(data = cidades, 
+             aes(x = Long, y = Lat, fill = "red"), 
+             size = 2, shape = 21, show.legend = FALSE) +
+      coord_sf(xlim = c(-74, -30), ylim = c(-35, 5), expand = FALSE)
+```
+
 
 # Algumas ferramentas básicas de análise de dados
 
