@@ -597,8 +597,10 @@ print("a")
 print("b")
 (rn_soma_sel <- sum(rn_val[rn_val<mean(rn_val)]))
 
-print("c")
-(rn_rem_min <- rn_val[rn_val > min(rn_val)])
+print("c - apenas o 'head' ")
+head((rn_rem_min <- rn_val[rn_val > min(rn_val)]))
+print("c - valor mínimo:")
+(min(rn_val))
 
 ```
 
@@ -1411,7 +1413,100 @@ Agora, gere um gráfico e salve-o no formato de seu interesse. Em seguida, crie 
 
 # Instalação e aplicações de pacotes
 
+Existem diversos pacotes disponíveis para variadas aplicações. Utilizaremos o *ggplot2*, que está disponível no repositório oficial do R, o CRAN. Portanto para instalá-lo:
 
+```{r eval=FALSE}
+install.packages("ggplot2")
+```
+
+Depois disso é necessário recrutá-lo com:
+
+```{r}
+library("ggplot2")
+```
+
+O *ggplot2* é um pacote que permite a construção de gráficos estatísticos, suas funcionalidades vão muito além do que está disponível nos gráficos básicos do R. Vamos tentar fazer um exemplo? 
+
+Primeiramente precisamos de um *data frame*, como o conjunto de dados que estamos usando as colunas para mapear as observações a serem dispostas no gráfico. Vamos criar um gráfico de dispersão com as variáveis *Peso* e *Altura*.
+
+```{r}
+ggplot(dados) +
+  geom_point(aes(x=Peso, y=Altura))
+
+```
+
+Veja que o sinal '+' indica que estamos adicionando uma nova camada. O legal do pacote é que a customização dos aspectos visuais é bem intuitiva. Por exemplo, vamos colorir os pontos de acordo com a variável *Genero*.
+
+```{r}
+ggplot(dados) +
+  geom_point(aes(x=Peso, y=Altura, colour=Genero))
+
+```
+
+Também podemos alterar o tamanho dos pontos:
+
+```{r}
+ggplot(dados) +
+  geom_point(aes(x=Peso, y=Altura, color=Genero), size=12)
+
+```
+
+Veja que o parâmetro *size* permaneceu fora da função de mapeamento, *aes*. Lembre-se que o mapeamento precisa de variáveis com observações. Colocar o *size* apenas como parâmetro da *geom_point* é interessante porque vamos alterar o tamanho de todos os pontos do gráfico.
+
+Que tal tentarmos fazer um boxplot utilizando como variável resposta o *ConhecimentoR* de acordo com a *Area*?
+
+```{r echo=FALSE}
+ggplot(dados) +
+  geom_boxplot(aes(x=Area, y=ConhecimentoR))
+
+```
+
+Quer botar uma corzinha? Tenta adicionar o *fill* de acordo com a *Area*.
+
+```{r echo=FALSE}
+ggplot(dados) +
+  geom_boxplot(aes(x=Area, y=ConhecimentoR, fill=Area))
+
+```
+
+Mas a legenda fica redundante com o eixo x, será que conseguimos suprimí-la? Tenta ver algo como *show.legend* na função *geom_boxplot*.
+
+```{r echo=FALSE}
+ggplot(dados) +
+  geom_boxplot(aes(x=Area, y=ConhecimentoR, fill=Area), show.legend = FALSE)
+
+```
+
+## E nossa motivação? Dá para fazer um gráfico?
+
+Mas é claro que sim!!! Vai ser um pouquinho mais complexo, mas a gente chega lá.
+
+Precisaremos instalar três pacotes: i) **tm**, ii) **SnowballC** e iii) **wordcloud**.
+
+```{r message=FALSE, warning=FALSE}
+install.packages(c('tm', 'SnowballC', 'wordcloud'))
+library('tm')
+library('SnowballC')
+library('wordcloud')
+```
+
+Vamos ter que criar um Corpus e depois convertê-lo para um documento. Em seguida, removeremos a pontuação e as *stopwords*.
+
+```{r}
+dataCorpus <- Corpus(VectorSource(dados$Motivacao))
+
+dataCorpus <- tm_map(dataCorpus, content_transformer(tolower))
+
+dataCorpus <- tm_map(dataCorpus, removePunctuation) 
+
+dataCorpus <- tm_map(dataCorpus, removeWords, stopwords('pt')) 
+```
+
+Agora podemos construir nossa nuvem de palavras:
+
+```{r}
+wordcloud(dataCorpus,max.words=100,colors=c("blue","green"))
+```
 
 # Algumas ferramentas básicas de análise de dados
 
