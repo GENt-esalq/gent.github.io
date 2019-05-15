@@ -11,7 +11,7 @@ autosize: true
 ========================================================
 <h2 style="color:blue;">Perguntamos em 2018! (e perguntaremos novamente agora)</h2>
 
-```{r, echo=FALSE,fig.width=9, fig.height=7, fig.show='hold', fig.align='center'}
+```{r, echo=FALSE,fig.width10, fig.height=8, fig.show='hold', fig.align='center'}
 library(tm)
 library(SnowballC)
 library(wordcloud)
@@ -45,8 +45,6 @@ wordcloud(words = d$word, freq = d$freq, min.freq = 1,
           colors=brewer.pal(8, "Dark2"),scale = c(8,2))
 
 ```
-
-- Gráfico feito no R. Veja [como](http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know).
 
 ========================================================
 <h2 style="color:blue;">O que é o R?</h2>
@@ -150,7 +148,7 @@ Nível de abstração das linguagens
 
 - Mais baixo o nível, mais liberdades e mais difícil a aprendizagem
 
-```{r, eval=FALSE, echo=FALSE,fig.width=6, fig.height=4, fig.show='hold', fig.align='center'}
+```{r, echo=FALSE,fig.width=6, fig.height=4, fig.show='hold', fig.align='center'}
 # generate pairs of x-y values
 nx = 100
 ny = 80

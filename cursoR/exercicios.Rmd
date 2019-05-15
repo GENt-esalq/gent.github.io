@@ -3,7 +3,7 @@ date: "`r Sys.Date()`"
 author: "[GENt](https://gent-esalq.github.io/) <br/>  Escola Superior de Agricultura Luiz de Queiroz <br/> Universidade de São Paulo"
 output:
     rmdformats::readthedown:
-      css: readthedowngvenk.css
+      css: readthedowngent.css
 ---
 
 # Exercícios
@@ -29,6 +29,8 @@ ex1_vec <- c(1.45, 1.73, 1.98, 2.10, 2.03, 1.65, 2.15, 1.63, 1.53, 1.98, 2.05, 1
 ```
 
 **Respostas**:
+
+**Para visualizar a resposta basta mover o cursor em cima do "Alerta de spoiler!"**
 
 b)[1.816667]{.spoiler}
 

@@ -10,7 +10,7 @@ opts_knit$set(width=75)
 
 # Instalação do R e RStudio
 
-O R está diponível para os sistemas operacionais Linux, Mac e Windows. Aqui descreveremos os passos necessários para instalação em cada um deles. Caso enfrente problemas em alguma das etapas, verifique também as instruções no [site do CRAN](https://cran.r-project.org/). Se mesmo assim tiver problemas, entre em contato conosco pelo e-mail gvenck.esalq@gmail.com.
+O R está diponível para os sistemas operacionais Linux, Mac e Windows. Aqui descreveremos os passos necessários para instalação em cada um deles. Caso enfrente problemas em alguma das etapas, verifique também as instruções no [site do CRAN](https://cran.r-project.org/). Se mesmo assim tiver problemas, entre em contato conosco pelo e-mail gent.esalq@gmail.com.
 
 ## Instalação do R no Ubuntu 
 
@@ -52,18 +52,16 @@ Você pode abrir o R pela linha de comando ou clicando no icone, fazendo isso vo
 
 <img src="imagens/rstart.png"  style="width:450px;height:400px;">
 
-No momento que escrevo (27/05/2018), a versão do R 3.5 já esta disponível no CRAN, mas não nos repositórios do Linux, portanto, seguindo estes passos descritos, será instalado o R 3.4. 
-
 ## Instalação do R no Windows
 
-Faça o download do executável do R versão 3.5 contido neste [link](https://cran.r-project.org/bin/windows/base/). Clique duas vezes no arquivo .exe e siga as instruções do instalador.
+Faça o download do executável do R versão 3.6 contido neste [link](https://cran.r-project.org/bin/windows/base/). Clique duas vezes no arquivo .exe e siga as instruções do instalador.
 
 Após terminar, clicando no icone do R você verá uma janela semelhante a figura 1.
 
 
 ## Instalação do R no MAC
 
-Faça o download do executável do R versão 3.5 contido neste [link](https://cran.r-project.org/bin/macosx/R-3.5.0.pkg). Esta versão é compatível com as distribuições Mac OS X  10.6 ou superiores. Clique duas vezes no arquivo .pkg e siga as instruções do instalador.
+Faça o download do executável do R versão 3.6 contido neste [link](https://cran.r-project.org/bin/macosx/R-3.6.0.pkg). Esta versão é compatível com as distribuições Mac OS X  10.6 ou superiores. Clique duas vezes no arquivo .pkg e siga as instruções do instalador.
 
 Após terminar, clicando no icone do R você verá uma janela semelhante a figura 1.
   

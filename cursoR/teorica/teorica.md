@@ -11,9 +11,7 @@ autosize: true
 ========================================================
 <h2 style="color:blue;">Perguntamos em 2018! (e perguntaremos novamente agora)</h2>
 
-<img src="teorica-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
-
-- Gráfico feito no R. Veja [como](http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know).
+<img src="teorica-figure/fig.width10-1.png" title="plot of chunk fig.width10" alt="plot of chunk fig.width10" style="display: block; margin: auto;" />
 
 ========================================================
 <h2 style="color:blue;">O que é o R?</h2>
@@ -117,7 +115,7 @@ Nível de abstração das linguagens
 
 - Mais baixo o nível, mais liberdades e mais difícil a aprendizagem
 
-
+<img src="teorica-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
 
 <font size="5">  
 
