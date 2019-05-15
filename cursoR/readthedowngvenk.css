@@ -442,7 +442,7 @@ dl dd{
 }
 
 code{
-    color: #F3872A; /*highlight color at the body text*/
+    color: #C76F23; /*highlight color at the body text*/
     background:#fff;
     border:solid 1px #e1e4e5;
     /* color:#000;  for clickable code */
@@ -1098,3 +1098,23 @@ code > span.ch { color: #000000; } /* Char */
 code > span.st { color: #000000; } /* String */
 code > span.co { color: #003B5E; font-style: italic; } /* Comment */
 code > span.ot { color: #000000; } /* Other */
+
+/* Spoilers */
+
+.spoiler {
+  visibility: hidden;
+}
+
+.spoiler::before {
+  visibility: visible;
+  content: "Alerta de Spoiler!!";
+  color: #C76F23
+}
+
+.spoiler:hover {
+  visibility: visible;
+}
+
+.spoiler:hover::before {
+  display: none;
+}
