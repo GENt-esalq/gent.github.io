@@ -11,15 +11,14 @@ autosize: true
 ========================================================
 <h2 style="color:blue;">Perguntamos em 2018! (e perguntaremos novamente agora)</h2>
 
-<img src="teorica-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
-
-- Gráfico feito no R. Veja [como](http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know).
+<img src="teorica-figure/fig.width10-1.png" title="plot of chunk fig.width10" alt="plot of chunk fig.width10" style="display: block; margin: auto;" />
 
 ========================================================
 <h2 style="color:blue;">O que é o R?</h2>
 
 - Uma linguagem e ambiente para análises estatísticas e gráficos
-- Provinda da linguagem S, desenvolvida no Bell Laboratories pelo John Chambers e colegas
+- Provinda da linguagem S 
+- Desenvolvida no Bell Laboratories pelo John Chambers e colegas
 - Oficialmente: "Preferimos pensar que é um ambiente dentro do qual técnicas estatísticas são implementadas."
 
 ========================================================
@@ -72,33 +71,41 @@ Extensível (pacotes):
 - <a href="https://github.com/">Github</a>
 
 =========================================
-<h2 style="color:blue;">O poder da mentalidade colaborativa 
+<h2 style="color:blue;">O poder da mentalidade colaborativa
 <img style="float:right;" src="images/Octocat.png" alt="Github" width="120" height="120" >
 </h2>
 
-[Github](https://github.com/)
+<font size="5">
+
+<a href="http://augusto-garcia.github.io/statgen-esalq/Short-tutorial-about-Git/">Tutorial sobre o git</a>
+
 
 <ul small style="list-style-type:disc">
 
-<a href="https://github.com/showcases/social-impact">Impacto social</a>
+<li><a href="https://github.com/collections/open-journalism">Jornalismo aberto</a></li>
 
- <li><a href="http://hospitalrun.io/">Free, easy-to-use software for developing world healthcare</a> - 90 contribuidores</li>
+<p style="margin-bottom:1cm;"> <a  href="https://github.com/fivethirtyeight/data">fivethirtyeight/data</a> - 37 contribuidores </p>
 
-<a href="https://github.com/showcases/science">Ciência</a>
 
-<li><a href="https://github.com/cms-sw/cmssw">Cmssw</a> - Partículas elementares Higgs Boson (2012), 3800 pessoas de 42 países diferentes, 645 contribuidores no github</li>
+<li><a href="https://github.com/showcases/social-impact">Impacto social</a></li>
 
-<li><a href="https://github.com/dib-lab/khmer">Khmer</a> - 63 contribuidores</li>
+<p style="margin-bottom:1cm;"><a href="http://hospitalrun.io/">Free, easy-to-use software for developing world healthcare</a> - 90 contribuidores </p>
 
-<li><a href="https://github.com/augusto-garcia/onemap">OneMap</a> - 6 contribuidores</li>
+<li><a href="https://github.com/showcases/science">Ciência</a></li>
+<a href="https://github.com/cms-sw/cmssw">Cmssw</a> - 
+Partículas elementares Higgs Boson (2012), 3800 pessoas de 42 países diferentes, 645 contribuidores no github
 
-<li><a href="https://github.com/trending/r">Muitos outros pacotes do R</a></li>
+<p style="margin-bottom:1cm;"><a href="https://github.com/Cristianetaniguti/onemap">OneMap</a> - 9 contribuidores
+</p>
 
-<li> <a href="">O minicurso de R da Genética</a> (<a href="http://cristianetaniguti.github.io/Workshop_genetica_2015/#">site</a>)- 2 contribuidores</li> 
+<p style="margin-bottom:1cm;"><li><a href="https://github.com/trending/r">Muitos outros pacotes do R</a></li></p>
+
+<li> <a href="https://github.com/GENt-esalq/GENt-esalq.github.io">O site do GENt </a> (<a href="https://gent-esalq.github.io/">site</a>)- 2 contribuidores</li> 
 
 </ul>
 
-<p style="float:right"><a href="http://augusto-garcia.github.io/statgen-esalq/Short-tutorial-about-Git/">Tutorial sobre o git</a></p>
+</font>
+
 
 
 ========================================================
@@ -108,7 +115,7 @@ Nível de abstração das linguagens
 
 - Mais baixo o nível, mais liberdades e mais difícil a aprendizagem
 
-<img src="teorica-figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+<img src="teorica-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
 
 <font size="5">  
 
@@ -124,16 +131,20 @@ Feito em R!
 =======================================================
 <h2 style="color:blue;"> Por que aprender a programar? </h2>
 
+<font size="5.5">
+
 - Divergência entre capacidade tecnológicas e aplicação
 
 <a href="https://www.youtube.com/watch?v=xfBWk4nw440">You Should Learn to Program: Christian Genco at TEDxSMU</a> 
 
 Apollo Guidance Computer (1961) x 1 milhão = Smartphone (hoje)
 
-<img style="float:center;" src="images/apolo.png" alt="Apolo" width="900" height="350" >
+<img style="float:center;" src="images/apolo.png" alt="Apolo" width="700" height="250" >
 
 - Ainda há excesso de trabalho repetitivo
 - 65% das crianças hoje terão empregos no futuro que ainda não existem (World Economic Forum)
+
+</font>
 
 ========================================================
 <h2 style="color:blue;">Incentivo à lógica de programação
@@ -156,6 +167,7 @@ Apollo Guidance Computer (1961) x 1 milhão = Smartphone (hoje)
 
 [edX](https://www.edx.org/)
 
+[Github](https://github.com/collections/learn-to-code)
 
 
 ========================================================
@@ -195,7 +207,7 @@ Curva de aprendizagem
 
 
 
-<img align="center" src="images/desconf.png" alt="Frust" width="800" height="500" >
+<img align="center" src="images/desconf.png" alt="Frust" width="750" height="450" >
 
 =======================================================
 <h2 style="color:blue;">Dicas para o controle de pragas
@@ -225,4 +237,3 @@ Vídeos motivadores:
 - [Hour of code 2](https://www.youtube.com/watch?v=FC5FbmsH4fw)
 - [Incentivo do Obama](https://www.youtube.com/watch?v=6XvmhE1J9PY)
 
-=========================================

@@ -147,7 +147,7 @@ a) Qual o somatório das observações no vetor que são maiores que 30?
 
 b) E o somatório das observações menores que a média?
 
-c) Excluira a menor observação do vetor.
+c) Excluir a menor observação do vetor.
 
 
 ### Enviando as respostas
