@@ -66,6 +66,9 @@ Faça o download do executável do R versão 3.6 contido neste [link](https://cr
 
 Após terminar, clicando no icone do R você verá uma janela semelhante a figura 1.
 
+### Se houver erros na instalação de pacotes
+
+Se você tentar instalar um pacote e não funcionar, talvez seja necessário instalar o [Rtools](https://cran.r-project.org/bin/windows/Rtools/). Faça o download da versão recomendada e siga as instruções do instalador
 
 ## Instalação do R no MAC
 
