@@ -549,11 +549,6 @@ Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado a p
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
 
-<!---
-* [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
-* [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
---->
-
 * [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
 * [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
 
@@ -753,6 +748,24 @@ for(i in 1:nrow(dados)){
 
 ```
 
+
+<span style="color:red"> Paramos aqui na parta da manhã do segundo dia do treinamento.</span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.1.RData).
+
+* [Aqui](https://GENt-esalq.github.io/cursoR/dia2.1.R) você pode acessar um exemplo de script `.R`.
+
+* E [aqui](https://GENt-esalq.github.io/cursoR/dia2.1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia2.1.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia2.1.html).
+
+> Como você faria para corrigir esses elementos errados? Tente!
+
+Dica: [Primeiro busque quais são as cidades desses elementos (dados[corrigir,5]), depois, faça um novo vetor com os nomes corretos e substitua na tabela]{.spoiler}
+
+> A coluna 2 da tabela se refere à idade dos participantes, imprima na tela (usando print ou cat) a década em que cada um nasceu, como a seguir: "Nasceu na década de 80".
+
+Dica: [Faça um novo vetor com a subtração das idades pelo ano atual e depois faça um loop com uma condicional para imprimir as mensagens na tela]{.spoiler}
+
+
 ## While
 
 Nesse tipo de estrutura de repetição a tarefa será realizada até que seja atingida determinada condição.
@@ -844,7 +857,6 @@ Fizemos um vídeo com mais detalhes sobre loops no R, aumentem nossa quantidade 
 * Cuidado ao rodar o mesmo comando mais de uma vez, algumas variáveis podem não ser mais como eram antes. Para que o comando funcione da mesma forma é necessário que os objetos de entrada estejam da forma como você espera.
 * Lembrem-se que `=` é para definir objetos e `==` é o sinal de igualdade. 
 * Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros contínua.
-* Às vezes quando instalamos um pacote que já havia sido instalado, o R não reconhece o novo pacote e é necessario reiniciar o R.
 * Usar identação ajuda a visualizar o começo e fim de cada estrutura de código e facilita o abrir e fechar de chaves. Identação são aqueles espaços que usamos antes da linha, como:
 
 ```{r}
@@ -973,6 +985,18 @@ test_list <- minha_funcao(df.entrada = dados1)
 ```
 
 Para saber mais sobre desenvolvimento de funções acesse [aqui](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/) e, um pouco mais avançado, [aqui](http://adv-r.had.co.nz/Functions.html).
+
+# Rodando outros scripts .R 
+
+As vezes, parte do seu código demanda que você chame algo que foi rodado em outro script. Muitas pessoas também tem o costume de salvar as funções próprias em um script separado. Vamos fazer isso? 
+
+* Abra um novo script .R, copie suas funções para ele e o salve como `funcoes.R`
+
+Agora, você pode acessa-las usando:
+
+```{r}
+source("funcoes.R")
+```
 
 > Faça os exercícios da [**Sessão 4**](exercicios.html)
 
@@ -1382,7 +1406,7 @@ wordcloud(dataCorpus,max.words=100,colors=c("#2553A4","#11A858"))
 Agora utilizaremos as informações de suas cidades para mostrá-las em um mapa. Vamos ter que instalar alguns pacotes, mas o resultado vale a pena:
 
 
-```{r message=FALSE, warning=FALSE, eval=TRUE}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 # Carregar os pacotes
 library("dplyr")
 library("osmdata")
