@@ -1032,9 +1032,9 @@ plot(x = dados$Peso, y= dados$Altura)
 
 ```
 
-##Parâmetros gráficos
+## Parâmetros gráficos
 
-É possível customizar os gráficos alterando seus eixos, cores, fontes, etc. Começaremos através do gráfico de pontos.
+É possível customizar os gráficos alterando seus eixos, cores, fontes, etc. Começaremos através do histograma:
 
 * `col` para adicionar cor;
 * `xlab` alterar título do eixo x;
@@ -1133,7 +1133,7 @@ hist(dados$Peso)
 par(mfrow=c(1,1))
 ```
 
-##Desafio!!!
+## Desafio!!!
 
 Busque resolver o desafio sem observar a resposta. Vocês conseguirão avançar muito, um ou outro detalhe pode acabar sendo mais difícil. Nesse ponto, vocês utilizam a resolução para entenderem melhor o como poderia ser feito. Veja que há muitos modos de resolver, apresentaremos apenas um deles.
 
@@ -1172,6 +1172,7 @@ dotchart(dados$Peso, labels = dados$Cidade, groups = as.factor(dados$Area),
 par(mfrow=c(1,1))
 
 ```
+
 Uma solução que utiliza tudo o que vocês aprenderam:
 
 ```{r eval=FALSE}
@@ -1208,7 +1209,7 @@ par(mfrow=c(1,1))
 
 ```
 
-##Salvar gráficos
+## Salvar gráficos
 
 Os gráficos podem ser salvos através dos menus disponíveis no RStudio, ou através de funções que permitem salvar em formatos específicos. Algumas delas são: pdf(); png(); jpeg(); bitmap(). De maneira geral, o parâmetro primordial é fornecer o nome do arquivo que será gerado (contendo sua extensão). Após abrir a função gráfica, deve-se gerar o gráfico de interesse. Por fim, utiliza-se o comando dev.off() para que saída gráfica volte para o console.
 
@@ -1340,7 +1341,7 @@ wordcloud(dataCorpus,max.words=100,colors=c("#2553A4","#11A858"))
 Agora utilizaremos as informações de suas cidades para mostrá-las em um mapa. Vamos ter que instalar alguns pacotes, mas o resultado vale a pena:
 
 
-```{r message=FALSE, warning=FALSE, eval=FALSE}
+```{r message=FALSE, warning=FALSE, eval=TRUE}
 # Carregar os pacotes
 library("dplyr")
 library("osmdata")
