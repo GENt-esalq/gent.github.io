@@ -554,8 +554,8 @@ A planilha com os dados será disponibilizada, adicione-a ao seu diretório de t
 * [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
 --->
 
-* [dados.RData](https://GENt-esalq.github.io/dados_alunos.RData) 
-* [dados.csv](https://GENt-esalq.github.io/dados_alunos.csv)
+* [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
+* [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
 
 
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
