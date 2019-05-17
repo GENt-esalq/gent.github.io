@@ -101,7 +101,7 @@ O R pode funcionar como uma simples **calculadora**, que utiliza a mesma sintaxe
 #########################
 # Script Treinamento R
 
-# Data: 06/06/2018
+# Data: 16/05/2019
 # GENt
 ##########################
 
@@ -333,18 +333,22 @@ errado
 
 No caso, todos os elementos foram transformados em caracter.
 
-<span style="color:red"> * Algumas Dicas: </span>
+**Algumas Dicas**: 
 
 * Cuidado com a prioridade das operações, na dúvida, sempre acrescente parenteses conforme seu interesse de prioridade.
 * Lembre-se que, se esquecer de fechar algum `(` ou `[` ou `"`, o console do R ficará esperando você fechar indicando um `+`, nada será processado até que você digite diretamente no console um `)`.
 * Cuidado para não sobrepor objetos já criados criando outros com o mesmo nome. Use, por exemplo: altura1, altura2.
 * Mantenha no seu script .R somente os comandos que funcionaram e, de preferência, adicione comentários. Você pode, por exemplo, comentar dificuldades encontradas, para que você não cometa os mesmos erros mais tarde.
 
-<!---
-<span style="color:red"> Paramos aqui no primeiro dia. Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia1.RData).</span>
--->
+> Você já pode fazer os exercícios da [**Sessão 1**](exercicios.html#sessao1)
 
-> Você já pode fazer em casa os exercícios da [**Sessão 1**](exercicios.html#sessao1)
+<span style="color:red"> Paramos aqui no primeiro dia. </span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia1.RData).
+
+* [Aqui](https://GENt-esalq.github.io/cursoR/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
+
+* E [aqui](https://GENt-esalq.github.io/cursoR/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia1.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia1.html).
 
 ## Matrizes
 
@@ -451,9 +455,8 @@ campo1 <- cbind(campo1, volume)
 str(campo1)
 ```
 
-Algumas dicas até agora:
+**Algumas dicas**:
 
-* Acesse [aqui](../wait.html) um exemplo de script de tudo que foi realizado até agora.
 * Lembre-se que, para construir matrizes e *data frames*, o número de elementos em cada coluna tem que ser iguais.
 * Caso não saiba o operador ou a função que deve ser utilizada, como o desvio padrão, busque no google algo como "desvio padrão R", ou melhor "standard deviation R". Logo nas primeiras páginas você obterá respostas. A comunidade do R é bastante ativa e grande parte das suas perguntas sobre ele já foram respondidas em algum lugar da web.
 * Não esqueça que tudo o que fizer no R precisa ser explicitamente indicado, como uma multiplicação 4ac com `4*a*c`. Para gerar um vetor 1,3,2,6 é necessário: `c(1,3,2,6)`.
@@ -487,7 +490,7 @@ Este é um tipo de objeto que você provavelmente não irá utilizar agora no in
 
 Teremos quatro matrizes com duas linhas e três colunas e os números de 1 a 24 estarão distribuídos nelas por colunas.
 
-> Agora você já pode fazer em casa os exercícios da [**Sessão 2**](exercicios.html)
+> Agora você já pode fazer os exercícios da [**Sessão 2**](exercicios.html)
 
 # Exportando e importando dados
 
@@ -543,10 +546,19 @@ head(campo1_csv)
 
 Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado a partir do formulário que vocês preencheram.
 
-A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse [aqui](https://GENt-esalq.github.io/cursoR/dados_alunos.RData)
+<span style="color:red">
+A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
+
+<!---
+* [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
+* [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
+--->
+
+* [dados.RData](https://GENt-esalq.github.io/wait.html) 
+* [dados.csv](https://GENt-esalq.github.io/wait.html)
+
 
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
-
 
 ```{r, eval=FALSE}
 dados <- read.csv(file = "dados.csv", stringsAsFactors = FALSE, na.strings="-")
@@ -625,8 +637,8 @@ if(dados[7,9] == 0){
 } else if (dados[3,9] > 0 && dados[3,9] < 5){
   print("Já pegou o embalo, agora é só continuar!")
 } else {
-    print("Nos avise se estivermos falando algo errado...hehe")
-  }
+  print("Nos avise se estivermos falando algo errado...hehe")
+}
 ```
 
 ## Switch
@@ -678,6 +690,35 @@ for(i in 1:nrow(dados)){
       print("Nos avise se estivermos falando algo errado...hehe")
     }
 }
+```
+
+**Dica: Identação**
+
+Repare a diferença:
+
+```{r, eval=FALSE}
+# Sem identação
+for(i in 1:nrow(dados)){
+if(dados[i,9] == 0){
+print("Nunca é tarde para começar!")
+} else if (dados[i,9] > 0 && dados[i,9] < 5){
+print("Já pegou o embalo, agora é só continuar!")
+} else {
+print("Nos avise se estivermos falando algo errado...hehe")
+}
+}
+
+# Com identação correta
+for(i in 1:nrow(dados)){
+  if(dados[i,9] == 0){
+    print("Nunca é tarde para começar!")
+  } else if (dados[i,9] > 0 && dados[i,9] < 5){
+    print("Já pegou o embalo, agora é só continuar!")
+  } else {
+    print("Nos avise se estivermos falando algo errado...hehe")
+  }
+}
+
 ```
 
 Agora vamos trabalhar com a coluna 5, que possui a informação da cidade de origem dos participantes. Repare que alguns não colocaram o estado, como o exemplo sugeria. Vamos utilizar um loop para descobrir quais estão faltando. Vamos utilizar a função `grepl` para identificar as strings que contém o caracter "-", aqueles que tiverem consideraremos correto, os que não tiverem, vamos pedir para adicionar mais informações.
@@ -794,9 +835,11 @@ Fizemos um vídeo com mais detalhes sobre loops no R, aumentem nossa quantidade 
 
 > Faça os exercícios da [**Sessão 3**](exercicios.html)
 
+<!---
 <span style="color:red"> Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.RData). Também acesse um R script do que foi passado [aqui](https://GENt-esalq.github.io/cursoR/dia2.R)</span>
+--->
 
-Algumas dicas até agora:
+**Algumas dicas**:
 
 * Cuidado ao rodar o mesmo comando mais de uma vez, algumas variáveis podem não ser mais como eram antes. Para que o comando funcione da mesma forma é necessário que os objetos de entrada estejam da forma como você espera.
 * Lembrem-se que `=` é para definir objetos e `==` é o sinal de igualdade. 
@@ -819,8 +862,6 @@ for(i in 1:dim(ex_mat)[1]) {   # Primeiro nível, não tem espaço
 
 
 # Elaboração de funções
-
-Observe que nas funções `apply` podemos trocar as funções prontas do *r base* por funções personalizadas. Vamos agora aprender a criar essas funções. Elas não só servem para essa funcionalidade, mas para diversas outras.
 
 Normalmente é uma boa prática criar um bloco de código se vai realizar aquela ação poucas vezes. Se for realizar várias vezes a ação e de uma vez só, vale a pena fazer um loop. Mas, se for realizar diversas vezes e o objeto de entrada for modificado vale a pena fazer uma função. E, na hierarquia, quando tiver acumulado muitas funções para realizar uma tarefa mais complexa, vale a pena construir um pacote.
 
@@ -933,7 +974,7 @@ test_list <- minha_funcao(df.entrada = dados1)
 
 Para saber mais sobre desenvolvimento de funções acesse [aqui](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/) e, um pouco mais avançado, [aqui](http://adv-r.had.co.nz/Functions.html).
 
-> Faça os exercícios da [**Sessão 4**](exercicios..html)
+> Faça os exercícios da [**Sessão 4**](exercicios.html)
 
 
 # Elaboração de gráficos simples
@@ -1622,7 +1663,7 @@ str(ex_list)
 Para selecionar a segunda coluna de todas as matrizes
 
 ```{r}
-lapply(ex_list, "[", , 2)
+lapply(ex_list, "[", 2)
 ```
 
 ### sapply
@@ -1647,6 +1688,8 @@ tapply(dados$ConhecimentoR, dados$Area, mean)
 ```
 
 Saiba mais sobre essa família de funções no [link](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/)
+
+Observe que nas funções `apply` podemos trocar as funções prontas do *r base* por funções personalizadas. 
 
 > Faça o exercício [**extra**](exercicios.html)
 
