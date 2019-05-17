@@ -1,13 +1,13 @@
 #########################
 # Script Curso R
 
-# Data: 06/06/2018
-# GVENCK
+# Data: 16/05/2019
+# GENt
 ##########################
 
 cat("Hello world!")
 
-# Depende do seu computados
+# Depende do seu computador
 # setwd("~/Documents/CursoR") 
 
 getwd() # Se tiver perdido
@@ -30,7 +30,7 @@ log(100)             #logarítmo com base neperiana
 
 # Operação com vetores
 
-# Diferenter formas de criar um vetor
+# Diferentes formas de criar um vetor
 c(1,3,2,5,2) 
 1:10
 seq(from=0, to=100, by=5)
@@ -40,9 +40,9 @@ seq(from=4, to=30, by=3)
 rep(3:5, 2)
 
 # Operações
-c(1,4,3,2,5,8)*2  # Multiplica todos os elementos por 2
-c(4,2,1,5,3,2)+c(5,2,6,1,3,5) # Soma 4+5, 2+2, 1+6 e assim por diante
-c(4,2,1,5,3,2)*c(5,2,6,1,3,5) # Multiplica 4*5, 2*2, 1*6 e assim por diante
+c(1,4,3,2)*2  # Multiplica todos os elementos por 2
+c(4,2,1,5)+c(5,2,6,1) # Soma 4+5, 2+2, 1+6 e assim por diante
+c(4,2,1,5)*c(5,2,6,1) # Multiplica 4*5, 2*2, 1*6 e assim por diante
 
 # Criando objetos
 x = c(30.1,30.4,40,30.2,30.6,40.1)
@@ -98,49 +98,3 @@ a==round(b) # Evitar que isso aconteceça arredondando o resultado
 
 errado <- c(TRUE, "vish", 1) # Não podemos misturar classes num mesmo vetor
 errado
-
-# Matrizes
-X <- matrix(1:12, nrow = 6, ncol = 2)
-X
-W <- matrix(c(x,y), nrow = 6, ncol =2)
-W
-
-# Operações
-X*2       # Multiplica tudo por 2
-X*X       # Multiplica cada elemento pelo seu correspondente na outra matriz, é necessário que tenham a mesma dimensão     
-X%*%t(X)  # Multiplicação matricial
-W[4,2]    # Número posicionado na linha 1 e coluna 4
-
-# nomeando colunas e linhas
-colnames(W) <- c("altura", "diametro")
-rownames(W) <- clone
-W
-
-# Data.frames
-campo1 <- data.frame("clone" = clone,     # Antes do sinal de "="  
-                     "altura" = x,        # estabelecemos os nomes  
-                     "diametro" = y,      # das coluna
-                     "idade" = rep(3:5, 2),
-                     "corte"= logico) 
-campo1
-
-# Acessando a coluna de idade
-campo1$idade # O tab é bem util aqui
-#ou
-campo1[,4]
-
-# Um elemento específico [linha,coluna]
-campo1[1,2] 
-campo1[3,3] 
-
-# Fazendo operações com os vetores do data.frame
-volume <- 3.14*((campo1$diametro/2)^2)*campo1$altura
-volume
-
-# Adicionando o vetor volume ao data.frame
-campo1 <- cbind(campo1, volume)
-str(campo1)
-
-###################
-# Data: 07/06/2018
-###################

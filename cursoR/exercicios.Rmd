@@ -90,15 +90,15 @@ d)[2.581778]{.spoiler}
 $x = \frac{-b\pm\sqrt{\Delta}}{2a}$; $\Delta=b^2 - 4ac$
 
 ```{r echo=FALSE, eval=FALSE}
-x1 <- (-8 - sqrt(8^2 - 4*2*6))/2*4
-x2 <- (-8 + sqrt(8^2 - 4*2*6))/2*4
+x1 <- (-8 - sqrt(8^2 - 4*2*6))/(2*2)
+x2 <- (-8 + sqrt(8^2 - 4*2*6))/(2*2)
 
 (x3 <- c(round(x1),round(x2)))
 ```
 
 **Resposta**:
 
-[-24  -8]{.spoiler}
+[-3  -1]{.spoiler}
 
 
 # **Sessão 2**: Classe de objetos
