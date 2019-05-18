@@ -634,7 +634,7 @@ Podemos espeficiar mais do que uma condição repetindo a estrutura `if` `else`:
 ```{r}
 if(dados[7,9] == 0){
   print("Nunca é tarde para começar!")
-} else if (dados[3,9] > 0 && dados[3,9] < 5){
+} else if (dados[7,9] > 0 && dados[7,9] < 5){
   print("Já pegou o embalo, agora é só continuar!")
 } else {
   print("Nos avise se estivermos falando algo errado...hehe")
