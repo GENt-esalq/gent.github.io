@@ -549,11 +549,6 @@ Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado a p
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
 
-<!---
-* [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
-* [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
---->
-
 * [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
 * [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
 
@@ -753,6 +748,58 @@ for(i in 1:nrow(dados)){
 
 ```
 
+
+<span style="color:red"> Paramos aqui na parta da manhã do segundo dia do treinamento.</span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.1.RData).
+
+* [Aqui](https://GENt-esalq.github.io/cursoR/dia2.1.R) você pode acessar um exemplo de script `.R`.
+
+* E [aqui](https://GENt-esalq.github.io/cursoR/dia2.1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia2.1.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia2.1.html).
+
+> Como você faria para corrigir esses elementos errados? Tente!
+
+Dica: [Primeiro busque quais são as cidades desses elementos (dados[corrigir,5]), depois, faça um novo vetor com os nomes corretos e substitua na tabela]{.spoiler}
+
+Uma possibilidade de resposta:
+
+```{r}
+dados[corrigir,5]
+novo <- c("São José dos Campos - SP", "Piracicaba - SP", "São Paulo - SP", "Piracicaba-SP",
+          "Uberlância-MG", "Piracicaba-SP", "Uberaba-MG", "São Luis-MA", "Piracicaba-SP",
+          "Piracicaba-SP")
+dados[corrigir,5] <- novo
+
+# Verificando se corrigiu
+dados[,5]
+```
+
+
+> A coluna 2 da tabela se refere à idade dos participantes, imprima na tela (usando print ou cat) a década em que cada um nasceu, como a seguir: "Nasceu na década de 80".
+
+Dica: [Faça um novo vetor com a subtração das idades pelo ano atual e depois faça um loop com uma condicional para imprimir as mensagens na tela]{.spoiler}
+
+Uma possibilidade de resposta:
+
+```{r}
+decada <- 2019 - dados$Idade
+
+for(i in 1:length(decada)){
+  if(decada[i] > 1960 && decada[i] < 1970){
+    print("Nasceu na década de 60")
+  } else if(decada[i] >= 1970 && decada[i] < 1980){
+    print("Nasceu na década de 70")
+  } else if(decada[i] >= 1980 && decada[i] < 1990){
+    print("Nasceu na década de 80")
+  } else if(decada[i] >= 1990 && decada[i] < 2000){
+    print("Nasceu na década de 90")
+  } else {
+    print("Xóvem")
+  }
+}
+```
+
+
 ## While
 
 Nesse tipo de estrutura de repetição a tarefa será realizada até que seja atingida determinada condição.
@@ -835,16 +882,12 @@ Fizemos um vídeo com mais detalhes sobre loops no R, aumentem nossa quantidade 
 
 > Faça os exercícios da [**Sessão 3**](exercicios.html)
 
-<!---
-<span style="color:red"> Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.RData). Também acesse um R script do que foi passado [aqui](https://GENt-esalq.github.io/cursoR/dia2.R)</span>
---->
 
 **Algumas dicas**:
 
 * Cuidado ao rodar o mesmo comando mais de uma vez, algumas variáveis podem não ser mais como eram antes. Para que o comando funcione da mesma forma é necessário que os objetos de entrada estejam da forma como você espera.
 * Lembrem-se que `=` é para definir objetos e `==` é o sinal de igualdade. 
 * Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros contínua.
-* Às vezes quando instalamos um pacote que já havia sido instalado, o R não reconhece o novo pacote e é necessario reiniciar o R.
 * Usar identação ajuda a visualizar o começo e fim de cada estrutura de código e facilita o abrir e fechar de chaves. Identação são aqueles espaços que usamos antes da linha, como:
 
 ```{r}
@@ -900,7 +943,6 @@ mul <- 100*(length(which(dados$Genero == "Feminino"))/length(dados$Genero))
 ## Faz uma lista com todos os resultados
 final_list <- list(IMC=IMC, idade_media = id_med, 
                    idade_mediana = id_median, porcentagem_mulheres = mul)
-
 ```
 
 Para montarmos a função primeiro pensamos qual será o argumento de entrada, nesse caso, nosso arquivo de dados, um *data frame* contendo pelo menos as colunas `Peso`, `Altura`, `Idade` e `Genero`.
@@ -974,6 +1016,26 @@ test_list <- minha_funcao(df.entrada = dados1)
 
 Para saber mais sobre desenvolvimento de funções acesse [aqui](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/) e, um pouco mais avançado, [aqui](http://adv-r.had.co.nz/Functions.html).
 
+<span style="color:red"> Paramos aqui na parta da tarde do segundo dia do treinamento.</span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.2.RData).
+
+* [Aqui](https://GENt-esalq.github.io/cursoR/dia2.2.R) você pode acessar um exemplo de script `.R`.
+
+* E [aqui](https://GENt-esalq.github.io/cursoR/dia2.2.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia2.2.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia2.2.html).
+
+# Rodando outros scripts .R 
+
+As vezes, parte do seu código demanda que você chame algo que foi rodado em outro script. Muitas pessoas também tem o costume de salvar as funções próprias em um script separado. Vamos fazer isso? 
+
+* Abra um novo script .R, copie suas funções para ele e o salve como `funcoes.R`
+
+Agora, você pode acessa-las usando:
+
+```{r}
+source("funcoes.R")
+```
+
 > Faça os exercícios da [**Sessão 4**](exercicios.html)
 
 
@@ -1000,7 +1062,7 @@ hist(dados$Altura, breaks = 15)
 
 ```
 
-Agora tente fazer o histograma para o peso, aproveite para tentar alterar alguns parâmetros. Em seguida, serão apresentados outros gráficos que poderão ser utilizados.
+Agora tente fazer o **histograma para o peso**, aproveite para tentar alterar alguns parâmetros. Em seguida, serão apresentados outros gráficos que poderão ser utilizados.
 
 ```{r}
 #### Bar plot ####
@@ -1084,7 +1146,7 @@ plot(x = dados$Peso, y= dados$Altura)
 
 ```{r, eval=FALSE}
 hist(dados$Idade, breaks=6, col="blue", xlab="Idades", 
-     ylab="Frequencia", main="Histograma das Idades (Curso 2018)")
+     ylab="Frequencia", main="Histograma das Idades (Curso 2019)")
 ```
 
 Se preferir, podemos usar um gráfico de densidades de Kernel como:
@@ -1093,7 +1155,7 @@ Se preferir, podemos usar um gráfico de densidades de Kernel como:
 d <- density(dados$Idade, na.rm = TRUE)
 
 plot(d, col="blue", xlab="Idades",
-     ylab="Densidade", main="Densidade das Idades (Lab StatGen 2017)")
+     ylab="Densidade", main="Densidade das Idades")
 ```
 
 Vamos explorar um pouco mais o gráfico de pontos. Sabe- se que existe uma correlação entre o peso e a altura das pessoas, e que, a distribuição dessas características configura uma bimodal se não considerarmos os gênero dos indivíduos avaliados. Vamos avaliar a correlação entre essas caraterísticas com:
@@ -1146,7 +1208,7 @@ plot(x = dados$Peso, y= dados$Altura,
      main = "Peso  x Altura", #Título principal 
      xlab = "Peso", #Eixo x
      ylab = "Altura", #Eixo y
-     col = dados$Genero
+     col = as.factor(dados$Genero)
      )
 
 #Nesse mesmo gráfico, procure mudar a forma dos pontos de acordo com a nota do R.
@@ -1156,7 +1218,7 @@ plot(x = dados$Peso, y= dados$Altura,
      main = "Peso  x Altura", #Título principal 
      xlab = "Peso", #Eixo x
      ylab = "Altura", #Eixo y
-     col = dados$Genero,
+     col = as.factor(dados$Genero),
      pch=10)
 
 legend("bottomright", legend = c("Feminino", "Masculino"), col=1:2, pch=10)
@@ -1382,7 +1444,7 @@ wordcloud(dataCorpus,max.words=100,colors=c("#2553A4","#11A858"))
 Agora utilizaremos as informações de suas cidades para mostrá-las em um mapa. Vamos ter que instalar alguns pacotes, mas o resultado vale a pena:
 
 
-```{r message=FALSE, warning=FALSE, eval=TRUE}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 # Carregar os pacotes
 library("dplyr")
 library("osmdata")
@@ -1417,7 +1479,7 @@ ggplot(data = world) +
 
 Claramente a análise de dados é algo muito específico de cada conjunto de dados e interesses. Vamos aqui mostrar alguns recursos básicos como análise de variância, regressão e teste de médias.
 
-Algumas avaliações descritivas podem ser feitas pelo uso do `tapply` e de gráficos, como já mostrado anteriormente. A função `summary` também da informações gerais do conjunto. É possível usá-la em conjunto com o `tapply`.
+Algumas avaliações descritivas podem ser feitas pelo uso do `tapply` e de gráficos. A função `summary` também da informações gerais do conjunto. É possível usá-la em conjunto com o `tapply`.
 
 ```{r}
 str(dados)
@@ -1527,9 +1589,153 @@ tukey.test <- TukeyHSD(x=modaov, 'Mes', conf.level=0.95)
 tukey.test
 ```
 
+Agora, vamos trabalhar com outro conjunto de dados, contendo informações de um experimento de café. Acesse aqui:
 
-> Faça os exercícios das [**sessão 7**](exercicios.html)
+* Arquivo [cafe.txt](https://GENt-esalq.github.io/cursoR/cafe.txt)
 
+```{r}
+#rm(list = ls())
+ls()
+
+#setwd("/home/kaio/Desktop/Curso_ESALQ_R")
+getwd()
+
+data <- read.table("cafe.txt", h = TRUE, sep = "\t", dec = ",")
+str(data)
+
+# Transformar em fator
+data$rep <- as.factor(data$rep)
+data$prog <- as.factor(data$prog)
+data$colheita <- as.factor(data$colheita)
+str(data)
+
+# Outra opção
+data <- transform(data, rep = factor(rep), prog = factor(prog), colheita = factor(colheita))
+str(data)
+
+# Indexar primeita colheita
+Colheita_1 <- subset(data, colheita == 1)
+str(Colheita_1)
+
+# Droplevels
+Colheita_1 <- droplevels(subset(data, colheita == 1))
+str(Colheita_1)
+
+
+# Modelo
+Modelo1 <- aov(prod ~ rep + prog,
+               contrasts = list(prog = "contr.sum"), 
+               data = Colheita_1)
+anova(Modelo1)
+
+####################################################
+###verificar Pressupostos da análise de variância###
+####################################################
+names(Modelo1)
+Modelo1_residuals <- Modelo1$residuals #armazenando os erros ou res?duos
+
+# teste de Normalidade DOS ERROS##
+#---------------------------------#
+shapiro.test (Modelo1_residuals) # Hipótese de Nulidade
+# a hipótese de que os erros são normais, nesse caso, como o p-value = 0.24
+# ou seja, >0.05 ou 0.01 ou qualquer alfa adotado, não se rejeita a hipotese de normalidade 
+```
+
+Agora, vamos precisar de funções contidas nos scripts `DIAGNOSTICS.R` e `"outliers.R"`. Acesse eles em:
+
+* [DIAGNOSTICS.R](https://GENt-esalq.github.io/cursoR/DIAGNOSTICS.R)
+* [outliers.R](https://GENt-esalq.github.io/cursoR/outliers.R)
+
+```{r, eval=FALSE}
+# Funções
+source("DIAGNOSTICS.R")
+source("outliers.R")
+
+
+#Verificar pressupostos de análises
+diagnostics(Modelo1$residuals, Modelo1$fitted.values)
+
+# Verificar outlier
+outlier(Modelo1$residuals, alpha=0.05)
+
+
+# Index output
+QME <- anova(Modelo1)["Residuals", "Mean Sq"]
+QME
+
+med <- mean(data$prod, na.rm = TRUE)
+med
+
+# Calcular CV
+CVe <- (sqrt(QME)/med)*100
+CVe
+
+# Exercicios
+# Calcule o CVe e QME para a Colheita 2
+
+# Criar uma função para fazer o CVe
+
+CV_E <- function(anova, med){
+  QME <- anova(anova)["Residuals", "Mean Sq"]
+  CVe <- (sqrt(QME)/med)*100
+  
+  return(CVe)
+}
+
+## 
+CV_E(anova = Modelo1, med = med)
+
+
+# Herdabilidade
+n_rep <- nlevels(Colheita_1$rep)
+VG <- (anova(Modelo1)["prog", "Mean Sq"]- QME)/n_rep
+VE <- QME
+H_2 <- VG/ (VG + VE)
+H_2
+
+# Exercicio
+# Crie uma função para estimar a herdabilidade para o DBC
+
+
+# Teste de comparações mútiplas
+# análise de variância utilizando o ExpDes
+#install.packages("ExpDes")
+library(ExpDes)
+rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "tukey", sigT = 0.05, sigF = 0.05)
+
+# Teste Sk
+rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "sk", sigT = 0.05, sigF = 0.05)
+
+
+# função by é similar ao subset
+by(data, data$colheita, function (x) anova(aov(prod ~ prog + rep, data= x))) 
+#verificar os graus de liberdade, cuidado para que sejam utilizados de fato os dados de apenas 1 colheita
+
+
+#outra opção selecionando apenas a parte da dataframe onde colheita igual a "2"
+anova(aov(data$prod ~ data$prog + data$rep, data = data[data$colheita==2,]))
+
+# mais uma opção
+indiv <- lapply(split(data, data$colheita), aov, formula = prod ~ rep + prog)
+lapply(indiv, summary)
+
+
+############################
+#SORTEIO DE EXPERIMENTOS####
+############################
+
+#install.packages("agricolae")
+library(agricolae)
+trt < -c("0","1","2","5","10","20","50","100","Dina")
+rcbd <- design.rcbd(trt, 6, serie = 1, seed = 1, "default") # seed = 1
+rcbd # Planilha de campo
+
+# Salvar Sorteio
+write.table(rcbd,"SORTEIO.txt", row.names=FALSE, sep="\t")
+file.show("SORTEIO.txt")
+write.csv(rcbd,"SORTEIO.csv",row.names=F)
+
+```
 
 # Pratique gerando relatórios no RStudio
  
