@@ -16,3 +16,4 @@ Este treinamento também recebe apoio do grupo [GVENCK](https://gvenck.github.io
 * [Tutorial de instalação do R e RStudio](Tutorial_instalacao.html)
 * [**Tutorial principal**](cursoR.html)
 * [Formulário](https://forms.gle/ULLuhHm5fA55sPUN6)
+* [Link para conjunto clima_lond](clima_lond.RData)
