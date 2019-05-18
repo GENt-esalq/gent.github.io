@@ -1444,7 +1444,7 @@ wordcloud(dataCorpus,max.words=100,colors=c("#2553A4","#11A858"))
 Agora utilizaremos as informações de suas cidades para mostrá-las em um mapa. Vamos ter que instalar alguns pacotes, mas o resultado vale a pena:
 
 
-```{r message=FALSE, warning=FALSE, eval=FALSE}
+```{r message=FALSE, warning=FALSE, eval=TRUE}
 # Carregar os pacotes
 library("dplyr")
 library("osmdata")
@@ -1646,7 +1646,7 @@ Agora, vamos precisar de funções contidas nos scripts `DIAGNOSTICS.R` e `"outl
 * [DIAGNOSTICS.R](https://GENt-esalq.github.io/cursoR/DIAGNOSTICS.R)
 * [outliers.R](https://GENt-esalq.github.io/cursoR/outliers.R)
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 # Funções
 source("DIAGNOSTICS.R")
 source("outliers.R")
@@ -1726,7 +1726,7 @@ lapply(indiv, summary)
 
 #install.packages("agricolae")
 library(agricolae)
-trt < -c("0","1","2","5","10","20","50","100","Dina")
+trt <- c("0","1","2","5","10","20","50","100","Dina")
 rcbd <- design.rcbd(trt, 6, serie = 1, seed = 1, "default") # seed = 1
 rcbd # Planilha de campo
 
