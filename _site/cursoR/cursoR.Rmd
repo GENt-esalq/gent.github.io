@@ -541,13 +541,8 @@ Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado a p
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
 
-<!---
 * [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
 * [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
---->
-
-* [dados.RData](https://GENt-esalq.github.io/wait.html) 
-* [dados.csv](https://GENt-esalq.github.io/wait.html)
 
 
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
@@ -626,7 +621,7 @@ Podemos espeficiar mais do que uma condição repetindo a estrutura `if` `else`:
 ```{r}
 if(dados[7,9] == 0){
   print("Nunca é tarde para começar!")
-} else if (dados[3,9] > 0 && dados[3,9] < 5){
+} else if (dados[7,9] > 0 && dados[7,9] < 5){
   print("Já pegou o embalo, agora é só continuar!")
 } else {
   print("Nos avise se estivermos falando algo errado...hehe")
@@ -745,6 +740,58 @@ for(i in 1:nrow(dados)){
 
 ```
 
+
+<span style="color:red"> Paramos aqui na parte da manhã do segundo dia do treinamento.</span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.1.RData).
+
+* [Aqui](https://GENt-esalq.github.io/cursoR/dia2.1.R) você pode acessar um exemplo de script `.R`.
+
+* E [aqui](https://GENt-esalq.github.io/cursoR/dia2.1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia2.1.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia2.1.html).
+
+> Como você faria para corrigir esses elementos errados? Tente!
+
+Dica: [Primeiro busque quais são as cidades desses elementos (dados[corrigir,5]), depois, faça um novo vetor com os nomes corretos e substitua na tabela]{.spoiler}
+
+Uma possibilidade de resposta:
+
+```{r}
+dados[corrigir,5]
+novo <- c("São José dos Campos - SP", "Piracicaba - SP", "São Paulo - SP", "Piracicaba-SP",
+          "Uberlância-MG", "Piracicaba-SP", "Uberaba-MG", "São Luis-MA", "Piracicaba-SP",
+          "Piracicaba-SP")
+dados[corrigir,5] <- novo
+
+# Verificando se corrigiu
+dados[,5]
+```
+
+
+> A coluna 2 da tabela se refere à idade dos participantes, imprima na tela (usando print ou cat) a década em que cada um nasceu, como a seguir: "Nasceu na década de 80".
+
+Dica: [Faça um novo vetor com a subtração das idades pelo ano atual e depois faça um loop com uma condicional para imprimir as mensagens na tela]{.spoiler}
+
+Uma possibilidade de resposta:
+
+```{r}
+decada <- 2019 - dados$Idade
+
+for(i in 1:length(decada)){
+  if(decada[i] > 1960 && decada[i] < 1970){
+    print("Nasceu na década de 60")
+  } else if(decada[i] >= 1970 && decada[i] < 1980){
+    print("Nasceu na década de 70")
+  } else if(decada[i] >= 1980 && decada[i] < 1990){
+    print("Nasceu na década de 80")
+  } else if(decada[i] >= 1990 && decada[i] < 2000){
+    print("Nasceu na década de 90")
+  } else {
+    print("Xóvem")
+  }
+}
+```
+
+
 ## While
 
 Nesse tipo de estrutura de repetição a tarefa será realizada até que seja atingida determinada condição.
@@ -827,16 +874,12 @@ Fizemos um vídeo com mais detalhes sobre loops no R, aumentem nossa quantidade 
 
 > Faça os exercícios da [**Sessão 3**](exercicios.html)
 
-<!---
-<span style="color:red"> Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.RData). Também acesse um R script do que foi passado [aqui](https://GENt-esalq.github.io/cursoR/dia2.R)</span>
---->
 
 **Algumas dicas**:
 
 * Cuidado ao rodar o mesmo comando mais de uma vez, algumas variáveis podem não ser mais como eram antes. Para que o comando funcione da mesma forma é necessário que os objetos de entrada estejam da forma como você espera.
 * Lembrem-se que `=` é para definir objetos e `==` é o sinal de igualdade. 
 * Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros contínua.
-* Às vezes quando instalamos um pacote que já havia sido instalado, o R não reconhece o novo pacote e é necessario reiniciar o R.
 * Usar identação ajuda a visualizar o começo e fim de cada estrutura de código e facilita o abrir e fechar de chaves. Identação são aqueles espaços que usamos antes da linha, como:
 
 ```{r}
@@ -892,7 +935,6 @@ mul <- 100*(length(which(dados$Genero == "Feminino"))/length(dados$Genero))
 ## Faz uma lista com todos os resultados
 final_list <- list(IMC=IMC, idade_media = id_med, 
                    idade_mediana = id_median, porcentagem_mulheres = mul)
-
 ```
 
 Para montarmos a função primeiro pensamos qual será o argumento de entrada, nesse caso, nosso arquivo de dados, um *data frame* contendo pelo menos as colunas `Peso`, `Altura`, `Idade` e `Genero`.
@@ -966,6 +1008,26 @@ test_list <- minha_funcao(df.entrada = dados1)
 
 Para saber mais sobre desenvolvimento de funções acesse [aqui](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/) e, um pouco mais avançado, [aqui](http://adv-r.had.co.nz/Functions.html).
 
+<span style="color:red"> Paramos aqui na parte da tarde do segundo dia do treinamento.</span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.2.RData).
+
+* [Aqui](https://GENt-esalq.github.io/cursoR/dia2.2.R) você pode acessar um exemplo de script `.R`.
+
+* E [aqui](https://GENt-esalq.github.io/cursoR/dia2.2.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia2.2.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia2.2.html).
+
+# Rodando outros scripts .R 
+
+As vezes, parte do seu código demanda que você chame algo que foi rodado em outro script. Muitas pessoas também tem o costume de salvar as funções próprias em um script separado. Vamos fazer isso? 
+
+* Abra um novo script .R, copie suas funções para ele e o salve como `funcoes.R`
+
+Agora, você pode acessa-las usando:
+
+```{r, eval=FALSE}
+source("funcoes.R")
+```
+
 > Faça os exercícios da [**Sessão 4**](exercicios.html)
 
 
@@ -992,7 +1054,7 @@ hist(dados$Altura, breaks = 15)
 
 ```
 
-Agora tente fazer o histograma para o peso, aproveite para tentar alterar alguns parâmetros. Em seguida, serão apresentados outros gráficos que poderão ser utilizados.
+Agora tente fazer o **histograma para o peso**, aproveite para tentar alterar alguns parâmetros. Em seguida, serão apresentados outros gráficos que poderão ser utilizados.
 
 ```{r}
 #### Bar plot ####
@@ -1065,9 +1127,9 @@ plot(x = dados$Peso, y= dados$Altura)
 
 ```
 
-##Parâmetros gráficos
+## Parâmetros gráficos
 
-É possível customizar os gráficos alterando seus eixos, cores, fontes, etc. Começaremos através do gráfico de pontos.
+É possível customizar os gráficos alterando seus eixos, cores, fontes, etc. Começaremos através do histograma:
 
 * `col` para adicionar cor;
 * `xlab` alterar título do eixo x;
@@ -1076,7 +1138,7 @@ plot(x = dados$Peso, y= dados$Altura)
 
 ```{r, eval=FALSE}
 hist(dados$Idade, breaks=6, col="blue", xlab="Idades", 
-     ylab="Frequencia", main="Histograma das Idades (Curso 2018)")
+     ylab="Frequencia", main="Histograma das Idades (Curso 2019)")
 ```
 
 Se preferir, podemos usar um gráfico de densidades de Kernel como:
@@ -1085,7 +1147,7 @@ Se preferir, podemos usar um gráfico de densidades de Kernel como:
 d <- density(dados$Idade, na.rm = TRUE)
 
 plot(d, col="blue", xlab="Idades",
-     ylab="Densidade", main="Densidade das Idades (Lab StatGen 2017)")
+     ylab="Densidade", main="Densidade das Idades")
 ```
 
 Vamos explorar um pouco mais o gráfico de pontos. Sabe- se que existe uma correlação entre o peso e a altura das pessoas, e que, a distribuição dessas características configura uma bimodal se não considerarmos os gênero dos indivíduos avaliados. Vamos avaliar a correlação entre essas caraterísticas com:
@@ -1138,7 +1200,7 @@ plot(x = dados$Peso, y= dados$Altura,
      main = "Peso  x Altura", #Título principal 
      xlab = "Peso", #Eixo x
      ylab = "Altura", #Eixo y
-     col = dados$Genero
+     col = as.factor(dados$Genero)
      )
 
 #Nesse mesmo gráfico, procure mudar a forma dos pontos de acordo com a nota do R.
@@ -1148,7 +1210,7 @@ plot(x = dados$Peso, y= dados$Altura,
      main = "Peso  x Altura", #Título principal 
      xlab = "Peso", #Eixo x
      ylab = "Altura", #Eixo y
-     col = dados$Genero,
+     col = as.factor(dados$Genero),
      pch=10)
 
 legend("bottomright", legend = c("Feminino", "Masculino"), col=1:2, pch=10)
@@ -1166,7 +1228,7 @@ hist(dados$Peso)
 par(mfrow=c(1,1))
 ```
 
-##Desafio!!!
+## Desafio!!!
 
 Busque resolver o desafio sem observar a resposta. Vocês conseguirão avançar muito, um ou outro detalhe pode acabar sendo mais difícil. Nesse ponto, vocês utilizam a resolução para entenderem melhor o como poderia ser feito. Veja que há muitos modos de resolver, apresentaremos apenas um deles.
 
@@ -1205,6 +1267,7 @@ dotchart(dados$Peso, labels = dados$Cidade, groups = as.factor(dados$Area),
 par(mfrow=c(1,1))
 
 ```
+
 Uma solução que utiliza tudo o que vocês aprenderam:
 
 ```{r eval=FALSE}
@@ -1241,7 +1304,7 @@ par(mfrow=c(1,1))
 
 ```
 
-##Salvar gráficos
+## Salvar gráficos
 
 Os gráficos podem ser salvos através dos menus disponíveis no RStudio, ou através de funções que permitem salvar em formatos específicos. Algumas delas são: pdf(); png(); jpeg(); bitmap(). De maneira geral, o parâmetro primordial é fornecer o nome do arquivo que será gerado (contendo sua extensão). Após abrir a função gráfica, deve-se gerar o gráfico de interesse. Por fim, utiliza-se o comando dev.off() para que saída gráfica volte para o console.
 
@@ -1333,6 +1396,10 @@ ggplot(dados) +
 
 ```
 
+
+<span style="color:red"> Paramos aqui na primeira parte da manhã de sábado (18.05) e seguimos para uma parte específica da sessão **Algumas Ferramentas de Análise de dados**, clique [aqui](#experimento-de-cafe) para ir até lá.</span>
+
+
 ## E nossa motivação? Dá para fazer um gráfico?
 
 Mas é claro que sim!!! Vai ser um pouquinho mais complexo, mas a gente chega lá.
@@ -1340,7 +1407,7 @@ Mas é claro que sim!!! Vai ser um pouquinho mais complexo, mas a gente chega l�
 Precisaremos instalar três pacotes: i) **tm**, ii) **SnowballC** e iii) **wordcloud**.
 
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
-install.packages(c('tm', 'SnowballC', 'wordcloud'))
+install.packages(c('tm', 'SnowballC', 'wordcloud'), dependencies = T)
 ```
 
 
@@ -1373,7 +1440,7 @@ wordcloud(dataCorpus,max.words=100,colors=c("#2553A4","#11A858"))
 Agora utilizaremos as informações de suas cidades para mostrá-las em um mapa. Vamos ter que instalar alguns pacotes, mas o resultado vale a pena:
 
 
-```{r message=FALSE, warning=FALSE, eval=FALSE}
+```{r message=FALSE, warning=FALSE, eval=TRUE}
 # Carregar os pacotes
 library("dplyr")
 library("osmdata")
@@ -1404,11 +1471,99 @@ ggplot(data = world) +
 ```
 
 
+# Família de funções `apply`
+
+A família de funções `apply` também podem funcionar como um estrutura de repetição. Sua sintaxe é mais enxuta quando comparada com `for` ou `while` e pode facilitar a elaboração do código. 
+
+Aqui vamos exemplificar o uso de algumas dessas funções.
+
+## apply
+
+A função `apply` é a base de todas as outras funções da família, portanto a compreensão do funcionamento desta é essencial para entender as demais. Se buscar no help da função, ele indicará que os argumentos da função consistem em: apply(X, MARGIN, FUN, ...). Sendo X o conjunto de dados em formato de array (incluindo matrix, que consiste num array de dimensão 2), MARGIN será 1 se a ação deverá ser aplicada à linhas, 2 se for aplicada a colunas e c(1,2) se for aplicada a ambas; FUN é a função que indica ação.
+
+Num simples exemplo temos a matrix:
+
+```{r}
+ex_mat <- matrix(seq(0,21,3), nrow = 2)
+```
+
+Se quisermos somar os elementos das colunas usamos:
+
+```{r}
+apply(ex_mat, 2, sum)
+```
+
+Se quisermos somar os elementos das linhas:
+
+```{r}
+apply(ex_mat, 1, sum)
+```
+
+Se fossemos utilizar o `for` para realizar essa tarefa:
+
+```{r}
+
+# Soma das colunas
+for(i in 1:dim(ex_mat)[2]){
+  print(sum(ex_mat[,i]))
+}
+
+# Soma das linhas
+for(i in 1:dim(ex_mat)[1]){
+  print(sum(ex_mat[i,]))
+}
+```
+
+## lapply
+
+Se diferencia do `apply` por poder receber outros tipos de objetos (mais utilizado com listas) e devolver o resultado  em uma lista.
+
+
+```{r}
+ex_list <- list(A=matrix(seq(0,21,3), nrow = 2), 
+                B=matrix(seq(0,14,2), nrow = 2), 
+                C= matrix(seq(0,39,5), nrow = 2))
+str(ex_list)
+```
+
+Para selecionar a segunda coluna de todas as matrizes
+
+```{r}
+lapply(ex_list, "[", 2)
+```
+
+## sapply
+
+A função `sapply` funciona como o `lapply` a diferença é que ele retorna apenas um valor por componente da lista e os deposita em um vetor de resposta. Como no exemplo:
+
+```{r}
+sapply(ex_list, "[",1,3)
+```
+
+## tapply
+
+Esta função é um pouco diferente das demais, ela exige que exista alguma variável categórica (fator) para aplicar ação separadamente conforme suas categorias (levels). Por isso, normalmente é aplicada a data.frames.
+
+Vamos utilizar nosso conjunto de dados:
+
+```{r}
+str(dados)
+dados$Area <- as.factor(dados$Area)
+tapply(dados$ConhecimentoR, dados$Area, mean)
+
+```
+
+Saiba mais sobre essa família de funções no [link](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/)
+
+Observe que nas funções `apply` podemos trocar as funções prontas do *r base* por funções personalizadas. 
+
+> Faça o exercício [**extra**](exercicios.html)
+
 # Algumas ferramentas básicas de análise de dados
 
 Claramente a análise de dados é algo muito específico de cada conjunto de dados e interesses. Vamos aqui mostrar alguns recursos básicos como análise de variância, regressão e teste de médias.
 
-Algumas avaliações descritivas podem ser feitas pelo uso do `tapply` e de gráficos, como já mostrado anteriormente. A função `summary` também da informações gerais do conjunto. É possível usá-la em conjunto com o `tapply`.
+Algumas avaliações descritivas podem ser feitas pelo uso do `tapply` e de gráficos. A função `summary` também da informações gerais do conjunto. É possível usá-la em conjunto com o `tapply`.
 
 ```{r}
 str(dados)
@@ -1519,7 +1674,201 @@ tukey.test
 ```
 
 
-> Faça os exercícios das [**sessão 7**](exercicios.html)
+## Experimento de café
+
+Agora, vamos trabalhar com outro conjunto de dados, contendo informações de um experimento de café. Acesse aqui:
+
+* Arquivo [cafe.txt](https://GENt-esalq.github.io/cursoR/cafe.txt)
+
+O experimento trata-se de dados em blocos casualizados de uma progênie de plantas de café. Nele contém uma coluna rep para especificar a qual repetição o dado se refere, outra para qual indivíduo da progênie (prog) e outra para indicar em qual colheita o dado foi retirado (colheita).
+
+```{r}
+data <- read.table("cafe.txt", h = TRUE, sep = "\t", dec = ",")
+str(data)
+```
+
+Não esqueça que é necessário que o arquivo esteja no seu ambiente de trabalho ou que você especifique o caminho completo para que o R o encontre.
+
+Para essa análise de dados, nossa variável resposta é a produção (prod), a repetição (rep), a progênie (prog) e a colheita serão fatores no nosso modelo, identificados por seus níveis.
+
+```{r}
+# Transformar em fator
+data$rep <- as.factor(data$rep)
+data$prog <- as.factor(data$prog)
+data$colheita <- as.factor(data$colheita)
+str(data)
+
+# Outra opção
+data <- transform(data, rep = factor(rep), prog = factor(prog), colheita = factor(colheita))
+str(data)
+```
+
+Vamos primeiro análisar somente os dados referentes à primeira colheira. Podemos fazer um subset somente com esses dados.
+
+```{r}
+# Indexar primeita colheita
+Colheita_1 <- subset(data, colheita == 1)
+str(Colheita_1)
+```
+
+
+Repare que, ao fazer o subset, o conjunto de dados ainda mantém os três níveis do fator colheira, embora agora só tenhamos um. Isso pode ser um problema para a nossa análise, vamos remover os níveis excedentes com:
+
+```{r}
+# Droplevels
+Colheita_1 <- droplevels(subset(data, colheita == 1))
+str(Colheita_1)
+```
+
+
+Agora podemos rodar nosso modelo de análise de variância.
+
+```{r}
+# Modelo
+Modelo1 <- aov(prod ~ rep + prog,
+               contrasts = list(prog = "contr.sum"), 
+               data = Colheita_1)
+anova(Modelo1)
+```
+
+Essa análise variância exige alguns pressupostos, podemos verificar eles nos nossos dados usando:
+
+```{r}
+####################################################
+###verificar Pressupostos da análise de variância###
+####################################################
+names(Modelo1)
+Modelo1_residuals <- Modelo1$residuals #armazenando os erros ou resíduos
+
+# teste de Normalidade DOS ERROS##
+#---------------------------------#
+shapiro.test (Modelo1_residuals) # Hipótese de Nulidade
+# a hipótese de que os erros são normais, nesse caso, como o p-value = 0.24
+# ou seja, >0.05 ou 0.01 ou qualquer alfa adotado, não se rejeita a hipotese de normalidade 
+```
+
+Agora, vamos precisar de funções contidas nos scripts `DIAGNOSTICS.R` e `"outliers.R"`. Acesse eles em:
+
+* [DIAGNOSTICS.R](https://GENt-esalq.github.io/cursoR/DIAGNOSTICS.R)
+* [outliers.R](https://GENt-esalq.github.io/cursoR/outliers.R)
+
+```{r, eval=TRUE}
+# Funções
+source("DIAGNOSTICS.R")
+source("outliers.R")
+
+
+#Verificar pressupostos de análises
+diagnostics(Modelo1$residuals, Modelo1$fitted.values)
+```
+
+As vezes outliers podem ser difíceis de identificarmos, aqui esta uma função que pode fazer isso:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+# Verificar outlier
+outlier(Modelo1$residuals, alpha=0.05)
+```
+
+Guardando o valor do quadrado médio:
+
+```{r, eval=TRUE}
+QME <- anova(Modelo1)["Residuals", "Mean Sq"]
+QME
+```
+
+E a média total da produçao:
+
+```{r, eval=TRUE}
+med <- mean(data$prod, na.rm = TRUE)
+med
+```
+
+Com eles podemos calcular o coeficiente de variação (CV):
+
+```{r, eval=TRUE}
+CVe <- (sqrt(QME)/med)*100
+CVe
+```
+
+> Calcule o CVe e QME para a colheita 2
+
+> Crie uma função calcular o CVe
+
+Possibilidade de respostas:
+
+```{r, eval=TRUE}
+CV_E <- function(anova, med){
+  QME <- anova(anova)["Residuals", "Mean Sq"]
+  CVe <- (sqrt(QME)/med)*100
+  
+  return(CVe)
+}
+
+## 
+CV_E(anova = Modelo1, med = med)
+```
+
+Podemos também calcular a herdabilidade da característica produção:
+
+```{r, eval=TRUE}
+n_rep <- nlevels(Colheita_1$rep)
+VG <- (anova(Modelo1)["prog", "Mean Sq"]- QME)/n_rep
+VE <- QME
+H_2 <- VG/ (VG + VE)
+H_2
+```
+
+
+> Crie uma função para estimar a herdabilidade para o DBC
+
+
+Agora faremos um teste de comparações múltiplas utilizando a análise de variância feita no pacote `ExpDes`.
+
+```{r,  message=FALSE, warning=FALSE}
+#install.packages("ExpDes")
+library(ExpDes)
+rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "tukey", sigT = 0.05, sigF = 0.05)
+
+# Teste Sk
+rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "sk", sigT = 0.05, sigF = 0.05)
+
+
+# função by é similar ao subset
+by(data, data$colheita, function (x) anova(aov(prod ~ prog + rep, data= x))) 
+#verificar os graus de liberdade, cuidado para que sejam utilizados de fato os dados de apenas 1 colheita
+
+
+#outra opção selecionando apenas a parte da dataframe onde colheita igual a "2"
+anova(aov(data$prod ~ data$prog + data$rep, data = data[data$colheita==2,]))
+
+# mais uma opção
+indiv <- lapply(split(data, data$colheita), aov, formula = prod ~ rep + prog)
+lapply(indiv, summary)
+```
+
+Agora, com o pacote `agricolae` elaboraremos o sorteio de um experimento também de blocos casualizados.
+
+```{r,  message=FALSE, warning=FALSE}
+############################
+#SORTEIO DE EXPERIMENTOS####
+############################
+
+#install.packages("agricolae")
+library(agricolae)
+trt <- c("0","1","2","5","10","20","50","100","Dina")
+rcbd <- design.rcbd(trt, 6, serie = 1, seed = 1, "default") # seed = 1
+rcbd # Planilha de campo
+```
+
+Podemos exportar e salvar nosso sorteio com:
+
+```{r}
+write.table(rcbd,"SORTEIO.txt", row.names=FALSE, sep="\t")
+file.show("SORTEIO.txt")
+write.csv(rcbd,"SORTEIO.csv",row.names=F)
+```
+
+<span style="color:red"> Paramos aqui no sábado (18.05),terceiro e último dia do treinamento.</span>
 
 
 # Pratique gerando relatórios no RStudio
@@ -1585,105 +1934,13 @@ fiz um [link](https://GENt-esalq.github.io/)!
 
 
 Saiba mais no tutorial sobre isso no R-bloggers, que acreditamos ser um bom começo! Acesse [aqui](https://www.r-bloggers.com/how-to-create-reports-with-r-markdown-in-rstudio/).
- 
- 
-<span style="color:red"> Paramos aqui no terceiro e último dia de curso.</span>
+
+---
 
 Caso tenha sugestões para aprimoramento desse material, enviar e-mail para `gent.esalq@gmail.com`.
 
 Acesse também outros materiais em português produzidos por Cristiane Taniguti, Fernando Correr e Rodrigo Amadeu [aqui](http://cristianetaniguti.github.io/Workshop_genetica_esalq/).
 
-Também recomendamos diversos materiais em inglês [aqui](https://GENt-esalq.github.io/cursoR/english_tutorials.html).
+Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Cristiane Taniguti, Fernando Correr e Kaio Olimpio ministraram o Treinamento. Também contamos com os monitores: Letícia de Castro Lara, Getúlio Caixeta, Gabriel Gesteira, Rafael Yassue, Fernando Espolador, Júlia Morosini, Guilherme Hokasa, Vitor Mello, Ana Letycia Basso, Jessica Ferrarezi e Jéssica Nogueira de Souza.
 
-# EXTRA! EXTRA!
-
-## Família de funções `apply`
-
-As estruturas de repetição mostradas, apesar de serem mais facilmente interpretadas e elaboradas, possuem a desvantagem da velocidade com que atuam. Quando lidamos com grande quantidade de dados, nem sempre essas estruturas são muito eficientes. As funções da família `apply` podem realizar muitas das tarefas realizadas pelas estruturas de repetição e fazem isso de forma mais rápida.
-
-Aqui vamos exemplificar o uso de algumas dessas funções.
-
-### apply
-
-A função `apply` é a base de todas as outras funções da família, portanto a compreensão do funcionamento desta é essencial para entender as demais. Se buscar no help da função, ele indicará que os argumentos da função consistem em: apply(X, MARGIN, FUN, ...). Sendo X o conjunto de dados em formato de array (incluindo matrix, que consiste num array de dimensão 2), MARGIN será 1 se a ação deverá ser aplicada à linhas, 2 se for aplicada a colunas e c(1,2) se for aplicada a ambas; FUN é a função que indica ação.
-
-Num simples exemplo temos a matrix:
-
-```{r}
-ex_mat <- matrix(seq(0,21,3), nrow = 2)
-```
-
-Se quisermos somar os elementos das colunas usamos:
-
-```{r}
-apply(ex_mat, 2, sum)
-```
-
-Se quisermos somar os elementos das linhas:
-
-```{r}
-apply(ex_mat, 1, sum)
-```
-
-Se fossemos utilizar o `for` para realizar essa tarefa:
-
-```{r}
-
-# Soma das colunas
-for(i in 1:dim(ex_mat)[2]){
-  print(sum(ex_mat[,i]))
-}
-
-# Soma das linhas
-for(i in 1:dim(ex_mat)[1]){
-  print(sum(ex_mat[i,]))
-}
-```
-
-### lapply
-
-Se diferencia do `apply` por poder receber outros tipos de objetos (mais utilizado com listas) e devolver o resultado  em uma lista.
-
-
-```{r}
-ex_list <- list(A=matrix(seq(0,21,3), nrow = 2), 
-                B=matrix(seq(0,14,2), nrow = 2), 
-                C= matrix(seq(0,39,5), nrow = 2))
-str(ex_list)
-```
-
-Para selecionar a segunda coluna de todas as matrizes
-
-```{r}
-lapply(ex_list, "[", 2)
-```
-
-### sapply
-
-A função `sapply` funciona como o `lapply` a diferença é que ele retorna apenas um valor por componente da lista e os deposita em um vetor de resposta. Como no exemplo:
-
-```{r}
-sapply(ex_list, "[",1,3)
-```
-
-### tapply
-
-Esta função é um pouco diferente das demais, ela exige que exista alguma variável categórica (fator) para aplicar ação separadamente conforme suas categorias (levels). Por isso, normalmente é aplicada a data.frames.
-
-Vamos utilizar nosso conjunto de dados:
-
-```{r}
-str(dados)
-dados$Area <- as.factor(dados$Area)
-tapply(dados$ConhecimentoR, dados$Area, mean)
-
-```
-
-Saiba mais sobre essa família de funções no [link](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/)
-
-Observe que nas funções `apply` podemos trocar as funções prontas do *r base* por funções personalizadas. 
-
-> Faça o exercício [**extra**](exercicios.html)
-
-
-
+Também recomendamos materiais em inglês [aqui](https://GENt-esalq.github.io/cursoR/english_tutorials.html).

@@ -1,9 +1,8 @@
 ---
-date: "`r Sys.Date()`"
 author: "[GENt](https://gent-esalq.github.io/) <br/>  Escola Superior de Agricultura Luiz de Queiroz <br/> Universidade de São Paulo"
-output:
-    rmdformats::readthedown:
-      css: readthedowngent.css
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
 ---
 
 # Treinamento em Programação no Ambiente R
@@ -1952,3 +1951,4 @@ Acesse também outros materiais em português produzidos por Cristiane Taniguti,
 Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Cristiane Taniguti, Fernando Correr e Kaio Olimpio ministraram o Treinamento. Também contamos com os monitores: Letícia de Castro Lara, Getúlio Caixeta, Gabriel Gesteira, Rafael Yassue, Fernando Espolador, Júlia Morosini, Guilherme Hokasa, Vitor Mello, Ana Letycia Basso, Jessica Ferrarezi e Jéssica Nogueira de Souza.
 
 Também recomendamos materiais em inglês [aqui](https://GENt-esalq.github.io/cursoR/english_tutorials.html).
+
