@@ -556,7 +556,7 @@ A planilha com os dados será disponibilizada, adicione-a ao seu diretório de t
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
 
 ```{r, eval=FALSE}
-dados <- read.csv(file = "dados.csv", stringsAsFactors = FALSE, na.strings="-")
+dados <- read.csv(file = "dados_alunos.csv", stringsAsFactors = FALSE, na.strings="-")
 ```
 
 ```{r}
@@ -1322,7 +1322,7 @@ plot(x = dados$Peso, y= dados$Altura,
      main = "Peso  x Altura", #Título principal 
      xlab = "Peso", #Eixo x
      ylab = "Altura", #Eixo y
-     col = dados$Genero,
+     col = as.factor(dados$Genero),
      pch=10)
 dev.off()
 
@@ -1331,7 +1331,7 @@ plot(x = dados$Peso, y= dados$Altura,
      main = "Peso  x Altura", #Título principal 
      xlab = "Peso", #Eixo x
      ylab = "Altura", #Eixo y
-     col = dados$Genero,
+     col = as.factor(dados$Genero),
      pch=10)
 dev.off()
 ```
