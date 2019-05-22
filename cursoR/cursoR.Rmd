@@ -1604,7 +1604,7 @@ Podemos obter mais informações sobre o modelo ajustado observando os gráficos
 plot(mod1)
 ```
 
-Vamos utilizar outro conjunto de dados para realizarmos mais avaliações utilizando a função `lm`. Utilize:
+Vamos utilizar outro conjunto de dados para realizarmos mais avaliações utilizando a função `lm`. Acesse o conjunto [clima_lond](clima_lond.RData):
 
 ```{r}
 load("clima_lond.RData")

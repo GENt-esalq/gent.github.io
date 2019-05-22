@@ -548,7 +548,7 @@ A planilha com os dados será disponibilizada, adicione-a ao seu diretório de t
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
 
 ```{r, eval=FALSE}
-dados <- read.csv(file = "dados.csv", stringsAsFactors = FALSE, na.strings="-")
+dados <- read.csv(file = "dados_alunos.csv", stringsAsFactors = FALSE, na.strings="-")
 ```
 
 ```{r}
@@ -1314,7 +1314,7 @@ plot(x = dados$Peso, y= dados$Altura,
      main = "Peso  x Altura", #Título principal 
      xlab = "Peso", #Eixo x
      ylab = "Altura", #Eixo y
-     col = dados$Genero,
+     col = as.factor(dados$Genero),
      pch=10)
 dev.off()
 
@@ -1323,7 +1323,7 @@ plot(x = dados$Peso, y= dados$Altura,
      main = "Peso  x Altura", #Título principal 
      xlab = "Peso", #Eixo x
      ylab = "Altura", #Eixo y
-     col = dados$Genero,
+     col = as.factor(dados$Genero),
      pch=10)
 dev.off()
 ```
@@ -1596,7 +1596,7 @@ Podemos obter mais informações sobre o modelo ajustado observando os gráficos
 plot(mod1)
 ```
 
-Vamos utilizar outro conjunto de dados para realizarmos mais avaliações utilizando a função `lm`. Utilize:
+Vamos utilizar outro conjunto de dados para realizarmos mais avaliações utilizando a função `lm`. Acesse o conjunto [clima_lond](clima_lond.RData):
 
 ```{r}
 load("clima_lond.RData")
@@ -1680,7 +1680,7 @@ Agora, vamos trabalhar com outro conjunto de dados, contendo informações de um
 
 * Arquivo [cafe.txt](https://GENt-esalq.github.io/cursoR/cafe.txt)
 
-O experimento trata-se de dados em blocos casualizados de uma progênie de plantas de café. Nele contém uma coluna rep para especificar a qual repetição o dado se refere, outra para qual indivíduo da progênie (prog) e outra para indicar em qual colheita o dado foi retirado (colheita).
+O experimento trata-se de dados em blocos completos casualizados de 10 progênies de café. Nele contém uma coluna rep para especificar a qual repetição o dado se refere, outra para qual indivíduo da progênie (prog) e outra para indicar em qual colheita o dado foi retirado (colheita).
 
 ```{r}
 data <- read.table("cafe.txt", h = TRUE, sep = "\t", dec = ",")
@@ -1762,7 +1762,7 @@ source("outliers.R")
 diagnostics(Modelo1$residuals, Modelo1$fitted.values)
 ```
 
-As vezes outliers podem ser difíceis de identificarmos, aqui esta uma função que pode fazer isso:
+As vezes outliers podem ser difíceis de identificarmos, aqui esta uma função (detalhes sobre a identificação e remoção de outliers estão disponíveis no artigo Bernal-Vasquez, AM., Utz, HF. & Piepho, HP. Theor Appl Genet-2016) que pode fazer isso:
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
 # Verificar outlier
@@ -1776,10 +1776,10 @@ QME <- anova(Modelo1)["Residuals", "Mean Sq"]
 QME
 ```
 
-E a média total da produçao:
+E a média da primeira colheita da nossa variavel resposta (produção):
 
 ```{r, eval=TRUE}
-med <- mean(data$prod, na.rm = TRUE)
+med <- mean(Colheita_1$prod, na.rm = TRUE)
 med
 ```
 
@@ -1819,7 +1819,7 @@ H_2
 ```
 
 
-> Crie uma função para estimar a herdabilidade para o DBC
+> Crie uma função para estimar a herdabilidade 
 
 
 Agora faremos um teste de comparações múltiplas utilizando a análise de variância feita no pacote `ExpDes`.
@@ -1827,12 +1827,18 @@ Agora faremos um teste de comparações múltiplas utilizando a análise de vari
 ```{r,  message=FALSE, warning=FALSE}
 #install.packages("ExpDes")
 library(ExpDes)
+
+# Teste de Tukey
 rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "tukey", sigT = 0.05, sigF = 0.05)
 
-# Teste Sk
+# Teste de agrupamento de Scot- Knott
 rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "sk", sigT = 0.05, sigF = 0.05)
 
+```
 
+Agora vamos apresentar outras opções para analisarmos cada colheita individualmente. 
+
+```{r,  message=FALSE, warning=FALSE}
 # função by é similar ao subset
 by(data, data$colheita, function (x) anova(aov(prod ~ prog + rep, data= x))) 
 #verificar os graus de liberdade, cuidado para que sejam utilizados de fato os dados de apenas 1 colheita
@@ -1841,12 +1847,12 @@ by(data, data$colheita, function (x) anova(aov(prod ~ prog + rep, data= x)))
 #outra opção selecionando apenas a parte da dataframe onde colheita igual a "2"
 anova(aov(data$prod ~ data$prog + data$rep, data = data[data$colheita==2,]))
 
-# mais uma opção
+# mais uma opção com o uso da família apply
 indiv <- lapply(split(data, data$colheita), aov, formula = prod ~ rep + prog)
 lapply(indiv, summary)
 ```
 
-Agora, com o pacote `agricolae` elaboraremos o sorteio de um experimento também de blocos casualizados.
+Agora, com o pacote `agricolae` elaboraremos o sorteio de um experimento também de blocos completos casualizados.
 
 ```{r,  message=FALSE, warning=FALSE}
 ############################
