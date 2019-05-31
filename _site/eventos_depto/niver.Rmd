@@ -1,13 +1,20 @@
----
-output:
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
----
+<center>
+<figure>
+  <img src="../img/portfolio/niver.png" width="400" height="350" class="center">
+</figure>
+</center>
 
-![](img/convite_niver.png)
 
-# E mais...
+# Apresentação
+
+<p style = 'text-align: justify;'> As atividades de estudo de genética na ESALQ começaram oficialmente em 1936 com a criação da cadeira de Citologia e Genética ocupada pelo prof. Friedrich Gustav Brieger. E em 1958 ocorreu a criação do Instituto de Genética.  </p>
+
+<p style = 'text-align: justify;' >Para comemorar os 60 anos da criação do Instituto, que mais tarde se tornou o Departamento de Genética, o grupo de Divulgação Científica GENt convida alunos, funcionários e professores para uma sessão de cinema que vai contar um pouquinho da nossa história! </p>
+
+<p style = 'text-align: justify;' >Para isso, vamos assistir ao documentário “Histórias da Genética no Brasil”, que conta com importantes entrevistados para a área da Genética, como os professores João Lúcio de Azevedo, Roland Vencovsky e Warwick Kerr.
+
+<p style = 'text-align: justify;' >Venha participar, comer uma pipoca com guaraná e comemorar o aniversário do Departamento de Genética com a GENt! Traga sua caneca! </p> 
+
 
 # Saiba mais sobre alguns dos personagens da história do departamento
 
