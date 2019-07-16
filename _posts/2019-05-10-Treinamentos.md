@@ -10,4 +10,8 @@ description: "<p style = 'text-align: justify;'> Com o apoio do Departamento de 
 <a href='cursoR/index.html'><font size='5'><u>Treinamento em Programação no Ambiente R </u></font></a> 
 <p style = 'text-align: justify;' ><font size='3'> Realizado nos dias 16, 17 e 18 de maio de 2019. </font> </p> "
 
+<a href='XIII_GMP/index.html'><font size='5'><u>Minicurso R - XIII Workshop de Férias em Genética e Melhoramento de Plantas </u></font></a> 
+<p style = 'text-align: justify;' ><font size='3'> Realizado nos dias 23, 24 e 25 de julho de 2019. </font> </p> "
+
+
 ---
