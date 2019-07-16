@@ -26,7 +26,9 @@ Os ícones abaixo foram obtidos no site [thenoumproject](https://thenounproject.
 <img src="img/noun_butterfly.svg" alt="logo" width="300" height="200"> 
 <img src="img/noun_union.svg" alt="logo" width="300" height="200"> 
 <img src="img/noun_presentation.svg" alt="logo" width="300" height="200"> 
-<img src="img/noun_training.svg" alt="logo" width="300" height="200"> 
+<img src="img/noun_training_2417115.svg" alt="logo" width="300" height="200"> 
+<img src="img/noun_Protest_1606389.svg" alt="logo" width="300" height="200"> 
+
 
 
 # Template do site
