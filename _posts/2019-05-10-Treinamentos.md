@@ -13,5 +13,4 @@ description: "<p style = 'text-align: justify;'> Com o apoio do Departamento de 
 <a href='XIII_GMP/index.html'><font size='5'><u>Minicurso R - XIII Workshop de Férias em Genética e Melhoramento de Plantas </u></font></a> 
 <p style = 'text-align: justify;' ><font size='3'> Realizado nos dias 23, 24 e 25 de julho de 2019. </font> </p> "
 
-
 ---
