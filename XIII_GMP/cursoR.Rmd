@@ -14,7 +14,7 @@ organizado por alunos do Programa de Pós-Graduação em Genética e Melhorament
 
 Recomendamos também outros materiais disponíveis online, encontre uma lista [aqui](https://gvenck.github.io/cursoR/english_tutorials.html).
 
-Sugerimos que, antes de iniciar a prática aqui descrita, siga [este tutorial](https://GENt-esalq.github.io/cursoR/Tutorial_instalacao.html) para instalação do R e do RStudio.
+Sugerimos que, antes de iniciar a prática aqui descrita, siga [este tutorial](https://GENt-esalq.github.io/XIII_GMP/Tutorial_instalacao.html) para instalação do R e do RStudio.
 
 # Familiarização com a interface do RStudio
 
@@ -343,11 +343,11 @@ No caso, todos os elementos foram transformados em caracter.
 
 <span style="color:red"> Paramos aqui no primeiro dia. </span>
 
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia1.RData).
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.RData).
 
-* [Aqui](https://GENt-esalq.github.io/cursoR/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
+* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
 
-* E [aqui](https://GENt-esalq.github.io/cursoR/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia1.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia1.html).
+* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia1.html).
 
 ## Matrizes
 
@@ -460,68 +460,12 @@ str(campo1)
 * Caso não saiba o operador ou a função que deve ser utilizada, como o desvio padrão, busque no google algo como "desvio padrão R", ou melhor "standard deviation R". Logo nas primeiras páginas você obterá respostas. A comunidade do R é bastante ativa e grande parte das suas perguntas sobre ele já foram respondidas em algum lugar da web.
 * Não esqueça que tudo o que fizer no R precisa ser explicitamente indicado, como uma multiplicação 4ac com `4*a*c`. Para gerar um vetor 1,3,2,6 é necessário: `c(1,3,2,6)`.
 
-## Listas
-
-Listas consistem em uma coleção de objetos, não necessariamente de mesma classe. Nelas podemos armazenar todos os outros objetos ja vistos e recuperá-los pela indexação com `[[`. Como exemplo, vamos utilizar alguns objetos que já foram gerados.
-
-```{r}
-minha_lista <- list(campo1 = campo1, media_alt = tapply(campo1$altura, campo1$idade, mean), matrix_ex = W)
-str(minha_lista)
-```
-
-Quero acessar o data.frame `campo1`
-
-```{r}
-minha_lista[[1]]
-# ou
-minha_lista$campo1
-```
-
-Listas são muito úteis, por exemplo, quando vamos utilizar/gerar diversos objetos diferentes dentro de um loop. 
-
-## Arrays
-
-Este é um tipo de objeto que você provavelmente não irá utilizar agora no início, mas é bom saber da sua existência. São utilizados para armazenar dados com mais de duas dimensões. Por exemplo, se criarmos um array:
-
-```{r}
-(meu_array <- array(1:24, dim = c(2,3,4)))
-```
-
-Teremos quatro matrizes com duas linhas e três colunas e os números de 1 a 24 estarão distribuídos nelas por colunas.
 
 > Agora você já pode fazer os exercícios da [**Sessão 2**](exercicios.html)
 
 # Exportando e importando dados
 
-Os objetos criados dentro do R podem ser exportados em arquivos de diversos formatos. Lembre-se que, se não definir todo o caminho que deseja depositar o arquivo, ele irá ser salvo no seu diretório de trabalho.
-
-Para exportar o objeto no formato .RData:
-
-```{r, eval=FALSE}
-save(campo1, file = "campo1.RData")
-```
-
-Essa é uma forma de salvar o objeto trabalhado, se removermos ele com:
-
-```{r, eval=FALSE}
-rm(campo1)  # Certifique-se que salvou o objeto antes de removê-lo
-```
-
-Podemos facilmente obtê-lo novamente com:
-
-```{r, eval=FALSE}
-load("campo1.RData")
-```
-
-Para salvar todos os objetos do seu *workspace* use:
-
-```{r, eval=FALSE}
-save.image()
-```
-
-O R irá criar um arquivo `.Rdata` contendo todos os seus objetos.
-
-Podemos exportar nossos objetos em outros formatos, como, por exemplo, `.txt` ou `.csv`. Para isso utilizamos:
+Podemos exportar nossos objetos em diversos formatos, como, por exemplo, `.txt` ou `.csv`. Para isso utilizamos:
 
 ```{r, eval=FALSE}
 write.table(campo1, file = "campo1.txt", sep = ";", dec = ".", row.names = FALSE)
@@ -543,23 +487,20 @@ head(campo1_txt)
 head(campo1_csv)
 ```
 
-Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado a partir do formulário que vocês preencheram.
+# Planilha com dados reais
+
+Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado na aula prática.
 
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
 
-* [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
-* [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
+* [dados.csv](https://GENt-esalq.github.io/XIII_GMP/dados.csv)
 
 
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
 
-```{r, eval=FALSE}
-dados <- read.csv(file = "dados_alunos.csv", stringsAsFactors = FALSE, na.strings="-")
-```
-
-```{r}
-load("dados_alunos.RData")
+```{r, eval=TRUE}
+dados <- read.csv(file = "dados.csv", stringsAsFactors = FALSE, na.strings="-")
 ```
 
 Vamos explorar a estrutura dos dados coletados:
@@ -568,33 +509,6 @@ Vamos explorar a estrutura dos dados coletados:
 str(dados)
 # também
 dim(dados)
-```
-
-Repare que nos nomes das colunas ainda estão as perguntas completas feitas no formulário, vamos alterar para nomes mais fáceis de trabalhar:
-
-```{r}
-colnames(dados) <- c("Data_pesq", "Idade", "Niver", "Genero", "Cidade", 
-                     "Altura","Peso", "Area", "ConhecimentoR", "Outras_linguagens", 
-                     "Utilizacao", "Motivacao")
-str(dados)
-```
-
-# Paradoxo do aniversário
-
-Nossa primeira análise com esses dados envolverá um problema denominado ["Paradoxo do aniversário"](https://en.wikipedia.org/wiki/Birthday_problem), que afirma que em um grupo de 23 pessoas (ou mais), escolhidas aleatoriamente, há mais de 50% de chance de duas pessoas terem a mesma data de aniversário.
-
-Primeiro, vamos verificar em quantos somos, contando o número de linhas, para isso use a função `nrow`.
-
-```{r}
-nrow(dados)
-```
-
-Vamos então verificar se temos no nosso grupo pessoas que compartilham o mesmo dia de aniversário.
-
-Podemos verificar isso facilmente com a função `table`, que indica a frequência de cada observação:
- 
-```{r, eval=FALSE}
-table(dados$Niver)
 ```
 
 # Estruturas condicionais
@@ -613,44 +527,29 @@ if(2 >3){
 }
 ```
 
-* Teste o nível de conhecimento em R obtidos no formulaŕio (9ª coluna) pela terceira pessoa que o respondeu (linha 3). Envie uma mensagem motivacional se ela não possuir qualquer conhecimento (nota 0), outra se possuir algum conhecimento (restante das notas). (dica: o sinal `==` se refere a "exatamente igual a")
+* Verifique se a altura (4ª coluna) do terceiro híbrido (linha 3) é adequada. Envie uma mensagem se ele for pequeno demais, inferior a 1.5, e outra se a altura for adequada.
 
 ```{r}
-if(dados[3,9] == 0){
-  print("Nunca é tarde para começar!")
+if(dados[3,4] < 1.5){
+  print("Híbrido pequeno demais")
 } else {
-  print("Já pegou o embalo, agora é só continuar!")
+  print("Tamanho provavelmente adequado")
 }
 ```
 
 Podemos espeficiar mais do que uma condição repetindo a estrutura `if` `else`:
 
 ```{r}
-if(dados[7,9] == 0){
-  print("Nunca é tarde para começar!")
-} else if (dados[7,9] > 0 && dados[7,9] < 5){
-  print("Já pegou o embalo, agora é só continuar!")
+if(dados[7,4] < 1.5){
+  print("Híbrido pequeno demais")
+} else if (dados[7,3] > 1.5 && dados[7,1] < 2.0){
+  print("Tamanho OK")
 } else {
-  print("Nos avise se estivermos falando algo errado...hehe")
-}
+    print("Cresceu demais")
+  }
 ```
 
-## Switch
-
-Uma outra estrutura que também pode ser usada com o mesmo propósito é o `switch`. Esta estrutura é mais utilizada quando trabalhado com caracteres. Por isso vamos aplicá-la para explorar a área (8ª coluna) com que a quinta pessoa se identifica.
-
-```{r}
-switch(dados[5,8],
-  Exatas = print("Será que aprendeu alguma linhagem de programação na graduação?"),
-  Interdiciplinar = print("Em que foi a gradução?"),
-  print("Ta aqui colocando o pezinho na exatas")
-)
-
-```
-
-A estrutura `switch` costuma ser mais rápida que o `if` e `else`. Quando lidamos com grande quantidade de dados isso pode ser uma grande vantagem.
-
-Mas repare que só é possível utilizar essas estruturas para um elemento individual do vetor, se quisermos percorrer o vetor inteiro precisamos recorrer a outro recurso.
+Repare que só é possível utilizar essas estruturas para um elemento individual do vetor, se quisermos percorrer o vetor inteiro precisamos recorrer a outro recurso.
 
 # Estruturas de repetição
 
@@ -676,12 +575,12 @@ Com essa estrutura, podemos repetir a operação realizada com as estruturas `if
 
 ```{r}
 for(i in 1:nrow(dados)){
-  if(dados[i,9] == 0){
-    print("Nunca é tarde para começar!")
-  } else if (dados[i,9] > 0 && dados[i,9] < 5){
-    print("Já pegou o embalo, agora é só continuar!")
+  if(dados[i,5] < 1.5){
+    print("Híbrido pequeno demais")
+  } else if (dados[i,5] > 1.5 && dados[i,5] < 2.0){
+    print("Tamanho OK")
   } else {
-      print("Nos avise se estivermos falando algo errado...hehe")
+      print("Cresceu demais")
     }
 }
 ```
@@ -714,90 +613,6 @@ for(i in 1:nrow(dados)){
 }
 
 ```
-
-Agora vamos trabalhar com a coluna 5, que possui a informação da cidade de origem dos participantes. Repare que alguns não colocaram o estado, como o exemplo sugeria. Vamos utilizar um loop para descobrir quais estão faltando. Vamos utilizar a função `grepl` para identificar as strings que contém o caracter "-", aqueles que tiverem consideraremos correto, os que não tiverem, vamos pedir para adicionar mais informações.
-
-```{r}
-# Exemplo do uso da função grepl
-grepl("-", dados[1,5]) # A primeira linha contem o caracter "-"
-
-for(i in 1:nrow(dados)){
-  if(grepl("-", dados[i,5])){
-    cat("Esse/a seguiu o exemplo direitinho. Parabéns!\n")
-  } else {
-    cat("Precisamos adicionar mais informações na linha", i, "\n")
-  }
-}
-```
-
-Para que seja possível imprimir conteúdo de objetos durante o loop, usamos a função `cat`, ela não separa cada resposta em uma linha, precisamos colocar o `\n` indicando a quebra de linha.
-
-Agora vamos nos mesmos corrigir essas informações. Podemos armazenar uma variável a posição das linhas incorretas, então corrigiremos manualmente somente essas:
-
-```{r}
-corrigir <- vector()
-for(i in 1:nrow(dados)){
-  if(grepl("-", dados[i,5])){
-    cat("Esse/a seguiu o exemplo direitinho. Parabéns!\n")
-  } else {
-    cat("Precisamos adicionar mais informações na linha", i, "\n")
-    corrigir <- c(corrigir, i)
-  }
-}
-
-```
-
-
-<span style="color:red"> Paramos aqui na parte da manhã do segundo dia do treinamento.</span>
-
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.1.RData).
-
-* [Aqui](https://GENt-esalq.github.io/cursoR/dia2.1.R) você pode acessar um exemplo de script `.R`.
-
-* E [aqui](https://GENt-esalq.github.io/cursoR/dia2.1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia2.1.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia2.1.html).
-
-> Como você faria para corrigir esses elementos errados? Tente!
-
-Dica: [Primeiro busque quais são as cidades desses elementos (dados[corrigir,5]), depois, faça um novo vetor com os nomes corretos e substitua na tabela]{.spoiler}
-
-Uma possibilidade de resposta:
-
-```{r}
-dados[corrigir,5]
-novo <- c("São José dos Campos - SP", "Piracicaba - SP", "São Paulo - SP", "Piracicaba-SP",
-          "Uberlância-MG", "Piracicaba-SP", "Uberaba-MG", "São Luis-MA", "Piracicaba-SP",
-          "Piracicaba-SP")
-dados[corrigir,5] <- novo
-
-# Verificando se corrigiu
-dados[,5]
-```
-
-
-> A coluna 2 da tabela se refere à idade dos participantes, imprima na tela (usando print ou cat) a década em que cada um nasceu, como a seguir: "Nasceu na década de 80".
-
-Dica: [Faça um novo vetor com a subtração das idades pelo ano atual e depois faça um loop com uma condicional para imprimir as mensagens na tela]{.spoiler}
-
-Uma possibilidade de resposta:
-
-```{r}
-decada <- 2019 - dados$Idade
-
-for(i in 1:length(decada)){
-  if(decada[i] > 1960 && decada[i] < 1970){
-    print("Nasceu na década de 60")
-  } else if(decada[i] >= 1970 && decada[i] < 1980){
-    print("Nasceu na década de 70")
-  } else if(decada[i] >= 1980 && decada[i] < 1990){
-    print("Nasceu na década de 80")
-  } else if(decada[i] >= 1990 && decada[i] < 2000){
-    print("Nasceu na década de 90")
-  } else {
-    print("Xóvem")
-  }
-}
-```
-
 
 ## While
 
@@ -902,142 +717,6 @@ for(i in 1:dim(ex_mat)[1]) {   # Primeiro nível, não tem espaço
 
 ```
 
-
-# Elaboração de funções
-
-Normalmente é uma boa prática criar um bloco de código se vai realizar aquela ação poucas vezes. Se for realizar várias vezes a ação e de uma vez só, vale a pena fazer um loop. Mas, se for realizar diversas vezes e o objeto de entrada for modificado vale a pena fazer uma função. E, na hierarquia, quando tiver acumulado muitas funções para realizar uma tarefa mais complexa, vale a pena construir um pacote.
-
-Aqui não vamos nos aprofundar muito nesse assunto, talvez ele renda um outro módulo inteiro, vamos apenas passar noções básicas.
-
-A função também é considerada um objeto no R, portanto você a atribui a uma variável, nesse caso à `quadra`. Então estabelecemos os argumentos da função, nesse caso `x`. Entre as chaves fica todo o corpo da função. Se você quer que a função retorne algum valor, é necessário utilizar o `return`.
-
-```{r}
-quadra <- function(x){
-  z <- x*x
-  return(z)
-}
-
-quadra(3)
-quadra(4)
-
-qualquer_nome <- 4
-quadra(qualquer_nome)
-```
-
-Vamos complicar um pouco e também dar mais sentido para construir uma função. Vamos definir no seu corpo várias ações antes de retornar o valor, algo que não poderia ser feito usando uma única função já pronta do R.
-
-```{r}
-## Calcula o índice de massa corporal (IMC) dos participantes
-IMC <- dados$Peso/quadra(dados$Altura)
-
-## Calcula a média das idade dos participantes
-id_med <- mean(dados$Idade)
-
-## Calcula a mediana das idades dos participantes
-id_median <- median(dados$Idade)
-
-## Calcula a porgentagem de mulheres entre os participantes
-mul <- 100*(length(which(dados$Genero == "Feminino"))/length(dados$Genero))
-
-## Faz uma lista com todos os resultados
-final_list <- list(IMC=IMC, idade_media = id_med, 
-                   idade_mediana = id_median, porcentagem_mulheres = mul)
-```
-
-Para montarmos a função primeiro pensamos qual será o argumento de entrada, nesse caso, nosso arquivo de dados, um *data frame* contendo pelo menos as colunas `Peso`, `Altura`, `Idade` e `Genero`.
-
-```{r}
-minha_funcao <- function(df.entrada){
-  ## Calcula o índice de massa corporal (IMC) dos participantes
-  IMC <- df.entrada$Peso/quadra(df.entrada$Altura)
-  
-  ## Calcula a média das idade dos participantes
-  id_med <- mean(df.entrada$Idade)
-  
-  ## Calcula a mediana das idades dos participantes
-  id_median <- median(df.entrada$Idade)
-  
-  ## Calcula a porgentagem de mulheres entre os participantes
-  mul <- 100*(length(which(df.entrada$Genero == "Feminino"))/length(df.entrada$Genero))
-  
-  ## Faz uma lista com todos os resultados
-  final_list <- list(IMC=IMC, idade_media = id_med, 
-                     idade_mediana = id_median, porcentagem_mulheres = mul)
-  return(final_list)
-
-}
-
-test_list <- minha_funcao(df.entrada = dados)
-test_list
-```
-
-Se é uma função para uso próprio, você saberá como deve ser o objeto de entrada, mas se ela for utilizada por outras pessoas, será necessário, além de uma prévia explicação de suas ações, verificar se o objeto de entrada esta de acordo com o esperado pela função.
-
-```{r}
-
-minha_funcao <- function(df.entrada){
-  
-  if (length(grep("Altura", colnames(df.entrada))) == 0 ||
-      length(grep("Peso", colnames(df.entrada))) == 0 ||
-      length(grep("Idade", colnames(df.entrada))) == 0 ||
-      length(grep("Genero", colnames(df.entrada))) == 0)
-    stop("Esta faltando alguma das informações.")
-    
-
-  ## Calcula o índice de massa corporal (IMC) dos participantes
-  IMC <- df.entrada$Peso/quadra(df.entrada$Altura)
-  
-  ## Calcula a média das idade dos participantes
-  id_med <- mean(df.entrada$Idade)
-  
-  ## Calcula a mediana das idades dos participantes
-  id_median <- median(df.entrada$Idade)
-  
-  ## Calcula a porgentagem de mulheres entre os participantes
-  mul <- 100*(length(which(df.entrada$Genero == "Feminino"))/length(df.entrada$Genero))
-  
-  ## Faz uma lista com todos os resultados
-  final_list <- list(IMC=IMC, idade_media = id_med, 
-                     idade_mediana = id_median, porcentagem_mulheres = mul)
-  return(final_list)
-
-}
-
-test_list <- minha_funcao(df.entrada = dados)
-```
-
-```{r, eval= FALSE}
-dados1 <- dados[,-2] # Removendo coluna de idade
-
-test_list <- minha_funcao(df.entrada = dados1)
-
-```
-
-Para saber mais sobre desenvolvimento de funções acesse [aqui](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/) e, um pouco mais avançado, [aqui](http://adv-r.had.co.nz/Functions.html).
-
-<span style="color:red"> Paramos aqui na parte da tarde do segundo dia do treinamento.</span>
-
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia2.2.RData).
-
-* [Aqui](https://GENt-esalq.github.io/cursoR/dia2.2.R) você pode acessar um exemplo de script `.R`.
-
-* E [aqui](https://GENt-esalq.github.io/cursoR/dia2.2.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia2.2.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia2.2.html).
-
-# Rodando outros scripts .R 
-
-As vezes, parte do seu código demanda que você chame algo que foi rodado em outro script. Muitas pessoas também tem o costume de salvar as funções próprias em um script separado. Vamos fazer isso? 
-
-* Abra um novo script .R, copie suas funções para ele e o salve como `funcoes.R`
-
-Agora, você pode acessa-las usando:
-
-```{r, eval=FALSE}
-source("funcoes.R")
-```
-
-> Faça os exercícios da [**Sessão 4**](exercicios.html)
-
-
 # Elaboração de gráficos simples
 
 Para outros dados coletados, vamos gerar alguns gráficos simples utilizando as funções básicas do R. Existem pacotes como o `ggplot2`, `plotly` e `shiny` que possuem ferramentas muito poderosas para construção de gráficos, mas exigem um pouco mais de tempo para aprendizagem de sua sintaxe.
@@ -1045,7 +724,7 @@ Para outros dados coletados, vamos gerar alguns gráficos simples utilizando as 
 Os tipos mais comuns já possuem funções próprias, mas outros gráficos podem ser customizados de acordo com a necessidade do usuário. Vamos iniciar com um simples gráfico de frequências (ou histograma) para os dados de `Altura`.
 
 ```{r, eval=FALSE}
-hist(dados$Altura)
+hist(dados$AlturaPlantas)
 ```
 
 Vamos adicionar alguns argumentos para dar uma personalizada:
@@ -1055,83 +734,66 @@ Vamos adicionar alguns argumentos para dar uma personalizada:
 ```{r, eval=FALSE}
 #### Histograma ####
 #Utiliza um vetor de valores para obter as frequências
-hist(dados$Altura)
-hist(dados$Altura, breaks = 2)
-hist(dados$Altura, breaks = 15) 
+hist(dados$AlturaPlantas)
+hist(dados$AlturaPlantas, breaks = 2)
+hist(dados$AlturaPlantas, breaks = 15) 
 
 ```
 
-Agora tente fazer o **histograma para o peso**, aproveite para tentar alterar alguns parâmetros. Em seguida, serão apresentados outros gráficos que poderão ser utilizados.
+Agora tente fazer o **histograma para o peso**, aproveite para tentar alterar alguns parâmetros. 
+
+Apresentaremos outros gráficos que poderão ser utilizados:
+
+### Barplot
 
 ```{r}
 #### Bar plot ####
 #É um gráfico interessante quando possuímos resultados da função table
-gen <- table(dados$Genero)
-barplot(gen)
+estande <- table(dados$Estande)
+barplot(estande)
 
 ```
 ```{r eval=FALSE}
 #Alterando o eixo
-barplot(gen, horiz = TRUE)
+barplot(estande, horiz = TRUE)
 
 #Mais informações podem ser combinadas
-nota_gen <- table(dados$ConhecimentoR, dados$Genero)
-barplot(nota_gen)
+nota_temp <- table(dados$Estande, dados$Tempo)
+barplot(nota_temp)
 
 ```
 
-Busque uma maneira de colocar a nota do R no eixo x e o gênero nas cores.
-
-```{r echo=FALSE}
-nota_gen <- table(dados$ConhecimentoR, dados$Genero)
-barplot(t(nota_gen))
-```
+### Curve
 
 ```{r eval=FALSE}
-#### Pizza!!! ####
-#Requer um vetor de contagens e os rótulos associados
-pie(gen, names(gen))
-
-#Tente criar o gráfico de pizza com a nota do R
-
-```
-
-```{r eval=FALSE}
-#### Dot plots ####
-#Utilizaremos um vetor de valores e um vetor de rótulos
-dotchart(dados$Altura, labels = dados$Cidade)
-#Também é possível criar grupos
-dotchart(dados$Altura, labels = dados$Cidade, groups = as.factor(dados$Genero))
-
-#Podemos criar uma coluna no data frame onde delimitaremos uma cor para cada uma das áreas:
-dados$color[dados$Area=="Exatas"] <- "darkblue"
-dados$color[dados$Area=="Biologicas"] <- "darkgreen"
-dados$color[dados$Area=="Humanas"] <- "orange"
-dados$color[dados$Area=="Interdiciplinar"] <- "red"
-dados$color[dados$Area=="Agrarias"] <- "black"
-dotchart(dados$Altura, labels = dados$Cidade, groups = as.factor(dados$Area), color = dados$color)
-
-#Crie um objeto que corresponda ao data.frame 'dados' ordenado de acordo com a Altura (ou peso, como desejar!)
-#Em seguida, tente criar o dot plot.
-
 #### Curve ####
 #Utiliza uma expressão/função 
 curve(x^2 + 3*x)
 curve(2*x, add = TRUE, col="red")
 
+```
+
+### Boxplot
+
+```{r eval=FALSE}
 #### Boxplot ####
 #Necessita de um vetor de valores ou uma expressão
-boxplot(dados$Altura)
-boxplot(dados$Altura~dados$Genero)
+boxplot(dados$AlturaPlantas)
+boxplot(dados$AlturaPlantas~dados$Tempo)
+```
 
-#Explore o bloxplot de outros atributos, podendo combiná-los
-#Desafio: faça o boxplot da altura pela combinação dos grupos Genero e Area
-boxplot(Altura~Genero*Area, data = dados)
+Explore o bloxplot de outros atributos, podendo combiná-los. Como desafio, tente fazer o boxplot da altura pela combinação de Hibridos e Blocos:
 
+```{r, echo=FALSE}
+boxplot(AlturaPlantas~Tempo*Hibrido, data = dados)
+```
+
+### Scatter plot
+
+```{r}
 #### Scatter plot ####
 #Utilizaremos coordenadas de pontos.
-plot(x = dados$Peso, y= dados$Altura)
-
+plot(x = dados$AlturaPlantas, y= dados$AlturaEspiga)
 ```
 
 ## Parâmetros gráficos
@@ -1144,31 +806,22 @@ plot(x = dados$Peso, y= dados$Altura)
 * `main` alterar título geral;
 
 ```{r, eval=FALSE}
-hist(dados$Idade, breaks=6, col="blue", xlab="Idades", 
-     ylab="Frequencia", main="Histograma das Idades (Curso 2019)")
+hist(dados$NumeroFolhas, breaks=6, col="blue", xlab="Número de folhas", 
+     ylab="Frequencia", main="Histograma do número de Folhas")
 ```
 
-Se preferir, podemos usar um gráfico de densidades de Kernel como:
-
-```{r, eval=FALSE}
-d <- density(dados$Idade, na.rm = TRUE)
-
-plot(d, col="blue", xlab="Idades",
-     ylab="Densidade", main="Densidade das Idades")
-```
-
-Vamos explorar um pouco mais o gráfico de pontos. Sabe- se que existe uma correlação entre o peso e a altura das pessoas, e que, a distribuição dessas características configura uma bimodal se não considerarmos os gênero dos indivíduos avaliados. Vamos avaliar a correlação entre essas caraterísticas com:
+Vamos explorar um pouco mais o gráfico de pontos. Vamos verificar se existe uma correlação entre o a altura de plantas e a altura da primeira espiga:
 
 ```{r}
 #Busque explorar mais parâmetros no gráfico a seguir:
 ##Dica: tente alterar o nome dos eixos
-plot(x = dados$Peso, y= dados$Altura)
+plot(x = dados$AlturaPlantas, y= dados$AlturaEspiga)
 
 #Linha de ajuste
-abline(lm(Altura ~ Peso, data = dados), col="red")
+abline(lm(AlturaEspiga ~ AlturaPlantas, data = dados), col="red")
 
 #Verificar a correlação:
-cor(dados$Altura, dados$Peso)
+cor(dados$AlturaPlantas, dados$AlturaEspiga)
 ```
 
 Alguns argumentos são específicos para cada função, busque mais informações sobre cada uma delas para entender sobre seus argumentos. Outros parâmetros gráficos mais recorrentes são os relacionados com:
@@ -1180,136 +833,18 @@ Alguns argumentos são específicos para cada função, busque mais informaçõe
 
 ```{r eval=FALSE}
 #Tamanho, pontos e cores
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
+plot(x = dados$AlturaPlantas, y= dados$AlturaEspiga, 
+     main = "Altura da prim. espiga  x Altura da planta", #Título principal 
+     xlab = "Altura de plantas", #Eixo x
+     ylab = "Alturada prim. espiga", #Eixo y
      cex=2,
      cex.axis=1.5)
-
-#Agora, busque alterar o nome dos rótulos (lab) e do título (main)
-#Utilize o parâmetro 'pch=' e coloque um número de 0 a 25
-#De maneira similar ao tamanho, trabalhe com as cores (utilize o color() para ver todas as cores disponíveis) 
-
-# Fontes e linhas #
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     font=3,
-     family="serif", #Fonte do seu computador (Windows: "TT Courier New")
-     )
-abline(lm(Altura ~ Peso, data = dados), col="red", lty=3)
-
-
-#Incrementando:
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     col = as.factor(dados$Genero)
-     )
-
-#Nesse mesmo gráfico, procure mudar a forma dos pontos de acordo com a nota do R.
-
-#### Legenda ####
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     col = as.factor(dados$Genero),
-     pch=10)
-
-legend("bottomright", legend = c("Feminino", "Masculino"), col=1:2, pch=10)
 ```
 
- Obtidos todos esses gráficos, pode ser bom para visualização tê-los lado a lado.
- 
-```{r, eval=FALSE}
- #### Mais de um gráfico? Claro! ####
-par(mfrow=c(1,2))
-hist(dados$Altura)
-hist(dados$Peso)
+Agora, busque alterar o nome dos rótulos (lab) e do título (main). Também utilize o parâmetro 'pch=' e coloque um número de 0 a 25.
 
-#Lembrar:
-par(mfrow=c(1,1))
-```
+De maneira similar ao tamanho, tente alterar as cores (utilize o color() para ver todas as cores disponíveis). 
 
-## Desafio!!!
-
-Busque resolver o desafio sem observar a resposta. Vocês conseguirão avançar muito, um ou outro detalhe pode acabar sendo mais difícil. Nesse ponto, vocês utilizam a resolução para entenderem melhor o como poderia ser feito. Veja que há muitos modos de resolver, apresentaremos apenas um deles.
-
-* Dicas: 'beside', 'legend', 'bty = 'n'
-
-```{r echo=FALSE}
-#1-) Fazer a divisão da tela: 
-par(mfrow=c(1,2))
-
-#2-) Criar o barplot, da maneira que já aprendemos: 
-##Criar a tabela considerando as informacoes de Area e Genero 
-nota_gen <-table(dados$Area, dados$Genero)
-
-##Note o parâmetro beside (que estava nas dicas) 
-barplot(t(nota_gen),beside = TRUE, col = c("wheat", "tomato2"), main = "Distribuição das
-pessoas \n de acordo com área e nota do R", xlab = "Nota do R")
-##Colocar a legenda no gráfico 
-legend("topright", title = "Gênero", legend=c("F","M"), fill = c("wheat", "tomato2"), bty = "n", cex = 0.7)
-
-#3-) Criar o dotchart #Criar a coluna atribuindo uma cor para cada área 
-dados$color[dados$Area=="Exatas"] <- "darkblue"
-dados$color[dados$Area=="Biologicas"] <- "darkgreen"
-dados$color[dados$Area=="Humanas"] <- "orange"
-dados$color[dados$Area=="Interdiciplinar"] <- "red"
-dados$color[dados$Area=="Agrarias"] <- "black"
-
-##Colocar os pesos em ordem: 
-dados <- dados[order(dados$Peso),]
-
-##Colocar o título, note que o '\n' está sendo usado para fazer a quebra de linha: 
-dotchart(dados$Peso, labels = dados$Cidade, groups = as.factor(dados$Area),
-         color = dados$color, font=2, main = "Peso de acordo com as cidades, \n agrupando por área",
-         xlab = "Peso", pch = 7)
-
-#4-) Manter novamente uma figura por gráfico 
-par(mfrow=c(1,1))
-
-```
-
-Uma solução que utiliza tudo o que vocês aprenderam:
-
-```{r eval=FALSE}
-#1-) Fazer a divisão da tela: 
-par(mfrow=c(1,2))
-
-#2-) Criar o barplot, da maneira que já aprendemos: 
-##Criar a tabela considerando as informacoes de Area e Genero 
-nota_gen <-table(dados$Area, dados$Genero)
-
-##Note o parâmetro beside (que estava nas dicas) 
-barplot(t(nota_gen),beside = TRUE, col = c("wheat", "tomato2"), main = "Distribuição das
-pessoas \n de acordo com área e nota do R", xlab = "Nota do R")
-##Colocar a legenda no gráfico 
-legend("topright", title = "Gênero", legend=c("F","M"), fill = c("wheat", "tomato2"), bty = "n", cex = 0.7)
-
-#3-) Criar o dotchart #Criar a coluna atribuindo uma cor para cada área
-dados$color[dados$Area=="Exatas"] <- "darkblue"
-dados$color[dados$Area=="Biologicas"] <- "darkgreen"
-dados$color[dados$Area=="Humanas"] <- "orange"
-dados$color[dados$Area=="Interdiciplinar"] <- "red"
-dados$color[dados$Area=="Agrarias"] <- "black"
-
-##Colocar os pesos em ordem: 
-dados <- dados[order(dados$Peso),]
-
-##Colocar o título, note que o '\n' está sendo usado para fazer a quebra de linha: 
-dotchart(dados$Peso, labels = dados$Cidade, groups = as.factor(dados$Area),
-         color = dados$color, font=2, main = "Peso de acordo com as cidades, \n agrupando por área",
-         xlab = "Peso", pch = 7)
-
-#4-) Manter novamente uma figura por gráfico 
-par(mfrow=c(1,1))
-
-```
 
 ## Salvar gráficos
 
@@ -1317,92 +852,70 @@ Os gráficos podem ser salvos através dos menus disponíveis no RStudio, ou atr
 
 ```{r eval=FALSE}
 png(filename = "grafico_pontos.png")
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     col = as.factor(dados$Genero),
-     pch=10)
+plot(x = dados$AlturaPlantas, y= dados$AlturaEspiga, 
+     main = "Altura da prim. espiga  x Altura da planta", #Título principal 
+     xlab = "Altura de plantas", #Eixo x
+     ylab = "Alturada prim. espiga", #Eixo y
+     cex=2,
+     cex.axis=1.5)
 dev.off()
 
 png(filename = "grafico_pontos.png", width = 1500, height = 1500, res= 300)
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     col = as.factor(dados$Genero),
-     pch=10)
+plot(x = dados$AlturaPlantas, y= dados$AlturaEspiga, 
+     main = "Altura da prim. espiga  x Altura da planta", #Título principal 
+     xlab = "Altura de plantas", #Eixo x
+     ylab = "Alturada prim. espiga", #Eixo y
+     cex=2,
+     cex.axis=1.5)
 dev.off()
 ```
 
-Agora, gere um gráfico e salve-o no formato de seu interesse. Em seguida, crie diversos gráficos dentro de uma mesma função gráfica e estude a saída. 
+Gere um gráfico e salve-o no formato de seu interesse. Em seguida, crie diversos gráficos dentro de uma mesma função gráfica e estude a saída. 
+
+
+<span style="color:red"> Paramos aqui na parte da manhã do segundo dia do treinamento.</span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.RData).
+
+* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.R) você pode acessar um exemplo de script `.R`.
+
+* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia2.1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia2.1.html).
 
 # Instalação e aplicações de pacotes
 
-Existem diversos pacotes disponíveis para variadas aplicações. Utilizaremos o *ggplot2*, que está disponível no repositório oficial do R, o CRAN. Portanto para instalá-lo:
+O que deixa o R ainda mais poderoso é a capacidade de incorporármos à ele novas funções chamando pacotes. Existem milhares de pacotes disponíveis no CRAN (repositorio oficial), e outros repositórios. Para cada área de estudo existem diversos pacotes disponíveis. Aqui usaremos o pacote `desplot`.
 
-```{r eval=FALSE}
-install.packages("ggplot2")
+Como ele esta disponível no CRAN, para instalá-lo basta:
+  
+```{r, eval=FALSE}
+install.packages("desplot")
 ```
 
 Depois disso é necessário recrutá-lo com:
+  
+```{r, warning=FALSE, message='hide'}
+library(desplot) # Este comando será necessário toda vez que for utilizar o pacote
+```
+
+Este pacote é um conjunto de funções elaboradas para gerar gráficos de campo. Você pode obter mais informações sobre ele no [manual disponível no CRAN](https://cran.r-project.org/web/packages/desplot/index.html).
+
+Com esse pacote podemos desenhar o experimento de campo (assim como esta no papel que recebeu, mas um pouco mais bonito).
+
+Para isso vamos adicionar duas outras colunas no nossa data.frame, com informações da posição de cada indivíduo no campo.
 
 ```{r}
-library("ggplot2")
+row <- rep(rep(1:10, each=5),4)
+col <- c(rep(1:5,10),rep(6:10,10), rep(11:15,10), rep(16:20,10))
+dados.up <- cbind(col, row, dados)
 ```
 
-O *ggplot2* é um pacote que permite a construção de gráficos estatísticos, suas funcionalidades vão muito além do que está disponível nos gráficos básicos do R. Vamos tentar fazer um exemplo? 
-
-Primeiramente precisamos de um *data frame*, como o conjunto de dados que estamos usando as colunas para mapear as observações a serem dispostas no gráfico. Vamos criar um gráfico de dispersão com as variáveis *Peso* e *Altura*.
+Para usar a função do pacote, buscamos no google por tutoriais, [aqui](https://cran.r-project.org/web/packages/desplot/vignettes/desplot_examples.html) esta aquele no qual nos baseamos para elaborarmos o código abaixo.
 
 ```{r}
-ggplot(dados) +
-  geom_point(aes(x=Peso, y=Altura))
-
+desplot(Bloco ~ col+row, dados.up,
+        text=Hibrido, cex=1, out1=Bloco,
+        out2=Hibrido, out2.gpar=list(col = "gray50", lwd = 1, lty = 1))
 ```
-
-Veja que o sinal '+' indica que estamos adicionando uma nova camada. O legal do pacote é que a customização dos aspectos visuais é bem intuitiva. Por exemplo, vamos colorir os pontos de acordo com a variável *Genero*.
-
-```{r}
-ggplot(dados) +
-  geom_point(aes(x=Peso, y=Altura, colour=Genero))
-
-```
-
-Também podemos alterar o tamanho dos pontos:
-
-```{r}
-ggplot(dados) +
-  geom_point(aes(x=Peso, y=Altura, color=Genero), size=12)
-
-```
-
-Veja que o parâmetro *size* permaneceu fora da função de mapeamento, *aes*. Lembre-se que o mapeamento precisa de variáveis com observações. Colocar o *size* apenas como parâmetro da *geom_point* é interessante porque vamos alterar o tamanho de todos os pontos do gráfico.
-
-Que tal tentarmos fazer um boxplot utilizando como variável resposta o *ConhecimentoR* de acordo com a *Area*?
-
-```{r echo=FALSE}
-ggplot(dados) +
-  geom_boxplot(aes(x=Area, y=ConhecimentoR))
-
-```
-
-Quer botar uma corzinha? Tenta adicionar o *fill* de acordo com a *Area*.
-
-```{r echo=FALSE}
-ggplot(dados) +
-  geom_boxplot(aes(x=Area, y=ConhecimentoR, fill=Area))
-
-```
-
-Mas a legenda fica redundante com o eixo x, será que conseguimos suprimí-la? Tenta ver algo como *show.legend* na função *geom_boxplot*.
-
-```{r echo=FALSE}
-ggplot(dados) +
-  geom_boxplot(aes(x=Area, y=ConhecimentoR, fill=Area), show.legend = FALSE)
-
-```
-
 
 <span style="color:red"> Paramos aqui na primeira parte da manhã de sábado (18.05) e seguimos para uma parte específica da sessão **Algumas Ferramentas de Análise de dados**, clique [aqui](#experimento-de-cafe) para ir até lá.</span>
 
@@ -1416,27 +929,35 @@ Algumas avaliações descritivas podem ser feitas pelo uso do `tapply` e de grá
 ```{r}
 str(dados)
 # Certifique-se que esta lidando com variável categórica (fator)
-dados$Genero <- as.factor(dados$Genero)
+dados$Hibrido <- as.factor(dados$Hibrido)
+dados$Parcela <- as.factor(dados$Parcela)
+dados$Bloco <- as.factor(dados$Bloco)
 
-tapply(dados$Altura, dados$Genero, summary)
-tapply(dados$Peso, dados$Genero, summary)
-
+tapply(dados$AlturaPlantas, dados$Hibrido, summary)
+tapply(dados$AlturaEspiga, dados$Hibrido, summary)
 ```
 
-Podemos falar que os pesos são significativamente diferentes entre homens e mulheres?
+Qual a relaçao linear entre altura de plantas e altura da primeira espiga?
 
 ```{r}
-mod1 <- lm(Peso ~ Genero, data = dados)
+mod1 <- lm(AlturaPlantas ~ AlturaEspiga, data = dados)
 summary(mod1)
-
-# ou o equivalente
-
-mod1 <- aov(Peso ~ Genero, data = dados)
-summary(mod1)
-
 ```
 
-A diferença entre as duas funções é apenas na forma como é apresentada os resultados. O p-valor nos indica se podemos considerar diferenças do peso conforme o gênero.
+Podemos falar que a altura de plantas é significativamente diferente entre hibridos?
+
+```{r}
+mod1 <- aov(AlturaPlantas ~ Hibrido + Tempo:Bloco + Tempo:Bloco:Parcela, data = dados)
+summary(mod1)
+```
+
+O p-valor nos indica se podemos considerar diferenças de altura conforme o híbrido. Podemos também fazer um teste de médias para diferenciar a altura de plantas de cada híbrido. Aqui utilizaremos o método de Tukey:
+
+```{r}
+modaov <- aov(AlturaPlantas ~ Hibrido + Tempo:Bloco + Tempo:Bloco:Parcela, data = dados)
+tukey.test <- TukeyHSD(x=modaov, 'Hibrido', conf.level=0.95)
+tukey.test
+```
 
 Podemos obter mais informações sobre o modelo ajustado observando os gráficos:
 
@@ -1444,89 +965,11 @@ Podemos obter mais informações sobre o modelo ajustado observando os gráficos
 plot(mod1)
 ```
 
-Vamos utilizar outro conjunto de dados para realizarmos mais avaliações utilizando a função `lm`. Acesse o conjunto [clima_lond](clima_lond.RData):
-
-```{r}
-load("clima_lond.RData")
-```
-
-Para obter os dados de precipitação da cidade de Londrina no primeiro semestre de 2017. Vamos utilizar as funções `tapply` e
-`lm` para avaliar os dados.
-
-```{r}
-# Verificando se as variáveis categórias estão como fatores
-str(clima_lond)
-
-clima_lond$dia <- as.factor(clima_lond$dia)
-
-# A precipitação nesse caso é uma variável contínua, nao categórica, para transformá-la use:
-
-clima_lond$prec.mm <- as.numeric(as.character(clima_lond$prec.mm))
-
-# Já com o tapply podemos ver as diferenças
-
-tapply(clima_lond$prec.mm, clima_lond$Mes, summary)
-```
-
-Repare que os levels aparecem em ordem alfabética e não conforme o tempo, alteramos isso com:
-
-```{r}
-levels(clima_lond$Mes)
-
-pos <- match(c("Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho"), levels(clima_lond$Mes))
-pos
-
-clima_lond$Mes = factor(clima_lond$Mes,
-                       levels(clima_lond$Mes)[pos])
-
-# Refazendo
-tapply(clima_lond$prec.mm, clima_lond$Mes, summary)
-
-```
-
-Podemos também avaliar fazendo alguns gráficos:
-
-```{r}
-plot(prec.mm~Mes, data = clima_lond, main="Médias",
-     xlab = "Meses do ano de 2017",
-     ylab = "Precipitação em mm")
-```
-
-```{r}
-barplot(tapply(clima_lond$prec.mm, clima_lond$Mes, sum), 
-        main="Total Mensal",
-        xlab = "Meses do ano de 2017",
-        ylab = "Precipitação em mm")
-```
-
-Vamos então realizar um análise de variância para medir diferenças entre os meses.
-
-```{r}
-mod <- lm(prec.mm ~ Mes, data = clima_lond)
-summary(mod)
-```
-
-Entre os dias:
-
-```{r}
-mod <- lm(prec.mm ~ dia, data = clima_lond)
-summary(mod)
-```
-
-Podemos também fazer um teste de médias para diferenciar a precipitação ao decorrer dos meses. Aqui utilizaremos o método de Tukey:
-
-```{r}
-modaov <- aov(prec.mm ~ Mes, data = clima_lond)
-tukey.test <- TukeyHSD(x=modaov, 'Mes', conf.level=0.95)
-tukey.test
-```
-
-
 ## Experimento de café
 
 Agora, vamos trabalhar com outro conjunto de dados, contendo informações de um experimento de café. Acesse aqui:
 
-* Arquivo [cafe.txt](https://GENt-esalq.github.io/cursoR/cafe.txt)
+* Arquivo [cafe.txt](https://GENt-esalq.github.io/XIII_GMP/cafe.txt)
 
 O experimento trata-se de dados em blocos completos casualizados de 10 progênies de café. Nele contém uma coluna rep para especificar a qual repetição o dado se refere, outra para qual indivíduo da progênie (prog) e outra para indicar em qual colheita o dado foi retirado (colheita).
 
@@ -1597,8 +1040,8 @@ shapiro.test (Modelo1_residuals) # Hipótese de Nulidade
 
 Agora, vamos precisar de funções contidas nos scripts `DIAGNOSTICS.R` e `"outliers.R"`. Acesse eles em:
 
-* [DIAGNOSTICS.R](https://GENt-esalq.github.io/cursoR/DIAGNOSTICS.R)
-* [outliers.R](https://GENt-esalq.github.io/cursoR/outliers.R)
+* [DIAGNOSTICS.R](https://GENt-esalq.github.io/XIII_GMP/DIAGNOSTICS.R)
+* [outliers.R](https://GENt-esalq.github.io/XIII_GMP/outliers.R)
 
 ```{r, eval=TRUE}
 # Funções
@@ -1724,10 +1167,12 @@ write.csv(rcbd,"SORTEIO.csv",row.names=F)
 
 ---
 
+# Feedback e outros materiais
+
 Caso tenha sugestões para aprimoramento desse material, enviar e-mail para `gent.esalq@gmail.com`.
 
 Acesse também outros materiais em português produzidos por Cristiane Taniguti, Fernando Correr e Rodrigo Amadeu [aqui](http://cristianetaniguti.github.io/Workshop_genetica_esalq/).
 
 Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Ana Letycia Basso Garcia, Cristiane Taniguti, Fernando Correr, Guilherme Hokasa e Victor Mello ministraram o Treinamento. 
 
-Também recomendamos materiais em inglês [aqui](https://GENt-esalq.github.io/cursoR/english_tutorials.html).
+Também recomendamos materiais em inglês [aqui](https://GENt-esalq.github.io/XIII_GMP/english_tutorials.html).
