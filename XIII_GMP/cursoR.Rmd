@@ -202,6 +202,8 @@ Repare que já esta ficando cansativo digitar os mesmos números repetidamente, 
 
 # Criando objetos
 
+<img src="https://cdn.pixabay.com/photo/2016/12/23/18/13/communication-1927706_960_720.jpg" alt="drawing" width="300"/>
+
 O armazenamento de informações em objetos e a possível manipulação desses faz do R uma linguagem *orientada por objetos*. Para criar um objeto basta atribuir valores para as variáveis, como a seguir:
 
 ```{r, results='hide'}
