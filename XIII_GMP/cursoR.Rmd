@@ -505,6 +505,10 @@ head(campo1_txt)
 head(campo1_csv)
 ```
 
+Termina aqui o primeiro dia.
+
+___
+
 # Planilha com dados reais
 
 Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado na aula prática.
