@@ -1,7 +1,7 @@
 ---
 title: "Treinamento em Programação no Ambiente R"
 author: "GENt"
-date: "May 16, 2019"
+date: "July 24, 2019"
 output:
   html_document: default
   pdf_document: default
@@ -158,7 +158,7 @@ errado
 
 ```
 
-# Dia 2 (manhã)
+# Dia 2 
 
 ##  Matrizes
 
@@ -218,40 +218,10 @@ campo1 <- cbind(campo1, volume)
 str(campo1)
 ```
 
-## Listas
-
-```{r}
-minha_lista <- list(campo1 = campo1, media_alt = tapply(campo1$altura, campo1$idade, mean), matrix_ex = W)
-str(minha_lista)
-
-# Acessando conteúdo das listas
-minha_lista[[1]]
-# ou
-minha_lista$campo1
-```
-
-```{r}
-# Arrays
-(meu_array <- array(1:24, dim = c(2,3,4)))
-```
-
 ## Exportando e importando dados
 
 ```{r}
-# Salvo meu objeto campo1
-save(campo1, file = "campo1.RData")
-
-# Removo o objeto
-rm(campo1)  # Certifique-se que salvou o objeto antes de removê-lo
-
-# Chamo ele de novo
-load("campo1.RData")
-
-#save.image() #salva um .RData no meu diretório de trabalho
-
-load("campo1.RData")
-
-# Exportando em outros formatos
+# Exportando
 write.table(campo1, file = "campo1.txt", sep = ";", dec = ".", row.names = FALSE)
 write.csv(campo1, file = "campo1.csv", row.names = TRUE)
 ```
@@ -263,21 +233,9 @@ campo1_txt <- read.table(file = "campo1.txt", sep=";", dec=".", header = TRUE)
 campo1_csv <- read.csv(file = "campo1.csv")
 head(campo1_txt)
 head(campo1_csv)
-
-# Importando a tabela com os dados do formulário
-## Se for sistema linux/mac
-dados <- read.csv(file = "dados_alunos.csv", stringsAsFactors = FALSE, na.strings="-")
-# ou
-load("dados_alunos.RData")
-
-## Se for sistema windows
-#dados <- read.csv(file = "dados_alunos.csv", stringsAsFactors = FALSE, na.strings="-", fileEncoding = "UTF8" )
-
-# Verificando que esta tudo certo
-str(dados)
-# também
-dim(dados)
 ```
+
+# Dia 2 
 
 ## Alterando nome das colunas
 
