@@ -49,6 +49,9 @@ Ao fazer isso o seu código será processado na janela `Console`, onde aparecer�
 # cat("Hello world")
 ```
 
+
+![#Ficadica](https://media.giphy.com/media/xTiQyw99MYXMazEZoc/giphy.gif#center)
+
 O símbolo `#` é muito utilizado para realizar **comentários** ao decorrer do código. Esta é uma ótima prática para deixar o código organizado e para que você possa lembrar mais tarde o que você mesmo/a estava pensando quando o escreveu ou para que outras pessoas possam entendê-lo. Como no exemplo:
 
 ```{r}
@@ -66,7 +69,8 @@ Para salvar seu script, você pode utilizar a aba `Files` localizada (como padr�
 
 Depois, basta clicar no disquete localizado no cabeçalho do RStudio ou com `Ctrl + s` e selecionar o diretório `CursoR` criado. Scripts em R são salvos com a extensão `.R`. 
 
-## Estabelecendo diretório de trabalho
+## Estabelecendo diretório de trabalho 
+<img src="https://cdn.pixabay.com/photo/2013/07/12/12/35/folder-145966_960_720.png" alt="drawing" width="90"/>
 
 Outra boa prática no R é deixar o script no mesmo diretório onde estão seus dados brutos (arquivos de entrada no script) e os dados processados (gráficos, tabelas, etc). Para isso, vamos fazer com que o R identifique o mesmo diretório em que você salvou o script como **diretório de trabalho**, assim ele entenderá que é dali que precisa obter os dados e para lá que também irão os resultados.
 
@@ -98,16 +102,16 @@ O R pode funcionar como uma simples **calculadora**, que utiliza a mesma sintaxe
 
 ```{r, eval=FALSE}
 #########################
-# Script Treinamento R
+# Script Minicurso R
 
-# Data: 16/05/2019
-# GENt
+# Data: 23/07/2019
+# Genética
 ##########################
 
 1+1.3                 #Decimal definido com "."
 2*3
-2^3
 4/2
+2^3
 
 sqrt(4)              #raíz quadrada
 log(100, base = 10)  #logarítmo na base 10
@@ -125,6 +129,8 @@ Resultado esperado:
 ((13+2+1.5)/3) + log(96, base = 4)
 ```
 
+<img src="https://cdn.pixabay.com/photo/2013/07/12/18/09/help-153094_960_720.png" alt="drawing" width="100"/>
+
 Os comandos `log` e `sqrt` são duas de muitas outras funções básicas que o R possui. Para todas elas o R possui uma descrição para auxiliar no seu uso, para acessar essa ajuda use:
 
 ```{r, eval=FALSE}
@@ -136,6 +142,14 @@ E será aberta a descrição da função na janela `Help` do RStudio.
 Se a descrição do próprio R não for suficiente para você entender como funciona a função, busque no google (de preferência em inglês). Existem diversos sites e fóruns com informações didáticas das funções do R.
 
 ## Operações com vetores
+
+**Classes básicas:**
+
+*   character (ex: A, B, C)
+*   numeric (ex: 1.1, 2.3)
+*   integer (ex: 1, 2, 3)
+*   complex  (ex: 1 + 0i, 1 + 4i)
+*   logical (ex: TRUE, FALSE)
 
 Os vetores são as estruturas mais simples trabalhadas no R. Construímos um vetor com uma sequencia numérica usando:
 
@@ -166,11 +180,6 @@ seq(0,100,5) # Se você já souber a ordem dos argumentos da função
 seq(from=4, to=30, by=3)
 ```
 
-A função `rep` gera sequencias com números repetidos:
-
-```{r}
-rep(3:5, 2)
-```
 
 Podemos realizar operações utilizando esses vetores:
 
@@ -340,8 +349,6 @@ No caso, todos os elementos foram transformados em caracter.
 * Mantenha no seu script .R somente os comandos que funcionaram e, de preferência, adicione comentários. Você pode, por exemplo, comentar dificuldades encontradas, para que você não cometa os mesmos erros mais tarde.
 
 > Você já pode fazer os exercícios da [**Sessão 1**](exercicios.html#sessao1)
-
-<span style="color:red"> Paramos aqui no primeiro dia. </span>
 
 * Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.RData).
 
