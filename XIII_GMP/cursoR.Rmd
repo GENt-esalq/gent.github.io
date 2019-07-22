@@ -361,12 +361,6 @@ No caso, todos os elementos foram transformados em caracter.
 
 > Você já pode fazer os exercícios da [**Sessão 1**](exercicios.html#sessao1)
 
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.RData).
-
-* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
-
-* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia1.html).
-
 ## Matrizes
 
 As matrizes são outra classe de objetos muito utilizadas no R, com elas podemos realizar operações de maior escala de forma automatizada.
@@ -506,6 +500,14 @@ head(campo1_csv)
 ```
 
 Termina aqui o primeiro dia.
+
+```{r eval=FALSE, echo=FALSE}
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.RData).
+
+* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
+
+* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia1.html).
+```
 
 ___
 
@@ -860,6 +862,7 @@ dev.off()
 Gere um gráfico e salve-o no formato de seu interesse. Em seguida, crie diversos gráficos dentro de uma mesma função gráfica e estude a saída. 
 
 
+```{r echo=FALSE, eval=FALSE}
 <span style="color:red"> Paramos aqui na parte da manhã do segundo dia do treinamento.</span>
 
 * Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.RData).
@@ -867,6 +870,7 @@ Gere um gráfico e salve-o no formato de seu interesse. Em seguida, crie diverso
 * [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.R) você pode acessar um exemplo de script `.R`.
 
 * E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia2.1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia2.1.html).
+```
 
 # Instalação e aplicações de pacotes
 
@@ -1146,7 +1150,7 @@ rcbd # Planilha de campo
 
 Podemos exportar e salvar nosso sorteio com:
 
-```{r, echo=FALSE}
+```{r eval=FALSE}
 write.table(rcbd,"SORTEIO.txt", row.names=FALSE, sep="\t")
 file.show("SORTEIO.txt")
 write.csv(rcbd,"SORTEIO.csv",row.names=F)
