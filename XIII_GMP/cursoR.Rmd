@@ -1159,7 +1159,7 @@ rcbd # Planilha de campo
 
 Podemos exportar e salvar nosso sorteio com:
 
-```{r}
+```{r, echo=FALSE}
 write.table(rcbd,"SORTEIO.txt", row.names=FALSE, sep="\t")
 file.show("SORTEIO.txt")
 write.csv(rcbd,"SORTEIO.csv",row.names=F)
