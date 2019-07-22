@@ -180,6 +180,15 @@ seq(0,100,5) # Se você já souber a ordem dos argumentos da função
 seq(from=4, to=30, by=3)
 ```
 
+A função `rep` gera sequencias com números repetidos:
+
+```{r}
+rep(3:5, 2)
+```
+
+```{r}
+rep(3:5, each = 2)
+```
 
 Podemos realizar operações utilizando esses vetores:
 
