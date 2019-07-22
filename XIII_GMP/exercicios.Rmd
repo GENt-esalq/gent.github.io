@@ -191,30 +191,71 @@ c)[O valor mínimo: 1.170791]{.spoiler}
 
 # **Sessão 3**: Estruturas condicionais e de repetição 
 
-1 - Crie um objeto "a" contendo uma sequência de 1 a 5. Usando qualquer estrutura de repetição, some o número 8 a cada um dos elementos de "a", até que a soma de todos os elementos seja igual ou superior a 10000.
+> 1 - Crie um programa para testar se o número 17933 é divisível por 79. Você pode testar a divisibilidade entre dois números usando o operador `%%`, que captura o resto da divisão entre dois números.
 
 ```{r echo=FALSE, eval=FALSE}
-a = seq(1,5,1)
-while(sum(a) < 10000){
-  a = a + 8
+n = 17933
+if (n %% 79 == 0) {
+  print("Divisível por 79")
+} else {
+  print("Não é divisível por 79")
 }
-
-(a)
 ```
 
 **Respostas**:
 
-[2001 2002 2003 2004 2005]{.spoiler}
+["Divisível por 79"]{.spoiler}
 
+> 2 - Crie um programa para testar se o número 17933 é primo. Para que um número seja primo, ele deve ser divisível apenas por 1 e por ele mesmo.
 
-2 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
+```{r echo=FALSE, eval=FALSE}
+n = 17933
+primo = T
+for (i in 2:ceiling(n^0.5)) {
+  if(n %% i == 0){
+    primo = F
+  }
+}
+if (primo) {
+  print("É primo")
+} else {
+  print("Não é primo")
+}
+```
+
+**Respostas**:
+
+["Não é primo"]{.spoiler}
+
+> 3 - Aproveitando o código anterior diga quais números são primos entre 150 e 200.
+
+```{r echo=FALSE, eval=FALSE}
+
+for (i in 150:200) {
+  primo = T
+  for (j in 2:ceiling(n^0.5)) {
+    if(i %% j == 0){
+      primo = F
+    }
+  }
+  if (primo) {
+    print(i)
+  }
+}
+```
+
+**Respostas**:
+
+[151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199]{.spoiler}
+
+> 4 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
 
 ```{r, eval = FALSE}
 set.seed(123456)
 produtividade = rnorm(50, mean = 3500.00, sd = 800)
 ```
 
-Suponhamos que a média nacional de produtividade de soja seja de 3500.00 kg/ha. Utilizando estruturas condicionais, verifique se os genótipos apresentam valores acima ou abaixo da produtividade média nacional, retornando as frases "acima da média" ou "abaixo da média", respectivamente.
+> Suponhamos que a média nacional de produtividade de soja seja de 3500.00 kg/ha. Utilizando estruturas condicionais, verifique se os genótipos apresentam valores acima ou abaixo da produtividade média nacional, retornando as frases "acima da média" ou "abaixo da média", respectivamente.
 
 ```{r echo=FALSE, eval=FALSE}
 set.seed(123456)
