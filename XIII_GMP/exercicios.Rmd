@@ -309,16 +309,3 @@ Esse só em inglês:
 Destaca os impactos de saber programar no dia-a-dia.
 
 
-
-# **Extra**: Família dos `apply`
-
-1 - Utilize a função abaixo para gerar médias de produtividade, considerando 25 genótipos de soja avaliados em 15 ambientes, de forma aleatória:
-
-```{r, eval=FALSE}
-set.seed(123456)
-dados = data.frame(Genotypes = rep(seq(1,25,1), 15), Environments = rep(x = seq(1:15), each = 25), yield = rnorm(375, 3000:3500, 800))
-```
-
-Utilizando funções da família "apply", obtenha as médias gerais de cada genótipo e também de cada ambiente.
-
-
