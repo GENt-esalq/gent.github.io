@@ -1,7 +1,7 @@
 Por que o R?
 ========================================================
-author: Treinamento em Programação no Ambiente R 
-date: 17/05/2019
+author: Minicurso - Programação no Ambiente R 
+date: 23/07/2019
 autosize: true
 
 <div align="right">
@@ -9,7 +9,7 @@ autosize: true
 </div>
 
 ========================================================
-<h2 style="color:blue;">Perguntamos em 2018! (e perguntaremos novamente agora)</h2>
+<h2 style="color:blue;">Perguntamos em outros cursos! </h2>
 
 ```{r, echo=FALSE,fig.width10, fig.height=8, fig.show='hold', fig.align='center'}
 library(tm)
@@ -133,7 +133,7 @@ Partículas elementares Higgs Boson (2012), 3800 pessoas de 42 países diferente
 
 <p style="margin-bottom:1cm;"><li><a href="https://github.com/trending/r">Muitos outros pacotes do R</a></li></p>
 
-<li> <a href="https://github.com/GENt-esalq/GENt-esalq.github.io">O site do GENt </a> (<a href="https://gent-esalq.github.io/">site</a>)- 2 contribuidores</li> 
+<li> <a href="https://github.com/GENt-esalq/GENt-esalq.github.io">O site do GENt </a> (<a href="https://gent-esalq.github.io/">site</a>)- 6 contribuidores</li> 
 
 </ul>
 

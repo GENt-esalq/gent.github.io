@@ -1,7 +1,7 @@
 #########################
 # Script Curso R
 
-# Data: 16/05/2019
+# Data: 24/07/2019
 # GENt
 ##########################
 
@@ -99,11 +99,6 @@ a==round(b) # Evitar que isso aconteceça arredondando o resultado
 errado <- c(TRUE, "vish", 1) # Não podemos misturar classes num mesmo vetor
 errado
 
-######################
-# Dia 2
-# 17/05/2019
-######################
-
 
 # Matrizes
 
@@ -152,35 +147,8 @@ volume
 campo1 <- cbind(campo1, volume)
 str(campo1)
 
-# Listas
 
-minha_lista <- list(campo1 = campo1, media_alt = tapply(campo1$altura, campo1$idade, mean), matrix_ex = W)
-str(minha_lista)
-
-# Acessando conteúdo das listas
-minha_lista[[1]]
-# ou
-minha_lista$campo1
-
-# Arrays
-(meu_array <- array(1:24, dim = c(2,3,4)))
-
-# Exportando e importando dados
-
-# Salvo meu objeto campo1
-save(campo1, file = "campo1.RData")
-
-# Removo o objeto
-rm(campo1)  # Certifique-se que salvou o objeto antes de removê-lo
-
-# Chamo ele de novo
-load("campo1.RData")
-
-#save.image() #salva um .RData no meu diretório de trabalho
-
-load("campo1.RData")
-
-# Exportando em outros formatos
+# Exportando tabelas
 write.table(campo1, file = "campo1.txt", sep = ";", dec = ".", row.names = FALSE)
 write.csv(campo1, file = "campo1.csv", row.names = TRUE)
 
@@ -190,11 +158,12 @@ campo1_csv <- read.csv(file = "campo1.csv")
 head(campo1_txt)
 head(campo1_csv)
 
-# Importando a tabela com os dados do formulário
-## Se for sistema linux/mac
-dados <- read.csv(file = "dados.csv", stringsAsFactors = FALSE, na.strings="-")
-# ou
-load("dados_alunos.RData")
+
+######################
+# Dia 2
+# 17/05/2019
+######################
+
 
 ## Se for sistema windows
 #dados <- read.csv(file = "dados.csv", stringsAsFactors = FALSE, na.strings="-", fileEncoding = "UTF8" )
