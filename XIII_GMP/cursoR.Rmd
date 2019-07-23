@@ -407,6 +407,9 @@ Essas funções `colnames` e `rownames` também funcionam nos data.frames.
 
 ## Data.frames
 
+
+![](imagens/DSCN7656.JPG)
+
 Diferente das matrizes, não realizamos operações com os data.frames, mas eles permitem a união de vetores com classes diferentes. Os *data frames* são semelhantes a tabelas geradas em outros programas, como o excel.
 
 Os *data frames* são combinações de vetores de mesmo comprimento. Todos os que criamos até agora tem tamanho 6, verifique. 
@@ -414,18 +417,29 @@ Os *data frames* são combinações de vetores de mesmo comprimento. Todos os qu
 Podemos assim combiná-los em colunas de um único data.frame:
 
 ```{r}
-campo1 <- data.frame("clone" = clone,     # Antes do sinal de "="  
-                     "altura" = x,        # estabelecemos os nomes  
-                     "diametro" = y,      # das colunas
-                     "idade" = rep(3:5, 2),
-                     "corte"= logico) 
+
+Repeticao <- rep(1:4,3)
+
+Tratamento <- c(rep("L.A",4), rep("L.B",4), rep ("hibridoAB", 4) )
+
+numero_folhas <- c(5,4,5,NA,13,9,10,11,6,9,9,9)
+  
+altura <- c(95,55,70,NA,61,77,80,97,140,155,175,170)
+
+comprimento <- c(86,30,69,NA,80,77,88,87,95,75,95,100)
+
+campo1 <- data.frame("Repeticao" = Repeticao,     # Antes do sinal de "="  
+                     "Tratamento" = Tratamento,        # estabelecemos os nomes  
+                     "numero_folhas" = numero_folhas,      # das colunas
+                     "altura" = altura,
+                     "comprimento"= comprimento) 
 campo1
 ```
 
 Podemos acessar cada uma das colunas com:
 
 ```{r}
-campo1$idade
+campo1$altura
 ```
 
 Ou também com:
@@ -442,27 +456,25 @@ Dessa forma, se quisermos obter um conteúdo específico podemos dar as coordena
 campo1[1,2] 
 ```
 
-* Obtenha o diâmetro do clone "URO03.
+* Obtenha o altura da terceira repetição da Linhagem A.
 
 ```{r, echo=FALSE}
-campo1[3,3] 
+campo1[3,4] 
 ```
 
 Mesmo se tratando de um *data frame*, podemos realizar operações com os vetores numéricos que a compõe.
 
-* Com o diâmetro e a altura das árvores, calcule o volume conforme a fórmula a seguir e armazene em um objeto `volume`:
-
-$3.14*(diametro/2)^2*altura$
+* Com a altura das plantas em centímetros, obtenha em metros:
 
 ```{r, echo=FALSE}
-volume <- 3.14*((campo1$diametro/2)^2)*campo1$altura
-volume
+altura_m <- campo1$altura/100
+altura_m
 ```
 
 Agora, vamos adicionar o vetor calculado com o volume ao nosso data.frame. Para isso use a função `cbind`.
 
 ```{r}
-campo1 <- cbind(campo1, volume)
+campo1 <- cbind(campo1, altura_m)
 str(campo1)
 ```
 
