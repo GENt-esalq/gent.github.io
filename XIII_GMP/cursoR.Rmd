@@ -361,6 +361,18 @@ No caso, todos os elementos foram transformados em caracter.
 
 > Você já pode fazer os exercícios da [**Sessão 1**](exercicios.html#sessao1)
 
+
+Terminamos aqui o primeiro dia.
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.RData).
+
+* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
+
+* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia1.html).
+
+
+___ 
+
 ## Matrizes
 
 As matrizes são outra classe de objetos muito utilizadas no R, com elas podemos realizar operações de maior escala de forma automatizada.
@@ -511,21 +523,10 @@ head(campo1_txt)
 head(campo1_csv)
 ```
 
-Termina aqui o primeiro dia.
-
-```{r eval=FALSE, echo=FALSE}
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.RData).
-
-* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
-
-* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia1.html).
-```
-
-___
 
 # Planilha com dados reais
 
-Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado na aula prática.
+Agora que aprendemos a importar dados, vamos trabalhar com dados reais provenientes de um experimento.
 
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
@@ -741,7 +742,7 @@ hist(dados$AlturaPlantas, breaks = 15)
 
 ```
 
-Agora tente fazer o **histograma para o peso**, aproveite para tentar alterar alguns parâmetros. 
+Agora tente fazer o **histograma para o altura de espiga**, aproveite para tentar alterar alguns parâmetros. 
 
 Apresentaremos outros gráficos que poderão ser utilizados:
 
@@ -925,40 +926,47 @@ desplot(Bloco ~ col+row, dados.up,
 
 # Algumas ferramentas básicas de análise de dados
 
+<span style="color:red">
+A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
+
+* [dados.csv](https://GENt-esalq.github.io/XIII_GMP/pimenta_data.csv)
+
 Claramente a análise de dados é algo muito específico de cada conjunto de dados e interesses. Vamos aqui mostrar alguns recursos básicos como análise de variância, regressão e teste de médias.
 
 Algumas avaliações descritivas podem ser feitas pelo uso do `tapply` e de gráficos. A função `summary` também da informações gerais do conjunto. É possível usá-la em conjunto com o `tapply`.
 
 ```{r}
-str(dados)
-# Certifique-se que esta lidando com variável categórica (fator)
-dados$Hibrido <- as.factor(dados$Hibrido)
-dados$Parcela <- as.factor(dados$Parcela)
-dados$Bloco <- as.factor(dados$Bloco)
+# Leitura dos dados
+dados_pim <- read.csv("pimenta_data.csv")
+str(dados_pim)
 
-tapply(dados$AlturaPlantas, dados$Hibrido, summary)
-tapply(dados$AlturaEspiga, dados$Hibrido, summary)
+# Certifique-se que esta lidando com variável categórica (fator)
+dados_pim$gen <- as.factor(dados_pim$gen)
+dados_pim$rep <- as.factor(dados_pim$rep)
+
+tapply(dados_pim$alt, dados_pim$gen, summary)
+tapply(dados_pim$alt, dados_pim$rep, summary)
 ```
 
-Qual a relaçao linear entre altura de plantas e altura da primeira espiga?
+Qual a relaçao linear entre altura de plantas e o primeiro entrenó?
 
 ```{r}
-mod1 <- lm(AlturaPlantas ~ AlturaEspiga, data = dados)
+mod1 <- lm(alt ~ prim_in, data = dados_pim)
 summary(mod1)
 ```
 
 Podemos falar que a altura de plantas é significativamente diferente entre hibridos?
 
 ```{r}
-mod1 <- aov(AlturaPlantas ~ Hibrido + Tempo:Bloco + Tempo:Bloco:Parcela, data = dados)
+mod1 <- aov(alt ~ gen, data = dados_pim)
 summary(mod1)
 ```
 
 O p-valor nos indica se podemos considerar diferenças de altura conforme o híbrido. Podemos também fazer um teste de médias para diferenciar a altura de plantas de cada híbrido. Aqui utilizaremos o método de Tukey:
 
 ```{r}
-modaov <- aov(AlturaPlantas ~ Hibrido + Tempo:Bloco + Tempo:Bloco:Parcela, data = dados)
-tukey.test <- TukeyHSD(x=modaov, 'Hibrido', conf.level=0.95)
+modaov <- aov(alt ~ gen, data = dados_pim)
+tukey.test <- TukeyHSD(x=modaov, 'gen', conf.level=0.95)
 tukey.test
 ```
 
