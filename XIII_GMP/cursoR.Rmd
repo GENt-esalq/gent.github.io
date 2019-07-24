@@ -929,7 +929,7 @@ desplot(Bloco ~ col+row, dados.up,
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
 
-* [dados.csv](https://GENt-esalq.github.io/XIII_GMP/pimenta_data.csv)
+* [pimenta_data.csv](https://GENt-esalq.github.io/XIII_GMP/pimenta_data.csv)
 
 Claramente a análise de dados é algo muito específico de cada conjunto de dados e interesses. Vamos aqui mostrar alguns recursos básicos como análise de variância, regressão e teste de médias.
 
