@@ -3,8 +3,8 @@ title: "Treinamento em Programação no Ambiente R"
 author: "GENt"
 date: "July 23, 2019"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 # Dia 1
@@ -156,79 +156,4 @@ a==round(b) # Evitar que isso aconteceça arredondando o resultado
 errado <- c(TRUE, "vish", 1) # Não podemos misturar classes num mesmo vetor
 errado
 
-```
-
-##  Matrizes
-
-```{r}
-X <- matrix(1:12, nrow = 6, ncol = 2)
-X
-
-W <- matrix(c(x,y), nrow = 6, ncol =2)
-W
-
-X*2
-X*X        
-X%*%t(X)          # Multiplicação matricial
-
-W[4,2] # Número posicionado na linha 4 e coluna 2
-
-colnames(W) <- c("altura", "diametro")
-rownames(W) <- clone
-W
-```
-
-## Data.frames
-
-Vou escrever isso aqui só para mostrar que podemos criar itens no markdown
-
-* Olha esse
-* E esse
-* Mais um
-* Só para ter certeza
-
-```{r}
-campo1 <- data.frame("clone" = clone,     # Antes do sinal de "="  
-                     "altura" = x,        # estabelecemos os nomes  
-                     "diametro" = y,      # das colunas
-                     "idade" = rep(3:5, 2),
-                     "corte"= logico) 
-campo1
-
-# Acessando a coluna de idades
-campo1$idade
-
-# ou
-campo1[,4] 
-
-# Especificando linha e coluna
-campo1[1,2] 
-
-# Diâmetro do URO03
-campo1[3,3] 
-
-# Volume
-volume <- 3.14*((campo1$diametro/2)^2)*campo1$altura
-volume
-
-# Adicionando volume ao data.frame campo1
-campo1 <- cbind(campo1, volume)
-str(campo1)
-```
-
-## Exportando e importando dados
-
-```{r}
-# Exportando
-write.table(campo1, file = "campo1.txt", sep = ";", dec = ".", row.names = FALSE)
-write.csv(campo1, file = "campo1.csv", row.names = TRUE)
-```
-
-## Importando tabelas
-
-```{r}
-campo1_txt <- read.table(file = "campo1.txt", sep=";", dec=".", header = TRUE)
-campo1_csv <- read.csv(file = "campo1.csv")
-head(campo1_txt)
-head(campo1_csv)
 ```
