@@ -719,6 +719,14 @@ Fizemos um vídeo com mais detalhes sobre loops no R, aumentem nossa quantidade 
 * Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros contínua.
 * Usar identação ajuda a visualizar o começo e fim de cada estrutura de código e facilita o abrir e fechar de chaves. Identação são aqueles espaços que usamos antes da linha
 
+<span style="color:red"> Paramos aqui no segundo dia do treinamento.</span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.RData).
+
+* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.R) você pode acessar um exemplo de script `.R`.
+
+* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia2.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia2.1.html).
+
 # Elaboração de gráficos simples
 
 Para outros dados coletados, vamos gerar alguns gráficos simples utilizando as funções básicas do R. Existem pacotes como o `ggplot2`, `plotly` e `shiny` que possuem ferramentas muito poderosas para construção de gráficos, mas exigem um pouco mais de tempo para aprendizagem de sua sintaxe.
@@ -875,15 +883,6 @@ dev.off()
 Gere um gráfico e salve-o no formato de seu interesse. Em seguida, crie diversos gráficos dentro de uma mesma função gráfica e estude a saída. 
 
 
-```{r echo=FALSE, eval=FALSE}
-<span style="color:red"> Paramos aqui na parte da manhã do segundo dia do treinamento.</span>
-
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.RData).
-
-* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.R) você pode acessar um exemplo de script `.R`.
-
-* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia2.1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia2.1.html).
-```
 
 # Instalação e aplicações de pacotes
 
