@@ -1,7 +1,7 @@
 #########################
 # Script Curso R
 
-# Data: 24/07/2019
+# Data: 23/07/2019
 # GENt
 ##########################
 
@@ -99,6 +99,10 @@ a==round(b) # Evitar que isso aconteceça arredondando o resultado
 errado <- c(TRUE, "vish", 1) # Não podemos misturar classes num mesmo vetor
 errado
 
+######################
+# Dia 2
+# 24/07/2019
+######################
 
 # Matrizes
 
@@ -120,31 +124,33 @@ W
 
 # Data.frames
 
-campo1 <- data.frame("clone" = clone,     # Antes do sinal de "="  
-                     "altura" = x,        # estabelecemos os nomes  
-                     "diametro" = y,      # das colunas
-                     "idade" = rep(3:5, 2),
-                     "corte"= logico) 
+Repeticao <- rep(1:4,3)
+
+Tratamento <- c(rep("L.A",4), rep("L.B",4), rep ("hibridoAB", 4) )
+
+numero_folhas <- c(5,4,5,NA,13,9,10,11,6,9,9,9)
+
+altura <- c(95,55,70,NA,61,77,80,97,140,155,175,170)
+
+comprimento <- c(86,30,69,NA,80,77,88,87,95,75,95,100)
+
+campo1 <- data.frame("Repeticao" = Repeticao,     # Antes do sinal de "="  
+                     "Tratamento" = Tratamento,        # estabelecemos os nomes  
+                     "numero_folhas" = numero_folhas,      # das colunas
+                     "altura" = altura,
+                     "comprimento"= comprimento) 
 campo1
 
-# Acessando a coluna de idades
-campo1$idade
+campo1$altura
 
-# ou
 campo1[,4] 
 
-# Especificando linha e coluna
 campo1[1,2] 
 
-# Diâmetro do URO03
-campo1[3,3] 
+altura_m <- campo1$altura/100
+altura_m
 
-# Volume
-volume <- 3.14*((campo1$diametro/2)^2)*campo1$altura
-volume
-
-# Adicionando volume ao data.frame campo1
-campo1 <- cbind(campo1, volume)
+campo1 <- cbind(campo1, altura_m)
 str(campo1)
 
 
@@ -159,61 +165,54 @@ head(campo1_txt)
 head(campo1_csv)
 
 
-######################
-# Dia 2
-# 17/05/2019
-######################
-
-
 ## Se for sistema windows
-#dados <- read.csv(file = "dados.csv", stringsAsFactors = FALSE, na.strings="-", fileEncoding = "UTF8" )
+dados <- read.csv(file = "dados.csv", stringsAsFactors = FALSE, na.strings="-", fileEncoding = "UTF8" )
 
 # Verificando que esta tudo certo
 str(dados)
 # também
 dim(dados)
 
-# Alterando nome das colunas
-colnames(dados) <- c("Data_pesq", "Idade", "Niver", "Genero", "Cidade", 
-                     "Altura","Peso", "Area", "ConhecimentoR", "Outras_linguagens", 
-                     "Utilizacao", "Motivacao")
-str(dados)
-
-# Paradoxo do aniversário
-
-table(dados$Niver)
-
-# Estruturas condicionais
 
 ## If e else
 
-if(2 >3){
+if(2 > 3){  #o resultado de 2 > 3 é TRUE
   print("dois é maior que três")
 } else {
   print("dois não é maior que três")
 }
 
-if(dados[3,9] == 0){
-  print("Nunca é tarde para começar!")
+if(dados[3,5] < 1.5){
+  print("Híbrido pequeno demais")
 } else {
-  print("Já pegou o embalo, agora é só continuar!")
+  print("Tamanho provavelmente adequado")
 }
 
-if(dados[7,9] == 0){
-  print("Nunca é tarde para começar!")
-} else if (dados[3,9] > 0 && dados[3,9] < 5){
-  print("Já pegou o embalo, agora é só continuar!")
+if(dados[8,5] < 1.5){
+  print("Híbrido pequeno demais")
+} else if (dados[8,5] > 1.5 && dados[8,5] < 2.0){
+  print("Tamanho OK")
 } else {
-  print("Nos avise se estivermos falando algo errado...hehe")
+  print("Cresceu demais")
 }
 
-## Switch
+maior_altura = max(dados[,5])
 
-switch(dados[5,8],
-       Exatas = print("Será que aprendeu alguma linhagem de programação na graduação?"),
-       Interdiciplinar = print("Em que foi a gradução?"),
-       print("Ta aqui colocando o pezinho na exatas")
-)
+if(dados[1,5] == maior_altura){           # Testando com a primeira linha
+  print("A planta 1 é a maior planta")
+} else if (dados[2,5] == maior_altura) {  # Testando com a segunda linha
+  print("A planta 2 é a maior planta")  
+} else if (dados[3,5] == maior_altura) {  # Testando com a terceira linha
+  print("A planta 3 é a maior planta")  
+} else if (dados[4,5] == maior_altura) {  # Testando com a quarta linha
+  print("A planta 4 é a maior planta")  
+} else if (dados[5,5] == maior_altura) {  # Testando com a quinta linha
+  print("A planta 5 é a maior planta")  
+} else {                                  # Cansei
+  mensagem = paste("Vou ter que escrever", nrow(dados), "linhas?")
+  print(mensagem)  
+}
+
 
 
 # Estruturas de repetição
@@ -224,40 +223,44 @@ for(i in 1:10){
   print(i)
 }
 
-test <- vector()
+test <- rep(0, times = 10)
 for(i in 1:10){
-  test[i] <- i+4 
+  test[i] <- i*10 
 }
 test
 
-for(i in 1:nrow(dados)){
-  if(dados[i,9] == 0){
-    print("Nunca é tarde para começar!")
-  } else if (dados[i,9] > 0 && dados[i,9] < 5){
-    print("Já pegou o embalo, agora é só continuar!")
+for(i in 1:nrow(dados)){ 
+  if(dados[i,5] < 1.5){
+    print("Híbrido pequeno demais")
+  } else if (dados[i,5] > 1.5 && dados[i,5] < 2.0){
+    print("Tamanho OK")
   } else {
-    print("Nos avise se estivermos falando algo errado...hehe")
+    print("Cresceu demais")
   }
 }
 
-# Exemplo do uso da função grepl
-grepl("-", dados[1,5]) # A primeira linha contem o caracter "-"
+maior_altura = max(dados[,5])
 
+# Usando laço de repetição
 for(i in 1:nrow(dados)){
-  if(grepl("-", dados[i,5])){
-    cat("Esse/a seguiu o exemplo direitinho. Parabéns!\n")
-  } else {
-    cat("Precisamos adicionar mais informações na linha", i, "\n")
+  if(dados[i,5] == maior_altura){
+    print(paste("A planta", i, "é a maior planta"))
+  } 
+}
+
+indice = which(dados[,5] == maior_altura)
+print(paste("A planta", indice, "é a maior planta"))
+
+## Loop dentro de loop
+
+# Criando uma matrix vazia
+ex_mat <- matrix(nrow=10, ncol=10)
+
+# cada número dentro da matrix será o produto no índice da coluna pelo índice da linha
+for(i in 1:dim(ex_mat)[1]) {
+  for(j in 1:dim(ex_mat)[2]) {
+    ex_mat[i,j] = i*j
   }
 }
 
-corrigir <- vector()
-for(i in 1:nrow(dados)){
-  if(grepl("-", dados[i,5])){
-    cat("Esse/a seguiu o exemplo direitinho. Parabéns!\n")
-  } else {
-    cat("Precisamos adicionar mais informações na linha", i, "\n")
-    corrigir <- c(corrigir, i)
-  }
-}
-
+ex_mat
