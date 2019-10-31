@@ -1,0 +1,18 @@
+---
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+# Minicurso R - XIII Workshop de Férias em Genética e Melhoramento de Plantas
+
+Aqui está o material utilizado no **Minicurso de R** organizado pelo  XIII Workshop de Férias em Genética e Melhoramento de Plantas - Avanços e tecnologias da genética e dos programas de melhoramento de plantas
+
+Este treinamento também recebe apoio do grupos [GENt](https://gent-esalq.github.io/) e [GVENCK](https://gvenck.github.io/1home.html), bem como do [Departamento de Genética da ESALQ](http://www.genetica.esalq.usp.br/).
+
+* [Cronograma do treinamento](https://fealq.org.br/informacoes-do-evento/?id=849)
+* [Apresentação teórica](teorica/teorica.html)
+* [Tutorial de instalação do R e RStudio](Tutorial_instalacao.html)
+* [**Tutorial principal**](cursoR.html)
+* [Tutorial principal na versão pdf](cursoR_pdf.pdf)

@@ -12,6 +12,12 @@ description: "<p style = 'text-align: justify;'> O grupo GENt promove eventos no
 <p style = 'text-align: justify;' ><font size='3'> Realizado dia 11 de fevereiro de 2019 </font> </p> 
 
 <a href='eventos_depto/cine_gent.html'><font size='5'><u> Cine GENt  </u></font></a> 
-<p style = 'text-align: justify;' ><font size='3'> Serão realizadas diversas sessões, acesse o link para saber a programação. </font> </p> "
+<p style = 'text-align: justify;' ><font size='3'> Serão realizadas diversas sessões, acesse o link para saber a programação. </font> </p> 
+
+<a href='eventos_depto/cortes.html'><font size='5'><u> Palestra do Professor Valdemar Sguissardi </u></font></a> 
+<p style = 'text-align: justify;' ><font size='3'> Palestra intitulada 'Do Future-se a um provável desastroso futuro para a universidade pública e a ciência nacional', acesse o link para saber mais. </font> </p>
+
+<a href='eventos_depto/seminario1.html'><font size='5'><u> Palestra da Professora Taícia Fill </u></font></a> 
+<p style = 'text-align: justify;' ><font size='3'> Palestra intitulada 'Uma visão da química de produtos naturais nas interações biológicas em citros', acesse o link para saber mais. </font> </p>"
 
 ---
