@@ -1,0 +1,61 @@
+---
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+# Treinamento em Programação no Ambiente R
+
+---
+
+`LOCAL`: Departamento de Genética, sala “Marcílio Dias” – ESALQ-USP
+
+`PERÍODO`: 16 a 18 de maio de 2019
+
+`VALOR`: R$50,00
+
+`REALIZAÇÃO`: GENt
+
+`APOIO`: ESALQ, grupo GVENCK, Departamento de Genética, FEALQ
+
+`PÚBLICO-ALVO`: Estudantes de graduação e pós-graduação.
+
+`PRÉ-REQUISITOS`: Interesse no aprendizado de uma linguagem de programação aplicada à análise de dados.
+
+`IMPORTANTE`: É necessário trazer computador pessoal.
+
+---
+
+## Dia 1 – 16/05
+`Horário`:  8h ao 12h
+
+* Instalação do R e RStudio
+
+* Familiarização com a interface do RStudio
+
+* Uso do RStudio e linguagem markdown para gerar relatórios
+
+* Operações básicas
+
+## Dia 2 – 17/05
+`Horário`: 8h ao 12h e das 14h às 18h
+
+* Tipos de objetos
+
+* Exportação e importação de dados
+
+* Estruturas condicionais
+
+* Estruturas de repetição
+
+* Elaboração de funções
+	
+## Dia 3 – 18/05
+`Horário`: 8h ao 12h
+
+* Elaboração de gráficos simples
+
+* Instalação e aplicação de pacotes
+
+* Ferramentas básicas de análise de dados
