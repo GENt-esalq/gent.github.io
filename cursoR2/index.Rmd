@@ -14,6 +14,9 @@ output:
 
 Este curso vem sendo elaborado e ministrado desde 2015 por alunos do Departamento de Genética. Você pode encontrar o material utilizado em anos anteriores neste [site](http://cristianetaniguti.github.io/Workshop_genetica_esalq/). 
 
+Esta versão, de 16, 18 e 20 de março de 2020, está sendo organizada pelo [GENt](https://gent-esalq.github.io/), grupo de Divulgação Científica do Programa de Pós-Graduação em Genética e Melhoramento de Plantas da ESALQ- USP, em parceria com o grupo Gfito-LQ, grupo de estudos do [Departamento de Fitopatologia e Nematologia](http://www.lfn.esalq.usp.br/).
+
+
 **Temos novidades nesta versão de março de 2020!! **
 
 O curso também será transmitido online. Então você poderá se inscrever como participante presencial ou remoto. A experiência de quem estiver presente será provavelmente mais completa, mas temos número limitado de vagas (40 vagas).
@@ -30,9 +33,7 @@ Como o número de vagas presenciais são limitados, daremos prioridade para aque
 
 ## Materiais
 
-Aqui será disponibilizado o material que será utilizado no **Treinamento em Programação no Ambiente R** organizado pelo [GENt](https://gent-esalq.github.io/), grupo de Divulgação Científica do Programa de Pós-Graduação em Genética e Melhoramento de Plantas da ESALQ- USP.
-
-Este treinamento também recebe apoio do grupo de estudos do [Departamento de Fitopatologia e Nematologia](http://www.lfn.esalq.usp.br/).
+Aqui será disponibilizado o material que será utilizado no **Treinamento em Programação no Ambiente R**.
 
 * [Cronograma do treinamento](cronograma.html)
 * [Tutorial de instalação do R e RStudio](Tutorial_instalacao.html)
