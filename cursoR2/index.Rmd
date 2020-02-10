@@ -9,19 +9,20 @@ output:
 
 <img src="folder.jpeg" alt="" width="450" height="700">
 
-
 ## Sobre o curso
 
-Este curso vem sendo elaborado e ministrado desde 2015 por alunos do Departamento de Genética. Você pode encontrar o material utilizado em anos anteriores neste [site](http://cristianetaniguti.github.io/Workshop_genetica_esalq/). 
+O curso Treinamento de Programação em R é ofertado desde 2015 por alunos do Departamento de Genética. Você pode encontrar o material utilizado em anos anteriores neste [site](http://cristianetaniguti.github.io/Workshop_genetica_esalq/).
 
-Esta versão, de 16, 18 e 20 de março de 2020, está sendo organizada pelo [GENt](https://gent-esalq.github.io/), grupo de Divulgação Científica do Programa de Pós-Graduação em Genética e Melhoramento de Plantas da ESALQ- USP, em parceria com o grupo Gfito-LQ, grupo de estudos do [Departamento de Fitopatologia e Nematologia](http://www.lfn.esalq.usp.br/).
+Nos dias 16, 18 e 20 de março de 2020, o [GENt](https://gent-esalq.github.io/), grupo de Divulgação Científica do Programa de Pós-Graduação em Genética e Melhoramento de Plantas da ESALQ- USP, em parceria com o grupo Gfito-LQ, grupo de estudos do [Departamento de Fitopatologia e Nematologia](http://www.lfn.esalq.usp.br/), oferecerá uma nova versão do curso!
 
 
-**Temos novidades nesta versão de março de 2020!! **
+**Teremos muitas novidades para a versão de março de 2020!!**
 
-O curso também será transmitido online. Então você poderá se inscrever como participante presencial ou remoto. A experiência de quem estiver presente será provavelmente mais completa, mas temos número limitado de vagas (40 vagas).
+Este ano, o curso também será transmitido online! Então você poderá se inscrever como participante presencial ou remoto. A experiência de quem estiver presente será provavelmente mais completa, mas temos número limitado de vagas (40 vagas).
 
-Além disso, também adotamos uma forma de contribuição de "pague o quanto quiser/puder" com uma sugestão de 25 reais. O dinheiro arrecadado será investido nas ações do grupo de divulgação científica GENt. Saiba mais sobre as atividades do grupo explorando este [site](https://gent-esalq.github.io/).
+Além disso, também adotamos uma forma de contribuição de “pague o quanto quiser/puder”, com uma sugestão de 25 reais. O dinheiro arrecadado será investido nas ações do grupo de divulgação científica GENt. Saiba mais sobre as atividades do grupo explorando o nosso site.
+
+
 
 ## Inscrições
 
@@ -29,7 +30,7 @@ Além disso, também adotamos uma forma de contribuição de "pague o quanto qui
 
 Para se inscrever, basta preencher este [formulário](https://forms.gle/kydiaKPwtBuu6XKU7).
 
-Como o número de vagas presenciais são limitados, daremos prioridade para aqueles que se inscreverem primeiro e deixaremos o restante em uma lista de espera. Portanto, se você se inscreveu e por algum motivo não poderá comparecer, favor nos avisar via e-mail gent.esalq@gmail.com. Assim, outra pessoa poderá ocupar esta vaga e otimizaremos o espaço da sala.
+Como o número de vagas presenciais será limitado, daremos prioridade à aqueles que se inscreverem primeiro e deixaremos o restante em uma lista de espera. Portanto, se você se inscreveu e por algum motivo não poderá comparecer, favor nos avise via e-mail gent.esalq@gmail.com. Assim, outra pessoa poderá ocupar esta vaga e otimizaremos o espaço da sala!
 
 ## Materiais
 
