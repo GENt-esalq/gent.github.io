@@ -18,10 +18,10 @@ description: "<p style = 'text-align: justify;'> O grupo GENt promove eventos no
 <p style = 'text-align: justify;' ><font size='3'> Palestra intitulada 'Do Future-se a um provável desastroso futuro para a universidade pública e a ciência nacional', acesse o link para saber mais. </font> </p>
 
 <a href='eventos_depto/seminario1.html'><font size='5'><u> Palestra da Professora Taícia Fill </u></font></a> 
-<p style = 'text-align: justify;' ><font size='3'> Palestra intitulada 'Uma visão da química de produtos naturais nas interações biológicas em citros', acesse o link para saber mais. </font> </p>"
+<p style = 'text-align: justify;' ><font size='3'> Palestra intitulada 'Uma visão da química de produtos naturais nas interações biológicas em citros', acesse o link para saber mais. </font> </p>
 
-<a href='eventos_depto/mulher2.html'><font size='5'><u>Dia da Mulher na Ciência </u></font></a> 
-<p style = 'text-align: justify;' ><font size='3'> Realizado dia 11 de fevereiro de 2020 </font> </p> 
+<a href='eventos_depto/mulher2020.html'><font size='5'><u>Dia da Mulher na Ciência </u></font></a> 
+<p style = 'text-align: justify;' ><font size='3'> Realizado dia 11 de fevereiro de 2020 </font> </p>"
 
 
 ---
