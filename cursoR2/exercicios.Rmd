@@ -207,7 +207,47 @@ while(sum(a) < 10000){
 [2001 2002 2003 2004 2005]{.spoiler}
 
 
-2 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
+2 - Repita a frase "x tigre(s) triste(s) comeram x pratos de trigo", em que x seja um número inteiro da sua escolha.
+
+```{r echo=FALSE, eval=FALSE}
+# Numero de tigres/pratos
+numero <- 3
+
+# Estrutura de repetição
+for(num in 1:numero){
+  if(num == 1){
+    print(paste(num, "tigre triste comeu", num, "prato de trigo."))
+  } else {
+    print(paste(num, "tigres tristes comeram", num, "pratos de trigo."))
+  }
+}
+```
+
+**Respostas**:
+
+Se a escolha do valor foi um:
+[1 tigre triste comeu 1 prato de trigo.]{.spoiler}
+
+Se a escolha do valor foi dois:
+[2 tigres tristes comeram 2 pratos de trigo.]{.spoiler}
+
+3 - **Hora de descontrair!** Você conhece a música [Hey Jude](https://www.youtube.com/watch?v=7qMls5yxP1w)? Repita quantas vezes você quiser o verso:
+
+"Na, na, na, na-na-na na
+
+Na-na-na na, hey Jude"
+
+```{r, eval = FALSE}
+vezes <- 10
+
+for(repete in 1:vezes){
+  print("Na, na, na, na-na-na na")
+  print("Na-na-na na, hey Jude")
+}
+
+```
+
+4 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
 
 ```{r, eval = FALSE}
 set.seed(123456)
