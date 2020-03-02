@@ -191,7 +191,31 @@ c)[O valor mínimo: 1.170791]{.spoiler}
 
 # **Sessão 3**: Estruturas condicionais e de repetição 
 
-1 - Crie um objeto "a" contendo uma sequência de 1 a 5. Usando qualquer estrutura de repetição, some o número 8 a cada um dos elementos de "a", até que a soma de todos os elementos seja igual ou superior a 10000.
+1 - Hora da diversão! Esperamos que vocês tenham gostado das estruturas condicionais. Acabando não perguntando nos questionários uma questão que será bem importante aqui. Você assiste o BBB? Esperamos que não (brincadeirinha!). Já parou para pensar que a [música](https://www.vagalume.com.br/bbb/vida-real-paulo-ricardo.html) tema do *programa* é basicamente uma aula de condicional (além de ser grudenta, claro)? Logo, a ideia é passar um verso que contenha **se** e receber o próximo verso. Caso o verso não exista na música ou não seja um dos casos condicionais, solte a mensagem "Esse verso nao existe na música". **Dica:** Para facilitar, use todas as frases com letras minúsculas e sem acentos.  
+
+```{r echo=FALSE, eval=FALSE}
+if(verso=="se voce pudesse me dizer"){
+  "se voce soubesse o que fazer"
+} else if(verso == "se voce soubesse o que fazer"){
+  "o que voce faria"
+} else if(verso == "se voce soubesse quem você e"){
+  "Até onde vai a sua fe"
+} else if(verso == "se pudesse escolher"){
+  "entre o bem e o mal"
+} else if (verso == "se querer e poder"){
+  "tem que ir ate o final"
+} else if (verso == "se quiser vencer..."){
+  " "
+} else if (verso == "se pudesse eu te levaria"){
+  "ate onde voce quer chegar"
+} else if(verso == "se souber brincar com fogo"){
+  "nao ha nada mais bonito"
+} else {
+  "esse verso nao existe na musica"
+}
+```
+
+2 - Crie um objeto "a" contendo uma sequência de 1 a 5. Usando qualquer estrutura de repetição, some o número 8 a cada um dos elementos de "a", até que a soma de todos os elementos seja igual ou superior a 10000.
 
 ```{r echo=FALSE, eval=FALSE}
 a = seq(1,5,1)
@@ -207,7 +231,7 @@ while(sum(a) < 10000){
 [2001 2002 2003 2004 2005]{.spoiler}
 
 
-2 - Repita a frase "x tigre(s) triste(s) comeram x pratos de trigo", em que x seja um número inteiro da sua escolha.
+3 - Repita a frase "x tigre(s) triste(s) comeram x pratos de trigo", em que x seja um número inteiro da sua escolha.
 
 ```{r echo=FALSE, eval=FALSE}
 # Numero de tigres/pratos
@@ -231,7 +255,7 @@ Se a escolha do valor foi um:
 Se a escolha do valor foi dois:
 [2 tigres tristes comeram 2 pratos de trigo.]{.spoiler}
 
-3 - **Hora de descontrair!** Você conhece a música [Hey Jude](https://www.youtube.com/watch?v=7qMls5yxP1w)? Repita quantas vezes você quiser o verso:
+4 - **Hora de descontrair!** Você conhece a música [Hey Jude](https://www.youtube.com/watch?v=7qMls5yxP1w)? Repita quantas vezes você quiser o verso:
 
 "Na, na, na, na-na-na na
 
@@ -247,7 +271,7 @@ for(repete in 1:vezes){
 
 ```
 
-4 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
+5 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
 
 ```{r, eval = FALSE}
 set.seed(123456)
