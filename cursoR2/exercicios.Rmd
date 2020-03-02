@@ -261,7 +261,7 @@ Se a escolha do valor foi dois:
 
 Na-na-na na, hey Jude"
 
-```{r, eval = FALSE}
+```{r, echo=FALSE, eval = FALSE}
 vezes <- 10
 
 for(repete in 1:vezes){
@@ -271,7 +271,94 @@ for(repete in 1:vezes){
 
 ```
 
-5 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
+5 - Que tal mais uma música popular? O exercício agora vai ser com essa [música](https://www.youtube.com/watch?v=C7pupFaI80A) que quase todos devem conhecer! Você irá fazer o seguinte:
+
+* 1 - Defina o número da prole de patos
+* 2 - Imprima o número da prole e a frase "patinhos foram passear"
+* 3 - Adicione as seguintes linhas:
+    * Além das montanhas
+    * Para brincar
+    * A mamãe gritou
+    * *Repita o número de quacks* (**Isso difere da música, mas fica mais legal**)
+* 4 - Diminua um patinho da prole, caso a prole seja menor do que um
+* 5 - Imprima os versos
+    * Mas só **numero da prole - 1** patinhos
+    * Voltaram de lá
+* 6 - Imprima linha vazia
+* 7 - Retorne no passo 2 se a prole for maior que 1
+* 8 - Se restar um patinho, coloque a última estrofe:
+
+    "1 patinho foi passear
+
+    Além das montanhas
+
+    Para brincar
+
+    A mamãe gritou
+
+    Quack 
+
+    Mas nenhum patinho
+
+    Voltou de lá"
+
+* 9 - Fica a seu critério colocar a última estrofe, mas de um jeito legal hein!
+
+```{r, eval=FALSE}
+prole = 50
+prole_aux = prole
+
+while(prole != 0){
+  if(prole > 1){
+    # Imprima o primeiro verso usando o numero de patos
+     print(paste(prole, " patinhos foram passear", sep = " "))
+    
+    # Imprima os três versos seguintes
+     print("Além das montanhas")
+     print("Para brincar")
+     print("A mamãe gritou")
+     
+    # Repita o numero de Quacks
+     print(paste(rep("Quack", prole, sep=" ")))
+     
+    # Reduza a prole em 1
+     prole = prole -1
+     
+    # Penultimo verso da estrofe
+     print(paste("Mas só", prole, "patinhos", sep = " "))
+    
+    # Ultimo verso
+     print("Voltaram de lá")
+     print(" ")
+     
+  } else {
+    # Imprima os três versos seguintes
+    print("1 patinho foi passear")
+    print("Além das montanhas")
+    print("Para brincar")
+    print("A mamãe gritou")
+    print("Quack")
+    print("Mas nenhum patinho")
+    print("Voltou de lá")
+    print(" ")
+    prole = prole - 1
+    print("A mamãe patinha")
+    print("Foi procurar")
+    print("Além das montanhas")
+    print("Na beira do mar")
+    print("A mamãe gritou")
+    print(paste(rep("Quack", prole_aux), sep=" "))
+    print(paste("E os", prole_aux, "patinhos", sep=" "))
+    print("Voltaram de lá")
+  }
+    
+  }
+}
+```
+
+
+
+6 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
 
 ```{r, eval = FALSE}
 set.seed(123456)
