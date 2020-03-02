@@ -305,7 +305,7 @@ for(repete in 1:vezes){
 * 9 - Fica a seu critério colocar a última estrofe, mas de um jeito legal hein!
 
 ```{r, eval=FALSE}
-prole = 50
+prole = 3
 prole_aux = prole
 
 while(prole != 0){
@@ -324,13 +324,21 @@ while(prole != 0){
     # Reduza a prole em 1
      prole = prole -1
      
-    # Penultimo verso da estrofe
-     print(paste("Mas só", prole, "patinhos", sep = " "))
+
     
-    # Ultimo verso
-     print("Voltaram de lá")
-     print(" ")
-     
+     if(prole > 1){
+       # Penultimo verso da estrofe
+       print(paste("Mas só", prole, "patinhos", sep = " "))
+       # Ultimo verso
+       print("Voltaram de lá")
+       print(" ")
+     } else {
+       # Penultimo verso da estrofe
+       print(paste("Mas só", prole, "patinho", sep = " "))
+       # Ultimo verso
+       print("Voltou de lá")
+       print(" ")
+     }
   } else {
     # Imprima os três versos seguintes
     print("1 patinho foi passear")
