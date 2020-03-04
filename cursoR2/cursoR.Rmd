@@ -6,6 +6,8 @@ output:
       css: readthedowngent.css
 ---
 
+Letycia
+
 # Treinamento em Programação no Ambiente R
 
 Esse material foi elaborado para o **Treinamento em Programação no Ambiente R**
