@@ -34,11 +34,11 @@ Como o número de vagas será limitado, daremos prioridade à aqueles que se ins
 
 São 40 vagas presenciais e 25 possibilidades de acesso remoto. Caso opte pelo acesso remoto e existam mais interessados na sua mesma localidade, sugerimos que se reunam para que apenas um acesso seja feito e assim otimizaremos também as conexões. Neste caso, é necessário que apenas uma pessoa se inscreva para o curso.
 
-<font size="3" color="red">Atenção: vagas para acesso remoto esgotadas.</font>
+<font size="3" color="red">Inscrições encerradas.</font>
 
 ## Materiais
 
 Aqui será disponibilizado o material que será utilizado no **Treinamento em Programação no Ambiente R**.
 
 * [Cronograma do treinamento](cronograma.html)
-* [Tutorial de instalação do R e RStudio](Tutorial_instalacao.html)
+* [Tutorial de instalação do R, RStudio e pacotes que serão utilizados](Tutorial_instalacao.html)

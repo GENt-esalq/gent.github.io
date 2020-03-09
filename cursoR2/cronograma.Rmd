@@ -30,8 +30,6 @@ output:
 ## Dia 1 – 16/03
 `Horário`:  8h ao 12h
 
-* Instalação do R e RStudio
-
 * Familiarização com a interface do RStudio
 
 * Uso do RStudio e linguagem markdown para gerar relatórios

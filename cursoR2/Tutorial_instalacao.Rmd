@@ -16,9 +16,9 @@ options(max.print="75")
 opts_knit$set(width=75)
 ```
 
-# Instalação do R e RStudio
+# Instalação do R 
 
-O R está diponível para os sistemas operacionais Linux, Mac e Windows. Aqui descreveremos os passos necessários para instalação em cada um deles. Caso enfrente problemas em alguma das etapas, verifique também as instruções no [site do CRAN](https://cran.r-project.org/). Se mesmo assim tiver problemas, entre em contato conosco pelo e-mail gent.esalq@gmail.com.
+O R está diponível para os sistemas operacionais Linux, Mac e Windows. Aqui descreveremos os passos necessários para instalação em cada um deles da versão mais recente do R, a 3.6. Caso enfrente problemas em alguma das etapas, verifique também as instruções no [site do CRAN](https://cran.r-project.org/). Se mesmo assim tiver problemas, entre em contato conosco pelo fórum. Criamos lá um tópico específico para dúvidas nesta etapa. Se você não recebeu o e-mail com o convite para entrar no fórum, nos avise pelo [gent.esalq@gmail.com](gent.esalq@gmail.com).
 
 ## Instalação do R no Ubuntu 
 
@@ -29,17 +29,16 @@ O primeiro passo para a instalação é procurar pelo arquivo `sources.list` e a
 ```{bash, eval=FALSE}
 cd /etc/apt/
 ```
-
 Pode ser que o arquivo esteja com permissão apenas para leitura para os usuários comuns, portanto acesse-o como super usuário utilizando um editor de texto de sua preferência e adicione o caminho. Exemplo:
 
 ```{bash, eval=FALSE}
 sudo nano sources.list
 ```
 
-Aqui consideraremos a distribuição Ubuntu Xenial Xerus (16.04) e escolheremos o espelho localizado na ESALQ, portanto adicionamos a linha:
+Aqui consideraremos a distribuição Ubuntu bionic (18.04) e escolheremos o espelho mais próximo da sua localização utilizando o direcionamento [https://cloud.r-project.org](https://cloud.r-project.org), portanto adicionamos a linha:
 
 ```
-#deb https://brieger.esalq.usp.br/CRAN/bin/linux/ubuntu xenial/
+#deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/
 ```
 
 Se esta com dúvida qual é a distribuição que esta esta usando, utilize o comando para descobrir:
@@ -75,10 +74,41 @@ Se você tentar instalar um pacote e não funcionar, talvez seja necessário ins
 Faça o download do executável do R versão 3.6 contido neste [link](https://cran.r-project.org/bin/macosx/R-3.6.0.pkg). Esta versão é compatível com as distribuições Mac OS X  10.6 ou superiores. Clique duas vezes no arquivo .pkg e siga as instruções do instalador.
 
 Após terminar, clicando no icone do R você verá uma janela semelhante a figura 1.
-  
 
-## Instalação do RStudio
+# Instalação do RStudio
 
 O RStudio é uma interface mais amigável do R, com funcionalidades muito práticas. A interface do RStudio também esta disponível para os sistemas Windows, Mac e Linux. Para qualquer um deles, selecione o arquivo correspondente no [site](https://www.rstudio.com/products/rstudio/download/).
 
 No caso de um sistema linux, o arquivo baixado terá extenção `.deb`(para Ubuntu) ou `.rpm`(para Fedora) e basta clicar duas vezes no arquivo que o gerenciador de pacotes do Linux iniciará a instalação.
+
+# Instalação de pacotes
+
+Vamos otimizar nosso tempo durante o curso já deixando instalados os pacotes que iremos utilizar. Para instalação de pacotes você deve abrir o RStudio e na aba denominada "console" colar o seguinte comando:
+
+```{r, eval=FALSE}
+install.packages(c("ggplot2",'tm', 'SnowballC', 'wordcloud',
+                   "dplyr", "osmdata", "ggmap", "sf", "rnaturalearth",
+                   "rnaturalearthdata", "rgeos"), dependencies = T)
+```
+
+Se tudo ocorrer bem, você não terá avisos de `Error`, mas se tiver, não se desespere, é normal. Leia a mensagem de erro e tente resolver. Caso esteja com dificuldades, nos avise no fórum. 
+
+Talvez seja importante avisar que nem todas as mensagem em vermelho são erros. Se estiver procurando o erro de instalação, procure pela palavra "Error" e não pela cor da mensagem.
+
+No R, toda vez que você for utilizar o pacote, é necessário "recrutá-lo" do seu banco de pacotes, nós fazemos isso com o comando `library`:
+
+```{r, eval=FALSE}
+library("ggplot2")
+library('tm')
+library('SnowballC')
+library('wordcloud')
+library("dplyr")
+library("osmdata")
+library("ggmap")
+library("sf")
+library("rnaturalearth")
+library("rnaturalearthdata")
+library("rgeos")
+```
+
+Por enquanto, o comando vai ser útil para você verificar se todos os pacotes foram instalados.
