@@ -129,22 +129,97 @@ ggplot(info) +
 ```
 
 
+### Gráficos de barras e histogramas
 
+Vamos pensar em como informar os perfis de alunos por curso de formação por gênero e por área de interesse.
 
+```{r, eval=FALSE}
+# GENERO
+# posição: empilhamento
+ggplot(info) + 
+  geom_bar(aes(x = graduacao, fill = genero)) +
+  labs(x = element_blank(), y = "Contagem", fill = "Gênero")
 
+# posição: esquivando
+ggplot(info) + 
+  geom_bar(aes(x = graduacao, fill = genero), position = "dodge") +
+  labs(x = element_blank(), y = "Contagem", fill = "Gênero")
 
+# AREA DE INTERESSE
+# posição: empilhamento
+ggplot(info) + 
+  geom_bar(aes(x = graduacao, fill = area)) +
+  labs(x = element_blank(), y = "Contagem", fill = "Área de interesse") +
+  coord_flip()
 
+# posição: esquivando
+ggplot(info) + 
+  geom_bar(aes(x = graduacao, fill = area), position = "dodge") +
+  labs(x = element_blank(), y = "Contagem", fill = "Área de interesse") +
+  coord_flip()
+```
 
+Por vezes, é mais interessante subdividir a informação em mais de um gráfico.
 
+```{r, eval=FALSE}
+ggplot(info) +
+  geom_bar(aes(x = graduacao, fill = genero)) +
+  labs(x = element_blank(), y = "Contagem", fill = "Gênero") +
+  facet_wrap(~ area) + coord_flip()
 
+ggplot(info) +
+  geom_bar(aes(x = graduacao, fill = area)) +
+  labs(x = element_blank(), y = "Contagem", fill = "Área de interesse") +
+  facet_wrap(~ genero) + coord_flip()
+```
 
+Outra forma de subdividir um gráfico em vários grupos é usando a camada `facet_grid()`, que permite organizar os gráficos do mesmo tipo em linhas, colunas ou matrizes de gráficos.
+
+Para fazermos histogramas, é importante ajustar a largura das barras para representar aquilo que esperamos. Não existe uma regra muito clara que expresse bem qual o número de "bins" que devemos usar, então é importante fazer o teste com vários valores.
+
+```{r, eval=FALSE}
+
+# alterando o número de bins
+ggplot(info) +
+  geom_histogram(aes(x = altura), bins = 10) +
+  labs(x = "Altura", y = "Contagem")
+
+ggplot(info) +
+  geom_histogram(aes(x = altura), bins = 20) +
+  labs(x = "Altura", y = "Contagem")
+
+# alterando a largura das bins
+ggplot(info) +
+  geom_histogram(aes(x = altura), binwidth = 0.1) +
+  labs(x = "Altura", y = "Contagem")
+
+ggplot(info) +
+  geom_histogram(aes(x = altura), binwidth = 0.3) +
+  labs(x = "Altura", y = "Contagem")
+
+```
+
+Os gráficos de densidade são bem bonitos de fazer, mas eles extrapolam informações a partir dos dados.
+
+```{r, eval=FALSE}
+ggplot(info) +
+  geom_density(aes(x = altura)) +
+  labs(x = "Altura", y = "Densidade")
+
+ggplot(info) +
+  geom_density(aes(x = altura)) +
+  geom_point(aes(x = altura, y = 0.1), shape = "|", size = 10) +
+  labs(x = "Altura", y = "Densidade")
+
+```
 
 # Para quem quiser saber mais
 
 ### Mapa
 
+Para conseguir fazer esse mapa, é necessário usar o pacote brazilmaps, que você conseguirá instalar usando `install.packages("brazilmaps")`
+
 ```{r}
-install.packages("brazilmaps")
 library(tidyverse)
 
 estados = brazilmaps::get_brmap("State") 
