@@ -54,8 +54,6 @@ dim(dados)
 ```
 
 ## Alterando nome das colunas
-
-
 ```{r}
 colnames(dados) <- c("Data_pesq", "Idade", "Niver", "Genero", "Cidade", 
                      "Altura","Peso", "Area", "ConhecimentoR", "Outras_linguagens", 
@@ -150,8 +148,6 @@ for(i in 1:nrow(dados)){
   }
 }
 ```
-
-# Dia 2 (tarde)
 
 ## Possibilidades de resposta para os exercícios
 
