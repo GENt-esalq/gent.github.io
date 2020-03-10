@@ -293,6 +293,8 @@ dados = data.frame(Genotypes = rep(seq(1,25,1), 15), Environments = rep(x = seq(
 
 Elabore uma função para calcular as médias e o coeficiente de variação ($CV = \frac{\mu}{\sigma}*100$) em cada ambiente, e também avaliar a precisão experimental (até 20% = alta; entre 20 e 30% = média; acima de 30% = baixa). A função deve retornar os resultados contendo a identificação de cada ambiente, as médias, os CV's e as precisões.
 
+---
+
 <span style="color:red"> Pode ser que a essa altura do curso você ja tenha que ter trabalhado com diversas frustrações: o código não roda, precisou de várias tentativas até dar certo. Talvez você se sinta caindo naquele gráfico de andamento do aprendizado que mostramos na apresentação teórica. Por isso, colocamos aqui alguns vídeos motivacionais. São três palestras TED excelentes (como costuma ser os TEDs).</span>
 
 Esses dois tem legenda em portugues. É só ajustar as configurações:
@@ -307,18 +309,5 @@ Esse só em inglês:
 
 * [You Should Learn to Program: Christian Genco at TEDxSMU](https://www.youtube.com/watch?v=xfBWk4nw440)
 Destaca os impactos de saber programar no dia-a-dia.
-
-
-
-# **Extra**: Família dos `apply`
-
-1 - Utilize a função abaixo para gerar médias de produtividade, considerando 25 genótipos de soja avaliados em 15 ambientes, de forma aleatória:
-
-```{r, eval=FALSE}
-set.seed(123456)
-dados = data.frame(Genotypes = rep(seq(1,25,1), 15), Environments = rep(x = seq(1:15), each = 25), yield = rnorm(375, 3000:3500, 800))
-```
-
-Utilizando funções da família "apply", obtenha as médias gerais de cada genótipo e também de cada ambiente.
 
 

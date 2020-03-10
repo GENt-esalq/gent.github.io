@@ -49,6 +49,9 @@ Ao fazer isso o seu código será processado na janela `Console`, onde aparecer�
 # cat("Hello world")
 ```
 
+
+![#Ficadica](https://media.giphy.com/media/xTiQyw99MYXMazEZoc/giphy.gif#center)
+
 O símbolo `#` é muito utilizado para realizar **comentários** ao decorrer do código. Esta é uma ótima prática para deixar o código organizado e para que você possa lembrar mais tarde o que você mesmo/a estava pensando quando o escreveu ou para que outras pessoas possam entendê-lo. Como no exemplo:
 
 ```{r}
@@ -66,7 +69,8 @@ Para salvar seu script, você pode utilizar a aba `Files` localizada (como padr�
 
 Depois, basta clicar no disquete localizado no cabeçalho do RStudio ou com `Ctrl + s` e selecionar o diretório `CursoR` criado. Scripts em R são salvos com a extensão `.R`. 
 
-## Estabelecendo diretório de trabalho
+## Estabelecendo diretório de trabalho 
+<img src="https://cdn.pixabay.com/photo/2013/07/12/12/35/folder-145966_960_720.png" alt="drawing" width="90"/>
 
 Outra boa prática no R é deixar o script no mesmo diretório onde estão seus dados brutos (arquivos de entrada no script) e os dados processados (gráficos, tabelas, etc). Para isso, vamos fazer com que o R identifique o mesmo diretório em que você salvou o script como **diretório de trabalho**, assim ele entenderá que é dali que precisa obter os dados e para lá que também irão os resultados.
 
@@ -98,16 +102,16 @@ O R pode funcionar como uma simples **calculadora**, que utiliza a mesma sintaxe
 
 ```{r, eval=FALSE}
 #########################
-# Script Treinamento R
+# Script Minicurso R
 
-# Data: 16/05/2019
-# GENt
+# Data: 23/07/2019
+# Genética
 ##########################
 
 1+1.3                 #Decimal definido com "."
 2*3
-2^3
 4/2
+2^3
 
 sqrt(4)              #raíz quadrada
 log(100, base = 10)  #logarítmo na base 10
@@ -125,6 +129,8 @@ Resultado esperado:
 ((13+2+1.5)/3) + log(96, base = 4)
 ```
 
+<img src="https://cdn.pixabay.com/photo/2013/07/12/18/09/help-153094_960_720.png" alt="drawing" width="100"/>
+
 Os comandos `log` e `sqrt` são duas de muitas outras funções básicas que o R possui. Para todas elas o R possui uma descrição para auxiliar no seu uso, para acessar essa ajuda use:
 
 ```{r, eval=FALSE}
@@ -136,6 +142,14 @@ E será aberta a descrição da função na janela `Help` do RStudio.
 Se a descrição do próprio R não for suficiente para você entender como funciona a função, busque no google (de preferência em inglês). Existem diversos sites e fóruns com informações didáticas das funções do R.
 
 ## Operações com vetores
+
+**Classes básicas:**
+
+*   character (ex: A, B, C)
+*   numeric (ex: 1.1, 2.3)
+*   integer (ex: 1, 2, 3)
+*   complex  (ex: 1 + 0i, 1 + 4i)
+*   logical (ex: TRUE, FALSE)
 
 Os vetores são as estruturas mais simples trabalhadas no R. Construímos um vetor com uma sequencia numérica usando:
 
@@ -172,6 +186,10 @@ A função `rep` gera sequencias com números repetidos:
 rep(3:5, 2)
 ```
 
+```{r}
+rep(3:5, each = 2)
+```
+
 Podemos realizar operações utilizando esses vetores:
 
 ```{r,eval=FALSE}
@@ -183,6 +201,8 @@ c(4,2,1,5)*c(5,2,6,1)
 Repare que já esta ficando cansativo digitar os mesmos números repetidamente, vamos resolver isso criando **objetos** para armazenar nossos vetores e muito mais. 
 
 # Criando objetos
+
+<img src="https://cdn.pixabay.com/photo/2016/12/23/18/13/communication-1927706_960_720.jpg" alt="drawing" width="300"/>
 
 O armazenamento de informações em objetos e a possível manipulação desses faz do R uma linguagem *orientada por objetos*. Para criar um objeto basta atribuir valores para as variáveis, como a seguir:
 
@@ -341,13 +361,17 @@ No caso, todos os elementos foram transformados em caracter.
 
 > Você já pode fazer os exercícios da [**Sessão 1**](exercicios.html#sessao1)
 
-<span style="color:red"> Paramos aqui no primeiro dia. </span>
+
+Terminamos aqui o primeiro dia.
 
 * Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.RData).
 
 * [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
 
 * E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia1.html).
+
+
+___ 
 
 ## Matrizes
 
@@ -395,6 +419,9 @@ Essas funções `colnames` e `rownames` também funcionam nos data.frames.
 
 ## Data.frames
 
+
+![](imagens/DSCN7656.JPG)
+
 Diferente das matrizes, não realizamos operações com os data.frames, mas eles permitem a união de vetores com classes diferentes. Os *data frames* são semelhantes a tabelas geradas em outros programas, como o excel.
 
 Os *data frames* são combinações de vetores de mesmo comprimento. Todos os que criamos até agora tem tamanho 6, verifique. 
@@ -402,18 +429,29 @@ Os *data frames* são combinações de vetores de mesmo comprimento. Todos os qu
 Podemos assim combiná-los em colunas de um único data.frame:
 
 ```{r}
-campo1 <- data.frame("clone" = clone,     # Antes do sinal de "="  
-                     "altura" = x,        # estabelecemos os nomes  
-                     "diametro" = y,      # das colunas
-                     "idade" = rep(3:5, 2),
-                     "corte"= logico) 
+
+Repeticao <- rep(1:4,3)
+
+Tratamento <- c(rep("L.A",4), rep("L.B",4), rep ("hibridoAB", 4) )
+
+numero_folhas <- c(5,4,5,NA,13,9,10,11,6,9,9,9)
+  
+altura <- c(95,55,70,NA,61,77,80,97,140,155,175,170)
+
+comprimento <- c(86,30,69,NA,80,77,88,87,95,75,95,100)
+
+campo1 <- data.frame("Repeticao" = Repeticao,     # Antes do sinal de "="  
+                     "Tratamento" = Tratamento,        # estabelecemos os nomes  
+                     "numero_folhas" = numero_folhas,      # das colunas
+                     "altura" = altura,
+                     "comprimento"= comprimento) 
 campo1
 ```
 
 Podemos acessar cada uma das colunas com:
 
 ```{r}
-campo1$idade
+campo1$altura
 ```
 
 Ou também com:
@@ -430,27 +468,25 @@ Dessa forma, se quisermos obter um conteúdo específico podemos dar as coordena
 campo1[1,2] 
 ```
 
-* Obtenha o diâmetro do clone "URO03.
+* Obtenha o altura da terceira repetição da Linhagem A.
 
 ```{r, echo=FALSE}
-campo1[3,3] 
+campo1[3,4] 
 ```
 
 Mesmo se tratando de um *data frame*, podemos realizar operações com os vetores numéricos que a compõe.
 
-* Com o diâmetro e a altura das árvores, calcule o volume conforme a fórmula a seguir e armazene em um objeto `volume`:
-
-$3.14*(diametro/2)^2*altura$
+* Com a altura das plantas em centímetros, obtenha em metros:
 
 ```{r, echo=FALSE}
-volume <- 3.14*((campo1$diametro/2)^2)*campo1$altura
-volume
+altura_m <- campo1$altura/100
+altura_m
 ```
 
 Agora, vamos adicionar o vetor calculado com o volume ao nosso data.frame. Para isso use a função `cbind`.
 
 ```{r}
-campo1 <- cbind(campo1, volume)
+campo1 <- cbind(campo1, altura_m)
 str(campo1)
 ```
 
@@ -487,9 +523,10 @@ head(campo1_txt)
 head(campo1_csv)
 ```
 
+
 # Planilha com dados reais
 
-Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado na aula prática.
+Agora que aprendemos a importar dados, vamos trabalhar com dados reais provenientes de um experimento.
 
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
@@ -682,6 +719,14 @@ Fizemos um vídeo com mais detalhes sobre loops no R, aumentem nossa quantidade 
 * Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros contínua.
 * Usar identação ajuda a visualizar o começo e fim de cada estrutura de código e facilita o abrir e fechar de chaves. Identação são aqueles espaços que usamos antes da linha
 
+<span style="color:red"> Paramos aqui no segundo dia do treinamento.</span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.RData).
+
+* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.R) você pode acessar um exemplo de script `.R`.
+
+* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia2.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia2.1.html).
+
 # Elaboração de gráficos simples
 
 Para outros dados coletados, vamos gerar alguns gráficos simples utilizando as funções básicas do R. Existem pacotes como o `ggplot2`, `plotly` e `shiny` que possuem ferramentas muito poderosas para construção de gráficos, mas exigem um pouco mais de tempo para aprendizagem de sua sintaxe.
@@ -705,7 +750,7 @@ hist(dados$AlturaPlantas, breaks = 15)
 
 ```
 
-Agora tente fazer o **histograma para o peso**, aproveite para tentar alterar alguns parâmetros. 
+Agora tente fazer o **histograma para o altura de espiga**, aproveite para tentar alterar alguns parâmetros. 
 
 Apresentaremos outros gráficos que poderão ser utilizados:
 
@@ -723,8 +768,8 @@ barplot(estande)
 barplot(estande, horiz = TRUE)
 
 #Mais informações podem ser combinadas
-nota_temp <- table(dados$Estande, dados$Tempo)
-barplot(nota_temp)
+est_temp <- table(dados$Estande, dados$Tempo)
+barplot(est_temp)
 
 ```
 
@@ -837,14 +882,8 @@ dev.off()
 
 Gere um gráfico e salve-o no formato de seu interesse. Em seguida, crie diversos gráficos dentro de uma mesma função gráfica e estude a saída. 
 
+![](./imagens/R_meme.jpeg)
 
-<span style="color:red"> Paramos aqui na parte da manhã do segundo dia do treinamento.</span>
-
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.RData).
-
-* [Aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.R) você pode acessar um exemplo de script `.R`.
-
-* E [aqui](https://GENt-esalq.github.io/XIII_GMP/dia2.1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo até agora. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/XIII_GMP/dia2.1.pdf) e [html](https://GENt-esalq.github.io/XIII_GMP/dia2.1.html).
 
 # Instalação e aplicações de pacotes
 
@@ -882,52 +921,50 @@ desplot(Bloco ~ col+row, dados.up,
         out2=Hibrido, out2.gpar=list(col = "gray50", lwd = 1, lty = 1))
 ```
 
-<span style="color:red"> Paramos aqui na primeira parte da manhã de sábado (18.05) e seguimos para uma parte específica da sessão **Algumas Ferramentas de Análise de dados**, clique [aqui](#experimento-de-cafe) para ir até lá.</span>
-
-
 # Algumas ferramentas básicas de análise de dados
+
+<span style="color:red">
+A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
+
+* [pimenta_data.csv](https://GENt-esalq.github.io/XIII_GMP/pimenta_data.csv)
 
 Claramente a análise de dados é algo muito específico de cada conjunto de dados e interesses. Vamos aqui mostrar alguns recursos básicos como análise de variância, regressão e teste de médias.
 
 Algumas avaliações descritivas podem ser feitas pelo uso do `tapply` e de gráficos. A função `summary` também da informações gerais do conjunto. É possível usá-la em conjunto com o `tapply`.
 
 ```{r}
-str(dados)
-# Certifique-se que esta lidando com variável categórica (fator)
-dados$Hibrido <- as.factor(dados$Hibrido)
-dados$Parcela <- as.factor(dados$Parcela)
-dados$Bloco <- as.factor(dados$Bloco)
+# Leitura dos dados
+dados_pim <- read.csv("pimenta_data.csv")
+str(dados_pim)
 
-tapply(dados$AlturaPlantas, dados$Hibrido, summary)
-tapply(dados$AlturaEspiga, dados$Hibrido, summary)
+# Certifique-se que esta lidando com variável categórica (fator)
+dados_pim$gen <- as.factor(dados_pim$gen)
+dados_pim$rep <- as.factor(dados_pim$rep)
+
+tapply(dados_pim$alt, dados_pim$gen, summary)
+tapply(dados_pim$alt, dados_pim$rep, summary)
 ```
 
-Qual a relaçao linear entre altura de plantas e altura da primeira espiga?
+Qual a relaçao entre altura de plantas e o primeiro entrenó?
 
 ```{r}
-mod1 <- lm(AlturaPlantas ~ AlturaEspiga, data = dados)
-summary(mod1)
+cor(dados_pim$alt, dados_pim$prim_in)
+plot(dados_pim$alt~dados_pim$prim_in)
 ```
 
 Podemos falar que a altura de plantas é significativamente diferente entre hibridos?
 
 ```{r}
-mod1 <- aov(AlturaPlantas ~ Hibrido + Tempo:Bloco + Tempo:Bloco:Parcela, data = dados)
+mod1 <- aov(alt ~ gen, data = dados_pim)
 summary(mod1)
 ```
 
 O p-valor nos indica se podemos considerar diferenças de altura conforme o híbrido. Podemos também fazer um teste de médias para diferenciar a altura de plantas de cada híbrido. Aqui utilizaremos o método de Tukey:
 
 ```{r}
-modaov <- aov(AlturaPlantas ~ Hibrido + Tempo:Bloco + Tempo:Bloco:Parcela, data = dados)
-tukey.test <- TukeyHSD(x=modaov, 'Hibrido', conf.level=0.95)
+modaov <- aov(alt ~ gen, data = dados_pim)
+tukey.test <- TukeyHSD(x=modaov, 'gen', conf.level=0.95)
 tukey.test
-```
-
-Podemos obter mais informações sobre o modelo ajustado observando os gráficos:
-
-```{r, eval=FALSE}
-plot(mod1)
 ```
 
 ## Experimento de café
@@ -1074,61 +1111,6 @@ H_2 <- VG/ (VG + VE)
 H_2
 ```
 
-
-> Crie uma função para estimar a herdabilidade 
-
-
-Agora faremos um teste de comparações múltiplas utilizando a análise de variância feita no pacote `ExpDes`.
-
-```{r,  message=FALSE, warning=FALSE}
-#install.packages("ExpDes")
-library(ExpDes)
-
-# Teste de Tukey
-rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "tukey", sigT = 0.05, sigF = 0.05)
-
-# Teste de agrupamento de Scot- Knott
-rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "sk", sigT = 0.05, sigF = 0.05)
-
-```
-
-Agora vamos apresentar outras opções para analisarmos cada colheita individualmente. 
-
-```{r,  message=FALSE, warning=FALSE}
-# função by é similar ao subset
-by(data, data$colheita, function (x) anova(aov(prod ~ prog + rep, data= x))) 
-#verificar os graus de liberdade, cuidado para que sejam utilizados de fato os dados de apenas 1 colheita
-
-
-#outra opção selecionando apenas a parte da dataframe onde colheita igual a "2"
-anova(aov(data$prod ~ data$prog + data$rep, data = data[data$colheita==2,]))
-
-# mais uma opção com o uso da família apply
-indiv <- lapply(split(data, data$colheita), aov, formula = prod ~ rep + prog)
-lapply(indiv, summary)
-```
-
-Agora, com o pacote `agricolae` elaboraremos o sorteio de um experimento também de blocos completos casualizados.
-
-```{r,  message=FALSE, warning=FALSE}
-############################
-#SORTEIO DE EXPERIMENTOS####
-############################
-
-#install.packages("agricolae")
-library(agricolae)
-trt <- c("0","1","2","5","10","20","50","100","Dina")
-rcbd <- design.rcbd(trt, 6, serie = 1, seed = 1, "default") # seed = 1
-rcbd # Planilha de campo
-```
-
-Podemos exportar e salvar nosso sorteio com:
-
-```{r}
-write.table(rcbd,"SORTEIO.txt", row.names=FALSE, sep="\t")
-file.show("SORTEIO.txt")
-write.csv(rcbd,"SORTEIO.csv",row.names=F)
-```
 
 ---
 

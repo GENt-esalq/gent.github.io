@@ -16,6 +16,14 @@ O primeiro filme será "Madame Curie", produção de 1943 que retrata a vida da 
 
 <center>
 <figure>
-  <img src="sessao1.jpeg" width="400" height="350" class="center">
+  <img src="convite.png" width="400" height="350" class="center">
+</figure>
+</center>
+
+## 2ª Sessão
+
+<center>
+<figure>
+  <img src="convite2.png" width="400" height="350" class="center">
 </figure>
 </center>
