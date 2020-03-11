@@ -18,7 +18,7 @@ Antes de começarmos a fazer gráficos, vamos entender um pouco como o `ggplot` 
 info = read.csv("info_pessoal.csv", stringsAsFactors = FALSE)
 
 # ver as primeiras linhas de um objeto
-head(info)
+knitr::kable(head(info))
 ```
 
 Como iremos usar muito este data.frame `info`, vamos dar nomes mais convenientes para as colunas.
@@ -38,8 +38,8 @@ Uma função essencial do ggplot é chamada aesthetic, `aes()`, que irá passar 
 
 Aqui estão alguns exemplos de parâmetros de `aes()`:
 
-* <b>x</b>: variável que ficará no eixo x
-* <b>y</b>: variável que ficará no eixo y
+* <b>x</b>: variável explicativa
+* <b>y</b>: variável resposta
 * <b>color</b>: cor do contorno dos objetos
 * <b>fill</b>: cor do preenchimento dos objetos
 * <b>shape</b>: formato do ponto
@@ -86,7 +86,8 @@ ggplot(info) +
   geom_point(aes(x = peso, y = altura, color = genero)) +
   labs(title = "Meu primeiro scatter plot", x = "Peso (kg)", y = "Altura (m)", color = "Gênero") +
   scale_color_manual(values = c("#F1290A", "#55BB29")) +
-  theme(legend.position = "bottom") + theme_light()
+  theme_light() +
+  theme(legend.position = "bottom") 
 ```
 
 Sugestão de site para escolher uma paleta de cores: <a href="https://color-hex.com">Color-Hex</a>
@@ -213,35 +214,76 @@ ggplot(info) +
 
 ```
 
+## Boxplots e violin plots
+
+Estes tipos de gráficos são comumente usados para visualizar as tendências gerais dos dados e são muito utilizados pela comunidade científica.
+
+```{r, eval=FALSE}
+ggplot(info) +
+  geom_boxplot(aes(x = escolaridade, y = conhecimentoR)) +
+  labs(x = element_blank(), y = "Conhecimento prévio em R")
+
+ggplot(info) +
+  geom_violin(aes(x = area, y = conhecimentoR)) +
+  labs(x = element_blank(), y = "Conhecimento prévio em R")
+```
+
+Agora vamos pensar numa pergunta mais interessante. Será que o número de linguagens que a pessoa conhece previamente está relacionada com o conhecimento prévio em R? Para isto, teremos que descobrir a partir de `info$linguagens` qual a quantidade de linguagens de programação cada pessoa conhece. 
+
+<b> Vamos fazer este exercício juntos! </b>
+
+### PCA - Análise de componentes principais
+
+O PCA é uma análise exploratória muito frequente quando utilizada por usuários que possuem muitos dados. Nela, torna-se possível visualizar dados que deveriam ter diversas dimensões em apenas duas componentes mais informativas. Para isto, usamos a função `autoplot()`.
+
+```{r, eval=FALSE}
+# para instalar, use install.packages("ggfortify")
+library(ggfortify)
+
+autoplot(prcomp(~ conhecimentoR + altura + peso + idade, data = info),
+         data = info, shape = 'area', colour = 'graduacao', loadings = TRUE, loadings.colour = 'red', 
+         loadings.label = TRUE, loadings.label.colour = 'black',
+         loadings.label.size = 4) +
+  labs(shape = "Área de \ninteresse", color = "Formação", title = "PCA")
+
+# Os parâmetros relacionados com "LOADINGS" são na verdade a direção onde a váriável mais cresce em duas dimensões
+# Ela serve apenas como uma aproximação, já que os dados reais precisariam de mais dimensões, que nosso olho não pode ver
+```
+
+Agora que você fez um plot de PCA, você pode perceber que ele é apenas uma variação do `geom_point()`, isto permite que você adicione todas as camadas de ggplot que você quiser sobre este gráfico. Já fizemos isto com as legendas!
+
 # Para quem quiser saber mais
 
 ### Mapa
 
-Para conseguir fazer esse mapa, é necessário usar o pacote brazilmaps, que você conseguirá instalar usando `install.packages("brazilmaps")`
+Não vamos entrar em detalhe sobre os códigos que usamos aqui porque ele faz uso do `tidyverse`, um pacote que permite manipular os dados com muita flexibilidade, mas ele iria requerer outro curso focado apenas nele! Esta é uma aplicação para mostrar que conseguimos fazer quase tudo com R e ggplot em mãos. O mais difícil é saber manipular os dados...
 
-```{r}
+```{r, eval=F}
 library(tidyverse)
 
-estados = brazilmaps::get_brmap("State") 
+# Coletando os dados da base por estado
+estados = brazilmaps::get_brmap("State")
+
+# Adicionando uma coluna com as siglas dos estados, será importane para a próxima etapa
 estados$sigla = c("RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE", "RN", "PB", "PE", "AL", "SE", "BA", "MG", "ES", "RJ", "SP", "PR", "SC", "MS", "MT", "GO", "DF", "RS")
 
+# Aqui, estamos pegando as duas últimas letras da cidade de origem da pessoa,
+# se ela tiver preenchido corretamente, estas últimas serão o estado, como em
+# "Piracicaba - SP". Após isto, fazemos a contagem de pessoas por estado e 
+# unimos com os dados do brazilmaps
 estados = info %>%
   mutate(sigla = str_sub(cidade, nchar(cidade)-1, nchar(cidade))) %>%
   group_by(sigla) %>%
   summarise(n = n()) %>%
   right_join(estados, by = "sigla")
 
+# Aqui usamos um outro tipo de plot, o geom_sf(), que precisa de dados de
+# coordenadas geométricas para construir os mapas. O resto envolve apenas
+# funções e argumentos que nós conhecemos!!!
 ggplot(estados) +
   geom_sf(aes(geometry = geometry, fill = n)) + 
-  theme_minimal() + scale_fill_continuous(low = "gray40", high = "red")
+  theme_minimal() + scale_fill_continuous(low = "gray40", high = "red") +
+  labs(fill = "Número \nde pessoas")
 ```
 
-
-
-
-
-
-
-
-
-
+Para conseguir fazer esse mapa, é necessário usar o pacote brazilmaps, que você conseguirá instalar usando `install.packages("brazilmaps")`
