@@ -1891,7 +1891,7 @@ file.show("SORTEIO.txt")
 write.csv(rcbd,"SORTEIO.csv",row.names=F)
 ```
 
-<span style="color:red"> Paramos aqui no sábado (18.03),terceiro e último dia do treinamento.</span>
+<span style="color:red"> Paramos aqui na sexta-feira (20.03),terceiro e último dia do treinamento.</span>
 
 
 # Pratique gerando relatórios no RStudio
