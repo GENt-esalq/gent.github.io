@@ -15,7 +15,9 @@ Você pode acessar mais informações sobre o grupo neste [link](https://gent-es
 
 Este treinamento também recebe apoio do grupo [GVENCK](https://gvenck.github.io/1home.html) e do [Departamento de Genética da ESALQ](http://www.genetica.esalq.usp.br/).
 
-Sugerimos que, antes de iniciar a prática aqui descrita, siga [este tutorial](https://GENt-esalq.github.io/cursoR/Tutorial_instalacao.html) para instalação do R e do RStudio.
+Sugerimos que, antes de iniciar a prática aqui descrita, siga [este tutorial](https://GENt-esalq.github.io/cursoR2/Tutorial_instalacao.html) para instalação do R e do RStudio.
+
+Pedimos que, em algum momento deste primeiro dia, preencham este [formulário](https://GENt-esalq.github.io/wait.html). Utilizaremos essas informações no segundo dia de curso.
 
 # Familiarização com a interface do RStudio
 
@@ -126,7 +128,23 @@ Resultado esperado:
 ((13+2+1.5)/3) + log(96, base = 4)
 ```
 
-Os comandos `log` e `sqrt` são duas de muitas outras funções básicas que o R possui. Para todas elas o R possui uma descrição para auxiliar no seu uso, para acessar essa ajuda use:
+Repare que, se posicionar o parênteses de forma incorreta, o código não resultará em nenhuma mensagem de erro, pois este é um erro que chamamos de **erro lógico**, ou seja, o código roda, mas não faz o que você gostaria que ele fizesse. Esse é o tipo de erro mais difícil de consertado. Os erros que produzem uma mensagem, seja um aviso (**warning**) ou um erro (**error**) são chamados de **erros de sintaxe**. Nesses casos, o R retornará uma mensagem para te ajudar a corrigí-los. Os **warnings** não comprometem o funcionamento do código, mas chamam a atenção para algum ponto, já os **errors** precisam necessariamente ser corrigidos para que o código rode.
+
+Exemplo de error:
+
+```{r, eval=FALSE}
+((13+2+1,5)/3) + log(96, base = 4)
+```
+
+Você pode também esquecer de fechar algum parênteses, ou aspas, ou colchetes, ou chaves, nesses casos, o R ficará aguardando o comando para fechar o bloco de código sinalizando com um `+`:
+
+```{r, eval=FALSE}
+((13+2+1.5)/3 + log(96, base = 4)
+```
+
+Se acontecer, vá até o console e aperte ESC, que o bloco será finalizado para que você possa corrigí-lo.
+
+Os comandos `log` e `sqrt` são duas de muitas outras funções básicas que o R possui. Funções são conjuntos de instruções organizadas para realizar uma tarefa. Para todas elas, o R possui uma descrição para auxiliar no seu uso, para acessar essa ajuda use:
 
 ```{r, eval=FALSE}
 ?log
@@ -195,7 +213,7 @@ x <- c(30.1,30.4,40,30.2,30.6,40.1)
 y = c(0.26,0.3,0.36,0.24,0.27,0.35)
 ```
 
-Os mais antigos costumam usar o sinal `<-`, mas tem a mesma função de `=`. Escolha usar o qual preferir.
+Os mais antigos costumam usar o sinal `<-`, mas tem a mesma função de `=`. Há quem prefira usar o `<-` como atribuição em objetos e `=` apenas para definir os argumentos dentro de funções. Organize-se da forma como preferir.
 
 Para acessar os valores dentro do objeto basta:
 
@@ -211,15 +229,38 @@ X
 
 O objeto `X` não foi criado. 
 
+O nome dos objetos é uma escolha pessoal, a sugestão é tentar manter um padrão para melhor organização. Alguns nomes não podem ser usados por estabelecerem papéis fixos no R, são eles:
+
+* NA - Not available, simboliza dados faltantes
+* NaN - Not a number, simboliza indefinições matemáticas
+* Inf - Infinite, conceito matemático
+* NULL - Null object, simboliza ausência de informação
+
 Podemos então realizar as operações com o objeto criado:
 
-```{r, results='hide'}
-x*2
+Para realizar a operação o R alinha os dois vetores e realiza a operação elemento à elemento. Observe:
+
+```{r}
 x + y
 x*y
 ```
 
-E podemos armazenar a operação em outro objeto:
+Se os vetores tiverem tamanhos diferentes, ele irá repetir o menor para realizar a operação elemento à elemento com todos do maior.
+
+```{r, results='hide'}
+x*2
+x*c(1,2)
+```
+
+Se caso o menor vetor não for múltiplo do maior, obteremos um aviso:
+
+```{r}
+x*c(1,2,3,4)
+```
+
+Repare que o **warning** não compromente o funcionamento do código, ele só dá uma dica de que algo pode não estar da forma como você gostaria.
+
+Podemos também armazenar a operação em outro objeto:
 
 ```{r, results='hide'}
 z <- (x+y)/2
@@ -233,6 +274,8 @@ sum(z)  # soma dos valores de z
 mean(z) # média 
 var(z)  # variância
 ```
+
+## Indexação
 
 Acessamos somente o 3º valor do vetor criado com `[]`:
 
@@ -291,6 +334,12 @@ which(logico)  # Obtendo as posiçoes dos elementos TRUE
 x[which(logico)] # Obtendo os números maiores que 40 do vetor x pela posição
 ```
 
+Também podemos localizar elementos específicos com:
+
+```{r}
+clone %in% c("URO03", "GRA02")
+```
+
 Encontre mais sobre outros operadores lógicos, como o `>` utilizado, neste [link](http://www.statmethods.net/management/operators.html).
 
 **Warning1**
@@ -336,19 +385,11 @@ No caso, todos os elementos foram transformados em caracter.
 **Algumas Dicas**: 
 
 * Cuidado com a prioridade das operações, na dúvida, sempre acrescente parenteses conforme seu interesse de prioridade.
-* Lembre-se que, se esquecer de fechar algum `(` ou `[` ou `"`, o console do R ficará esperando você fechar indicando um `+`, nada será processado até que você digite diretamente no console um `)`.
+* Lembre-se que, se esquecer de fechar algum `(` ou `[` ou `"`, o console do R ficará esperando você fechar indicando um `+`, nada será processado até que você digite diretamente no console um `)` ou aperte ESC.
 * Cuidado para não sobrepor objetos já criados criando outros com o mesmo nome. Use, por exemplo: altura1, altura2.
 * Mantenha no seu script .R somente os comandos que funcionaram e, de preferência, adicione comentários. Você pode, por exemplo, comentar dificuldades encontradas, para que você não cometa os mesmos erros mais tarde.
 
-> Você já pode fazer os exercícios da [**Sessão 1**](exercicios.html#sessao1)
-
-<span style="color:red"> Paramos aqui no primeiro dia. </span>
-
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR/dia1.RData).
-
-* [Aqui](https://GENt-esalq.github.io/cursoR/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
-
-* E [aqui](https://GENt-esalq.github.io/cursoR/dia1.Rmd) um exemplo de arquivo `.Rmd` para gerar um relatório com o conteúdo desse primeiro dia. E suas versões compiladas em [pdf](https://GENt-esalq.github.io/cursoR/dia1.pdf) e [html](https://GENt-esalq.github.io/cursoR/dia1.html).
+> Se estiver adiantada/o em relação aos colegas, você já pode fazer os exercícios da [**Sessão 1**](exercicios.html#sessao1), se não, faça-os no conforto do seu lar e nos envie dúvidas pelo fórum.
 
 ## Matrizes
 
@@ -490,7 +531,7 @@ Este é um tipo de objeto que você provavelmente não irá utilizar agora no in
 
 Teremos quatro matrizes com duas linhas e três colunas e os números de 1 a 24 estarão distribuídos nelas por colunas.
 
-> Agora você já pode fazer os exercícios da [**Sessão 2**](exercicios.html)
+> Se estiver adiantada/o em relação aos colegas, você já pode fazer os exercícios da [**Sessão 2**](exercicios.html#sessao2), se não, faça-os no conforto do seu lar e nos envie dúvidas pelo fórum.
 
 # Exportando e importando dados
 
@@ -549,9 +590,8 @@ Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado a p
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
 
-* [dados.RData](https://GENt-esalq.github.io/cursoR/dados_alunos.RData) 
-* [dados.csv](https://GENt-esalq.github.io/cursoR/dados_alunos.csv)
-
+* [dados.RData](https://GENt-esalq.github.io/wait.html) 
+* [dados.csv](https://GENt-esalq.github.io/wait.html)
 
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
 
