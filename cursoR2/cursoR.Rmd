@@ -1,4 +1,4 @@
-# ---
+---
 date: "`r Sys.Date()`"
 author: "[GENt](https://gent-esalq.github.io/) <br/>  Escola Superior de Agricultura Luiz de Queiroz <br/> Universidade de São Paulo"
 output:
@@ -101,7 +101,7 @@ Vamos então à linguagem!
 
 O R pode funcionar como uma simples **calculadora**, que utiliza a mesma sintaxe que outros programas (como o excel):
 
-```{r, eval=FALSE}
+```{r, echo=FALSE}
 #########################
 # Script Treinamento R
 
@@ -979,7 +979,7 @@ Normalmente é uma boa prática criar um bloco de código se vai realizar aquela
 
 A função também é considerada um objeto no R, portanto você a atribui à uma variável. Procure nomear a função com um nome curto e intuitivo em relação à tarefa que ela executa. Nem sempre é uma tarefa fácil.
 
-![[referência](https://www.reddit.com/r/ProgrammerHumor/comments/5z6n8p/every_time/)]()
+(https://www.reddit.com/r/ProgrammerHumor/comments/5z6n8p/every_time/)
 
 Para criar uma função obedeça a seguinte estrutura:
 
@@ -1189,296 +1189,38 @@ source("funcoes.R")
 
 Para outros dados coletados, vamos gerar alguns gráficos simples utilizando as funções básicas do R. Existem pacotes como o `ggplot2`, `plotly` e `shiny` que possuem ferramentas muito poderosas para construção de gráficos, mas exigem um pouco mais de tempo para aprendizagem de sua sintaxe.
 
-Os tipos mais comuns já possuem funções próprias, mas outros gráficos podem ser customizados de acordo com a necessidade do usuário. Vamos iniciar com um simples gráfico de frequências (ou histograma) para os dados de `Altura`.
+Os tipos mais comuns já possuem funções próprias, mas outros gráficos podem ser customizados de acordo com a necessidade do usuário. Vamos iniciar com um simples gráfico de frequências (ou histograma) para os dados de `altura`.
 
-```{r, eval=FALSE}
-hist(dados$Altura)
+```{r}
+hist(dados$altura)
 ```
 
 Vamos adicionar alguns argumentos para dar uma personalizada:
 
 * `breaks` para definir os intervalos para cada barra; 
 
-```{r, eval=FALSE}
+```{r, echo=FALSE}
 #### Histograma ####
 #Utiliza um vetor de valores para obter as frequências
-hist(dados$Altura)
-hist(dados$Altura, breaks = 2)
-hist(dados$Altura, breaks = 15) 
+hist(dados$altura)
+hist(dados$altura, breaks = 2)
+hist(dados$altura, breaks = 15) 
 
 ```
 
 Agora tente fazer o **histograma para o peso**, aproveite para tentar alterar alguns parâmetros. Em seguida, serão apresentados outros gráficos que poderão ser utilizados.
-
-```{r}
-#### Bar plot ####
-#É um gráfico interessante quando possuímos resultados da função table
-gen <- table(dados$genero)
-barplot(gen)
-
-```
-```{r eval=FALSE}
-#Alterando o eixo
-barplot(gen, horiz = TRUE)
-
-#Mais informações podem ser combinadas
-nota_gen <- table(dados$conhecimentoR, dados$genero)
-barplot(nota_gen)
-
-```
-
-Busque uma maneira de colocar a nota do R no eixo x e o gênero nas cores.
-
-```{r echo=FALSE}
-nota_gen <- table(dados$conhecimentoR, dados$genero)
-barplot(t(nota_gen))
-```
-
-```{r eval=FALSE}
-#### Pizza!!! ####
-#Requer um vetor de contagens e os rótulos associados
-pie(gen, names(gen))
-
-#Tente criar o gráfico de pizza com a nota do R
-
-```
-
-```{r eval=FALSE}
-#### Dot plots ####
-#Utilizaremos um vetor de valores e um vetor de rótulos
-dotchart(dados$Altura, labels = dados$Cidade)
-#Também é possível criar grupos
-dotchart(dados$Altura, labels = dados$Cidade, groups = as.factor(dados$Genero))
-
-#Podemos criar uma coluna no data frame onde delimitaremos uma cor para cada uma das áreas:
-dados$color[dados$Area=="Exatas"] <- "darkblue"
-dados$color[dados$Area=="Biologicas"] <- "darkgreen"
-dados$color[dados$Area=="Humanas"] <- "orange"
-dados$color[dados$Area=="Interdiciplinar"] <- "red"
-dados$color[dados$Area=="Agrarias"] <- "black"
-dotchart(dados$Altura, labels = dados$Cidade, groups = as.factor(dados$Area), color = dados$color)
-
-#Crie um objeto que corresponda ao data.frame 'dados' ordenado de acordo com a Altura (ou peso, como desejar!)
-#Em seguida, tente criar o dot plot.
-
-#### Curve ####
-#Utiliza uma expressão/função 
-curve(x^2 + 3*x)
-curve(2*x, add = TRUE, col="red")
-
-#### Boxplot ####
-#Necessita de um vetor de valores ou uma expressão
-boxplot(dados$Altura)
-boxplot(dados$Altura~dados$Genero)
-
-#Explore o bloxplot de outros atributos, podendo combiná-los
-#Desafio: faça o boxplot da altura pela combinação dos grupos Genero e Area
-boxplot(Altura~Genero*Area, data = dados)
-
-#### Scatter plot ####
-#Utilizaremos coordenadas de pontos.
-plot(x = dados$Peso, y= dados$Altura)
-
-```
-
-## Parâmetros gráficos
-
-É possível customizar os gráficos alterando seus eixos, cores, fontes, etc. Começaremos através do histograma:
-
-* `col` para adicionar cor;
-* `xlab` alterar título do eixo x;
-* `ylab` alterar título do eixo y;
-* `main` alterar título geral;
-
-```{r, eval=FALSE}
-hist(dados$Idade, breaks=6, col="blue", xlab="Idades", 
-     ylab="Frequencia", main="Histograma das Idades (Curso 2019)")
-```
-
-Se preferir, podemos usar um gráfico de densidades de Kernel como:
-
-```{r, eval=FALSE}
-d <- density(dados$Idade, na.rm = TRUE)
-
-plot(d, col="blue", xlab="Idades",
-     ylab="Densidade", main="Densidade das Idades")
-```
-
-Vamos explorar um pouco mais o gráfico de pontos. Sabe- se que existe uma correlação entre o peso e a altura das pessoas, e que, a distribuição dessas características configura uma bimodal se não considerarmos os gênero dos indivíduos avaliados. Vamos avaliar a correlação entre essas caraterísticas com:
-
-```{r}
-#Busque explorar mais parâmetros no gráfico a seguir:
-##Dica: tente alterar o nome dos eixos
-plot(x = dados$peso, y= dados$altura)
-
-#Linha de ajuste
-abline(lm(altura ~ peso, data = dados), col="red")
-
-#Verificar a correlação:
-cor(dados$altura, dados$peso)
-```
-
-Alguns argumentos são específicos para cada função, busque mais informações sobre cada uma delas para entender sobre seus argumentos. Outros parâmetros gráficos mais recorrentes são os relacionados com:
-
-* O tamanho de texto e símbolos, chamados de `cex`; 
-* Os símbolos de plotagem (25 ao todo), através do parâmetro `pch`;
-* Há os relacionados com a fonte (`font` e `family`);
-* Cores (`col`, `bg`, `fg`);
-
-```{r eval=FALSE}
-#Tamanho, pontos e cores
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     cex=2,
-     cex.axis=1.5)
-
-#Agora, busque alterar o nome dos rótulos (lab) e do título (main)
-#Utilize o parâmetro 'pch=' e coloque um número de 0 a 25
-#De maneira similar ao tamanho, trabalhe com as cores (utilize o color() para ver todas as cores disponíveis) 
-
-# Fontes e linhas #
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     font=3,
-     family="serif", #Fonte do seu computador (Windows: "TT Courier New")
-     )
-abline(lm(Altura ~ Peso, data = dados), col="red", lty=3)
-
-
-#Incrementando:
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     col = as.factor(dados$Genero)
-     )
-
-#Nesse mesmo gráfico, procure mudar a forma dos pontos de acordo com a nota do R.
-
-#### Legenda ####
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     col = as.factor(dados$Genero),
-     pch=10)
-
-legend("bottomright", legend = c("Feminino", "Masculino"), col=1:2, pch=10)
-```
-
- Obtidos todos esses gráficos, pode ser bom para visualização tê-los lado a lado.
- 
-```{r, eval=FALSE}
- #### Mais de um gráfico? Claro! ####
-par(mfrow=c(1,2))
-hist(dados$Altura)
-hist(dados$Peso)
-
-#Lembrar:
-par(mfrow=c(1,1))
-```
-
-## Desafio!!!
-
-Busque resolver o desafio sem observar a resposta. Vocês conseguirão avançar muito, um ou outro detalhe pode acabar sendo mais difícil. Nesse ponto, vocês utilizam a resolução para entenderem melhor o como poderia ser feito. Veja que há muitos modos de resolver, apresentaremos apenas um deles.
-
-* Dicas: 'beside', 'legend', 'bty = 'n'
-
-```{r echo=FALSE}
-#1-) Fazer a divisão da tela: 
-par(mfrow=c(1,2))
-
-#2-) Criar o barplot, da maneira que já aprendemos: 
-##Criar a tabela considerando as informacoes de Area e Genero 
-nota_gen <-table(dados$area, dados$genero)
-
-##Note o parâmetro beside (que estava nas dicas) 
-barplot(t(nota_gen),beside = TRUE, col = c("wheat", "tomato2"), main = "Distribuição das
-pessoas \n de acordo com área e nota do R", xlab = "Nota do R")
-##Colocar a legenda no gráfico 
-legend("topright", title = "Gênero", legend=c("F","M"), fill = c("wheat", "tomato2"), bty = "n", cex = 0.7)
-
-#3-) Criar o dotchart #Criar a coluna atribuindo uma cor para cada área 
-dados$color[dados$area=="Exatas"] <- "darkblue"
-dados$color[dados$area=="Biologicas"] <- "darkgreen"
-dados$color[dados$area=="Humanas"] <- "orange"
-dados$color[dados$area=="Interdiciplinar"] <- "red"
-dados$color[dados$area=="Agrarias"] <- "black"
-
-##Colocar os pesos em ordem: 
-dados <- dados[order(dados$peso),]
-
-##Colocar o título, note que o '\n' está sendo usado para fazer a quebra de linha: 
-dotchart(dados$peso, labels = dados$cidade, groups = as.factor(dados$area),
-         color = dados$color, font=2, main = "Peso de acordo com as cidades, \n agrupando por área",
-         xlab = "Peso", pch = 7)
-
-#4-) Manter novamente uma figura por gráfico 
-par(mfrow=c(1,1))
-
-```
-
-Uma solução que utiliza tudo o que vocês aprenderam:
-
-```{r eval=FALSE}
-#1-) Fazer a divisão da tela: 
-par(mfrow=c(1,2))
-
-#2-) Criar o barplot, da maneira que já aprendemos: 
-##Criar a tabela considerando as informacoes de Area e Genero 
-nota_gen <-table(dados$Area, dados$Genero)
-
-##Note o parâmetro beside (que estava nas dicas) 
-barplot(t(nota_gen),beside = TRUE, col = c("wheat", "tomato2"), main = "Distribuição das
-pessoas \n de acordo com área e nota do R", xlab = "Nota do R")
-##Colocar a legenda no gráfico 
-legend("topright", title = "Gênero", legend=c("F","M"), fill = c("wheat", "tomato2"), bty = "n", cex = 0.7)
-
-#3-) Criar o dotchart #Criar a coluna atribuindo uma cor para cada área
-dados$color[dados$Area=="Exatas"] <- "darkblue"
-dados$color[dados$Area=="Biologicas"] <- "darkgreen"
-dados$color[dados$Area=="Humanas"] <- "orange"
-dados$color[dados$Area=="Interdiciplinar"] <- "red"
-dados$color[dados$Area=="Agrarias"] <- "black"
-
-##Colocar os pesos em ordem: 
-dados <- dados[order(dados$Peso),]
-
-##Colocar o título, note que o '\n' está sendo usado para fazer a quebra de linha: 
-dotchart(dados$Peso, labels = dados$Cidade, groups = as.factor(dados$Area),
-         color = dados$color, font=2, main = "Peso de acordo com as cidades, \n agrupando por área",
-         xlab = "Peso", pch = 7)
-
-#4-) Manter novamente uma figura por gráfico 
-par(mfrow=c(1,1))
-
-```
 
 ## Salvar gráficos
 
 Os gráficos podem ser salvos através dos menus disponíveis no RStudio, ou através de funções que permitem salvar em formatos específicos. Algumas delas são: pdf(); png(); jpeg(); bitmap(). De maneira geral, o parâmetro primordial é fornecer o nome do arquivo que será gerado (contendo sua extensão). Após abrir a função gráfica, deve-se gerar o gráfico de interesse. Por fim, utiliza-se o comando dev.off() para que saída gráfica volte para o console.
 
 ```{r eval=FALSE}
-png(filename = "grafico_pontos.png")
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     col = as.factor(dados$Genero),
-     pch=10)
+png(filename = "hist_rbase.png")
+hist(dados$altura)
 dev.off()
 
-png(filename = "grafico_pontos.png", width = 1500, height = 1500, res= 300)
-plot(x = dados$Peso, y= dados$Altura, 
-     main = "Peso  x Altura", #Título principal 
-     xlab = "Peso", #Eixo x
-     ylab = "Altura", #Eixo y
-     col = as.factor(dados$Genero),
-     pch=10)
+png(filename = "hist_rbase.png", width = 1500, height = 1500, res= 300)
+hist(dados$altura)
 dev.off()
 ```
 
@@ -1498,220 +1240,282 @@ Depois disso é necessário recrutá-lo com:
 library("ggplot2")
 ```
 
-O *ggplot2* é um pacote que permite a construção de gráficos estatísticos, suas funcionalidades vão muito além do que está disponível nos gráficos básicos do R. Vamos tentar fazer um exemplo? 
+O `ggplot2` é um pacote que permite a construção de gráficos estatísticos, suas funcionalidades vão muito além do que está disponível nos gráficos básicos do R. Vamos tentar fazer um exemplo? 
 
-Primeiramente precisamos de um *data frame*, como o conjunto de dados que estamos usando as colunas para mapear as observações a serem dispostas no gráfico. Vamos criar um gráfico de dispersão com as variáveis *Peso* e *Altura*.
+# Gráficos com ggplot
+
+Antes de começarmos a fazer gráficos, vamos entender um pouco como o `ggplot` pensa sobre os dados.
+
+```{r, warning=FALSE}
+# obtendo o data.frame que contém os dados que queremos usar
+dados = read.csv("dados_alunos2020.csv", stringsAsFactors = FALSE)
+```
+```{r, echo=FALSE}
+# ver as primeiras linhas de um objeto
+knitr::kable(head(dados))
+```
+
+
+
+Como iremos usar muito este data.frame `dados`, vamos dar nomes mais convenientes para as colunas.
 
 ```{r}
-ggplot(dados) +
-  geom_point(aes(x=peso, y=altura))
+colnames(dados)
 
+colnames(dados) = c("horario", "genero", "participacao", "cidade", "instituicao", "escolaridade", "graduacao", 
+                   "area", "idade", "altura", "peso", "aniversario", "conhecimentoR", "linguagens", "usoR", "motivacaoR")
 ```
 
-Veja que o sinal '+' indica que estamos adicionando uma nova camada. O legal do pacote é que a customização dos aspectos visuais é bem intuitiva. Por exemplo, vamos colorir os pontos de acordo com a variável *Genero*.
+## Funções ggplot() e aes()
 
-```{r}
-ggplot(dados) +
-  geom_point(aes(x=peso, y=altura, colour=genero))
+Para criar qualquer gráfico usando ggplot, utilizamos a função `ggplot()` tendo como argumento um data.frame contendo todos os dados que iremos utilizar, independente do estilo de gráfico.
 
+Uma função essencial do ggplot é chamada aesthetic, `aes()`, que irá passar todas as informações das variáveis a serem plotadas no gráfico. Dependendo do estilo do gráfico, precisaremos de diferentes variáveis para sua estética. Além disso, dependendo do gráfico, algumas podem ser obrigatórias ou não.
+
+Aqui estão alguns exemplos de parâmetros de `aes()`:
+
+* <b>x</b>: variável explicativa
+* <b>y</b>: variável resposta
+* <b>color</b>: cor do contorno dos objetos
+* <b>fill</b>: cor do preenchimento dos objetos
+* <b>shape</b>: formato do ponto
+* <b>size</b>: tamanho
+* <b>linetype</b>: tipo da linha (contínua, pontilhada, tracejada)
+
+## Gráficos de dispersão ou scatter plot
+
+Após que sabemos que temos que usar um `ggplot()` e um `aes()`, vamos ver como isto funciona na prática!
+
+Para fazer um gráfico de dispersão, vamos usar o nosso primeiro "geom", que será o `geom_point()`.
+
+```{r, eval=FALSE}
+library(ggplot2)
+
+# para cada camada de informação, usaremos uma nova função separada por "+"
+ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura))
+
+# vamos adicionando novas informações
+ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura, color = genero))
+
+# mas tomar cuidado para não ter tanta informação demais
+ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura, color = genero, size = idade, shape = escolaridade))
 ```
 
-Também podemos alterar o tamanho dos pontos:
+Note que as variáveis que estamos usando, como peso, altura e gênero, estão todas dentro do data.frame dados.
 
-```{r}
-ggplot(dados) +
-  geom_point(aes(x=peso, y=altura, color=genero), size=12)
+Vamos ver como deixar o gráfico mais apresentável.
 
+```{r, eval=FALSE}
+ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura, color = genero)) +
+  labs(title = "Meu primeiro scatter plot", x = "Peso (kg)", y = "Altura (m)", color = "Gênero")
+
+ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura, color = genero)) +
+  labs(title = "Meu primeiro scatter plot", x = "Peso (kg)", y = "Altura (m)", color = "Gênero") +
+  scale_color_manual(values = c("#F1290A", "#55BB29"))
+
+ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura, color = genero)) +
+  labs(title = "Meu primeiro scatter plot", x = "Peso (kg)", y = "Altura (m)", color = "Gênero") +
+  scale_color_manual(values = c("#F1290A", "#55BB29")) +
+  theme_light() +
+  theme(legend.position = "bottom") 
 ```
 
-Veja que o parâmetro *size* permaneceu fora da função de mapeamento, *aes*. Lembre-se que o mapeamento precisa de variáveis com observações. Colocar o *size* apenas como parâmetro da *geom_point* é interessante porque vamos alterar o tamanho de todos os pontos do gráfico.
+Sugestão de site para escolher uma paleta de cores: <a href="https://color-hex.com">Color-Hex</a>
 
-Que tal tentarmos fazer um boxplot utilizando como variável resposta o *ConhecimentoR* de acordo com a *Area*?
+Outra coisa MUITO IMPORTANTE de se ver são as imagens deste link: [**ggplot Cheat Sheet**](/images/ggplot2-cheatsheet.pdf)
 
-```{r echo=FALSE}
-ggplot(dados) +
-  geom_boxplot(aes(x=area, y=conhecimentoR))
+E se fôssemos relacionar o IMC das pessoas às informações de altura e peso?
 
-```
-
-Quer botar uma corzinha? Tenta adicionar o *fill* de acordo com a *Area*.
-
-```{r echo=FALSE}
-ggplot(dados) +
-  geom_boxplot(aes(x=area, y=conhecimentoR, fill=area))
-
-```
-
-Mas a legenda fica redundante com o eixo x, será que conseguimos suprimí-la? Tenta ver algo como *show.legend* na função *geom_boxplot*.
-
-```{r echo=FALSE}
-ggplot(dados) +
-  geom_boxplot(aes(x=area, y=conhecimentoR, fill=area), show.legend = FALSE)
-
-```
-
-
-<span style="color:red"> Paramos aqui na primeira parte da manhã de sábado (18.05) e seguimos para uma parte específica da sessão **Algumas Ferramentas de Análise de dados**, clique [aqui](#experimento-de-cafe) para ir até lá.</span>
-
-
-## E nossa motivação? Dá para fazer um gráfico?
-
-Mas é claro que sim!!! Vai ser um pouquinho mais complexo, mas a gente chega lá.
-
-Precisaremos instalar três pacotes: i) **tm**, ii) **SnowballC** e iii) **wordcloud**.
-
-```{r message=FALSE, warning=FALSE, eval=FALSE}
-install.packages(c('tm', 'SnowballC', 'wordcloud'), dependencies = T)
-```
-
-
-```{r message=FALSE, warning=FALSE}
-library('tm')
-library('SnowballC')
-library('wordcloud')
-```
-
-Vamos ter que criar um Corpus e depois convertê-lo para um documento. Em seguida, removeremos a pontuação e as *stopwords*.
-
-```{r}
-dataCorpus <- Corpus(VectorSource(dados$motivacao))
-
-dataCorpus <- tm_map(dataCorpus, content_transformer(tolower))
-
-dataCorpus <- tm_map(dataCorpus, removePunctuation) 
-
-dataCorpus <- tm_map(dataCorpus, removeWords, stopwords('pt')) 
-```
-
-Agora podemos construir nossa nuvem de palavras:
-
-```{r}
-wordcloud(dataCorpus,max.words=100,colors=c("#2553A4","#11A858"))
-```
-
-## Mapa
-
-Agora utilizaremos as informações de suas cidades para mostrá-las em um mapa. Vamos ter que instalar alguns pacotes, mas o resultado vale a pena:
-
-
-```{r message=FALSE, warning=FALSE, eval=FALSE}
-# Carregar os pacotes
-library("dplyr")
-library("osmdata")
-library("ggmap")
-library("sf")
-library("rnaturalearth")
-library("rnaturalearthdata")
-library("rgeos")
-
-# Encontrar latitude e longitude das cidades
-cidades <- data.frame(Long=NA, Lat=NA)
-for(idx in 1:nrow(dados)){
-  latLong <- getbb(paste0(dados$cidade[idx]," ", "Brazil"))
-  cidades[idx, ] <- rowMeans(latLong)
-  
+```{r, eval=FALSE}
+# Alternativa 1: uma escala de IMC
+IMC.numerico = function(m, h){
+  m/h^2
 }
 
-# Obter as fronteiras no mapa mundial
-world <- ne_countries(scale = "medium", returnclass = "sf")
-
-#Fazer o mapa 
-ggplot(data = world) +
-    geom_sf() +
-  geom_point(data = cidades, 
-             aes(x = Long, y = Lat, fill = "red"), 
-             size = 2, shape = 21, show.legend = FALSE) +
-      coord_sf(xlim = c(-74, -30), ylim = c(-35, 5), expand = FALSE)
-```
+ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura, color = IMC.numerico(peso, altura))) +
+  labs(x = "Peso (kg)", y = "Altura (m)", color = "IMC") +
+  scale_color_continuous(low = "blue", high = "red")
 
 
-# Família de funções `apply`
-
-A família de funções `apply` também podem funcionar como um estrutura de repetição. Sua sintaxe é mais enxuta quando comparada com `for` ou `while` e pode facilitar a elaboração do código. 
-
-Aqui vamos exemplificar o uso de algumas dessas funções.
-
-## apply
-
-A função `apply` é a base de todas as outras funções da família, portanto a compreensão do funcionamento desta é essencial para entender as demais. Se buscar no help da função, ele indicará que os argumentos da função consistem em: apply(X, MARGIN, FUN, ...). Sendo X o conjunto de dados em formato de array (incluindo matrix, que consiste num array de dimensão 2), MARGIN será 1 se a ação deverá ser aplicada à linhas, 2 se for aplicada a colunas e c(1,2) se for aplicada a ambas; FUN é a função que indica ação.
-
-Num simples exemplo temos a matrix:
-
-```{r}
-ex_mat <- matrix(seq(0,21,3), nrow = 2)
-```
-
-Se quisermos somar os elementos das colunas usamos:
-
-```{r}
-apply(ex_mat, 2, sum)
-```
-
-Se quisermos somar os elementos das linhas:
-
-```{r}
-apply(ex_mat, 1, sum)
-```
-
-Se fossemos utilizar o `for` para realizar essa tarefa:
-
-```{r}
-
-# Soma das colunas
-for(i in 1:dim(ex_mat)[2]){
-  print(sum(ex_mat[,i]))
+# Alternativa 2: categorias de IMC
+IMC.categorico = function(m, h){
+  imc = IMC.numerico(m, h)
+  for (i in 1:length(imc)) {
+    if(imc[i] < 18.5) {
+      return("Magreza")
+    } else if(imc[i] < 25) {
+      return("Normal")
+    } else if(imc[i] < 30) {
+      return("Sobrepeso")
+    } else if(imc[i] < 40) {
+      return("Obesidade")
+    } else {
+      return("Obesidade grave")
+    }
+  }
 }
 
-# Soma das linhas
-for(i in 1:dim(ex_mat)[1]){
-  print(sum(ex_mat[i,]))
-}
+ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura, color = IMC.categorico(peso, altura))) +
+  labs(x = "Peso (kg)", y = "Altura (m)", color = "IMC")
 ```
 
-## lapply
 
-Se diferencia do `apply` por poder receber outros tipos de objetos (mais utilizado com listas) e devolver o resultado  em uma lista.
+## Gráficos de barras e histogramas
 
+Vamos pensar em como informar os perfis de alunos por curso de formação por gênero e por área de interesse.
+
+```{r, eval=FALSE}
+# GENERO
+# posição: empilhamento
+ggplot(dados) + 
+  geom_bar(aes(x = graduacao, fill = genero)) +
+  labs(x = element_blank(), y = "Contagem", fill = "Gênero")
+
+# posição: esquivando
+ggplot(dados) + 
+  geom_bar(aes(x = graduacao, fill = genero), position = "dodge") +
+  labs(x = element_blank(), y = "Contagem", fill = "Gênero")
+
+# AREA DE INTERESSE
+# posição: empilhamento
+ggplot(dados) + 
+  geom_bar(aes(x = graduacao, fill = area)) +
+  labs(x = element_blank(), y = "Contagem", fill = "Área de interesse") +
+  coord_flip()
+
+# posição: esquivando
+ggplot(dados) + 
+  geom_bar(aes(x = graduacao, fill = area), position = "dodge") +
+  labs(x = element_blank(), y = "Contagem", fill = "Área de interesse") +
+  coord_flip()
+```
+
+Por vezes, é mais interessante subdividir a informação em mais de um gráfico.
+
+```{r, eval=FALSE}
+ggplot(dados) +
+  geom_bar(aes(x = graduacao, fill = genero)) +
+  labs(x = element_blank(), y = "Contagem", fill = "Gênero") +
+  facet_wrap(~ area) + coord_flip()
+
+ggplot(dados) +
+  geom_bar(aes(x = graduacao, fill = area)) +
+  labs(x = element_blank(), y = "Contagem", fill = "Área de interesse") +
+  facet_wrap(~ genero) + coord_flip()
+```
+
+Outra forma de subdividir um gráfico em vários grupos é usando a camada `facet_grid()`, que permite organizar os gráficos do mesmo tipo em linhas, colunas ou matrizes de gráficos.
+
+Para fazermos histogramas, é importante ajustar a largura das barras para representar aquilo que esperamos. Não existe uma regra muito clara que expresse bem qual o número de "bins" que devemos usar, então é importante fazer o teste com vários valores.
+
+```{r, eval=FALSE}
+
+# alterando o número de bins
+ggplot(dados) +
+  geom_histogram(aes(x = altura), bins = 10) +
+  labs(x = "Altura", y = "Contagem")
+
+ggplot(dados) +
+  geom_histogram(aes(x = altura), bins = 20) +
+  labs(x = "Altura", y = "Contagem")
+
+# alterando a largura das bins
+ggplot(dados) +
+  geom_histogram(aes(x = altura), binwidth = 0.1) +
+  labs(x = "Altura", y = "Contagem")
+
+ggplot(dados) +
+  geom_histogram(aes(x = altura), binwidth = 0.3) +
+  labs(x = "Altura", y = "Contagem")
+
+```
+
+Os gráficos de densidade são bem bonitos de fazer, mas eles extrapolam informações a partir dos dados.
+
+```{r, eval=FALSE}
+ggplot(dados) +
+  geom_density(aes(x = altura)) +
+  labs(x = "Altura", y = "Densidade")
+
+ggplot(dados) +
+  geom_density(aes(x = altura)) +
+  geom_point(aes(x = altura, y = 0.1), shape = "|", size = 10) +
+  labs(x = "Altura", y = "Densidade")
+
+```
+
+## Boxplots e violin plots
+
+Estes tipos de gráficos são comumente usados para visualizar as tendências gerais dos dados e são muito utilizados pela comunidade científica.
+
+```{r, eval=FALSE}
+ggplot(dados) +
+  geom_boxplot(aes(x = escolaridade, y = conhecimentoR)) +
+  labs(x = element_blank(), y = "Conhecimento prévio em R")
+
+ggplot(dados) +
+  geom_violin(aes(x = area, y = conhecimentoR)) +
+  labs(x = element_blank(), y = "Conhecimento prévio em R")
+```
+
+Agora vamos pensar numa pergunta mais interessante. Será que o número de linguagens que a pessoa conhece previamente está relacionada com o conhecimento prévio em R? Para isto, teremos que descobrir a partir de `dados$linguagens` qual a quantidade de linguagens de programação cada pessoa conhece. 
+
+<b> Vamos fazer este exercício juntos! </b>
+
+## Salvar gráficos do ggplot
+
+Os gráficos podem ser salvos de várias formas diferentes, vamos olhar algumas delas. Podemos utilizar a interface gráfica do RStudio assim como já fizemos antes ou por meio de uma função específica do ggplot.
+
+Usando a função `ggsave()`, conseguimos salvar imagens em formatos como: "pdf", "png", "jpeg", "tiff", "bmp", "eps", "ps", "tex", "svg".
 
 ```{r}
-ex_list <- list(A=matrix(seq(0,21,3), nrow = 2), 
-                B=matrix(seq(0,14,2), nrow = 2), 
-                C= matrix(seq(0,39,5), nrow = 2))
-str(ex_list)
+# Para salvar gráficos usando comandos, usamos a função ggsave()
+ggplot(dados) +
+  geom_boxplot(aes(x = escolaridade, y = conhecimentoR)) +
+  labs(x = element_blank(), y = "Conhecimento prévio em R")
+
+# Para o ggsave, podemos ainda ajustar alguns parâmetros como largura, comprimento e resolução 
+ggsave("boxplot_gg.pdf")
+
+# Outra alternativa, é salvar gráficos em objetos para modificá-los e salvá-los no momento que quisermos
+peso_altura = ggplot(dados) + 
+  geom_point(aes(x = peso, y = altura, color = genero)) +
+  labs(title = "Meu primeiro scatter plot", x = "Peso (kg)", y = "Altura (m)", color = "Gênero")
+
+ggsave(peso_altura, filename = "scatterplot1_gg.png", width = 15, height = 12, units = "cm", dpi = 500)
+
+# Assim não precisamos fazer o gráfico novamente para fazer alguma alteração
+peso_altura = peso_altura + theme(legend.position = "bottom")
+ggsave(peso_altura, filename = "scatterplot2_gg.png", width = 15, height = 12, units = "cm", dpi = 500)
 ```
 
-Para selecionar a segunda coluna de todas as matrizes
+# PCA - Análise de componentes principais
 
-```{r}
-lapply(ex_list, "[", 2)
+O PCA é uma análise exploratória muito frequente quando utilizada por usuários que possuem muitos dados. Nela, torna-se possível visualizar dados que deveriam ter diversas dimensões em apenas duas componentes mais informativas. Para isto, usamos a função `autoplot()`.
+
+```{r, eval=FALSE}
+# para instalar, use install.packages("ggfortify")
+library(ggfortify)
+
+autoplot(prcomp(~ conhecimentoR + altura + peso + idade, data = dados),
+         data = dados, shape = 'area', colour = 'graduacao', loadings = TRUE, loadings.colour = 'red', 
+         loadings.label = TRUE, loadings.label.colour = 'black',
+         loadings.label.size = 4) +
+  labs(shape = "Área de \ninteresse", color = "Formação", title = "PCA")
+
+# Os parâmetros relacionados com "LOADINGS" são na verdade a direção onde a váriável mais cresce em duas dimensões
+# Ela serve apenas como uma aproximação, já que os dados reais precisariam de mais dimensões, que nosso olho não pode ver
 ```
 
-## sapply
-
-A função `sapply` funciona como o `lapply` a diferença é que ele retorna apenas um valor por componente da lista e os deposita em um vetor de resposta. Como no exemplo:
-
-```{r}
-sapply(ex_list, "[",1,3)
-```
-
-## tapply
-
-Esta função é um pouco diferente das demais, ela exige que exista alguma variável categórica (fator) para aplicar ação separadamente conforme suas categorias (levels). Por isso, normalmente é aplicada a data.frames.
-
-Vamos utilizar nosso conjunto de dados:
-
-```{r}
-str(dados)
-dados$area <- as.factor(dados$area)
-tapply(dados$conhecimentoR, dados$area, mean)
-
-```
-
-Saiba mais sobre essa família de funções no [link](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/)
-
-Observe que nas funções `apply` podemos trocar as funções prontas do *r base* por funções personalizadas. 
-
-> Faça o exercício [**extra**](exercicios.html)
+Agora que você fez um plot de PCA, você pode perceber que ele é apenas uma variação do `geom_point()`, isto permite que você adicione todas as camadas de ggplot que você quiser sobre este gráfico. Já fizemos isto com as legendas!
 
 # Algumas ferramentas básicas de análise de dados
 
@@ -1731,7 +1535,7 @@ tapply(dados$peso, dados$genero, summary)
 
 Podemos falar que há diferenças significativas entre o peso de homens e mulheres?
 
-```{r}
+```{r, eval=FALSE}
 mod1 <- lm(peso ~ genero, data = dados)
 summary(mod1)
 
@@ -1750,7 +1554,7 @@ Podemos verificar se modelo ajustado atende às pressuposições da análise de 
 plot(mod1)
 ```
 
-## Pequena análise de dados
+# Pequena análise de dados
 
 Vamos utilizar outro conjunto de dados para realizarmos mais avaliações utilizando a função `lm`. Acesse o conjunto [clima_lond](clima_lond.RData):
 
@@ -1997,12 +1801,9 @@ file.show("SORTEIO.txt")
 write.csv(rcbd,"SORTEIO.csv",row.names=F)
 ```
 
-<span style="color:red"> Paramos aqui na sexta-feira (20.03),terceiro e último dia do treinamento.</span>
-
-
 # Pratique gerando relatórios no RStudio
  
- Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
+Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
  
 Para utilizar, será necessário a instalação de outros pacotes. Um deles é o próprio `rmarkdown`:
 
@@ -2066,10 +1867,133 @@ Saiba mais no tutorial sobre isso no R-bloggers, que acreditamos ser um bom come
 
 ---
 
+# Família de funções `apply`
+
+A família de funções `apply` também podem funcionar como um estrutura de repetição. Sua sintaxe é mais enxuta quando comparada com `for` ou `while` e pode facilitar a elaboração do código. 
+
+Aqui vamos exemplificar o uso de algumas dessas funções.
+
+## apply
+
+A função `apply` é a base de todas as outras funções da família, portanto a compreensão do funcionamento desta é essencial para entender as demais. Se buscar no help da função, ele indicará que os argumentos da função consistem em: apply(X, MARGIN, FUN, ...). Sendo X o conjunto de dados em formato de array (incluindo matrix, que consiste num array de dimensão 2), MARGIN será 1 se a ação deverá ser aplicada à linhas, 2 se for aplicada a colunas e c(1,2) se for aplicada a ambas; FUN é a função que indica ação.
+
+Num simples exemplo temos a matrix:
+
+```{r}
+ex_mat <- matrix(seq(0,21,3), nrow = 2)
+```
+
+Se quisermos somar os elementos das colunas usamos:
+
+```{r}
+apply(ex_mat, 2, sum)
+```
+
+Se quisermos somar os elementos das linhas:
+
+```{r}
+apply(ex_mat, 1, sum)
+```
+
+Se fossemos utilizar o `for` para realizar essa tarefa:
+
+```{r}
+
+# Soma das colunas
+for(i in 1:dim(ex_mat)[2]){
+  print(sum(ex_mat[,i]))
+}
+
+# Soma das linhas
+for(i in 1:dim(ex_mat)[1]){
+  print(sum(ex_mat[i,]))
+}
+```
+
+## lapply
+
+Se diferencia do `apply` por poder receber outros tipos de objetos (mais utilizado com listas) e devolver o resultado  em uma lista.
+
+
+```{r}
+ex_list <- list(A=matrix(seq(0,21,3), nrow = 2), 
+                B=matrix(seq(0,14,2), nrow = 2), 
+                C= matrix(seq(0,39,5), nrow = 2))
+str(ex_list)
+```
+
+Para selecionar a segunda coluna de todas as matrizes
+
+```{r}
+lapply(ex_list, "[", 2)
+```
+
+## sapply
+
+A função `sapply` funciona como o `lapply` a diferença é que ele retorna apenas um valor por componente da lista e os deposita em um vetor de resposta. Como no exemplo:
+
+```{r}
+sapply(ex_list, "[",1,3)
+```
+
+## tapply
+
+Esta função é um pouco diferente das demais, ela exige que exista alguma variável categórica (fator) para aplicar ação separadamente conforme suas categorias (levels). Por isso, normalmente é aplicada a data.frames.
+
+Vamos utilizar nosso conjunto de dados:
+
+```{r}
+str(dados)
+dados$area <- as.factor(dados$area)
+tapply(dados$conhecimentoR, dados$area, mean)
+
+```
+
+Saiba mais sobre essa família de funções no [link](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/)
+
+Observe que nas funções `apply` podemos trocar as funções prontas do *r base* por funções personalizadas. 
+
+> Faça o exercício [**extra**](exercicios.html)
+
+
+# Criando mapas com ggplot
+
+Não vamos entrar em detalhe sobre os códigos que usamos aqui porque ele faz uso do `tidyverse`, um pacote que permite manipular os dados com muita flexibilidade, mas ele iria requerer outro curso focado apenas nele! Esta é uma aplicação para mostrar que conseguimos fazer quase tudo com R e ggplot em mãos. O mais difícil é saber manipular os dados...
+
+```{r, echo=F}
+library(tidyverse)
+
+# Coletando os dados da base por estado
+estados = brazilmaps::get_brmap("State")
+
+# Adicionando uma coluna com as siglas dos estados, será importane para a próxima etapa
+estados$sigla = c("RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE", "RN", "PB", "PE", "AL", "SE", "BA", "MG", "ES", "RJ", "SP", "PR", "SC", "MS", "MT", "GO", "DF", "RS")
+
+# Aqui, estamos pegando as duas últimas letras da cidade de origem da pessoa,
+# se ela tiver preenchido corretamente, estas últimas serão o estado, como em
+# "Piracicaba - SP". Após isto, fazemos a contagem de pessoas por estado e 
+# unimos com os dados do brazilmaps
+estados = dados %>%
+  mutate(sigla = str_sub(cidade, nchar(cidade)-1, nchar(cidade))) %>%
+  group_by(sigla) %>%
+  summarise(n = n()) %>%
+  right_join(estados, by = "sigla")
+
+# Aqui usamos um outro tipo de plot, o geom_sf(), que precisa de dados de
+# coordenadas geométricas para construir os mapas. O resto envolve apenas
+# funções e argumentos que nós conhecemos!!!
+ggplot(estados) +
+  geom_sf(aes(geometry = geometry, fill = n)) + 
+  theme_minimal() + scale_fill_continuous(low = "gray40", high = "red") +
+  labs(fill = "Número \nde pessoas")
+```
+
+# Sugestões, críticas, elogios e convites para almoço
+
 Caso tenha sugestões para aprimoramento desse material, enviar e-mail para `gent.esalq@gmail.com`.
 
 Acesse também outros materiais em português produzidos por Cristiane Taniguti, Fernando Correr e Rodrigo Amadeu [aqui](http://cristianetaniguti.github.io/Workshop_genetica_esalq/).
 
-Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Cristiane Taniguti, Fernando Correr e Kaio Olimpio ministraram o Treinamento. Também contamos com os monitores: Letícia de Castro Lara, Getúlio Caixeta, Gabriel Gesteira, Rafael Yassue, Fernando Espolador, Júlia Morosini, Guilherme Hokasa, Vitor Mello, Ana Letycia Basso, Jessica Ferrarezi e Jéssica Nogueira de Souza.
+Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Cristiane Taniguti, Fernando Correr e Kaio Olimpio ministraram o Treinamento. Também contamos com os monitores: Letícia de Castro Lara, Getúlio Caixeta, Gabriel Gesteira, Rafael Yassue, Fernando Espolador, Júlia Morosini, Guilherme Hokasa, Victor Mello, Ana Letycia Basso, Jessica Ferrarezi e Jéssica Nogueira de Souza.
 
 Também recomendamos materiais em inglês [aqui](https://GENt-esalq.github.io/cursoR/english_tutorials.html).
