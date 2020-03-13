@@ -6,8 +6,6 @@ output:
       css: readthedowngent.css
 ---
 
-Letycia
-
 # Treinamento em Programação no Ambiente R
 
 Esse material foi elaborado para o **Treinamento em Programação no Ambiente R**
@@ -15,7 +13,7 @@ organizado pelo GENt, grupo de Divulgação Científica do Programa de Pós-Grad
 
 Você pode acessar mais informações sobre o grupo neste [link](https://gent-esalq.github.io/). No site você pode encontrar as atividades que temos desenvolvido. 
 
-Este treinamento também recebe apoio do grupo [GVENCK](https://gvenck.github.io/1home.html) e do [Departamento de Genética da ESALQ](http://www.genetica.esalq.usp.br/).
+Este treinamento também recebe apoio do [Departamento de Genética da ESALQ](http://www.genetica.esalq.usp.br/).
 
 Sugerimos que, antes de iniciar a prática aqui descrita, siga [este tutorial](https://GENt-esalq.github.io/cursoR2/Tutorial_instalacao.html) para instalação do R e do RStudio.
 
@@ -75,7 +73,7 @@ Depois, basta clicar no disquete localizado no cabeçalho do RStudio ou com `Ctr
 
 Outra boa prática no R é deixar o script no mesmo diretório onde estão seus dados brutos (arquivos de entrada no script) e os dados processados (gráficos, tabelas, etc). Para isso, vamos fazer com que o R identifique o mesmo diretório em que você salvou o script como **diretório de trabalho**, assim ele entenderá que é dali que precisa obter os dados e para lá que também irão os resultados.
 
-Você pode fazer isso utilizando as facilidades do RStudio, basta localizar o diretório `CursoR` pela aba `Files`, clique em `More` e depois "Set as Working Directory". Repare que irá aparecer no console algo como:
+Você pode fazer isso utilizando as facilidades do RStudio, basta localizar o diretório `CursoR` pela aba `Files`, clicar em `More` e depois "Set as Working Directory". Repare que irá aparecer no console algo como:
 
 ```{r, eval=FALSE}
 setwd("~/Documents/CursoR")
@@ -101,14 +99,7 @@ Vamos então à linguagem!
 
 O R pode funcionar como uma simples **calculadora**, que utiliza a mesma sintaxe que outros programas (como o excel):
 
-```{r, echo=FALSE}
-#########################
-# Script Treinamento R
-
-# Data: 16/05/2019
-# GENt
-##########################
-
+```{r, eval=FALSE}
 1+1.3                 #Decimal definido com "."
 2*3
 2^3
@@ -130,7 +121,7 @@ Resultado esperado:
 ((13+2+1.5)/3) + log(96, base = 4)
 ```
 
-Repare que, se posicionar o parênteses de forma incorreta, o código não resultará em nenhuma mensagem de erro, pois este é um erro que chamamos de **erro lógico**, ou seja, o código roda, mas não faz o que você gostaria que ele fizesse. Esse é o tipo de erro mais difícil de consertado. Os erros que produzem uma mensagem, seja um aviso (**warning**) ou um erro (**error**) são chamados de **erros de sintaxe**. Nesses casos, o R retornará uma mensagem para te ajudar a corrigí-los. Os **warnings** não comprometem o funcionamento do código, mas chamam a atenção para algum ponto, já os **errors** precisam necessariamente ser corrigidos para que o código rode.
+Repare que, se posicionar o parênteses de forma incorreta, o código não resultará em nenhuma mensagem de erro, pois este é um erro que chamamos de **erro lógico**, ou seja, o código roda, mas não faz o que você gostaria que ele fizesse. Esse é o tipo de erro mais difícil de ser consertado. Os erros que produzem uma mensagem, seja um aviso (**warning**) ou um erro (**error**) são chamados de **erros de sintaxe**. Nesses casos, o R retornará uma mensagem para te ajudar a corrigí-los. Os **warnings** não comprometem o funcionamento do código, mas chamam a atenção para algum ponto, já os **errors** precisam necessariamente ser corrigidos para que o código rode.
 
 Exemplo de error:
 
