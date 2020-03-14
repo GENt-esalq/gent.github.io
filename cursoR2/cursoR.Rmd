@@ -11,7 +11,7 @@ output:
 Esse material foi elaborado para o **Treinamento em Programação no Ambiente R**
 organizado pelo GENt, grupo de Divulgação Científica do Programa de Pós-Graduação em Genética e Melhoramento de Plantas da ESALQ- USP, em parceria com o grupo Gfito-LQ, grupo de estudos do Departamento de Fitopatologia e Nematologia.
 
-Você pode acessar mais informações sobre o grupo GENt neste [link](https://gent-esalq.github.io/). No site você pode encontrar as atividades que temos desenvolvido. 
+Você pode acessar mais informações sobre o grupo GENt neste [link](https://gent-esalq.github.io/). No site, você pode encontrar as atividades que temos desenvolvido. 
 
 Sugerimos que, antes de iniciar a prática aqui descrita, siga [este tutorial](https://GENt-esalq.github.io/cursoR2/Tutorial_instalacao.html) para instalação do R e do RStudio.
 
@@ -682,7 +682,7 @@ if(dados[2,13] == 0){
 }
 ```
 
-Também podemos fazer uso das funções `any` e `all`. Será que algum de nós tem mais de 60 anos de idade (idade está na 9ª coluna)? Se sim, diga para essa pessoa tomar mais cuidado com o corona vírus.
+Também podemos fazer uso das funções `any` e `all`. Será que algum de nós tem mais de 60 anos de idade (idade está na 9ª coluna)? Se sim, diga para essa pessoa tomar mais cuidado com o coronavirus.
 
 ```{r}
 if(any(dados[,9] > 60)){
@@ -1046,8 +1046,8 @@ calc_IMC(peso=dados$peso, altura=dados$altura)
 Considere a tabela abaixo e faça agora a função dizer para o usuário quantos valores do vetor de IMCs estão em cada uma das categorias, além de retornar o vetor, como já estava fazendo antes.
 
 ```{r, echo=F}
-IMC_table <- data.frame(c("Menos do que 18.5", "Entre 18,5 e 25", "Entre 25 e 30", "Entre 30 e 35", "Entre 35 e 40", "Mais do que 40"),
-                        c("Abaixo do peso", "Peso normal", "Sobrepeso", "Obesidade grau 1", "Obesidade grau 2", "Obesidade grau 3"))
+IMC_table <- data.frame("peso" = c("Menos do que 18.5", "Entre 18,5 e 25", "Entre 25 e 30", "Entre 30 e 35", "Entre 35 e 40", "Mais do que 40"),
+                        "categoria"=c("Abaixo do peso", "Peso normal", "Sobrepeso", "Obesidade grau 1", "Obesidade grau 2", "Obesidade grau 3"))
 knitr::kable(IMC_table)
 ```
 
