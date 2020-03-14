@@ -191,7 +191,7 @@ c)[O valor mínimo: 1.170791]{.spoiler}
 
 # **Sessão 3**: Estruturas condicionais e de repetição 
 
-1 - Hora da diversão! Esperamos que vocês tenham gostado das estruturas condicionais. Acabando não perguntando nos questionários uma questão que será bem importante aqui. Você assiste o BBB? Esperamos que não (brincadeirinha!). Já parou para pensar que a [música](https://www.vagalume.com.br/bbb/vida-real-paulo-ricardo.html) tema do *programa* é basicamente uma aula de condicional (além de ser grudenta, claro)? Logo, a ideia é passar um verso que contenha **se** e receber o próximo verso. Caso o verso não exista na música ou não seja um dos casos condicionais, solte a mensagem "Esse verso nao existe na música". **Dica:** Para facilitar, use todas as frases com letras minúsculas e sem acentos.  
+1 - Hora da diversão! Esperamos que vocês tenham gostado das estruturas condicionais. Acabamos não perguntando nos questionários uma questão que será bem importante aqui. Você assiste o BBB? Já parou para pensar que a [música](https://www.vagalume.com.br/bbb/vida-real-paulo-ricardo.html) tema do *programa* é basicamente uma aula de condicional (além de ser grudenta, claro)? Logo, a ideia é passar um verso que contenha **se** e receber o próximo verso. Caso o verso não exista na música ou não seja um dos casos condicionais, solte a mensagem "Esse verso nao existe na música". **Dica:** Para facilitar, use todas as frases com letras minúsculas e sem acentos.  
 
 ```{r echo=FALSE, eval=FALSE}
 if(verso=="se voce pudesse me dizer"){
@@ -253,7 +253,7 @@ Se a escolha do valor foi um:
 [1 tigre triste comeu 1 prato de trigo.]{.spoiler}
 
 Se a escolha do valor foi dois:
-[2 tigres tristes comeram 2 pratos de trigo.]{.spoiler}
+[1 tigre triste comeu 1 prato de trigo. 2 tigres tristes comeram 2 pratos de trigo.]{.spoiler}
 
 4 - **Hora de descontrair!** Você conhece a música [Hey Jude](https://www.youtube.com/watch?v=7qMls5yxP1w)? Repita quantas vezes você quiser o verso:
 
@@ -363,7 +363,6 @@ while(prole != 0){
   }
 }
 ```
-
 
 
 6 - Utilize a expressão abaixo para gerar médias de produtividade, considerando 50 genótipos de soja, de forma aleatória:
