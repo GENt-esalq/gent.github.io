@@ -161,13 +161,12 @@ Utilizamos o simbolo `:` para criar sequencias de números inteiros, como:
 1:10
 ```
 
-Podemos utilizar outras funções para gerar sequencias, como:
+Podemos utilizar outras funções para gerar sequências, como:
 
 ```{r}
 seq(from=0, to=100, by=5)
 # ou
 seq(0,100,5) # Se você já souber a ordem dos argumentos da função
-
 ```
 
 * Crie uma sequencia utilizando a função `seq` que varie de 4 a 30, com intervalos de 3 em 3.
@@ -323,6 +322,8 @@ Com ele podemos, por exemplo, identificar quais são as posições dos elementos
 which(logico)  # Obtendo as posiçoes dos elementos TRUE
 
 x[which(logico)] # Obtendo os números maiores que 40 do vetor x pela posição
+# ou
+x[which(x > 40)]
 ```
 
 Também podemos localizar elementos específicos com:
@@ -507,9 +508,18 @@ str(minha_lista)
 Quero acessar o data.frame `campo1`
 
 ```{r}
-minha_lista[[1]]
+minha_lista[[1]] 
 # ou
 minha_lista$campo1
+```
+Para acessar uma coluna específica no data.frame `campo1`, que está dentro da minha_lista:  
+
+```{r}
+minha_lista[[1]][[3]]
+# ou
+minha_lista[[1]]$diametro
+# ou
+minha_lista$campo1$diametro
 ```
 
 Listas são muito úteis, por exemplo, quando vamos utilizar/gerar diversos objetos diferentes dentro de um loop. 
