@@ -14,12 +14,11 @@ output:
 
 > 1- Em um experimento de valor de cultivo e uso (VCU) na cultura do milho, as parcelas são constituídas de duas linhas de quatro metros, espaçadas 0,60 m, totalizando 6 plantas por linha. As alturas das plantas foram respectivamente (em metros): 1,45; 1,73; 1,98; 2,10; 2,03; 1,65; 2,15; 1,63; 1,53; 1,98; 2,05; 1,52.
 
-> a)Crie um vetor altura com os valores acima;
+> a)Crie um vetor altura com os valores acima
 
-> b)Calcule a altura média;
+> b)Calcule a altura média
 
-> c)Calcule a variância das alturas;
-
+> c)Calcule a variância das alturas
 
 
 ```{r echo=FALSE, eval=FALSE}
@@ -53,11 +52,11 @@ c)[0.06540606]{.spoiler}
 
 > a)Calcule o IMC de cada aluno, segundo a fórmula: $IMC = \frac{peso}{altura^2}$ 
 
-> b)Calcule o IMC médio da sala.
+> b)Calcule o IMC médio da sala
 
-> c)Calcule a variância do IMC. 
+> c)Calcule a variância do IMC 
 
-> d)Calcule o desvio padrão do IMC.
+> d)Calcule o desvio padrão do IMC
 
 ```{r echo=FALSE, eval=FALSE}
 peso <- c(72,57,49,62,57,90,53,76,63,92)
@@ -132,7 +131,6 @@ b)["numeric" "numeric"]{.spoiler}
 
 c)["character"]{.spoiler}
 
-
 > 2 - Utilizando o mesmo conjunto de dados do exercício anterior, calcule:
 
 > a)A média da coluna “hp”.
@@ -188,6 +186,64 @@ b)[23976.86]{.spoiler}
 c)[apenas o "head": 24.16867 18.61976 18.22499 20.43744 31.26128 24.17230]{.spoiler}
 
 c)[O valor mínimo: 1.170791]{.spoiler}
+
+> 4 - Em algumas áreas experimentais de soja foram identificadas a presença de alguns nematóides.
+
+|Área | Nematóide | Produtividade da área (kg/ha)
+|--------|-----------|------------|--------------
+|A1      | *Meloidogyne incognita* | 2700
+|A2      | *Meloidogyne incognita* | 2500
+|A3      | *Heterodera glycines* | 2000
+|A4      | NA | 3200
+|A5      | *Pratylenchus brachyurus* | 2900
+|A6      | NA | 3500
+|A7      | *Meloidogyne javanica* | 2300
+|A8      | NA | 3800
+
+> a)Crie um data.frame com as informações da tabela acima
+
+> b)Crie uma coluna contendo o munícipio que cada área é localizado (Piracicaba-SP, Rio Verde-GO, Londrina-PR, Barreiras-BA, Uberaba-MG, Rondonopólis-MT, Vilhena-RO, Gurupi-TO)
+
+> c)Quais os tipos de nematóides que afetam as áreas avaliadas?
+
+> d)Qual nematóide teve maior impacto na produtividade? E o menor impacto?
+
+> e)A média de produtividade das áreas afetadas por *Meloidogyne incognita* é maior que a média das áreas afetadas por todos os outros nematóides?
+
+```{r echo = FALSE, eval=FALSE}
+
+print("a")
+area = c(paste0("A", rep(1:8)))
+df = data.frame(c("Meloidogyne incognita", "Meloidogyne incognita", "Heterodera glycines", "NA", "Pratylenchus brachyurus", "NA", "Meloidogyne javanica", "NA"),
+                c(2700, 2500, 2000, 3200, 2900, 3500, 2300, 3800), row.names = area)
+colnames(df) = c("Nematóide", "Produtividade (kg/ha)")
+df                  
+
+print("b")
+Municipio = c("Piracicaba-SP", "Rio Verde-GO", "Londrina-PR", "Barreiras-BA", "Uberaba-MG", "Rondonopólis-MT", "Vilhena-RO", "Gurupi-TO")
+df = cbind(df, Municipio)
+df
+
+print("c")
+levels(df$Nematóide)
+
+print("d")
+df[order(df$`Produtividade (kg/ha)`),1]
+
+print("e") 
+med_m_incog = mean(df[df$Nematóide == "Meloidogyne incognita",2])
+med_m_outros = mean(df[df$Nematóide != "Meloidogyne incognita" & df$Nematóide != "NA",2])
+med_m_incog > med_m_outros
+```
+
+**Respostas**:
+
+c)["Heterodera glycines", "Meloidogyne incognita", "Meloidogyne javanica", Pratylenchus brachyurus"]{.spoiler}
+
+d)[Maior impacto: Heterodera glycines  
+   Menor impacto: Pratylenchus brachyurus]{.spoiler}
+   
+e)[Sim. A média de produtividade das áreas de *M. incognita* (2.6 kg/ha) é maior que a média das áreas afetadas por outros (2.4 kg/ha)]{.spoiler}
 
 # **Sessão 3**: Estruturas condicionais e de repetição 
 
