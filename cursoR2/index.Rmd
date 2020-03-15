@@ -44,5 +44,6 @@ Aqui será disponibilizado o material que será utilizado no **Treinamento em Pr
 
 * [Cronograma do treinamento](cronograma.html)
 * [Tutorial de instalação do R, RStudio e pacotes que serão utilizados](Tutorial_instalacao.html)
+* [Apresentação inicial](teorica/teorica.html)
 * [Tutorial principal](cursoR.html)
 * [Exercícios](exercicios.html)

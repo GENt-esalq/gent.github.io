@@ -978,7 +978,8 @@ Normalmente é uma boa prática criar um bloco de código se vai realizar aquela
 
 A função também é considerada um objeto no R, portanto você a atribui à uma variável. Procure nomear a função com um nome curto e intuitivo em relação à tarefa que ela executa. Nem sempre é uma tarefa fácil.
 
-(https://www.reddit.com/r/ProgrammerHumor/comments/5z6n8p/every_time/)
+<img src="meme.png" alt="[referência](https://www.reddit.com/r/ProgrammerHumor/comments/5z6n8p/every_time/)" width="300" height="400">
+
 
 Para criar uma função obedeça a seguinte estrutura:
 
