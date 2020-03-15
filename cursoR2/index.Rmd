@@ -22,8 +22,6 @@ Este ano, o curso também será transmitido online! Então você poderá se insc
 
 Além disso, também adotamos uma forma de contribuição de “pague o quanto quiser/puder”, com uma sugestão de 25 reais. O dinheiro arrecadado será investido nas ações do grupo de divulgação científica GENt. Saiba mais sobre as atividades do grupo explorando o nosso site.
 
-
-
 ## Inscrições
 
 **As inscrições estão abertas de 12.02.2020 à 06.03.2020**
@@ -36,9 +34,16 @@ São 40 vagas presenciais e 25 possibilidades de acesso remoto. Caso opte pelo a
 
 <font size="3" color="red">Inscrições encerradas.</font>
 
+## Aviso importante!!
+
+Em decorrência das atuais medidas frente à **epidemia de Covid-19** [anunciadas pelo Cruesp](https://jornal.usp.br/institucional/cruesp-divulga-comunicado-sobre-suspensao-das-aulas-nas-universidades-a-partir-de-17-03/), nesta sexta-feira (13/03/2020), provavelmente não será possível realizar o curso presencialmente na quarta e sexta-feira (dias 18 e 20). Portanto, estamos enviando links para acesso remoto de todos os participantes nesses dias. Confirmaremos em breve, fiquem atentos.
+
 ## Materiais
 
 Aqui será disponibilizado o material que será utilizado no **Treinamento em Programação no Ambiente R**.
 
 * [Cronograma do treinamento](cronograma.html)
 * [Tutorial de instalação do R, RStudio e pacotes que serão utilizados](Tutorial_instalacao.html)
+* [Apresentação inicial](teorica/teorica.html)
+* [Tutorial principal](cursoR.html)
+* [Exercícios](exercicios.html)
