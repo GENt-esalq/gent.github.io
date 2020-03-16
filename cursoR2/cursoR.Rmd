@@ -9,11 +9,9 @@ output:
 # Treinamento em Programação no Ambiente R
 
 Esse material foi elaborado para o **Treinamento em Programação no Ambiente R**
-organizado pelo GENt, grupo de Divulgação Científica do Programa de Pós-Graduação em Genética e Melhoramento de Plantas da ESALQ- USP. 
+organizado pelo GENt, grupo de Divulgação Científica do Programa de Pós-Graduação em Genética e Melhoramento de Plantas da ESALQ- USP, em parceria com o grupo Gfito-LQ, grupo de estudos do Departamento de Fitopatologia e Nematologia.
 
-Você pode acessar mais informações sobre o grupo neste [link](https://gent-esalq.github.io/). No site você pode encontrar as atividades que temos desenvolvido. 
-
-Este treinamento também recebe apoio do grupo [GVENCK](https://gvenck.github.io/1home.html) e do [Departamento de Genética da ESALQ](http://www.genetica.esalq.usp.br/).
+Você pode acessar mais informações sobre o grupo GENt neste [link](https://gent-esalq.github.io/). No site, você pode encontrar as atividades que temos desenvolvido. 
 
 Sugerimos que, antes de iniciar a prática aqui descrita, siga [este tutorial](https://GENt-esalq.github.io/cursoR2/Tutorial_instalacao.html) para instalação do R e do RStudio.
 
@@ -52,7 +50,7 @@ Ao fazer isso o seu código será processado na janela `Console`, onde aparecer�
 # cat("Hello world")
 ```
 
-O símbolo `#` é muito utilizado para realizar **comentários** ao decorrer do código. Esta é uma ótima prática para deixar o código organizado e para que você possa lembrar mais tarde o que você mesmo/a estava pensando quando o escreveu ou para que outras pessoas possam entendê-lo. Como no exemplo:
+O símbolo `#` é muito utilizado para realizar **comentários** ao decorrer do código. Esta é uma ótima prática para deixar o código organizado e para que você possa lembrar mais tarde o que você estava pensando quando o escreveu ou para que outras pessoas possam entendê-lo. Como no exemplo:
 
 ```{r}
 # Iniciando os trabalhos no R
@@ -73,7 +71,7 @@ Depois, basta clicar no disquete localizado no cabeçalho do RStudio ou com `Ctr
 
 Outra boa prática no R é deixar o script no mesmo diretório onde estão seus dados brutos (arquivos de entrada no script) e os dados processados (gráficos, tabelas, etc). Para isso, vamos fazer com que o R identifique o mesmo diretório em que você salvou o script como **diretório de trabalho**, assim ele entenderá que é dali que precisa obter os dados e para lá que também irão os resultados.
 
-Você pode fazer isso utilizando as facilidades do RStudio, basta localizar o diretório `CursoR` pela aba `Files`, clique em `More` e depois "Set as Working Directory". Repare que irá aparecer no console algo como:
+Você pode fazer isso utilizando as facilidades do RStudio, basta localizar o diretório `CursoR` pela aba `Files`, clicar em `More` e depois "Set as Working Directory". Repare que irá aparecer no console algo como:
 
 ```{r, eval=FALSE}
 setwd("~/Documents/CursoR")
@@ -91,7 +89,7 @@ Agora, imagine que você tem um diretório como `~/Documentos/mestrado/semestre1
 
 Além da facilidade da janela do RStudio, você pode utilizar a tecla `Tab` para completar o caminho para você. Experimente buscando alguma pasta no seu computador. Basta começar a digitar o caminho e apertar `Tab`, ele irá completar o nome para você! Se você tiver mais do que um arquivo com aquele início de nome, aperte duas vezes o `Tab`, ele mostrará todas as opções.
 
-O `Tab` funciona não só para indicar caminhos, mas também para comandos e nomes de objetos. É muito comum errarmos no código por erros de digitação, utilizar o `Tab` fará com que reduza significativamente esses erros.
+O `Tab` funciona não só para indicar caminhos, mas também para comandos e nomes de objetos. É muito comum errarmos no código por erros de digitação. Utilizar o `Tab` reduzirá significativamente esses erros.
 
 # Operações básicas
 
@@ -99,14 +97,7 @@ Vamos então à linguagem!
 
 O R pode funcionar como uma simples **calculadora**, que utiliza a mesma sintaxe que outros programas (como o excel):
 
-```{r, echo=FALSE}
-#########################
-# Script Treinamento R
-
-# Data: 16/05/2019
-# GENt
-##########################
-
+```{r, eval=FALSE}
 1+1.3                 #Decimal definido com "."
 2*3
 2^3
@@ -128,7 +119,7 @@ Resultado esperado:
 ((13+2+1.5)/3) + log(96, base = 4)
 ```
 
-Repare que, se posicionar o parênteses de forma incorreta, o código não resultará em nenhuma mensagem de erro, pois este é um erro que chamamos de **erro lógico**, ou seja, o código roda, mas não faz o que você gostaria que ele fizesse. Esse é o tipo de erro mais difícil de consertado. Os erros que produzem uma mensagem, seja um aviso (**warning**) ou um erro (**error**) são chamados de **erros de sintaxe**. Nesses casos, o R retornará uma mensagem para te ajudar a corrigí-los. Os **warnings** não comprometem o funcionamento do código, mas chamam a atenção para algum ponto, já os **errors** precisam necessariamente ser corrigidos para que o código rode.
+Repare que, se posicionar o parênteses de forma incorreta, o código não resultará em nenhuma mensagem de erro, pois este é um erro que chamamos de **erro lógico**, ou seja, o código roda, mas não faz o que você gostaria que ele fizesse. Esse é o tipo de erro mais difícil de ser consertado. Os erros que produzem uma mensagem, seja um aviso (**warning**) ou um erro (**error**) são chamados de **erros de sintaxe**. Nesses casos, o R retornará uma mensagem para te ajudar a corrigí-los. Os **warnings** não comprometem o funcionamento do código, mas chamam a atenção para algum ponto, já os **errors** precisam necessariamente ser corrigidos para que o código rode.
 
 Exemplo de error:
 
@@ -164,19 +155,18 @@ c(1,3,2,5,2)
 
 **MUITA ATENÇÃO**: O *c* é a função do R (*Combine Values into a Vector or List*) com a qual construímos um vetor! 
 
-Utilizamos o simbolo `:` para criar sequencias de números inteiros, como:
+Utilizamos o simbolo `:` para criar sequências de números inteiros, como:
 
 ```{r}
 1:10
 ```
 
-Podemos utilizar outras funções para gerar sequencias, como:
+Podemos utilizar outras funções para gerar sequências, como:
 
 ```{r}
 seq(from=0, to=100, by=5)
 # ou
 seq(0,100,5) # Se você já souber a ordem dos argumentos da função
-
 ```
 
 * Crie uma sequencia utilizando a função `seq` que varie de 4 a 30, com intervalos de 3 em 3.
@@ -185,7 +175,7 @@ seq(0,100,5) # Se você já souber a ordem dos argumentos da função
 seq(from=4, to=30, by=3)
 ```
 
-A função `rep` gera sequencias com números repetidos:
+A função `rep` gera sequências com números repetidos:
 
 ```{r}
 rep(3:5, 2)
@@ -332,6 +322,8 @@ Com ele podemos, por exemplo, identificar quais são as posições dos elementos
 which(logico)  # Obtendo as posiçoes dos elementos TRUE
 
 x[which(logico)] # Obtendo os números maiores que 40 do vetor x pela posição
+# ou
+x[which(x > 40)]
 ```
 
 Também podemos localizar elementos específicos com:
@@ -404,7 +396,7 @@ X <- matrix(1:12, nrow = 6, ncol = 2)
 X
 ```
 
-Podemos também utilizar sequencias já armazenadas em vetores para gerar uma matriz, desde que eles sejam numéricos:
+Podemos também utilizar sequências já armazenadas em vetores para gerar uma matriz, desde que eles sejam numéricos:
 
 ```{r}
 W <- matrix(c(x,y), nrow = 6, ncol =2)
@@ -506,7 +498,7 @@ str(campo1)
 
 ## Listas
 
-Listas consistem em uma coleção de objetos, não necessariamente de mesma classe. Nelas podemos armazenar todos os outros objetos ja vistos e recuperá-los pela indexação com `[[`. Como exemplo, vamos utilizar alguns objetos que já foram gerados.
+Listas consistem em uma coleção de objetos, não necessariamente de mesma classe. Nelas podemos armazenar todos os outros objetos já vistos e recuperá-los pela indexação com `[[`. Como exemplo, vamos utilizar alguns objetos que já foram gerados.
 
 ```{r}
 minha_lista <- list(campo1 = campo1, media_alt = tapply(campo1$altura, campo1$idade, mean), matrix_ex = W)
@@ -516,12 +508,21 @@ str(minha_lista)
 Quero acessar o data.frame `campo1`
 
 ```{r}
-minha_lista[[1]]
+minha_lista[[1]] 
 # ou
 minha_lista$campo1
 ```
+Para acessar uma coluna específica no data.frame `campo1`, que está dentro da minha_lista:  
 
-Listas são muito úteis, por exemplo, quando vamos utilizar/gerar diversos objetos diferentes dentro de um loop. 
+```{r}
+minha_lista[[1]][[3]]
+# ou
+minha_lista[[1]]$diametro
+# ou
+minha_lista$campo1$diametro
+```
+
+Listas são muito úteis, por exemplo, quando vamos utilizar/gerar diversos objetos dentro de um loop. 
 
 ## Arrays
 
@@ -534,6 +535,14 @@ Este é um tipo de objeto que você provavelmente não irá utilizar agora no in
 Teremos quatro matrizes com duas linhas e três colunas e os números de 1 a 24 estarão distribuídos nelas por colunas.
 
 > Se estiver adiantada/o em relação aos colegas, você já pode fazer os exercícios da [**Sessão 2**](exercicios.html#sessao2), se não, faça-os no conforto do seu lar e nos envie dúvidas pelo fórum.
+
+
+<span style="color:red"> Paramos aqui no primeiro dia. </span>
+
+* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR2/dia1.RData).
+
+* [Aqui](https://GENt-esalq.github.io/cursoR2/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
+
 
 # Exportando e importando dados
 
@@ -574,7 +583,7 @@ write.csv(campo1, file = "campo1.csv", row.names = TRUE)
 
 Obs: Você pode adquirir pacotes para exportar e importar dados com outros fomatos, como exemplo o pacote `xlsx` exporta e importa dados com formato do excel.
 
-Ao exportar, há diversas opções para a formatação do arquivo, é importante considerá-las se o arquivo for ser trabalhado em outro sofware posteriormente.
+Ao exportar, há diversas opções para a formatação do arquivo, é importante considerá-las se o arquivo for usado em outro sofware posteriormente.
 
 Abra os arquivos gerados para visualizar sua formatação.
 
@@ -681,7 +690,7 @@ if(dados[2,13] == 0){
 }
 ```
 
-Também podemos fazer uso das funções `any` e `all`. Será que algum de nós tem mais de 60 anos de idade (idade está na 9ª coluna)? Se sim, diga para essa pessoa tomar mais cuidado com o corona vírus.
+Também podemos fazer uso das funções `any` e `all`. Será que algum de nós tem mais de 60 anos de idade (idade está na 9ª coluna)? Se sim, diga para essa pessoa tomar mais cuidado com o coronavirus.
 
 ```{r}
 if(any(dados[,9] > 60)){
@@ -977,7 +986,8 @@ Normalmente é uma boa prática criar um bloco de código se vai realizar aquela
 
 A função também é considerada um objeto no R, portanto você a atribui à uma variável. Procure nomear a função com um nome curto e intuitivo em relação à tarefa que ela executa. Nem sempre é uma tarefa fácil.
 
-(https://www.reddit.com/r/ProgrammerHumor/comments/5z6n8p/every_time/)
+<img src="meme.png" alt="[referência](https://www.reddit.com/r/ProgrammerHumor/comments/5z6n8p/every_time/)" width="300" height="400">
+
 
 Para criar uma função obedeça a seguinte estrutura:
 
@@ -1044,12 +1054,11 @@ calc_IMC(peso=dados$peso, altura=dados$altura)
 
 Considere a tabela abaixo e faça agora a função dizer para o usuário quantos valores do vetor de IMCs estão em cada uma das categorias, além de retornar o vetor, como já estava fazendo antes.
 
-| Menos do que 18.5 | Abaixo do peso   |
-| Entre 18,5 e 25 | Peso normal      |
-| Entre 25 e 30   | Sobrepeso        |
-| Entre 30 e 35   | Obesidade grau 1 |
-| Entre 35 e 40   | Obesidade grau 2 |
-| Mais do que 40    | Obesidade grau 3 |
+```{r, echo=F}
+IMC_table <- data.frame("peso" = c("Menos do que 18.5", "Entre 18,5 e 25", "Entre 25 e 30", "Entre 30 e 35", "Entre 35 e 40", "Mais do que 40"),
+                        "categoria"=c("Abaixo do peso", "Peso normal", "Sobrepeso", "Obesidade grau 1", "Obesidade grau 2", "Obesidade grau 3"))
+knitr::kable(IMC_table)
+```
 
 
 ```{r}
@@ -1242,26 +1251,18 @@ O `ggplot2` é um pacote que permite a construção de gráficos estatísticos, 
 
 # Gráficos com ggplot
 
-Antes de começarmos a fazer gráficos, vamos entender um pouco como o `ggplot` pensa sobre os dados.
+Antes de começarmos a fazer gráficos, vamos entender um pouco sobre o a dinâmica de funcionamento do `ggplot`.
 
 ```{r, warning=FALSE}
-# obtendo o data.frame que contém os dados que queremos usar
+# Caso não tenha mais conjunto dados disponível no seu ambiente de trabalho
 dados = read.csv("dados_alunos2020.csv", stringsAsFactors = FALSE)
+colnames(dados) = c("horario", "genero", "participacao", "cidade", "instituicao", "escolaridade", "graduacao", 
+                   "area", "idade", "altura", "peso", "aniversario", "conhecimentoR", "linguagens", "usoR", "motivacaoR")
+
 ```
 ```{r, echo=FALSE}
 # ver as primeiras linhas de um objeto
 knitr::kable(head(dados))
-```
-
-
-
-Como iremos usar muito este data.frame `dados`, vamos dar nomes mais convenientes para as colunas.
-
-```{r}
-colnames(dados)
-
-colnames(dados) = c("horario", "genero", "participacao", "cidade", "instituicao", "escolaridade", "graduacao", 
-                   "area", "idade", "altura", "peso", "aniversario", "conhecimentoR", "linguagens", "usoR", "motivacaoR")
 ```
 
 ## Funções ggplot() e aes()
@@ -1297,7 +1298,7 @@ ggplot(dados) +
 ggplot(dados) + 
   geom_point(aes(x = peso, y = altura, color = genero))
 
-# mas tomar cuidado para não ter tanta informação demais
+# mas tomar cuidado para não ter tanta informação 
 ggplot(dados) + 
   geom_point(aes(x = peso, y = altura, color = genero, size = idade, shape = escolaridade))
 ```
@@ -1347,7 +1348,7 @@ IMC.categorico = function(m, h){
   imc = IMC.numerico(m, h)
   for (i in 1:length(imc)) {
     if(imc[i] < 18.5) {
-      return("Magreza")
+      return("Abaixo do peso")
     } else if(imc[i] < 25) {
       return("Normal")
     } else if(imc[i] < 30) {
@@ -1495,29 +1496,12 @@ peso_altura = peso_altura + theme(legend.position = "bottom")
 ggsave(peso_altura, filename = "scatterplot2_gg.png", width = 15, height = 12, units = "cm", dpi = 500)
 ```
 
-# PCA - Análise de componentes principais
-
-O PCA é uma análise exploratória muito frequente quando utilizada por usuários que possuem muitos dados. Nela, torna-se possível visualizar dados que deveriam ter diversas dimensões em apenas duas componentes mais informativas. Para isto, usamos a função `autoplot()`.
-
-```{r, eval=FALSE}
-# para instalar, use install.packages("ggfortify")
-library(ggfortify)
-
-autoplot(prcomp(~ conhecimentoR + altura + peso + idade, data = dados),
-         data = dados, shape = 'area', colour = 'graduacao', loadings = TRUE, loadings.colour = 'red', 
-         loadings.label = TRUE, loadings.label.colour = 'black',
-         loadings.label.size = 4) +
-  labs(shape = "Área de \ninteresse", color = "Formação", title = "PCA")
-
-# Os parâmetros relacionados com "LOADINGS" são na verdade a direção onde a váriável mais cresce em duas dimensões
-# Ela serve apenas como uma aproximação, já que os dados reais precisariam de mais dimensões, que nosso olho não pode ver
-```
-
-Agora que você fez um plot de PCA, você pode perceber que ele é apenas uma variação do `geom_point()`, isto permite que você adicione todas as camadas de ggplot que você quiser sobre este gráfico. Já fizemos isto com as legendas!
 
 # Algumas ferramentas básicas de análise de dados
 
-Claramente a análise de dados é algo muito específico de cada conjunto de dados e interesses. Vamos aqui mostrar alguns recursos básicos como análise de variância, regressão e teste de médias.
+Claramente a análise de dados é algo muito específico de cada conjunto de dados e interesses. Vamos aqui mostrar alguns recursos básicos como análise de variância, teste de médias e PCA.
+
+## Estatísticas descritivas
 
 Algumas avaliações descritivas podem ser feitas pelo uso do `tapply` e de gráficos. A função `summary` também da informações gerais do conjunto. É possível usá-la em conjunto com o `tapply`.
 
@@ -1530,6 +1514,8 @@ tapply(dados$altura, dados$genero, summary)
 tapply(dados$peso, dados$genero, summary)
 
 ```
+
+## Análise de variância
 
 Podemos falar que há diferenças significativas entre o peso de homens e mulheres?
 
@@ -1552,7 +1538,7 @@ Podemos verificar se modelo ajustado atende às pressuposições da análise de 
 plot(mod1)
 ```
 
-# Pequena análise de dados
+## Avaliando o clima de Londrina
 
 Vamos utilizar outro conjunto de dados para realizarmos mais avaliações utilizando a função `lm`. Acesse o conjunto [clima_lond](clima_lond.RData):
 
@@ -1583,9 +1569,11 @@ Repare que os níveis aparecem em ordem alfabética e não conforme o tempo, alt
 ```{r}
 levels(clima_lond$Mes)
 
-pos <- match(c("Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho"), levels(clima_lond$Mes))
+# A função match vai indicar a posição dos elementos do primeiro vetor no segundo vetor
+pos <- match(c("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"), levels(clima_lond$Mes))
 pos
 
+# Aqui utilizamos as posições obtidas para reordenar os meses nos níveis do fator
 clima_lond$Mes = factor(clima_lond$Mes,
                        levels(clima_lond$Mes)[pos])
 
@@ -1597,9 +1585,9 @@ tapply(clima_lond$prec.mm, clima_lond$Mes, summary)
 Podemos também avaliar fazendo alguns gráficos:
 
 ```{r}
-plot(prec.mm~Mes, data = clima_lond, main="Médias",
-     xlab = "Meses do ano de 2017",
-     ylab = "Precipitação em mm")
+ggplot(clima_lond) + 
+  geom_point(aes(x = Mes, y = prec.mm)) +
+  labs(title = "Precipitação x Mês", x = "Meses do ano de 2017", y = "Precipitação em mm")
 ```
 
 ```{r}
@@ -1607,6 +1595,21 @@ barplot(tapply(clima_lond$prec.mm, clima_lond$Mes, sum),
         main="Total Mensal",
         xlab = "Meses do ano de 2017",
         ylab = "Precipitação em mm")
+
+# Vamos fazer um gráfico de barras que mostre a soma de precipitação em cada mês
+stat_lond <- tapply(clima_lond$prec.mm, clima_lond$Mes, sum)
+str(stat_lond)
+
+# Repare que o resultado do tapply é um vetor com seus elementos nomeados com cada mês
+# Para usar o ggplot nesse caso, precisamos elaborar um data.frame cujas colunas sejam as variáveis que utilizaremos
+stat_lond_edit <- data.frame("mes" = factor(names(stat_lond), 
+                                            levels = c("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho")), "soma" = stat_lond)
+str(stat_lond_edit)
+
+ggplot(stat_lond_edit) +
+  geom_bar(aes(x = mes, y = soma), stat="identity") +
+  labs(title= "Soma da precipitação por mês", x = "Meses do ano de 2017", y = "Soma da precipitação")
+
 ```
 
 Vamos então realizar um análise de variância para medir diferenças entre os meses.
@@ -1624,12 +1627,11 @@ tukey.test <- TukeyHSD(x=modaov, 'Mes', conf.level=0.95)
 tukey.test
 ```
 
-
-## Experimento de café
+## Avaliando experimento de café
 
 Agora, trabalharemos com dados de um experimento de café. Acesse aqui:
 
-* Arquivo [cafe.txt](https://GENt-esalq.github.io/cursoR/cafe.txt)
+* Arquivo [cafe.txt](https://GENt-esalq.github.io/cursoR2/cafe.txt)
 
 O experimento trata-se de dados em blocos completos casualizados de 10 progênies de café. Nele a coluna `rep` refere-se à repetição, `prog` indica o indivíduo da progênie (prog) e `colheita` indica a colheita.
 
@@ -1661,7 +1663,6 @@ Vamos primeiro analisar somente os dados referentes à primeira colheita. Podemo
 Colheita_1 <- subset(data, colheita == 1)
 str(Colheita_1)
 ```
-
 
 Repare que, ao fazer o subconjunto, o conjunto de dados ainda mantém os três níveis do fator colheita, embora agora só tenhamos um. Isso pode ser um problema para a nossa análise. Portanto, devemos remover os níveis excedentes:
 
@@ -1697,7 +1698,6 @@ shapiro.test (Modelo1_residuals) # Hipótese de Nulidade
 # ou seja, é maior que >0.05 ou 0.01 (alfa adotado), não se rejeita a hipotese de normalidade 
 ```
 
-
 Vamos trabalhar um poquinho com as informações da ANOVA? Primeiro, guardaremos o valor do quadrado médio:
 
 ```{r, eval=TRUE}
@@ -1705,7 +1705,7 @@ QME <- anova(Modelo1)["Residuals", "Mean Sq"]
 QME
 ```
 
-E a média da primeira colheita da nossa variavel resposta (produção):
+E a média da primeira colheita da nossa variável resposta (produção):
 
 ```{r, eval=TRUE}
 med <- mean(Colheita_1$prod, na.rm = TRUE)
@@ -1747,35 +1747,9 @@ H_2 <- VG/ (VG + VE)
 H_2
 ```
 
-
 > Crie uma função para estimar a herdabilidade 
 
-
-Agora faremos um teste de comparações múltiplas utilizando a análise de variância feita no pacote `ExpDes`.
-
-```{r,  message=FALSE, warning=FALSE}
-#install.packages("ExpDes")
-library(ExpDes)
-
-# Teste de Tukey
-rbd(Colheita_1$prog, Colheita_1$rep, Colheita_1$prod, mcomp = "tukey", sigT = 0.05, sigF = 0.05)
-```
-
-Agora vamos apresentar outras opções para analisarmos cada colheita individualmente. 
-
-```{r,  message=FALSE, warning=FALSE}
-# função by é similar ao subset
-by(data, data$colheita, function (x) anova(aov(prod ~ prog + rep, data= x))) 
-#verificar os graus de liberdade, cuidado para que sejam utilizados de fato os dados de apenas 1 colheita
-
-#outra opção selecionando apenas a parte da dataframe onde colheita igual a "2"
-anova(aov(data$prod ~ data$prog + data$rep, data = data[data$colheita==2,]))
-
-# mais uma opção com o uso da família apply
-indiv <- lapply(split(data, data$colheita), aov, formula = prod ~ rep + prog)
-lapply(indiv, summary)
-```
-
+## Gerando sorteio para delineamento experimental
 
 Que tal pensarmos em um delineamento experimental e sortearmos as unidades experimentais? Com o pacote `agricolae` elaboraremos o sorteio de um experimento de blocos completos casualizados.
 
@@ -1799,9 +1773,32 @@ file.show("SORTEIO.txt")
 write.csv(rcbd,"SORTEIO.csv",row.names=F)
 ```
 
-# Pratique gerando relatórios no RStudio
+## PCA - Análise de componentes principais
+
+O PCA é uma análise exploratória muito frequente quando utilizada por usuários que possuem muitos dados. Nela, torna-se possível visualizar dados que deveriam ter diversas dimensões em apenas duas componentes mais informativas. Para isto, usamos a função `autoplot()`.
+
+```{r, eval=FALSE}
+# para instalar, use install.packages("ggfortify")
+library(ggfortify)
+
+autoplot(prcomp(~ conhecimentoR + altura + peso + idade, data = dados),
+         data = dados, shape = 'area', colour = 'graduacao', loadings = TRUE, loadings.colour = 'red', 
+         loadings.label = TRUE, loadings.label.colour = 'black',
+         loadings.label.size = 4) +
+  labs(shape = "Área de \ninteresse", color = "Formação", title = "PCA")
+
+# Os parâmetros relacionados com "LOADINGS" são na verdade a direção onde a váriável mais cresce em duas dimensões
+# Ela serve apenas como uma aproximação, já que os dados reais precisariam de mais dimensões, que nosso olho não pode ver
+```
+
+Agora que você fez um plot de PCA, você pode perceber que ele é apenas uma variação do `geom_point()`, isto permite que você adicione todas as camadas de ggplot que você quiser sobre este gráfico. Já fizemos isto com as legendas!
+
+# Extra
+
+
+## Pratique gerando relatórios no RStudio
  
-Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
+ Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
  
 Para utilizar, será necessário a instalação de outros pacotes. Um deles é o próprio `rmarkdown`:
 
@@ -1863,15 +1860,16 @@ fiz um [link](https://GENt-esalq.github.io/)!
 
 Saiba mais no tutorial sobre isso no R-bloggers, que acreditamos ser um bom começo! Acesse [aqui](https://www.r-bloggers.com/how-to-create-reports-with-r-markdown-in-rstudio/).
 
----
 
-# Família de funções `apply`
+
+
+## Família de funções `apply`
 
 A família de funções `apply` também podem funcionar como um estrutura de repetição. Sua sintaxe é mais enxuta quando comparada com `for` ou `while` e pode facilitar a elaboração do código. 
 
 Aqui vamos exemplificar o uso de algumas dessas funções.
 
-## apply
+### apply
 
 A função `apply` é a base de todas as outras funções da família, portanto a compreensão do funcionamento desta é essencial para entender as demais. Se buscar no help da função, ele indicará que os argumentos da função consistem em: apply(X, MARGIN, FUN, ...). Sendo X o conjunto de dados em formato de array (incluindo matrix, que consiste num array de dimensão 2), MARGIN será 1 se a ação deverá ser aplicada à linhas, 2 se for aplicada a colunas e c(1,2) se for aplicada a ambas; FUN é a função que indica ação.
 
@@ -1908,7 +1906,7 @@ for(i in 1:dim(ex_mat)[1]){
 }
 ```
 
-## lapply
+### lapply
 
 Se diferencia do `apply` por poder receber outros tipos de objetos (mais utilizado com listas) e devolver o resultado  em uma lista.
 
@@ -1926,7 +1924,7 @@ Para selecionar a segunda coluna de todas as matrizes
 lapply(ex_list, "[", 2)
 ```
 
-## sapply
+### sapply
 
 A função `sapply` funciona como o `lapply` a diferença é que ele retorna apenas um valor por componente da lista e os deposita em um vetor de resposta. Como no exemplo:
 
@@ -1934,7 +1932,7 @@ A função `sapply` funciona como o `lapply` a diferença é que ele retorna ape
 sapply(ex_list, "[",1,3)
 ```
 
-## tapply
+### tapply
 
 Esta função é um pouco diferente das demais, ela exige que exista alguma variável categórica (fator) para aplicar ação separadamente conforme suas categorias (levels). Por isso, normalmente é aplicada a data.frames.
 
@@ -1951,10 +1949,10 @@ Saiba mais sobre essa família de funções no [link](https://www.r-bloggers.com
 
 Observe que nas funções `apply` podemos trocar as funções prontas do *r base* por funções personalizadas. 
 
-> Faça o exercício [**extra**](exercicios.html)
+> Se estiver adiantada/o em relação aos colegas, você já pode fazer os exercícios da [**Sessão extra**](exercicios.html), se não, faça-os no conforto do seu lar e nos envie dúvidas pelo fórum.
 
 
-# Criando mapas com ggplot
+## Criando mapas com ggplot
 
 Não vamos entrar em detalhe sobre os códigos que usamos aqui porque ele faz uso do `tidyverse`, um pacote que permite manipular os dados com muita flexibilidade, mas ele iria requerer outro curso focado apenas nele! Esta é uma aplicação para mostrar que conseguimos fazer quase tudo com R e ggplot em mãos. O mais difícil é saber manipular os dados...
 
@@ -1992,6 +1990,6 @@ Caso tenha sugestões para aprimoramento desse material, enviar e-mail para `gen
 
 Acesse também outros materiais em português produzidos por Cristiane Taniguti, Fernando Correr e Rodrigo Amadeu [aqui](http://cristianetaniguti.github.io/Workshop_genetica_esalq/).
 
-Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Cristiane Taniguti, Fernando Correr e Kaio Olimpio ministraram o Treinamento. Também contamos com os monitores: Letícia de Castro Lara, Getúlio Caixeta, Gabriel Gesteira, Rafael Yassue, Fernando Espolador, Júlia Morosini, Guilherme Hokasa, Victor Mello, Ana Letycia Basso, Jessica Ferrarezi e Jéssica Nogueira de Souza.
+Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Cristiane Taniguti, Vitor Hugo de Mello Pessoa e Ana Letycia Basso Garcia ministraram o Treinamento. Também contamos com os monitores: Getúlio Caixeta, Rafael Yassue, Wellingson, Vitória, Guilherme Hokasa, Fernando Correr, Humberto, Igor Araújo, Jenifer Camila Godoy.
 
 Também recomendamos materiais em inglês [aqui](https://GENt-esalq.github.io/cursoR/english_tutorials.html).
