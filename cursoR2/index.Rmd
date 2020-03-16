@@ -36,7 +36,7 @@ São 40 vagas presenciais e 25 possibilidades de acesso remoto. Caso opte pelo a
 
 ## Aviso importante!!
 
-Em decorrência das atuais medidas frente à **epidemia de Covid-19** [anunciadas pelo Cruesp](https://jornal.usp.br/institucional/cruesp-divulga-comunicado-sobre-suspensao-das-aulas-nas-universidades-a-partir-de-17-03/), nesta sexta-feira (13/03/2020), provavelmente não será possível realizar o curso presencialmente na quarta e sexta-feira (dias 18 e 20). Portanto, estamos enviando links para acesso remoto de todos os participantes nesses dias. Confirmaremos em breve, fiquem atentos.
+Em decorrência das atuais medidas referentes à **epidemia de Covid-19** [anunciadas pelo Cruesp](https://jornal.usp.br/institucional/cruesp-divulga-comunicado-sobre-suspensao-das-aulas-nas-universidades-a-partir-de-17-03/) nos últimos dias, liberamos acesso remoto para todos os participantes. Ainda mantemos as aulas presenciais na quarta e sexta-feira. Segundo às últimas medidas anunciadas, somente cursos presenciais com mais de 100 participantes devem ser cancelados essa semana.
 
 ## Materiais
 
@@ -45,5 +45,6 @@ Aqui será disponibilizado o material que será utilizado no **Treinamento em Pr
 * [Cronograma do treinamento](cronograma.html)
 * [Tutorial de instalação do R, RStudio e pacotes que serão utilizados](Tutorial_instalacao.html)
 * [Apresentação inicial](teorica/teorica.html)
-* [Tutorial principal](cursoR.html)
+* [**Tutorial principal**](cursoR.html)
 * [Exercícios](exercicios.html)
+* [Formulário](https://forms.gle/nxCzX5uB9mARmfxm9)
