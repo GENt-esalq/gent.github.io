@@ -92,70 +92,6 @@ Além da facilidade da janela do RStudio, você pode utilizar a tecla `Tab` para
 O `Tab` funciona não só para indicar caminhos, mas também para comandos e nomes de objetos. É muito comum errarmos no código por erros de digitação. Utilizar o `Tab` reduzirá significativamente esses erros.
 
 
-# Pratique gerando relatórios no RStudio
- 
- Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
- 
-Para utilizar, será necessário a instalação de outros pacotes. Um deles é o próprio `rmarkdown`:
-
-```{r, eval=FALSE}
-install.packages("rmarkdown")
-```
-
-```{r}
-library(rmarkdown)
-```
- 
-Agora crie um arquivo .Rmd utilizando as facilidades do RStudio, clique no ícone com símbolo `+` no canto superior esquerdo. Escolha o opção `R Markdown`. Dê um título ao seu arquivo e escolha a opção `html`. Ao fazer isso, o RStudio já coloca um template inicial, ja com um cabeçalho:
-
-```
----
-title: "Teste"
-author: "Eu"
-date: "June 5, 2018"
-output: html_document
----
-
-```
-
-Este é o mais simples possível, você pode otimizá-lo de diversas maneiras. Saiba mais [aqui](https://rmarkdown.rstudio.com/html_document_format.html).
-
-O template inicial também traz alguns exemplos de sintaxe do markdown. Observe que utilizando `#` para títulos de sessões, `##` para um nível inferior (subtitulos) e assim por diante. Palavras em negrito são escritas em meia a dois `*` e existem diversas outras especificações para essa sintaxe. Veja mais sobre ela [aqui](https://www.markdownguide.org/basic-syntax).
-
-Para compilar o código, basta clicar em `Knit`. Ele irá pedir para que o arquivo .Rmd seja salvo com algum nome em algum lugar.
-
-O markdown também é capaz de entender diretamente a linguagem html, também a css e latex. Para essa última, o latex precisa estar instalado e todas suas dependências.
-
-Existem alguns pacotes que fornecem templates mais robustos para produção de htmls. Para esse tutorial utilizando o pacote `rmdformats` e personalizamos suas cores. Experimente:
-
-```{r, eval=FALSE}
-install.packages("rmdformats")
-```
-
-Agora faça o mesmo procedimento, clique no `+`, escolha `R Markdown` e, antes de escolher um título, mude para `From Template`, escolha o `HTML readthedown template`. Copie e cole o seguinte texto e aperte `Knit`.
-
-```
-# Teste1
-
-Isso aqui é um teste só para dar uma olhada no template
-
-## Testinho
-
-Subsessão
-
-* Item
-
-**negrito**
-
-*itálico*
-
-fiz um [link](https://GENt-esalq.github.io/)!
-
-```
-
-
-Saiba mais no tutorial sobre isso no R-bloggers, que acreditamos ser um bom começo! Acesse [aqui](https://www.r-bloggers.com/how-to-create-reports-with-r-markdown-in-rstudio/).
-
 # Operações básicas
 
 Vamos então à linguagem! 
@@ -1851,6 +1787,70 @@ autoplot(prcomp(~ conhecimentoR + altura + peso + idade, data = dados),
 Agora que você fez um plot de PCA, você pode perceber que ele é apenas uma variação do `geom_point()`, isto permite que você adicione todas as camadas de ggplot que você quiser sobre este gráfico. Já fizemos isto com as legendas!
 
 # Extra
+
+## Pratique gerando relatórios no RStudio
+ 
+ Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
+ 
+Para utilizar, será necessário a instalação de outros pacotes. Um deles é o próprio `rmarkdown`:
+
+```{r, eval=FALSE}
+install.packages("rmarkdown")
+```
+
+```{r}
+library(rmarkdown)
+```
+ 
+Agora crie um arquivo .Rmd utilizando as facilidades do RStudio, clique no ícone com símbolo `+` no canto superior esquerdo. Escolha o opção `R Markdown`. Dê um título ao seu arquivo e escolha a opção `html`. Ao fazer isso, o RStudio já coloca um template inicial, ja com um cabeçalho:
+
+```
+---
+title: "Teste"
+author: "Eu"
+date: "June 5, 2018"
+output: html_document
+---
+
+```
+
+Este é o mais simples possível, você pode otimizá-lo de diversas maneiras. Saiba mais [aqui](https://rmarkdown.rstudio.com/html_document_format.html).
+
+O template inicial também traz alguns exemplos de sintaxe do markdown. Observe que utilizando `#` para títulos de sessões, `##` para um nível inferior (subtitulos) e assim por diante. Palavras em negrito são escritas em meia a dois `*` e existem diversas outras especificações para essa sintaxe. Veja mais sobre ela [aqui](https://www.markdownguide.org/basic-syntax).
+
+Para compilar o código, basta clicar em `Knit`. Ele irá pedir para que o arquivo .Rmd seja salvo com algum nome em algum lugar.
+
+O markdown também é capaz de entender diretamente a linguagem html, também a css e latex. Para essa última, o latex precisa estar instalado e todas suas dependências.
+
+Existem alguns pacotes que fornecem templates mais robustos para produção de htmls. Para esse tutorial utilizando o pacote `rmdformats` e personalizamos suas cores. Experimente:
+
+```{r, eval=FALSE}
+install.packages("rmdformats")
+```
+
+Agora faça o mesmo procedimento, clique no `+`, escolha `R Markdown` e, antes de escolher um título, mude para `From Template`, escolha o `HTML readthedown template`. Copie e cole o seguinte texto e aperte `Knit`.
+
+```
+# Teste1
+
+Isso aqui é um teste só para dar uma olhada no template
+
+## Testinho
+
+Subsessão
+
+* Item
+
+**negrito**
+
+*itálico*
+
+fiz um [link](https://GENt-esalq.github.io/)!
+
+```
+
+
+Saiba mais no tutorial sobre isso no R-bloggers, que acreditamos ser um bom começo! Acesse [aqui](https://www.r-bloggers.com/how-to-create-reports-with-r-markdown-in-rstudio/).
 
 ## Família de funções `apply`
 
