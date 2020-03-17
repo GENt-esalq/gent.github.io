@@ -539,9 +539,15 @@ Teremos quatro matrizes com duas linhas e três colunas e os números de 1 a 24 
 
 <span style="color:red"> Paramos aqui no primeiro dia. </span>
 
+
+# Segundo dia - retomando os trabalhos
+
+
 * Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR2/dia1.RData).
 
 * [Aqui](https://GENt-esalq.github.io/cursoR2/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
+
+
 
 
 # Exportando e importando dados
@@ -683,20 +689,83 @@ Podemos espeficiar mais do que uma condição repetindo a estrutura `if` `else`:
 ```{r}
 if(dados[2,13] == 0){
   print("Nunca é tarde para começar!")
-} else if (dados[2,13] > 0 && dados[2,13] < 5){
+} else if (dados[2,13] > 0 & dados[2,13] < 5){
   print("Já pegou o embalo, agora é só continuar!")
 } else {
   print("Nos avise se estivermos falando algo errado...hehe")
 }
 ```
 
-Também podemos fazer uso das funções `any` e `all`. Será que algum de nós tem mais de 60 anos de idade (idade está na 9ª coluna)? Se sim, diga para essa pessoa tomar mais cuidado com o coronavirus.
+Também podemos fazer uso das funções `any` e `all`. Será que algum de nós tem mais de 60 anos de idade (idade está na 9ª coluna)? Se sim, diga para essa pessoa tomar cuidado e levar a sério o isolamento.
+
+Lembrando como `any` e `all` funcionam:
 
 ```{r}
+x <- 1:10
+all(x > 0)
+any(x > 0)
+
+all(x > 9)
+any(x > 9)
+
+all(x > 10)
+any(x > 10)
+```
+
+
+```{r, eval=FALSE}
 if(any(dados[,9] > 60)){
-  print("Você está no grupo de risco! Fique atento/a aos sintomas. Lave bem as mãos, use alcool gel e evite multidões.")
+  print("Sabemos que você está entre nós! Para sua segurança, é melhor que fique em casa, esperamos que esteja assistindo remotamente.")
 } else{
-  print("Lave bem as mãos, use alcool gel e evite multidões.")
+  print("Não há maiores de 60 anos aqui, evitem visitar idosos nesse período, vamos mantê-los seguros.")
+}
+```
+
+Ih! Achamos um bug, né? Vamos lidar com ele! O R deu uma dica de onde ele está:
+
+```
+Error in if (any(dados[, 9] > 60)) { : 
+  missing value where TRUE/FALSE needed
+```
+
+```{r, eval=F}
+dados[,9] # Verificamos que existem dados perdidos
+dados[,9] > 60 # Quando comparamos com 60, eles continuam como dados perdidos
+any(dados[,9] > 60) # Aqui está o bug! Por padrão o any, quando encontra NA retorna NA
+any(dados[,9] > 60, na.rm = TRUE) # Mudamos esse padrão utilizando o argumento para remover os NA
+```
+
+```{r}
+# Nós poderíamos fazer também da seguinte maneira:
+idade <- dados[,9]
+is.na(idade)
+idade_semNA <- idade[-which(is.na(idade))]
+```
+
+Pronto! Podemos voltar ao código.
+
+```{r}
+if(any(dados[,9] > 60, na.rm = TRUE)){
+  print("Sabemos que você está entre nós! Para sua segurança, é melhor que fique em casa, esperamos que esteja assistindo remotamente.")
+} else{
+  print("Não há maiores de 60 anos aqui. Evitem visitar idosos nesse período, vamos mantê-los seguros.")
+}
+
+# ou
+if(any(idade_semNA > 60)){
+  print("Sabemos que você está entre nós! Para sua segurança, é melhor que fique em casa, esperamos que esteja assistindo remotamente.")
+} else{
+  print("Não há maiores de 60 anos aqui. Evitem visitar idosos nesse período, vamos mantê-los seguros.")
+}
+```
+
+* Lembra do paradoxo do aniversário? Verifique se existe uma data repetida no vetor e responda "Existem pessoas aqui que fazem aniversário no mesmo dia" caso exista e "Não temos pessoas com aniversário no mesmo dia aqui" caso contrário.
+
+```{r, echo=FALSE}
+if(any(table(dados$aniversario) > 1)){
+  cat("Existem pessoas aqui que fazem aniversário no mesmo dia")
+} else {
+  cat("Não temos pessoas com aniversário no mesmo dia aqui")
 }
 ```
 
@@ -715,7 +784,7 @@ switch(dados[2,8],
 
 A estrutura `switch` costuma ser mais rápida que o `if` e `else`. Quando lidamos com grande quantidade de dados isso pode ser uma grande vantagem.
 
-Mas repare que só é possível utilizar essas estruturas para um elemento individual do vetor, se quisermos percorrer o vetor inteiro precisamos recorrer a outro recurso.
+Mas repare que só é possível utilizar essas estruturas para um elemento individual do vetor ou em todo ele, se quisermos percorrer os elementos individualmente precisamos recorrer a outro recurso.
 
 # Estruturas de repetição
 
@@ -739,16 +808,16 @@ Nos casos acima, `i` funciona como um index que irá variar de 1 até 10 a opera
 
 Com essa estrutura, podemos repetir a operação realizada com as estruturas `if` e `else` para todo o vetor:
 
-```{r}
+```{r, eval=F}
 for(i in 1:nrow(dados)){
-  if(dados[i,9] == 0){
+  if(dados[i,13] == 0){
     print("Nunca é tarde para começar!")
-  } else if (dados[i,9] > 0 && dados[i,9] < 5){
+  } else if (dados[i,13] > 0 && dados[i,13] < 5){
     print("Já pegou o embalo, agora é só continuar!")
   } else {
       print("Nos avise se estivermos falando algo errado...hehe")
     }
-}
+} 
 ```
 
 **Dica: Identação**
@@ -758,9 +827,9 @@ Repare a diferença:
 ```{r, eval=FALSE}
 # Sem identação
 for(i in 1:nrow(dados)){
-if(dados[i,9] == 0){
+if(dados[i,13] == 0){
 print("Nunca é tarde para começar!")
-} else if (dados[i,9] > 0 && dados[i,9] < 5){
+} else if (dados[i,13] > 0 && dados[i,13] < 5){
 print("Já pegou o embalo, agora é só continuar!")
 } else {
 print("Nos avise se estivermos falando algo errado...hehe")
@@ -769,9 +838,9 @@ print("Nos avise se estivermos falando algo errado...hehe")
 
 # Com identação correta
 for(i in 1:nrow(dados)){
-  if(dados[i,9] == 0){
+  if(dados[i,13] == 0){
     print("Nunca é tarde para começar!")
-  } else if (dados[i,9] > 0 && dados[i,9] < 5){
+  } else if (dados[i,13] > 0 && dados[i,13] < 5){
     print("Já pegou o embalo, agora é só continuar!")
   } else {
     print("Nos avise se estivermos falando algo errado...hehe")
@@ -812,6 +881,7 @@ for(i in 1:nrow(dados)){
   }
 }
 
+corrigir
 ```
 
 
@@ -823,15 +893,12 @@ Uma possibilidade de resposta:
 
 ```{r, eval=FALSE}
 dados[corrigir,4]
-novo <- c("São José dos Campos - SP", "Piracicaba - SP", "São Paulo - SP", "Piracicaba-SP",
-          "Uberlância-MG", "Piracicaba-SP", "Uberaba-MG", "São Luis-MA", "Piracicaba-SP",
-          "Piracicaba-SP")
+novo <- c("Piracicaba - SP")
 dados[corrigir,4] <- novo
 
 # Verificando se corrigiu
 dados[,4]
 ```
-
 
 > A coluna 9 da tabela se refere à idade dos participantes, imprima na tela (usando print ou cat) a década em que cada um nasceu, como a seguir: "Nasceu na década de 80".
 
@@ -840,7 +907,7 @@ Dica: [Faça um novo vetor com a subtração das idades pelo ano atual e depois 
 Uma possibilidade de resposta:
 
 ```{r}
-decada <- 2020 - dados$idade
+decada <- 2020 - idade_semNA
 
 for(i in 1:length(decada)){
   if(decada[i] < 1960){
@@ -858,7 +925,6 @@ for(i in 1:length(decada)){
   }
 }
 ```
-
 
 ## While
 
@@ -947,11 +1013,12 @@ var2 <- c("ESS", "URO", "GRA")
 w <- 1
 for(i in var1){
   for(j in var2){
-    cat("No bloco",w,"será aplicado o",i,"na planta",j, "\n")
+    nome_arquivo <- paste0(i,"_planta_",j,".txt")
+    arquivo <- data.frame("bloco" = "fake_data", "tratamento" ="fake_data")
+    write.table(arquivo, file = nome_arquivo)
     w <- w + 1
   }
 }
-
 
 ```
 
@@ -963,7 +1030,7 @@ Fizemos um vídeo com mais detalhes sobre loops no R, aumentem nossa quantidade 
 
 * Cuidado ao rodar o mesmo comando mais de uma vez, algumas variáveis podem não ser mais como eram antes. Para que o comando funcione da mesma forma é necessário que os objetos de entrada estejam da forma como você espera.
 * Lembrem-se que `=` é para definir objetos e `==` é o sinal de igualdade. 
-* Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros contínua.
+* Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros ou caracteres.
 * Usar identação ajuda a visualizar o começo e fim de cada estrutura de código e facilita o abrir e fechar de chaves. Identação são aqueles espaços que usamos antes da linha, como:
 
 ```{r}
