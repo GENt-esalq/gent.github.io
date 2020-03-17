@@ -48,3 +48,4 @@ Aqui será disponibilizado o material que será utilizado no **Treinamento em Pr
 * [**Tutorial principal**](cursoR.html)
 * [Exercícios](exercicios.html)
 * [Formulário](https://forms.gle/nxCzX5uB9mARmfxm9)
+* [Dados do formulário](dados_alunos2020.csv)
