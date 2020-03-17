@@ -1542,7 +1542,7 @@ Os gráficos podem ser salvos de várias formas diferentes, vamos olhar algumas 
 
 Usando a função `ggsave()`, conseguimos salvar imagens em formatos como: "pdf", "png", "jpeg", "tiff", "bmp", "eps", "ps", "tex", "svg".
 
-```{r}
+```{r, eval=FALSE}
 # Para salvar gráficos usando comandos, usamos a função ggsave()
 ggplot(dados) +
   geom_boxplot(aes(x = escolaridade, y = conhecimentoR)) +
