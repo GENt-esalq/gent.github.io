@@ -542,28 +542,36 @@ Teremos quatro matrizes com duas linhas e três colunas e os números de 1 a 24 
 
 # Segundo dia - retomando os trabalhos
 
-
-* Caso não tenha salvado os objetos criados até agora, obtenha-os [aqui](https://GENt-esalq.github.io/cursoR2/dia1.RData).
-
 * [Aqui](https://GENt-esalq.github.io/cursoR2/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
 
+* Obtenha o arquivo RData com todos os objetos criados até então no tutorial [aqui](https://GENt-esalq.github.io/cursoR2/dia1.RData).
 
+**Coloque ambos no seu Diretório de Trabalho**
 
+# Importando e exportando dados
 
-# Exportando e importando dados
+Os arquivos RData são exclusivos do R, clicando duas vezes no arquivo ou utilizando:
 
-Os objetos criados dentro do R podem ser exportados em arquivos de diversos formatos. Lembre-se que, se não definir todo o caminho que deseja depositar o arquivo, ele irá ser salvo no seu diretório de trabalho.
+```{r}
+load("dia1.RData")
+```
 
-Para exportar o objeto no formato .RData:
+Você vai recuperar todos os objetos gerados até agora no tutorial. Para gerar esse arquivo RData, eu rodei todos os códigos daqui para cima e usei:
+
+```{r}
+save.image(file = "dia1.RData")
+```
+
+Este comando salva tudo o que você tem no seu Ambiente Global (todos os objetos que aparecem ali no canto direito superior). Você pode também salvar somente um objeto com:
 
 ```{r, eval=FALSE}
 save(campo1, file = "campo1.RData")
 ```
 
-Essa é uma forma de salvar o objeto trabalhado, se removermos ele com:
+Se removermos ele do nosso Ambiente Global com:
 
 ```{r, eval=FALSE}
-rm(campo1)  # Certifique-se que salvou o objeto antes de removê-lo
+rm(campo1)  # Certifique-se que salvou o arquivo RData antes de removê-lo
 ```
 
 Podemos facilmente obtê-lo novamente com:
@@ -572,15 +580,7 @@ Podemos facilmente obtê-lo novamente com:
 load("campo1.RData")
 ```
 
-Para salvar todos os objetos do seu *workspace* use:
-
-```{r, eval=FALSE}
-save.image()
-```
-
-O R irá criar um arquivo `.Rdata` contendo todos os seus objetos.
-
-Podemos exportar nossos objetos em outros formatos, como, por exemplo, `.txt` ou `.csv`. Para isso utilizamos:
+O formato RData é exclusivo para o R, ele é interessante de ser usado para fazer o que estamos fazendo, paramos a análise em um dia, vamos continuar em um outro e não queremos ter que rodar tudo de novo. Mas muitas vezes precisamos exportar nossos dados para outros programas, que exigem outros formatos, como, por exemplo, `.txt` ou `.csv`. Para isso utilizamos:
 
 ```{r, eval=FALSE}
 write.table(campo1, file = "campo1.txt", sep = ";", dec = ".", row.names = FALSE)
@@ -607,8 +607,8 @@ Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado a p
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
 
-* [dados.RData](https://GENt-esalq.github.io/wait.html) 
-* [dados.csv](https://GENt-esalq.github.io/wait.html)
+* [dados.RData](https://GENt-esalq.github.io/dados_alunos2020.RData) 
+* [dados.csv](https://GENt-esalq.github.io/dados_alunos2020.csv)
 
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
 
