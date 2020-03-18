@@ -91,6 +91,7 @@ Além da facilidade da janela do RStudio, você pode utilizar a tecla `Tab` para
 
 O `Tab` funciona não só para indicar caminhos, mas também para comandos e nomes de objetos. É muito comum errarmos no código por erros de digitação. Utilizar o `Tab` reduzirá significativamente esses erros.
 
+
 # Operações básicas
 
 Vamos então à linguagem! 
@@ -1862,7 +1863,6 @@ Agora que você fez um plot de PCA, você pode perceber que ele é apenas uma va
 
 # Extra
 
-
 ## Pratique gerando relatórios no RStudio
  
  Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
@@ -1926,8 +1926,6 @@ fiz um [link](https://GENt-esalq.github.io/)!
 
 
 Saiba mais no tutorial sobre isso no R-bloggers, que acreditamos ser um bom começo! Acesse [aqui](https://www.r-bloggers.com/how-to-create-reports-with-r-markdown-in-rstudio/).
-
-
 
 
 ## Família de funções `apply`
