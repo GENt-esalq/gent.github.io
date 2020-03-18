@@ -152,11 +152,11 @@ a)[146.6875]{.spoiler}
 
 b)[NA e um warning]{.spoiler}
 
-> 3 - Crie um vetor de uma amostra da distribuição Normal com comprimento 30000, média 20 e desvio padrão 5. Antes de criar o vetor, utilize set.seed(123456).
+> 3 - Crie um vetor de uma amostra da distribuição Normal com comprimento 3000, média 20 e desvio padrão 5. Antes de criar o vetor, utilize set.seed(123456).
 
 > a)Qual o somatório das observações no vetor que são maiores que 30?
 
-> b)E o somatório das observações menores que a média?
+> b)E o somatório das observações menores que a média? **OBS: Calcule a média do conjunto de valores que você acabou de gerar.**
 
 > c)Excluir a menor observação do vetor.
 
