@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2021-06-09T18:19:10-03:00</updated>
+  <updated>2021-06-09T18:21:55-03:00</updated>
   <id>http://localhost:4000/</id>
 
   
@@ -20,12 +20,12 @@
   
   
     <entry>
-      <title type="html">Eventos No Departamento De Genetica</title>
-      <link href="http://localhost:4000/english_version/2019/05/30/Eventos-no-Departamento-de-Genetica/" rel="alternate" type="text/html" title="Eventos No Departamento De Genetica" />
-      <published>2019-05-30T00:00:00-03:00</published>
-      <updated>2019-05-30T00:00:00-03:00</updated>
-      <id>http://localhost:4000/english_version/2019/05/30/Eventos-no-Departamento-de-Genetica</id>
-      <content type="html" xml:base="http://localhost:4000/english_version/2019/05/30/Eventos-no-Departamento-de-Genetica/"></content>
+      <title type="html"></title>
+      <link href="http://localhost:4000/2021/06/09/2019-05-30-Eventos-no-Departamento-de-Genetica/" rel="alternate" type="text/html" title="" />
+      <published>2021-06-09T18:21:55-03:00</published>
+      <updated>2021-06-09T18:21:55-03:00</updated>
+      <id>http://localhost:4000/2021/06/09/2019-05-30-Eventos-no-Departamento-de-Genetica</id>
+      <content type="html" xml:base="http://localhost:4000/2021/06/09/2019-05-30-Eventos-no-Departamento-de-Genetica/"></content>
 
       
       
@@ -44,8 +44,6 @@
       
 
       
-        <summary type="html"></summary>
-      
 
       
       
@@ -53,11 +51,11 @@
   
     <entry>
       <title type="html">Eventos No Departamento De Genetica</title>
-      <link href="http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica/" rel="alternate" type="text/html" title="Eventos No Departamento De Genetica" />
+      <link href="http://localhost:4000/english_version/2019/05/30/Eventos-no-Departamento-de-Genetica/" rel="alternate" type="text/html" title="Eventos No Departamento De Genetica" />
       <published>2019-05-30T00:00:00-03:00</published>
       <updated>2019-05-30T00:00:00-03:00</updated>
-      <id>http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica</id>
-      <content type="html" xml:base="http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica/"></content>
+      <id>http://localhost:4000/english_version/2019/05/30/Eventos-no-Departamento-de-Genetica</id>
+      <content type="html" xml:base="http://localhost:4000/english_version/2019/05/30/Eventos-no-Departamento-de-Genetica/"></content>
 
       
       
