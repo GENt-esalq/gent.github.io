@@ -1,0 +1,64 @@
+# Site settings
+title: GENt
+email: gent.esalq@gmail.com
+url: https://example.github.io
+description: "At this webpage you will find informations about the group GENt and its activities. GENt is a group formed by graduate students from University of São Paulo (USP-ESALQ) for scientific communication"
+keywords: "ESALQ, Genetics, Genética, Agronomia"
+skills: "Transportando Conhecimentos em Genética"
+meta_author: GENt
+
+# Google webmaster tools
+google_verify:
+
+google_analytics: UA-129441865-1
+
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:
+
+# Contact form:
+# - static : pass through formspree.io to validate email sending
+# - disqus : replace contact form by disqus thread
+# - comment the line below if you want to stick with the default PHP contact form
+contact: static
+
+# If you use disqus you need disqus shortname
+# https://help.disqus.com/customer/portal/articles/466208
+disqus_shortname: myshortname
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary: 11a858ff #11A858
+  primary-rgb: "17,168,88" #"128,179,255"
+  secondary: 2553a4ff #FD6E8A
+  secondary-dark: 233140 #A2122F	 
+
+
+# Footer settings
+footer:
+#  copyright: 
+  location: Referências
+  social: Acesse também
+  credits: Apoio	
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: github
+    url: https://github.com/GENt-esalq
+
+# Postal address (add as many lines as necessary)
+#address:
+#  - line: 3481 Melrose Place
+#  - line: Beverly Hills, CA 90210
+
+location: 
+
+# Credits content
+credits: 'Colocar aqui logo de agências e empresas'
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+
+# Arquivos para serem alterados
+# _includes/css/main.css

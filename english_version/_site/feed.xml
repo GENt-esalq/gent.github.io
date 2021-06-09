@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2021-06-09T18:12:53-03:00</updated>
+  <id>http://localhost:4000/</id>
+
+  
+    <title type="html">GENt</title>
+  
+
+  
+    <subtitle>At this webpage you will find informations about the group GENt and its activities. GENt is a group formed by graduate students from University of São Paulo (USP-ESALQ) for scientific communication</subtitle>
+  
+
+  
+
+  
+  
+    <entry>
+      <title type="html">Eventos No Departamento De Genetica</title>
+      <link href="http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica/" rel="alternate" type="text/html" title="Eventos No Departamento De Genetica" />
+      <published>2019-05-30T00:00:00-03:00</published>
+      <updated>2019-05-30T00:00:00-03:00</updated>
+      <id>http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica</id>
+      <content type="html" xml:base="http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica/"></content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name></name>
+        
+        
+      </author>
+
+      
+
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Treinamentos</title>
+      <link href="http://localhost:4000/2019/05/10/Treinamentos/" rel="alternate" type="text/html" title="Treinamentos" />
+      <published>2019-05-10T00:00:00-03:00</published>
+      <updated>2019-05-10T00:00:00-03:00</updated>
+      <id>http://localhost:4000/2019/05/10/Treinamentos</id>
+      <content type="html" xml:base="http://localhost:4000/2019/05/10/Treinamentos/"></content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name></name>
+        
+        
+      </author>
+
+      
+
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Gent Na Rua</title>
+      <link href="http://localhost:4000/2019/05/01/GENt-na-Rua/" rel="alternate" type="text/html" title="Gent Na Rua" />
+      <published>2019-05-01T00:00:00-03:00</published>
+      <updated>2019-05-01T00:00:00-03:00</updated>
+      <id>http://localhost:4000/2019/05/01/GENt-na-Rua</id>
+      <content type="html" xml:base="http://localhost:4000/2019/05/01/GENt-na-Rua/"></content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name></name>
+        
+        
+      </author>
+
+      
+
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Gent Nas Escolas</title>
+      <link href="http://localhost:4000/2018/11/20/GENt-nas-escolas/" rel="alternate" type="text/html" title="Gent Nas Escolas" />
+      <published>2018-11-20T00:00:00-02:00</published>
+      <updated>2018-11-20T00:00:00-02:00</updated>
+      <id>http://localhost:4000/2018/11/20/GENt-nas-escolas</id>
+      <content type="html" xml:base="http://localhost:4000/2018/11/20/GENt-nas-escolas/"></content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name></name>
+        
+        
+      </author>
+
+      
+
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
