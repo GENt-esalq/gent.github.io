@@ -14,6 +14,9 @@ description: "<p style = 'text-align: justify; margin-bottom:1cm;'> A GENt tamb√
 <p style = 'text-align: justify; margin-bottom:1cm;'>   </p>
 
 <a href='naRua/12.05.2019/fotos_12.05.2019.html'><font size='5'><u> em frente ao pr√©dio central da ESALQ-USP  (12/05/2019) </u></font></a> 
+
+<a href='naRua/15.09.2019/BioNaRua.html'><font size='5'><u> Bio na Rua (15/09/2019) </u></font></a> 
+
  "
 
 ---
