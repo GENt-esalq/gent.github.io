@@ -21,11 +21,11 @@ description: "<p style = 'text-align: justify;'> O grupo GENt promove eventos no
 <p style = 'text-align: justify;' ><font size='3'> Palestra intitulada 'Uma visão da química de produtos naturais nas interações biológicas em citros', acesse o link para saber mais. </font> </p>
 
 <a href='eventos_depto/mulher2020.html'><font size='5'><u>Dia da Mulher na Ciência </u></font></a> 
-<p style = 'text-align: justify;' ><font size='3'> Realizado dia 11 de fevereiro de 2020 </font> </p>"
+<p style = 'text-align: justify;' ><font size='3'> Realizado dia 11 de fevereiro de 2020 </font> </p>
 
 <a href='eventos_depto/seminario2.html'><font size='5'><u>Palestra Drª Marcela Uliano da Silva </u></font></a> 
 
-<a href='eventos_depto/seminario3.html'><font size='5'><u>Palestra Drª Philippa Borrill </u></font></a> 
+<a href='eventos_depto/seminario3.html'><font size='5'><u>Palestra Drª Philippa Borrill </u></font></a>" 
 
 
 ---
