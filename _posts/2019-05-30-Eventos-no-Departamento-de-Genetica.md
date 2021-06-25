@@ -24,8 +24,12 @@ description: "<p style = 'text-align: justify;'> O grupo GENt promove eventos no
 <p style = 'text-align: justify;' ><font size='3'> Realizado dia 11 de fevereiro de 2020 </font> </p>
 
 <a href='eventos_depto/seminario2.html'><font size='5'><u>Palestra Drª Marcela Uliano da Silva </u></font></a> 
+<p style = 'text-align: justify;' ><font size='3'> Realizada dia 27 de novembro de 2020. Palestra disponível online. </font> </p>
 
-<a href='eventos_depto/seminario3.html'><font size='5'><u>Palestra Drª Philippa Borrill </u></font></a>" 
+
+<a href='eventos_depto/seminario3.html'><font size='5'><u>Palestra Drª Philippa Borrill </u></font></a> 
+<p style = 'text-align: justify;' ><font size='3'> Realizado dia 2 de junho de 2021. Palestra disponível online. </font> </p>"
+
 
 
 ---
