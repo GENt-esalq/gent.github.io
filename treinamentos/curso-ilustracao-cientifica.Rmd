@@ -1,0 +1,24 @@
+---
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+<center>
+<figure>
+  <img src="curso-ilustra.png" width="600" height="400" class="center">
+</figure>
+</center>
+
+# Apresentação
+
+<p style = 'text-align: justify;'> O Curso Rápido de Ilustração Científica mostrou algumas estratégias e ferramentas para o planejamento e elaboração de imagens para artigos científicos.   
+  
+O curso ocorreu no dia 02 de setembro de 2021, com transmissão ao vivo pelo YouTube e teve mais de 3.500 inscritos.   
+  
+A conversa foi conduzida pela integrante do GENt e doutoranda [Ana Letycia Basso Garcia](https://twitter.com/BassoLetycia) e pela Dra. e ilustradora [Patricia Sanae Sujii](https://www.instagram.com/psilustra/). </p>
+  
+<p style = 'text-align: justify;'> Você pode **assistir a gravação do curso [aqui](https://youtu.be/5wWZC0NJ7qc)** </p>
+
+<p style = 'text-align: justify;'>  A Patricia e a Ana Letycia também fizeram uma **apostila** com os principais pontos abordados no curso, que **você pode baixar [aqui](https://github.com/letyciabasso/curso_ilustracao_cientifica/raw/main/Apostila.pdf)**. </p>
