@@ -1,0 +1,15 @@
+<center>
+<figure>
+  <img src="capac_divulg.png" width="400" height="500" class="center">
+</figure>
+</center>
+
+# Apresentação
+
+<p style = 'text-align: justify;'> Com o objetivo de fortalecer a inserção do Departamento de Genética nas mídias sociais para divulgação de suas atividades e competências, a Capacitação em Divulgação Científica foi oferecida pelo grupo GENt à comunidade do Departamento de Genética nos dias 07 e 09 de outubro de 2020. </p>
+
+<p style = 'text-align: justify;'> Esse curso de 4h contou com a parte teórica e atividades práticas. Os participantes foram convidados a trazer produtos da sua pesquisa - artigos científicos, resumos de congresso, etc., para trabalhar conceitos de divulgação científica. </p>
+  
+<p style = 'text-align: justify;'> Alunos e professores se envolveram nos dois dias de atividades e o curso foi muito proveitoso para todos os envolvidos. O curso foi oferecido pela Dr. Maria Letícia Bonatelli. </p>
+
+**Data**: 07 e 09 de Outubro de 2020

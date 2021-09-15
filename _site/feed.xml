@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
-  <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2019-09-12T17:06:29-03:00</updated>
+  <updated>2021-06-25T14:23:10-04:00</updated>
   <id>http://localhost:4000/</id>
 
   
@@ -22,8 +22,8 @@
     <entry>
       <title type="html">Eventos No Departamento De Genetica</title>
       <link href="http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica/" rel="alternate" type="text/html" title="Eventos No Departamento De Genetica" />
-      <published>2019-05-30T00:00:00-03:00</published>
-      <updated>2019-05-30T00:00:00-03:00</updated>
+      <published>2019-05-30T00:00:00-04:00</published>
+      <updated>2019-05-30T00:00:00-04:00</updated>
       <id>http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica</id>
       <content type="html" xml:base="http://localhost:4000/2019/05/30/Eventos-no-Departamento-de-Genetica/"></content>
 
@@ -54,8 +54,8 @@
     <entry>
       <title type="html">Treinamentos</title>
       <link href="http://localhost:4000/2019/05/10/Treinamentos/" rel="alternate" type="text/html" title="Treinamentos" />
-      <published>2019-05-10T00:00:00-03:00</published>
-      <updated>2019-05-10T00:00:00-03:00</updated>
+      <published>2019-05-10T00:00:00-04:00</published>
+      <updated>2019-05-10T00:00:00-04:00</updated>
       <id>http://localhost:4000/2019/05/10/Treinamentos</id>
       <content type="html" xml:base="http://localhost:4000/2019/05/10/Treinamentos/"></content>
 
@@ -86,8 +86,8 @@
     <entry>
       <title type="html">Gent Na Rua</title>
       <link href="http://localhost:4000/2019/05/01/GENt-na-Rua/" rel="alternate" type="text/html" title="Gent Na Rua" />
-      <published>2019-05-01T00:00:00-03:00</published>
-      <updated>2019-05-01T00:00:00-03:00</updated>
+      <published>2019-05-01T00:00:00-04:00</published>
+      <updated>2019-05-01T00:00:00-04:00</updated>
       <id>http://localhost:4000/2019/05/01/GENt-na-Rua</id>
       <content type="html" xml:base="http://localhost:4000/2019/05/01/GENt-na-Rua/"></content>
 
@@ -116,42 +116,10 @@
     </entry>
   
     <entry>
-      <title type="html">Professores Com A Gent</title>
-      <link href="http://localhost:4000/2018/11/20/Professores-com-a-GENt/" rel="alternate" type="text/html" title="Professores Com A Gent" />
-      <published>2018-11-20T00:00:00-02:00</published>
-      <updated>2018-11-20T00:00:00-02:00</updated>
-      <id>http://localhost:4000/2018/11/20/Professores-com-a-GENt</id>
-      <content type="html" xml:base="http://localhost:4000/2018/11/20/Professores-com-a-GENt/"></content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name></name>
-        
-        
-      </author>
-
-      
-
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">Gent Nas Escolas</title>
       <link href="http://localhost:4000/2018/11/20/GENt-nas-escolas/" rel="alternate" type="text/html" title="Gent Nas Escolas" />
-      <published>2018-11-20T00:00:00-02:00</published>
-      <updated>2018-11-20T00:00:00-02:00</updated>
+      <published>2018-11-20T00:00:00-05:00</published>
+      <updated>2018-11-20T00:00:00-05:00</updated>
       <id>http://localhost:4000/2018/11/20/GENt-nas-escolas</id>
       <content type="html" xml:base="http://localhost:4000/2018/11/20/GENt-nas-escolas/"></content>
 

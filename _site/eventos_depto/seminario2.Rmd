@@ -1,0 +1,21 @@
+<center>
+<figure>
+  <img src="seminario2.png" width="450" height="350" class="center">
+</figure>
+</center>
+
+# Apresentação
+
+<p style = 'text-align: justify;'> Como parte da programação de seminários do Departamento de Genética, o grupo GENt trouxe a Drª Marcela Uliano da Silva para ministrar o seminário ‘Divulgação científica, crowdfunding e Bioinformática’. </p>
+
+<p style = 'text-align: justify;'> Marcela é Bacharel e licenciada em Ciências Biológicas pela Universidade Federal de Santa Catarina, mestre em Ciências Biológicas (Biofísica) pela Universidade Federal do Rio de Janeiro (IBCCF, UFRJ) e Doutora em Ciências Biológicas (Biofísica) pelo Instituto de Biofísica Carlos Chagas Filho (IBCCF) da UFRJ. Realizou pós-doutorado no Leibniz Institute for Zoo and Wildlife Research (IZW) e no Berlin Center for Genomics in Biodiversity Research (BeGenDiv) com financiamento da Marie Sklodowska-Curie (Horizon2020). Atualmente é Bioinformata Sênior no Wellcome Sanger Institute. Desde 2014 é TED fellow. </p>
+  
+Contamos com a participação de todos.
+
+**Data**: 27 de novembro de 2020
+
+**Horário**: 16h
+
+**Local**: Evento online
+
+**Link para assistir**: https://youtu.be/lY-54KszzAk

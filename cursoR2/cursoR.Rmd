@@ -50,7 +50,7 @@ Ao fazer isso o seu código será processado na janela `Console`, onde aparecer�
 # cat("Hello world")
 ```
 
-O símbolo `#` é muito utilizado para realizar **comentários** ao decorrer do código. Esta é uma ótima prática para deixar o código organizado e para que você possa lembrar mais tarde o que você mesmo/a estava pensando quando o escreveu ou para que outras pessoas possam entendê-lo. Como no exemplo:
+O símbolo `#` é muito utilizado para realizar **comentários** ao decorrer do código. Esta é uma ótima prática para deixar o código organizado e para que você possa lembrar mais tarde o que você estava pensando quando o escreveu ou para que outras pessoas possam entendê-lo. Como no exemplo:
 
 ```{r}
 # Iniciando os trabalhos no R
@@ -89,7 +89,8 @@ Agora, imagine que você tem um diretório como `~/Documentos/mestrado/semestre1
 
 Além da facilidade da janela do RStudio, você pode utilizar a tecla `Tab` para completar o caminho para você. Experimente buscando alguma pasta no seu computador. Basta começar a digitar o caminho e apertar `Tab`, ele irá completar o nome para você! Se você tiver mais do que um arquivo com aquele início de nome, aperte duas vezes o `Tab`, ele mostrará todas as opções.
 
-O `Tab` funciona não só para indicar caminhos, mas também para comandos e nomes de objetos. É muito comum errarmos no código por erros de digitação, utilizar o `Tab` fará com que reduza significativamente esses erros.
+O `Tab` funciona não só para indicar caminhos, mas também para comandos e nomes de objetos. É muito comum errarmos no código por erros de digitação. Utilizar o `Tab` reduzirá significativamente esses erros.
+
 
 # Operações básicas
 
@@ -155,7 +156,7 @@ c(1,3,2,5,2)
 
 **MUITA ATENÇÃO**: O *c* é a função do R (*Combine Values into a Vector or List*) com a qual construímos um vetor! 
 
-Utilizamos o simbolo `:` para criar sequencias de números inteiros, como:
+Utilizamos o simbolo `:` para criar sequências de números inteiros, como:
 
 ```{r}
 1:10
@@ -175,7 +176,7 @@ seq(0,100,5) # Se você já souber a ordem dos argumentos da função
 seq(from=4, to=30, by=3)
 ```
 
-A função `rep` gera sequencias com números repetidos:
+A função `rep` gera sequências com números repetidos:
 
 ```{r}
 rep(3:5, 2)
@@ -396,7 +397,7 @@ X <- matrix(1:12, nrow = 6, ncol = 2)
 X
 ```
 
-Podemos também utilizar sequencias já armazenadas em vetores para gerar uma matriz, desde que eles sejam numéricos:
+Podemos também utilizar sequências já armazenadas em vetores para gerar uma matriz, desde que eles sejam numéricos:
 
 ```{r}
 W <- matrix(c(x,y), nrow = 6, ncol =2)
@@ -498,7 +499,7 @@ str(campo1)
 
 ## Listas
 
-Listas consistem em uma coleção de objetos, não necessariamente de mesma classe. Nelas podemos armazenar todos os outros objetos ja vistos e recuperá-los pela indexação com `[[`. Como exemplo, vamos utilizar alguns objetos que já foram gerados.
+Listas consistem em uma coleção de objetos, não necessariamente de mesma classe. Nelas podemos armazenar todos os outros objetos já vistos e recuperá-los pela indexação com `[[`. Como exemplo, vamos utilizar alguns objetos que já foram gerados.
 
 ```{r}
 minha_lista <- list(campo1 = campo1, media_alt = tapply(campo1$altura, campo1$idade, mean), matrix_ex = W)
@@ -522,7 +523,7 @@ minha_lista[[1]]$diametro
 minha_lista$campo1$diametro
 ```
 
-Listas são muito úteis, por exemplo, quando vamos utilizar/gerar diversos objetos diferentes dentro de um loop. 
+Listas são muito úteis, por exemplo, quando vamos utilizar/gerar diversos objetos dentro de um loop. 
 
 ## Arrays
 
@@ -536,20 +537,42 @@ Teremos quatro matrizes com duas linhas e três colunas e os números de 1 a 24 
 
 > Se estiver adiantada/o em relação aos colegas, você já pode fazer os exercícios da [**Sessão 2**](exercicios.html#sessao2), se não, faça-os no conforto do seu lar e nos envie dúvidas pelo fórum.
 
-# Exportando e importando dados
 
-Os objetos criados dentro do R podem ser exportados em arquivos de diversos formatos. Lembre-se que, se não definir todo o caminho que deseja depositar o arquivo, ele irá ser salvo no seu diretório de trabalho.
+<span style="color:red"> Paramos aqui no primeiro dia. </span>
 
-Para exportar o objeto no formato .RData:
+
+# Segundo dia - retomando os trabalhos
+
+* [Aqui](https://GENt-esalq.github.io/cursoR2/dia1.R) você pode acessar um exemplo de script `.R` para esse primeiro dia.
+
+* Obtenha o arquivo RData com todos os objetos criados até então no tutorial [aqui](https://GENt-esalq.github.io/cursoR2/dia1.RData).
+
+**Coloque ambos no seu Diretório de Trabalho**
+
+# Importando e exportando dados
+
+Os arquivos RData são exclusivos do R, clicando duas vezes no arquivo ou utilizando:
+
+```{r}
+load("dia1.RData")
+```
+
+Você vai recuperar todos os objetos gerados até agora no tutorial. Para gerar esse arquivo RData, eu rodei todos os códigos daqui para cima e usei:
+
+```{r}
+save.image(file = "dia1.RData")
+```
+
+Este comando salva tudo o que você tem no seu Ambiente Global (todos os objetos que aparecem ali no canto direito superior). Você pode também salvar somente um objeto com:
 
 ```{r, eval=FALSE}
 save(campo1, file = "campo1.RData")
 ```
 
-Essa é uma forma de salvar o objeto trabalhado, se removermos ele com:
+Se removermos ele do nosso Ambiente Global com:
 
 ```{r, eval=FALSE}
-rm(campo1)  # Certifique-se que salvou o objeto antes de removê-lo
+rm(campo1)  # Certifique-se que salvou o arquivo RData antes de removê-lo
 ```
 
 Podemos facilmente obtê-lo novamente com:
@@ -558,15 +581,7 @@ Podemos facilmente obtê-lo novamente com:
 load("campo1.RData")
 ```
 
-Para salvar todos os objetos do seu *workspace* use:
-
-```{r, eval=FALSE}
-save.image()
-```
-
-O R irá criar um arquivo `.Rdata` contendo todos os seus objetos.
-
-Podemos exportar nossos objetos em outros formatos, como, por exemplo, `.txt` ou `.csv`. Para isso utilizamos:
+O formato RData é exclusivo para o R, ele é interessante de ser usado para fazer o que estamos fazendo, paramos a análise em um dia, vamos continuar em um outro e não queremos ter que rodar tudo de novo. Mas muitas vezes precisamos exportar nossos dados para outros programas, que exigem outros formatos, como, por exemplo, `.txt` ou `.csv`. Para isso utilizamos:
 
 ```{r, eval=FALSE}
 write.table(campo1, file = "campo1.txt", sep = ";", dec = ".", row.names = FALSE)
@@ -575,7 +590,7 @@ write.csv(campo1, file = "campo1.csv", row.names = TRUE)
 
 Obs: Você pode adquirir pacotes para exportar e importar dados com outros fomatos, como exemplo o pacote `xlsx` exporta e importa dados com formato do excel.
 
-Ao exportar, há diversas opções para a formatação do arquivo, é importante considerá-las se o arquivo for ser trabalhado em outro sofware posteriormente.
+Ao exportar, há diversas opções para a formatação do arquivo, é importante considerá-las se o arquivo for usado em outro sofware posteriormente.
 
 Abra os arquivos gerados para visualizar sua formatação.
 
@@ -593,8 +608,8 @@ Agora que aprendemos a importar dados, vamos trabalhar com o conjunto gerado a p
 <span style="color:red">
 A planilha com os dados será disponibilizada, adicione-a ao seu diretório de trabalho ou indique o caminho da pasta ao importá-la para dentro do R, como a seguir. Caso esteja difícil encontrá-la, acesse:</span> 
 
-* [dados.RData](https://GENt-esalq.github.io/wait.html) 
-* [dados.csv](https://GENt-esalq.github.io/wait.html)
+* [dados.RData](https://GENt-esalq.github.io/dados_alunos2020.RData) 
+* [dados.csv](https://GENt-esalq.github.io/dados_alunos2020.csv)
 
 Aqui usaremos o argumento `stringAsFactors` que impede que o R transforme os vetores da tabela em fatores, os quais são mais difíceis de trabalhar. O argumento `na.strings` irá indicar como foram nomeados os dados perdidos.
 
@@ -675,20 +690,83 @@ Podemos espeficiar mais do que uma condição repetindo a estrutura `if` `else`:
 ```{r}
 if(dados[2,13] == 0){
   print("Nunca é tarde para começar!")
-} else if (dados[2,13] > 0 && dados[2,13] < 5){
+} else if (dados[2,13] > 0 & dados[2,13] < 5){
   print("Já pegou o embalo, agora é só continuar!")
 } else {
   print("Nos avise se estivermos falando algo errado...hehe")
 }
 ```
 
-Também podemos fazer uso das funções `any` e `all`. Será que algum de nós tem mais de 60 anos de idade (idade está na 9ª coluna)? Se sim, diga para essa pessoa tomar mais cuidado com o coronavirus.
+Também podemos fazer uso das funções `any` e `all`. Será que algum de nós tem mais de 60 anos de idade (idade está na 9ª coluna)? Se sim, diga para essa pessoa tomar cuidado e levar a sério o isolamento.
+
+Lembrando como `any` e `all` funcionam:
 
 ```{r}
+x <- 1:10
+all(x > 0)
+any(x > 0)
+
+all(x > 9)
+any(x > 9)
+
+all(x > 10)
+any(x > 10)
+```
+
+
+```{r, eval=FALSE}
 if(any(dados[,9] > 60)){
-  print("Você está no grupo de risco! Fique atento/a aos sintomas. Lave bem as mãos, use alcool gel e evite multidões.")
+  print("Sabemos que você está entre nós! Para sua segurança, é melhor que fique em casa, esperamos que esteja assistindo remotamente.")
 } else{
-  print("Lave bem as mãos, use alcool gel e evite multidões.")
+  print("Não há maiores de 60 anos aqui, evitem visitar idosos nesse período, vamos mantê-los seguros.")
+}
+```
+
+Ih! Achamos um bug, né? Vamos lidar com ele! O R deu uma dica de onde ele está:
+
+```
+Error in if (any(dados[, 9] > 60)) { : 
+  missing value where TRUE/FALSE needed
+```
+
+```{r, eval=F}
+dados[,9] # Verificamos que existem dados perdidos
+dados[,9] > 60 # Quando comparamos com 60, eles continuam como dados perdidos
+any(dados[,9] > 60) # Aqui está o bug! Por padrão o any, quando encontra NA retorna NA
+any(dados[,9] > 60, na.rm = TRUE) # Mudamos esse padrão utilizando o argumento para remover os NA
+```
+
+```{r}
+# Nós poderíamos fazer também da seguinte maneira:
+idade <- dados[,9]
+is.na(idade)
+idade_semNA <- idade[-which(is.na(idade))]
+```
+
+Pronto! Podemos voltar ao código.
+
+```{r}
+if(any(dados[,9] > 60, na.rm = TRUE)){
+  print("Sabemos que você está entre nós! Para sua segurança, é melhor que fique em casa, esperamos que esteja assistindo remotamente.")
+} else{
+  print("Não há maiores de 60 anos aqui. Evitem visitar idosos nesse período, vamos mantê-los seguros.")
+}
+
+# ou
+if(any(idade_semNA > 60)){
+  print("Sabemos que você está entre nós! Para sua segurança, é melhor que fique em casa, esperamos que esteja assistindo remotamente.")
+} else{
+  print("Não há maiores de 60 anos aqui. Evitem visitar idosos nesse período, vamos mantê-los seguros.")
+}
+```
+
+* Lembra do paradoxo do aniversário? Verifique se existe uma data repetida no vetor e responda "Existem pessoas aqui que fazem aniversário no mesmo dia" caso exista e "Não temos pessoas com aniversário no mesmo dia aqui" caso contrário.
+
+```{r, echo=FALSE}
+if(any(table(dados$aniversario) > 1)){
+  cat("Existem pessoas aqui que fazem aniversário no mesmo dia")
+} else {
+  cat("Não temos pessoas com aniversário no mesmo dia aqui")
 }
 ```
 
@@ -707,7 +785,7 @@ switch(dados[2,8],
 
 A estrutura `switch` costuma ser mais rápida que o `if` e `else`. Quando lidamos com grande quantidade de dados isso pode ser uma grande vantagem.
 
-Mas repare que só é possível utilizar essas estruturas para um elemento individual do vetor, se quisermos percorrer o vetor inteiro precisamos recorrer a outro recurso.
+Mas repare que só é possível utilizar essas estruturas para um elemento individual do vetor ou em todo ele, se quisermos percorrer os elementos individualmente precisamos recorrer a outro recurso.
 
 # Estruturas de repetição
 
@@ -731,16 +809,16 @@ Nos casos acima, `i` funciona como um index que irá variar de 1 até 10 a opera
 
 Com essa estrutura, podemos repetir a operação realizada com as estruturas `if` e `else` para todo o vetor:
 
-```{r}
+```{r, eval=F}
 for(i in 1:nrow(dados)){
-  if(dados[i,9] == 0){
+  if(dados[i,13] == 0){
     print("Nunca é tarde para começar!")
-  } else if (dados[i,9] > 0 && dados[i,9] < 5){
+  } else if (dados[i,13] > 0 && dados[i,13] < 5){
     print("Já pegou o embalo, agora é só continuar!")
   } else {
       print("Nos avise se estivermos falando algo errado...hehe")
     }
-}
+} 
 ```
 
 **Dica: Identação**
@@ -750,9 +828,9 @@ Repare a diferença:
 ```{r, eval=FALSE}
 # Sem identação
 for(i in 1:nrow(dados)){
-if(dados[i,9] == 0){
+if(dados[i,13] == 0){
 print("Nunca é tarde para começar!")
-} else if (dados[i,9] > 0 && dados[i,9] < 5){
+} else if (dados[i,13] > 0 && dados[i,13] < 5){
 print("Já pegou o embalo, agora é só continuar!")
 } else {
 print("Nos avise se estivermos falando algo errado...hehe")
@@ -761,9 +839,9 @@ print("Nos avise se estivermos falando algo errado...hehe")
 
 # Com identação correta
 for(i in 1:nrow(dados)){
-  if(dados[i,9] == 0){
+  if(dados[i,13] == 0){
     print("Nunca é tarde para começar!")
-  } else if (dados[i,9] > 0 && dados[i,9] < 5){
+  } else if (dados[i,13] > 0 && dados[i,13] < 5){
     print("Já pegou o embalo, agora é só continuar!")
   } else {
     print("Nos avise se estivermos falando algo errado...hehe")
@@ -804,6 +882,7 @@ for(i in 1:nrow(dados)){
   }
 }
 
+corrigir
 ```
 
 
@@ -815,15 +894,12 @@ Uma possibilidade de resposta:
 
 ```{r, eval=FALSE}
 dados[corrigir,4]
-novo <- c("São José dos Campos - SP", "Piracicaba - SP", "São Paulo - SP", "Piracicaba-SP",
-          "Uberlância-MG", "Piracicaba-SP", "Uberaba-MG", "São Luis-MA", "Piracicaba-SP",
-          "Piracicaba-SP")
+novo <- c("Piracicaba - SP")
 dados[corrigir,4] <- novo
 
 # Verificando se corrigiu
 dados[,4]
 ```
-
 
 > A coluna 9 da tabela se refere à idade dos participantes, imprima na tela (usando print ou cat) a década em que cada um nasceu, como a seguir: "Nasceu na década de 80".
 
@@ -832,7 +908,7 @@ Dica: [Faça um novo vetor com a subtração das idades pelo ano atual e depois 
 Uma possibilidade de resposta:
 
 ```{r}
-decada <- 2020 - dados$idade
+decada <- 2020 - idade_semNA
 
 for(i in 1:length(decada)){
   if(decada[i] < 1960){
@@ -850,7 +926,6 @@ for(i in 1:length(decada)){
   }
 }
 ```
-
 
 ## While
 
@@ -939,11 +1014,12 @@ var2 <- c("ESS", "URO", "GRA")
 w <- 1
 for(i in var1){
   for(j in var2){
-    cat("No bloco",w,"será aplicado o",i,"na planta",j, "\n")
+    nome_arquivo <- paste0(i,"_planta_",j,".txt")
+    arquivo <- data.frame("bloco" = "fake_data", "tratamento" ="fake_data")
+    write.table(arquivo, file = nome_arquivo)
     w <- w + 1
   }
 }
-
 
 ```
 
@@ -955,7 +1031,7 @@ Fizemos um vídeo com mais detalhes sobre loops no R, aumentem nossa quantidade 
 
 * Cuidado ao rodar o mesmo comando mais de uma vez, algumas variáveis podem não ser mais como eram antes. Para que o comando funcione da mesma forma é necessário que os objetos de entrada estejam da forma como você espera.
 * Lembrem-se que `=` é para definir objetos e `==` é o sinal de igualdade. 
-* Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros contínua.
+* Nas estruturas condicionais e de repetição, lembrem-se que é necessário manter a sintaxe esperada: If(){} e for(i in 1:10){}. No *for*, podemos trocar a letra que será o índice, mas é sempre necessário fornecer uma sequência de inteiros ou caracteres.
 * Usar identação ajuda a visualizar o começo e fim de cada estrutura de código e facilita o abrir e fechar de chaves. Identação são aqueles espaços que usamos antes da linha, como:
 
 ```{r}
@@ -978,7 +1054,8 @@ Normalmente é uma boa prática criar um bloco de código se vai realizar aquela
 
 A função também é considerada um objeto no R, portanto você a atribui à uma variável. Procure nomear a função com um nome curto e intuitivo em relação à tarefa que ela executa. Nem sempre é uma tarefa fácil.
 
-(https://www.reddit.com/r/ProgrammerHumor/comments/5z6n8p/every_time/)
+<img src="meme.png" alt="[referência](https://www.reddit.com/r/ProgrammerHumor/comments/5z6n8p/every_time/)" width="300" height="400">
+
 
 Para criar uma função obedeça a seguinte estrutura:
 
@@ -1466,7 +1543,7 @@ Os gráficos podem ser salvos de várias formas diferentes, vamos olhar algumas 
 
 Usando a função `ggsave()`, conseguimos salvar imagens em formatos como: "pdf", "png", "jpeg", "tiff", "bmp", "eps", "ps", "tex", "svg".
 
-```{r}
+```{r, eval=FALSE}
 # Para salvar gráficos usando comandos, usamos a função ggsave()
 ggplot(dados) +
   geom_boxplot(aes(x = escolaridade, y = conhecimentoR)) +
@@ -1764,7 +1841,6 @@ file.show("SORTEIO.txt")
 write.csv(rcbd,"SORTEIO.csv",row.names=F)
 ```
 
-
 ## PCA - Análise de componentes principais
 
 O PCA é uma análise exploratória muito frequente quando utilizada por usuários que possuem muitos dados. Nela, torna-se possível visualizar dados que deveriam ter diversas dimensões em apenas duas componentes mais informativas. Para isto, usamos a função `autoplot()`.
@@ -1789,7 +1865,7 @@ Agora que você fez um plot de PCA, você pode perceber que ele é apenas uma va
 
 ## Pratique gerando relatórios no RStudio
  
-Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
+ Utilize o R no seu dia-a-dia para ir praticando a linguagem. Além das recomendações contidas na [primeira apresentação](), recomendamos também dar uma olhada em como gerar documentos em pdf e html usando a Markdown. Utilizamos essa metodologia para gerar este tutorial e outras apresentações do curso. Pode ser muito prático no dia-a-dia!
  
 Para utilizar, será necessário a instalação de outros pacotes. Um deles é o próprio `rmarkdown`:
 
@@ -1815,7 +1891,7 @@ output: html_document
 
 Este é o mais simples possível, você pode otimizá-lo de diversas maneiras. Saiba mais [aqui](https://rmarkdown.rstudio.com/html_document_format.html).
 
-O template inicial também traz alguns exemplos de sintaxe do markdown. Observe que utilizando `#` para títulos de sessões, `##` para um nível inferior (subtitulos) e assim por diante. Palavras em negrito são escritas em meio a dois `*` e existem diversas outras especificações para essa sintaxe. Veja mais sobre ela [aqui](https://www.markdownguide.org/basic-syntax).
+O template inicial também traz alguns exemplos de sintaxe do markdown. Observe que utilizando `#` para títulos de sessões, `##` para um nível inferior (subtitulos) e assim por diante. Palavras em negrito são escritas em meia a dois `*` e existem diversas outras especificações para essa sintaxe. Veja mais sobre ela [aqui](https://www.markdownguide.org/basic-syntax).
 
 Para compilar o código, basta clicar em `Knit`. Ele irá pedir para que o arquivo .Rmd seja salvo com algum nome em algum lugar.
 
@@ -1848,9 +1924,9 @@ fiz um [link](https://GENt-esalq.github.io/)!
 
 ```
 
+
 Saiba mais no tutorial sobre isso no R-bloggers, que acreditamos ser um bom começo! Acesse [aqui](https://www.r-bloggers.com/how-to-create-reports-with-r-markdown-in-rstudio/).
 
----
 
 ## Família de funções `apply`
 
@@ -1945,7 +2021,7 @@ Observe que nas funções `apply` podemos trocar as funções prontas do *r base
 
 Não vamos entrar em detalhe sobre os códigos que usamos aqui porque ele faz uso do `tidyverse`, um pacote que permite manipular os dados com muita flexibilidade, mas ele iria requerer outro curso focado apenas nele! Esta é uma aplicação para mostrar que conseguimos fazer quase tudo com R e ggplot em mãos. O mais difícil é saber manipular os dados...
 
-```{r, echo=F}
+```{r}
 library(tidyverse)
 
 # Coletando os dados da base por estado
@@ -1979,6 +2055,6 @@ Caso tenha sugestões para aprimoramento desse material, enviar e-mail para `gen
 
 Acesse também outros materiais em português produzidos por Cristiane Taniguti, Fernando Correr e Rodrigo Amadeu [aqui](http://cristianetaniguti.github.io/Workshop_genetica_esalq/).
 
-Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Cristiane Taniguti, Vitor Hugo de Mello Pessoa e Ana Letycia Basso Garcia ministraram o Treinamento. Também contamos com os monitores: Getúlio Caixeta, Rafael Yassue, Wellingson, Vitória, Guilherme Hokasa, Fernando Correr, Humberto, Igor Araújo, Jenifer Camila Godoy.
+Este material foi produzido por alunos do programa de pós-graduação em Genética e Melhoramento de Plantas. Cristiane Taniguti, Victor Hugo de Mello Pessoa e Ana Letycia Basso Garcia ministraram o Treinamento. Também contamos com os monitores: Getúlio Caixeta, Rafael Yassue, Wellingson, Vitória, Guilherme Hokasa, Fernando Correr, Humberto, Igor Araújo, Jenifer Camila Godoy.
 
 Também recomendamos materiais em inglês [aqui](https://GENt-esalq.github.io/cursoR/english_tutorials.html).
