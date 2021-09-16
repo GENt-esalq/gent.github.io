@@ -25,6 +25,9 @@ description: "<p style = 'text-align: justify;'> Com o apoio do Departamento de 
 
 <a href='treinamentos/oficina_comun.html'><font size='5'><u>Curso: Oficina: Como você comunica a sua ciência </u></font></a> 
 <p style = 'text-align: justify;' ><font size='3'> Realizado no dia 15 de abril de 2021 </font> </p>
+
+<a href='treinamentos/curso-ilustracao-cientifica.html'><font size='5'><u>Curso Rápido de Ilustração Científica </u></font></a> 
+<p style = 'text-align: justify;' ><font size='3'> Realizado no dia 02 de setembro de 2021 </font> </p>
 "
 
 
